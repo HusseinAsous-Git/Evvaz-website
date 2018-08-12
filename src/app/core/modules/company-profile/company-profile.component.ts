@@ -12,51 +12,47 @@ import { ProfileService } from '../../services/profile/profile.service';
 })
 export class CompanyProfileComponent implements OnInit {
   id
-  companyInfo
+  companyInfo:Object;
   categoryDesc
   followersCount
-  offers
+  offersList
 
   constructor(private route: ActivatedRoute, private profileService : ProfileService,
-    private getCompaniesService: GetCompaniesService, private sanitizer: DomSanitizer) {
+    private Company: GetCompaniesService, private sanitizer: DomSanitizer) {
     this.route.params.subscribe(params => {
       this.id = params['id'];
     });
   }
 
   ngOnInit() {
-    this.getCompaniesService.getCompany(this.id).subscribe(
-      (res: { model: CompaniesInfo[] }) => {
-        this.companyInfo = res.model[0];
-        
-        this.profileService.getCategory(this.companyInfo.company_category_id).subscribe(
-          (res: { category_name: any }) => {
-            this.categoryDesc = res.category_name;
-          },
-          (error) => {
-            console.log('errors ', error)
-          }
-        );
+    this.Company.getCompany(this.id).subscribe(
+      (Company) => {
+        this.companyInfo =Company;  
+        console.log(this.companyInfo);     
       },
       (error) => {
         console.log('errors ', error)
       }
     );
 
-    this.profileService.getFollowers(this.id).subscribe(
-      (res: { model: any[] }) => {
-        // console.log("followers" + res.model[0].length)
-        this.followersCount = res.model.length;
-      },
-      (error) => {
-        console.log('errors ', error)
-      }
-    );
+    // this.profileService.getFollowers(this.id).subscribe(
+    //   (res: { model: any[] }) => {
+    //     console.log("followers" + res.model[0].length)
+    //     this.followersCount = res.model.length;
+    //   },
+    //   (error) => {
+    //     console.log('errors ', error)
+    //   }
+    // );
   
     this.profileService.getOffers(this.id).subscribe(
-      (res: { list: any[] }) => {
-        console.log("offers" + res.list.length);
-        this.offers = res.list;
+      // (res: { list: any[] }) => {
+      //   console.log("offers" + res.list.length);
+      //   this.offers = res.list;
+      // },
+      (offers) => {
+        this.offersList =offers['list'];  
+        console.log(this.offersList);     
       },
       (error) => {
         console.log('errors ', error)

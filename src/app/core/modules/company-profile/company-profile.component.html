@@ -33,22 +33,22 @@
   </div>
 </header>
 
-<section class="intro" style="background-image:url(assets/img/index/footer.png)">
+<section class="intro" [ngStyle]="{ 'background-image': 'url(data:image/png;base64,' + companyInfo.company_cover_image + ')'}">
   <div class="overlay">
     <div class="container">
       <div class="row">
         <div class="col-md-12 col-12 ">
           <div class="flexf clearfix">
             <div class="Fssimg">
-              <img src="../../../../assets/img/company/panda.png">
-              <!-- [src]="sanitize(companyInfo.company_logo_image)" -->
+              <img [src]="sanitize(companyInfo.company_logo_image)">
+              
             </div>
             <h3 class="font-weight-bold">
-              <!-- {{companyInfo.company_name}} --> Panda
+              {{companyInfo.company_name}} 
             </h3>
             <span class="panda">
               <h5>
-                @pandabooks
+                {{companyInfo.company_website_url}} 
               </h5>
             </span>
             <div class="map">
@@ -73,10 +73,10 @@
               <tr>
                 <td></td>
                 <td align="center">
-                  <!-- {{offers.length}} -->100
+                  55
                 </td>
                 <td align="center">
-                  <!-- {{followersCount}} -->2000
+                  10
                 </td>
               </tr>
             </table>
@@ -91,14 +91,14 @@
 <section class="news">
   <div class="container">
     <div class="row">
-      <div class="col-lg-4 col-md-6 col-sm-6 col-8 d-flex align-items-stretch">
-          <!-- *ngFor="let offer of offers" -->
+      <div class="col-lg-4 col-md-6 col-sm-6 col-8 d-flex align-items-stretch" *ngFor="let offer of offersList">
+          <!--  -->
         <div class="card" style="background-image:url(assets/img/index/01.png)">
           <div class="overlay">
             <div class="date-container d-inline-flex">
               <div class="img d-inline-flex flex-column">
-                <img src="../../../../assets/img/company/panda.png">
-                <!-- [src]="sanitize(companyInfo.company_logo_image)" -->
+                <img [ngStyle]="{ 'background-image': 'url(data:image/png;base64,' + offer.image_one + ')'}">
+                <!-- -->
               </div>
               <table class="pandatable">
                 <tr>

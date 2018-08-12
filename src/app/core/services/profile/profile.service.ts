@@ -8,12 +8,12 @@ export class ProfileService {
 
   constructor(private http: HttpClient, private authService: AuthService) { }
 
-  getFollowers(id) {
-    return this.http.get(environment.apiPath + 'follow/get/following/' + id);
-  }
+  // getFollowers(id) {
+  //   return this.http.get(environment.apiPath + 'follow/get/following/' + id);
+  // }
 
   getOffers(id) {
-    return this.http.get(environment.apiPath + 'companyOffer/get/company/' + id);
+    return this.http.get(environment.apiPath + '/company/offer/'+id+'/company');
   }
 
   getCategory(id) {

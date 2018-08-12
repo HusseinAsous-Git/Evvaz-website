@@ -16,7 +16,7 @@
 /* font-family: 'Oswald', sans-serif; */
 body {
 	overflow-x: hidden;
-	font-family: 'Comfortaa', cursive;
+	font-family: 'Oswald', sans-serif;
 	
 } 
 a:hover {
@@ -87,7 +87,7 @@ body.rtl header .nav-link i {
 }
 
 .intro h3 {
-	font-family: 'Century-Gothic';
+	font-family: 'Oswald', sans-serif;
 	font-size: 40px;
 	margin-bottom: 30px;
 	margin-top: 170px;
@@ -106,6 +106,8 @@ body.rtl header .nav-link i {
 }
 .intro button i{
 	margin-right: 10px;
+	
+	color: whitesmoke;
 }
 
 body.rtl .intro button i{
@@ -168,7 +170,7 @@ body.rtl .intro button i{
 /* ......  */
 body {
 	overflow-x: hidden;
-	font-family: 'Comfortaa', cursive;
+	font-family:  Arial, Helvetica, sans-serif;
 	
 } 
 a:hover {
@@ -232,7 +234,7 @@ footer {
 footer h2 {
 	font-size: 37px;
 	margin-bottom: 13px;
-	font-family: 'Century-Gothic';
+	font-family:  Arial, Helvetica, sans-serif;
 }
 
 footer p {
@@ -242,13 +244,15 @@ footer p {
 
 footer .card {
 	margin-bottom: 50px;
-	background-color: #1d1d23;
+	background-color: transparent;
 	border: 1px solid #2b2a30;
-  border-radius: 5px;
+	border-radius: 5px;
+	padding: 0;
+	
 }
 
 footer .card-body {
-	padding: 31px 18px;
+	padding: 16px 10px 12px 10px;
 }
 
 footer .card i {
@@ -263,6 +267,8 @@ body.rtl footer .card i {
 
 footer .card input {
 	background-color: transparent;
+	margin-top:2%;
+
 }
 
 footer .card input:focus {
@@ -276,13 +282,16 @@ footer .card input:focus {
 footer .card button {
 	background-color: #fff;
 	color: #0fc35b;
-	font-size: 17px;
-	font-family: 'Open Sans', sans-serif;
+	font-size: 16px;
+	margin-top:2%;
+	height: 30px;
+	line-height: 15px;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 footer .card input::placeholder {
 	color: #fff;
-	font-family: 'Open Sans', sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 footer .social-icons i{
@@ -296,6 +305,10 @@ footer a {
 footer a:hover {
 	color: white;
 	text-decoration: none;
+}
+
+footer .custom-email-width{
+	width: 130%;
 }
 
 @media (max-width: 767px) {
@@ -601,4 +614,12 @@ label {
 
 .alert{
   display:none;
+}
+
+.nav-link:hover{
+		text-decoration: underline;
+		color:#04a2b3;
+}
+.nav-link:last-child:hover{
+		text-decoration: none;
 }
