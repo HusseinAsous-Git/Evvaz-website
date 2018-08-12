@@ -1,0 +1,100 @@
+<div class="formd">
+  <div class="body-form">
+    <div class="formheader">
+      <div class="image">
+        <img src="assets/img/index/logo.png">
+      </div>
+      <div class="close" routerLink="">
+        <span>close
+          <i class="fa fa-close"></i>
+        </span>
+      </div>
+    </div>
+    <div class="form">
+      <h2>login</h2>
+      <form>
+          <label>Email:</label>
+          <input 
+              name="user_email" 
+              type="email" 
+              class="form-control" 
+              placeholder="example@gmail.com" 
+              [(ngModel)]="user.user_email">
+          <br>
+          <label>Password</label>
+          <input 
+              name="user_password" 
+              type="password" 
+              class="form-control" 
+              [(ngModel)]="user.user_password">
+          <br>
+          <select class="form-control" name="login_role" [(ngModel)]="user.login_role">
+            <option value="school">school</option>
+            <option value="company">company</option>
+            <option value="admin">admin</option>
+          </select>
+          <br>  
+          <label class="radioc d-flex justify-content-between">
+            <div>
+              Remember Me
+              <input type="checkbox" name="radio">
+              <span class="checkmark"></span>
+            </div>
+            <a class="link">
+              Forget my password?
+            </a>
+          </label>
+          <br>
+          <input type="submit" (click)="DoLogin()" class="btn btn-success form-control" value="Login">
+      </form>
+    </div>
+  </div>
+</div>
+<footer style="background-image:url(assets/img/index/footer.png)">
+  <div class="row align-items-center d-flex h-100 w-100 mx-0">
+    <div class="container text-center px-0">
+      <div class="footer-content col-md-7 col-12">
+        <h2>Subscribe to the mailing list</h2>
+        <p>Receive news and offers from us.</p>
+        <div class="card d-inline-block w-100">
+          <div class="card-body d-flex justify-content-between">
+            <div class="d-inline-block my-auto">
+              <i class="fa fa-envelope"></i>
+              <div class="form-group d-inline-block">
+                <input type="email" class="form-control border-0 p-0" placeholder="Enter Your Email">
+              </div>
+            </div>
+            <button class="btn">Send</button>
+          </div>
+        </div>
+        <ul class="list-inline w-100 d-flex justify-content-between">
+          <li class="list-inline-item">
+            <a href="">Efaz Blog</a>
+          </li>
+          <li class="list-inline-item">
+            <a href="">Privacy Policy</a>
+          </li>
+          <li class="list-inline-item">
+            <a href="">Terms & Conditions</a>
+          </li>
+        </ul>
+        <ul class="list-inline w-100 d-flex justify-content-between">
+          <li class="list-inline-item">
+            <a href="">© EFAZ 2018-2017</a>
+          </li>
+          <li class="list-inline-item social-icons">
+            <a href="">
+              <i class="fa fa-facebook-f"></i>
+            </a>
+            <a href="">
+              <i class="fa fa-twitter"></i>
+            </a>
+            <a href="">
+              <i class="fa fa-instagram"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,89 @@
+<app-home-header></app-home-header>
+
+<section class="intro clearfix " style="background-image:url(assets/img/index/footer.png)">
+  <div class="overlay">
+      
+    <div class="container">
+      <div class="row">
+
+        <div class="col col-12">
+            <!-- <div class="col-md- ">
+              
+                 
+            </div> -->
+                   
+            <div routerLink="/home-page" class="go-back">
+                <i class="fa fa-chevron-left"></i>
+                <span>Back</span>
+              </div>
+                    
+               
+                <h3 class=" offers" >Offers Platform</h3>
+                <p class="description  ">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.
+                </p>
+                
+              
+                
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</section>
+<section class="internal-page">
+  <div class="container">
+    <div class="row">
+      <h2 class="col-12">
+        <span>Effaz</span> companies</h2>
+
+      <div class="col-lg-3 col-md-6 col-12" *ngFor="let company of companiesInfo">
+        <div class="item item-overlay"  
+        [ngStyle]="{ 'background-image': 'url(data:image/png;base64,' + company.company_cover_image + ')'}">
+          <!-- *ngFor="let offer of offers" -->
+
+          <div class="overlay">
+            <div class="container-fluid container-xt clearfix">
+              <div class="company-logo">
+                <img src="data:image/png;base64,{{company.company_logo_image}}" alt="{{company.company_name}}">
+              </div>
+              <div class="follow-button-position">
+                <a href="" class="follow-btn btn">Follow</a>
+              </div>
+            </div>
+            <!--  -->
+            <a  href="/offer-platform/company">
+              <h5 class="heading-overlay">{{company.company_name}}</h5>
+            </a>
+            <!-- {{Offer.company_id}} -->
+            <span class="profile d-block">{{company.company_website_url}}</span>
+            <!-- {{Offer.offer_explaination}} -->
+            <p>helps editors access reliable sources to improve Wikipedia. </p>
+            <hr>
+
+            <div class="values d-flex justify-content-between align-items-center">
+              <div class="">
+                <p>Offers</p>
+                <p>1259</p>
+              </div>
+              <div>
+                <p>Followers</p>
+                <p>12009</p>
+              </div>
+              <div routerLink="/company/{{company.company_id}}" class="go d-flex align-items-center">
+                <span >go</span>
+
+                <i class="fa fa-chevron-right "></i>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

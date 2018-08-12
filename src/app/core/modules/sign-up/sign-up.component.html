@@ -1,0 +1,104 @@
+<div class="formd">
+  <div class="body-form">
+    <div class="formheader">
+      <div class="image">
+        <img src="assets/img/index/logo.png" >
+      </div>
+      <div class="close" routerLink="">
+        <span>close <i class="fa fa-close"></i></span>
+      </div>
+    </div>    
+    <div class="form">
+      <h2>Registration</h2>
+      <form>
+        <label>
+          Choose Account Type:
+        </label>
+        <select class="form-control" name="registration_role" [(ngModel)]="user.registration_role">
+          <option value="school">school</option>
+          <option value="company">company</option>
+        </select>
+        <br>
+        <label>Username:</label>
+        <input name="registeration_username" 
+              [(ngModel)]="user.registeration_username" 
+              type="text" 
+              class="form-control" 
+              placeholder="Username">
+        <br>
+        <label>Organization Name:</label>
+        <input name="registeration_username" 
+              [(ngModel)]="user.registration_organization_name" 
+              type="text" 
+              class="form-control" 
+              placeholder="Organization Name">
+        <br>
+        <label>Address:</label>
+        <input name="registeration_username" 
+              [(ngModel)]="user.registration_address_desc" 
+              type="text" 
+              class="form-control" 
+              placeholder="Address">
+        <br>
+        <label>Email:</label>
+        <input name="registeration_email" 
+              [(ngModel)]="user.registeration_email" 
+              type="email" 
+              class="form-control" 
+              placeholder="example@gmail.com">
+        <br>
+        <label>Phone Number</label>
+        <input name="registeration_phone_number" [(ngModel)]="user.registeration_phone_number" type="text" class="form-control" placeholder="(002)22222222">
+        <br>
+        <label>Website Url:</label>
+        <input name="registeration_email" 
+              [(ngModel)]="user.registration_website_url" 
+              type="url" 
+              class="form-control" 
+              placeholder="url">
+        <br>
+        <label>Password</label>
+        <div class="passflex">
+          <input name="registeration_password" [(ngModel)]="user.registeration_password" placeholder="Password" type="password" id="registeration_password" class="form-control pass pass-box1" >
+          <input name="confirm_password" [(ngModel)]="confirm_password" type="password"  id="confirm_password" placeholder="Confirm Password" class="form-control pass">
+        </div>
+        <br>
+        <input type="submit" (click)="signUp()" class="btn btn-success form-control" value="Register Now!">
+      </form>
+    </div>
+  </div>
+</div>
+<footer style="background-image:url(assets/img/index/footer.png)">
+  <div class="row align-items-center d-flex h-100 w-100 mx-0">
+    <div class="container text-center px-0">
+      <div class="footer-content col-md-7 col-12">
+        <h2>Subscribe to the mailing list</h2>
+        <p>Receive news and offers from us.</p>
+        <div class="card d-inline-block w-100">
+            <div class="card-body d-flex justify-content-between">
+                <div class="d-inline-block my-auto">
+                  <i class="fa fa-envelope"></i>
+                  <div class="form-group d-inline-block">
+                    <input type="email" class="form-control border-0 p-0"  placeholder="Enter Your Email">
+                  </div>
+                </div>
+                <button class="btn">Send</button>
+            </div>
+        </div>
+        <ul class="list-inline w-100 d-flex justify-content-between">
+          <li class="list-inline-item"><a href="">Efaz Blog</a></li>
+          <li class="list-inline-item"><a href="">Privacy Policy</a></li>
+          <li class="list-inline-item"><a href="">Terms & Conditions</a></li>
+        </ul>
+        <ul class="list-inline w-100 d-flex justify-content-between">
+          <li class="list-inline-item"><a href="">© EFAZ 2018-2017</a></li>
+          <li class="list-inline-item social-icons">
+            <a href=""><i class="fa fa-facebook-f"></i></a>
+            <a href=""><i class="fa fa-twitter"></i></a>
+            <a href=""><i class="fa fa-instagram"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>

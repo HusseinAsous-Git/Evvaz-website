@@ -1,0 +1,47 @@
+
+<nav class="">
+    <ul class="breadcrumb ">
+        <li class="breadcrumb-item">
+            <a [routerLink]="['/']">Dashboard</a>
+        </li>
+       
+        <li class="breadcrumb-item active">
+            My Orders
+        </li>
+    </ul>
+  </nav>
+  
+  <div class="pull-right">
+      <p style="color:blue ">({{count}}) Orders</p>
+  </div>
+  <br><br>
+  <div class="row mx-auto">
+    <div class="col-xs-6 mr-2 ml-2 mt-2 mb-2" *ngFor="let order of schoolOrders">
+      <a >
+      <div class="card ">
+          <div class="card-body">
+        <div class="row">
+          <div class="col-sm-4">
+           <span class="card-h"> Name</span> <br>  <i class="fa fa-archive mr-1"></i> <span class="card-content text-center">{{ order.offer_title }}</span>  
+          </div>
+          <div class="col-sm-4">
+              <span class="card-h"> Amount</span> <br> <i class="fa fa-shopping-cart mr-1"></i> <span class="card-content text-center">{{ order.request_offer_count }}</span>  
+          </div>
+          <div class="col-sm-4">
+              <span class="card-h">Price </span> <br> <i class="fa fa-calendar mr-1"></i> <span class="card-content text-center">{{ order.offer_cost }}</span>   
+          </div>
+        </div>
+      </div>
+      </div>
+    </a>
+    </div>
+    
+      
+       
+         
+           
+            
+               
+                 
+                   
+  </div>

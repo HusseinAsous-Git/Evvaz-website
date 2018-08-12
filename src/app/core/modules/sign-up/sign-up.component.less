@@ -1,0 +1,130 @@
+.formd{
+                    
+    background-image: url('assets/img/index/footer.png');
+    height: 100%;
+    background-size: cover;
+}
+.body-form{
+    background: linear-gradient(90deg, rgba(32, 54, 118, 0.19) 0%, rgba(3, 155, 225, 0.59) 63%);
+height: 100%;
+}
+.formheader{
+    height: 70px;
+    border-bottom: 1px solid rgb(127, 150, 255);
+}
+.image{
+    float: left;
+    margin-left: 10%;
+    
+}
+.close{
+    color: white;
+    margin: 1.5%;
+    margin-right: 10%;
+    float: right;
+}
+.form{
+    margin: auto;
+    
+    color: white;
+    width: 50%;
+}
+.form h2{
+    text-align: center;
+    margin: auto;
+    margin-top: 5%;
+    color: white;
+}
+.form form{
+      margin: 5%;
+}
+
+.passflex{
+    display: flex;
+    
+}
+.pass{
+    width: 50%;
+}
+
+.pass-box1 {
+    margin-right: 50px ;
+}
+
+.radioc {
+display: block;
+position: relative;
+padding-left: 35px;
+margin-bottom: 12px;
+cursor: pointer;
+font-size: 18px;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
+body.rtl .radioc {
+    padding-left: 0;
+    padding-right: 35px;
+}
+
+/* Hide the browser's default radio button */
+.radioc input {
+position: absolute;
+opacity: 0;
+cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+position: absolute;
+top: 0;
+left: 0;
+height: 25px;
+width: 25px;
+background-color:transparent;
+border: 1px solid snow;
+border-radius: 50%;
+}
+
+body.rtl .checkmark{
+    left: auto;
+    right: 0;
+}
+/* On mouse-over, add a grey background color */
+.radioc:hover input ~ .checkmark {
+background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.radioc input:checked ~ .checkmark {
+background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+content: "";
+position: absolute;
+display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radioc input:checked ~ .checkmark:after {
+display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.radioc .checkmark:after {
+top: 7px;
+left: 8px;
+width: 8px;
+height: 8px;
+border-radius: 50%;
+background: white;
+}
+.link{
+font-size: 12px;
+color: royalblue;
+text-decoration: underline;
+}

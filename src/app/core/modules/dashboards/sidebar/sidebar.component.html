@@ -1,0 +1,69 @@
+<section  class="col-sm-5"  id="side-bar">
+  <div class="row">
+      <div class="col px-0">
+
+          <h1 class="text-light mt-2 pr-5 text-center">
+            <a  id="in" class="py-2 mb-2 mr-4 btn btn-green">
+                <i class="fa fa-bars"></i>
+            </a>
+           <span style="color : #00b7cb">Efaz</span>
+
+
+          </h1>
+          <p class="text-muted pl-4 py-1">Menu</p>
+
+          <div class="list-group ">
+              <a  class=" pl-4 list-group-item list-group-item-action" 
+                  [routerLink]="['/']"
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]="{exact: true}">
+                  <i class="fa fa-fort-awesome pr-3"></i> Dashboard
+              </a>
+             
+              <!-- <a href="#" class=" pl-4 list-group-item  list-group-item-action">
+                  <i class="fa fa-group pr-3"></i> Memebers
+              </a> -->
+              <a  href="#offers"  data-toggle ="collapse" class=" pl-4 list-group-item list-group-item-action" routerLinkActive="active">
+                <i class="fa fa-calendar pr-3"></i> Offers
+                <span class="d-inline-block mt-1 float-right ">
+                    <i class="fa fa-caret-down"></i>
+                </span>
+            </a>
+            <div class="collapse" id="offers">
+               <div class="list-group">
+                <a  class="list-group-item list-group-item-action"
+                [routerLink]="['/offers/new']"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact: true}">
+                        Add new offer <i class="fa fa-plus pull-right"></i>
+                </a>
+                <a  class="list-group-item list-group-item-action"
+                [routerLink]="['/offers/see']"
+                routerLinkActive="active">
+                    See all offers <i class="fa fa-eye pull-right"></i>
+                </a>
+              
+              
+               </div>
+            </div>
+            <a  class=" pl-4 list-group-item list-group-item-action"
+            [routerLink]="['/profile']" routerLinkActive="active">
+                <i class="fa fa-user pr-3"></i> My Profile
+            </a>
+            <a  class=" pl-4 list-group-item list-group-item-action"
+            [routerLink]="['/followers']" routerLinkActive="active">
+                <i class="fa fa-user pr-3"></i> Followers <span class="badge badge-primary badge-pill pull-right">{{countFollowers}}</span>
+            </a>
+            <a  class=" pl-4 list-group-item list-group-item-action"
+            [routerLink]="['/my-orders']" routerLinkActive="active">
+                <i class="fa fa-shopping-basket pr-3"></i> Orders  <span class="badge badge-primary badge-pill pull-right">{{count}}</span>
+            </a>
+                
+
+                
+                  
+          </div>
+
+      </div>
+  </div>
+</section>
