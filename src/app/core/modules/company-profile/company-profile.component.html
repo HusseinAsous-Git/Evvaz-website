@@ -37,33 +37,32 @@
   <div class="overlay">
     <div class="container">
       <div class="row">
-        <div class="col-md-10 col-12 m-auto">
-          <div class="flexf">
+        <div class="col-md-12 col-12 ">
+          <div class="flexf clearfix">
             <div class="Fssimg">
-              <img [src]="sanitize(companyInfo.company_logo_image)">
+              <img src="../../../../assets/img/company/panda.png">
+              <!-- [src]="sanitize(companyInfo.company_logo_image)" -->
             </div>
             <h3 class="font-weight-bold">
-              {{companyInfo.company_name}}
+              <!-- {{companyInfo.company_name}} --> Panda
             </h3>
             <span class="panda">
-              <!-- <small>
+              <h5>
                 @pandabooks
-              </small> -->
+              </h5>
             </span>
-            <!-- <div class="map">
+            <div class="map">
               <button class="btn btn-outline-info">Follow</button>
-            </div> -->
+            </div>
           </div>
-          <div class="back">
-            <i class="fa fa-chevron-left"></i>
-            <a href="index.html"> back</a>
-          </div>
+          
           <div class="fssdesc">
-            <p>
-              {{categoryDesc}}
-            </p>
+            <p class="spacer"></p>
             <table>
               <tr>
+                <td>
+                    ملحقات
+                </td>
                 <td>
                   Offers
                 </td>
@@ -72,11 +71,12 @@
                 </td>
               </tr>
               <tr>
+                <td></td>
                 <td align="center">
-                  {{offers.length}}
+                  <!-- {{offers.length}} -->100
                 </td>
                 <td align="center">
-                  {{followersCount}}
+                  <!-- {{followersCount}} -->2000
                 </td>
               </tr>
             </table>
@@ -91,12 +91,14 @@
 <section class="news">
   <div class="container">
     <div class="row">
-      <div class="col-lg-4 col-md-6 col-12 d-flex align-items-stretch" *ngFor="let offer of offers">
+      <div class="col-lg-4 col-md-6 col-sm-6 col-8 d-flex align-items-stretch">
+          <!-- *ngFor="let offer of offers" -->
         <div class="card" style="background-image:url(assets/img/index/01.png)">
           <div class="overlay">
             <div class="date-container d-inline-flex">
               <div class="img d-inline-flex flex-column">
-                <img [src]="sanitize(companyInfo.company_logo_image)">
+                <img src="../../../../assets/img/company/panda.png">
+                <!-- [src]="sanitize(companyInfo.company_logo_image)" -->
               </div>
               <table class="pandatable">
                 <tr>
@@ -108,7 +110,8 @@
               </table>
             </div>
             <div class="pandadesc">
-              <p>{{offer.offer_explaination}}</p>
+                <!-- {{offer.offer_explaination}} -->
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet accusantium soluta, ipsa doloribus atque, quaerat omnis repellendus inventore suscipit quod ea iusto itaque officia architecto eligendi dignissimos a et praesentium!</p>
             </div>
             <div class="pandaimg">
               <img src="assets/img/panda1.png">
@@ -151,13 +154,13 @@
               <table class="table">
                 <tr>
                   <th>
-                    <i class="far fa-edit"></i>
+                    <i class="fa fa-edit"></i>
                   </th>
                   <th>
                     <i class="fa fa-map-marker"></i>
                   </th>
                   <th>
-                    <i class="far fa-star"></i>
+                    <i class="fa fa-star"></i>
                   </th>
                 </tr>
                 <tr>
