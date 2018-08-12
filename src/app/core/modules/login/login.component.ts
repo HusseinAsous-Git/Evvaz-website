@@ -22,10 +22,14 @@ export class LoginComponent implements OnInit {
       data => {
 
         if(data['state'] === 201 ){
-
+            
         this.authService.setUser(data);
         console.log(data);
+        if(this.user.login_role ==="company"){
         this.router.navigate(['home']);
+        }else if (this.user.login_role === "school"){
+          this.router.navigate(['/school'])
+        }
         }
         else {
           console.log("Error");

@@ -108,10 +108,11 @@ hash = [];
 
     this.companyService.addOffer(offer).subscribe(
       (response) => {
+        console.log("Response: " + response);
         console.log("size is: " + this.size + "is of type"+ typeof(this.size))
-        console.log(response);
+        
         console.log(this.newOffer)
-        this.router.navigate(['/offers/see']);
+        this.router.navigate(['/home/offers/see']);
       }
       ,(err) => console.log(err)
     );

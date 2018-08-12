@@ -82,7 +82,7 @@ console.log("Incoming offer is: " + this.offer);
       response => {
          console.log("Successful edit");
          console.log(response);
-         this.router.navigate(['/offers','see'])
+         this.router.navigate(['/home','offers','see'])
         },
         err => console.log("Error: " + err)
     )
