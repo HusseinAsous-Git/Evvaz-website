@@ -40,7 +40,7 @@
         <div class="col-md-12 col-12 ">
           <div class="flexf clearfix">
             <div class="Fssimg">
-              <img [src]="sanitize(companyInfo.company_logo_image)">
+              <img  src="data:image/png;base64,{{companyInfo.company_logo_image}}">
               
             </div>
             <h3 class="font-weight-bold">
@@ -91,14 +91,15 @@
 <section class="news">
   <div class="container">
     <div class="row">
-      <div class="col-lg-4 col-md-6 col-sm-6 col-8 d-flex align-items-stretch" *ngFor="let offer of offersList">
+      <div class="col-lg-4 col-md-6 col-sm-6 col-8 d-flex align-items-stretch" >
+        
           <!--  -->
         <div class="card" style="background-image:url(assets/img/index/01.png)">
           <div class="overlay">
             <div class="date-container d-inline-flex">
               <div class="img d-inline-flex flex-column">
-                <img [ngStyle]="{ 'background-image': 'url(data:image/png;base64,' + offer.image_one + ')'}">
-                <!-- -->
+                <img >
+                <!-- [ngStyle]="{ 'background-image': 'url(data:image/png;base64,' + offer.image_one + ')'}" -->
               </div>
               <table class="pandatable">
                 <tr>

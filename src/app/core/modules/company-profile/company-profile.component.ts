@@ -15,7 +15,7 @@ export class CompanyProfileComponent implements OnInit {
   companyInfo:Object;
   categoryDesc
   followersCount
-  offersList
+  offersList: Object;
 
   constructor(private route: ActivatedRoute, private profileService : ProfileService,
     private Company: GetCompaniesService, private sanitizer: DomSanitizer) {
@@ -51,8 +51,8 @@ export class CompanyProfileComponent implements OnInit {
       //   this.offers = res.list;
       // },
       (offers) => {
-        this.offersList =offers['list'];  
-        console.log(this.offersList);     
+        this.offersList =offers;  
+        console.log("ddddddddddddddddddddddddddddddddddddddddd"+this.offersList);     
       },
       (error) => {
         console.log('errors ', error)
