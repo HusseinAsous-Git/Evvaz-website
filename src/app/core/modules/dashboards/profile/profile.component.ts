@@ -1,3 +1,4 @@
+import { AuthService } from './../../../services/auth.service';
 import { ProfileServiceDashboard } from './../../../services/profile.service.dashboard';
 import { Component, OnInit } from '../../../../../../node_modules/@angular/core';
 import { FormGroup, FormControl, Validators } from '../../../../../../node_modules/@angular/forms';
@@ -25,11 +26,14 @@ coverSize;
   enableMessage = false;
   logoSizeIsValid : boolean = true;
   coverSizeIsValid: boolean = true;
-
-  constructor(private profileService: ProfileServiceDashboard, private activatedRoute: ActivatedRoute, private router: Router) { }
+  currentUser ;
+  constructor(private profileService: ProfileServiceDashboard,
+     private activatedRoute: ActivatedRoute,
+      private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
-    
+      this.currentUser = localStorage.getItem("@MYUSER");
+      console.log("Current user: " + this.currentUser)
 
     this.profileForm = new FormGroup({
       'companyName': new FormControl(null, Validators.required),
