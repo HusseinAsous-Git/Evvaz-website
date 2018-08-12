@@ -29,7 +29,8 @@ import { SchoolProfileComponent } from './core/modules/dashboards/school-profile
 /*Our Services*/
 
 const routes: Routes = [
-    {path:'', component: HomeComponent, children: [
+    {path:'', component:IndexComponent},
+    {path:'home', component: HomeComponent, children: [
         {path:'offers/new', component:NewOfferComponent},
         {path:'offers/see', component:OffersComponent},
         {path:'profile', component:ProfileComponent , resolve: {profile: ProfileResolver}},

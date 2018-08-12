@@ -17,7 +17,7 @@
 body {
 	overflow-x: hidden;
 	font-family: 'Comfortaa', cursive;
-	color: #fff !important;
+	
 } 
 a:hover {
 	text-decoration: none;
@@ -169,7 +169,7 @@ body.rtl .intro button i{
 body {
 	overflow-x: hidden;
 	font-family: 'Comfortaa', cursive;
-	color: #fff !important;
+	
 } 
 a:hover {
 	text-decoration: none;
@@ -355,7 +355,7 @@ footer a:hover {
     font-size: 20px;
   }
   .fa{
-    color: #00b7cb;
+    color: #00b7cb ;
   }
  
   h3 {
