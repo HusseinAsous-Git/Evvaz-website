@@ -13,10 +13,10 @@ export class ProfileService {
   // }
 
   getOffers(id) {
-    return this.http.get(environment.apiPath + '/company/offer/'+id+'/company');
+    return this.http.get(environment.apiPath + 'company/offer/'+id+'/company');
   }
 
-  getCategory(id) {
-    return this.http.get(environment.apiPath + 'cat/get/' + id);
-  }
+  // getCategory(id) {
+  //   return this.http.get(environment.apiPath + 'cat/get/' + id);
+  // }
 }

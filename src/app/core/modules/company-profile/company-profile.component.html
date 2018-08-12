@@ -33,22 +33,22 @@
   </div>
 </header>
 
-<section class="intro" [ngStyle]="{ 'background-image': 'url(data:image/png;base64,' + companyInfo.company_cover_image + ')'}">
+<section class="intro" *ngIf="company " [ngStyle]="{ 'background-image': 'url(data:image/png;base64,' + company['company_cover_image'] + ')'}">
   <div class="overlay">
     <div class="container">
       <div class="row">
-        <div class="col-md-12 col-12 ">
+        <div class="col-md-12 col-12">
           <div class="flexf clearfix">
             <div class="Fssimg">
-              <img  src="data:image/png;base64,{{companyInfo.company_logo_image}}">
+              <img  src="data:image/png;base64,{{company['company_logo_image']}}">
               
             </div>
             <h3 class="font-weight-bold">
-              {{companyInfo.company_name}} 
+              {{company['company_name']}} 
             </h3>
             <span class="panda">
               <h5>
-                {{companyInfo.company_website_url}} 
+                {{company['company_website_url']}} 
               </h5>
             </span>
             <div class="map">
@@ -91,31 +91,31 @@
 <section class="news">
   <div class="container">
     <div class="row">
-      <div class="col-lg-4 col-md-6 col-sm-6 col-8 d-flex align-items-stretch" >
+      <div class="col-lg-4 col-md-6 col-sm-6 col-8 d-flex align-items-stretch" *ngFor="let offer of offers['list']">
         
           <!--  -->
         <div class="card" style="background-image:url(assets/img/index/01.png)">
           <div class="overlay">
             <div class="date-container d-inline-flex">
               <div class="img d-inline-flex flex-column">
-                <img >
+                <img src="data:image/png;base64,{{company['company_logo_image']}}">
                 <!-- [ngStyle]="{ 'background-image': 'url(data:image/png;base64,' + offer.image_one + ')'}" -->
               </div>
               <table class="pandatable">
                 <tr>
                   <td>
-                    <h5 class="font-weight-bold">Panda Retail</h5>
-                    <span>@pandabooks</span>
+                    <h5 class="font-weight-bold">{{company['company_name']}}</h5>
+                    <span>{{company['company_website_url']}}</span>
                   </td>
                 </tr>
               </table>
             </div>
             <div class="pandadesc">
                 <!-- {{offer.offer_explaination}} -->
-              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet accusantium soluta, ipsa doloribus atque, quaerat omnis repellendus inventore suscipit quod ea iusto itaque officia architecto eligendi dignissimos a et praesentium!</p>
+              <p>{{offer.offer_explaination}}</p>
             </div>
             <div class="pandaimg">
-              <img src="assets/img/panda1.png">
+              <img src="data:image/png;base64,{{ offer.image_one}}">
             </div>
             <div class="pandareq">
               <table class="table">

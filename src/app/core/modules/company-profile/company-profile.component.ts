@@ -12,10 +12,10 @@ import { ProfileService } from '../../services/profile/profile.service';
 })
 export class CompanyProfileComponent implements OnInit {
   id
-  companyInfo:Object;
+  company:Object;
   categoryDesc
   followersCount
-  offersList: Object;
+  offers: Object;
 
   constructor(private route: ActivatedRoute, private profileService : ProfileService,
     private Company: GetCompaniesService, private sanitizer: DomSanitizer) {
@@ -27,8 +27,8 @@ export class CompanyProfileComponent implements OnInit {
   ngOnInit() {
     this.Company.getCompany(this.id).subscribe(
       (Company) => {
-        this.companyInfo =Company;  
-        console.log(this.companyInfo);     
+        this.company =Company;  
+        console.log(this.company);     
       },
       (error) => {
         console.log('errors ', error)
@@ -51,8 +51,8 @@ export class CompanyProfileComponent implements OnInit {
       //   this.offers = res.list;
       // },
       (offers) => {
-        this.offersList =offers;  
-        console.log("ddddddddddddddddddddddddddddddddddddddddd"+this.offersList);     
+        this.offers =offers;  
+        console.log("ddddddddddddddddddddddddddddddddddddddddd"+this.offers);     
       },
       (error) => {
         console.log('errors ', error)
