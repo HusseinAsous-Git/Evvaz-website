@@ -25,10 +25,11 @@ export class LoginComponent implements OnInit {
 
         this.authService.setUser(data);
         console.log(data);
-        this.router.navigate(['home-page']);
+        this.router.navigate(['home']);
         }
         else {
-          this.router.navigate(['/']);
+          console.log("Error");
+          this.router.navigate(['/login']);
 
         }
        }

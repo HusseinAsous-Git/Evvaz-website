@@ -32,13 +32,13 @@
             <div class="collapse" id="offers">
                <div class="list-group">
                 <a  class="list-group-item list-group-item-action"
-                [routerLink]="['/offers/new']"
+                [routerLink]="['/home/offers/new']"
                 routerLinkActive="active"
                 [routerLinkActiveOptions]="{exact: true}">
                         Add new offer <i class="fa fa-plus pull-right"></i>
                 </a>
                 <a  class="list-group-item list-group-item-action"
-                [routerLink]="['/offers/see']"
+                [routerLink]="['/home/offers/see']"
                 routerLinkActive="active">
                     See all offers <i class="fa fa-eye pull-right"></i>
                 </a>
@@ -47,15 +47,15 @@
                </div>
             </div>
             <a  class=" pl-4 list-group-item list-group-item-action"
-            [routerLink]="['/profile']" routerLinkActive="active">
+            [routerLink]="['/home/profile']" routerLinkActive="active">
                 <i class="fa fa-user pr-3"></i> My Profile
             </a>
             <a  class=" pl-4 list-group-item list-group-item-action"
-            [routerLink]="['/followers']" routerLinkActive="active">
+            [routerLink]="['/home/followers']" routerLinkActive="active">
                 <i class="fa fa-user pr-3"></i> Followers <span class="badge badge-primary badge-pill pull-right">{{countFollowers}}</span>
             </a>
             <a  class=" pl-4 list-group-item list-group-item-action"
-            [routerLink]="['/my-orders']" routerLinkActive="active">
+            [routerLink]="['/home/my-orders']" routerLinkActive="active">
                 <i class="fa fa-shopping-basket pr-3"></i> Orders  <span class="badge badge-primary badge-pill pull-right">{{count}}</span>
             </a>
                 
