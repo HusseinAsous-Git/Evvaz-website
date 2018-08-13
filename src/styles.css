@@ -617,8 +617,8 @@ label {
 }
 
 .nav-link:hover{
-		text-decoration: underline;
-		color:#04a2b3;
+		text-decoration: underline !important;
+		color: snow;
 }
 .nav-link:last-child:hover{
 		text-decoration: none;
