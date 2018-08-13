@@ -16,7 +16,7 @@ export class CompanyProfileComponent implements OnInit {
   followCount
   offersCount
   offers: Object;
-
+  //List: Object;
   constructor(private route: ActivatedRoute, private profileService : ProfileService,
     private Company: GetCompaniesService, private sanitizer: DomSanitizer) {
     this.route.params.subscribe(params => {
@@ -28,7 +28,7 @@ export class CompanyProfileComponent implements OnInit {
     this.Company.getCompany(this.id).subscribe(
       (Company) => {
         this.company =Company;  
-        console.log(this.company);     
+        //console.log(this.company);     
       },
       (error) => {
         console.log('errors ', error)
@@ -55,14 +55,14 @@ export class CompanyProfileComponent implements OnInit {
       }
     );
     this.profileService.getOffers(this.id).subscribe(
-      // (res: { list: any[] }) => {
-      //   console.log("offers" + res.list.length);
-      //   this.offers = res.list;
-      // },
-      (offers) => {
-        this.offers =offers;  
-        //console.log("offers object : "+this.offers);     
+      (res: { list: any[] }) => {
+        //console.log("offers" + res.list.length);
+        this.offers = res.list;
       },
+      // (offers) => {
+      //   this.offers =offers;  
+      //   //console.log("offers object : "+this.offers);     
+      // },
       (error) => {
         console.log('errors ', error)
       }
