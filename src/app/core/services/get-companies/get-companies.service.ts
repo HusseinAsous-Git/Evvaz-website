@@ -14,6 +14,10 @@ import { CompaniesInfo } from './../../models/companies-info';
 @Injectable()
 export class GetCompaniesService {
 
+  folloow_req_body={
+    'organization_id':Number,
+    'follower_id':Number
+  };
   constructor(private http: HttpClient, private authService: AuthService) { }
 
   getAllCompanies() {
@@ -28,5 +32,13 @@ export class GetCompaniesService {
   }
   getCompanyOffersCount(id){
     return this.http.get(environment.apiPath +'company/offer/'+id+'/count');
+  }
+
+  followCompany(org_id,school_id){
+    
+    this.folloow_req_body.organization_id=org_id;
+    this.folloow_req_body.follower_id=school_id;
+
+    return this.http.post(environment.apiPath +'follow/add',this.folloow_req_body);
   }
 }
