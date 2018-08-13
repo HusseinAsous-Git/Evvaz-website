@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
         this.authService.setUser(data);
         console.log(data);
         if(this.user.login_role ==="company"){
-        this.router.navigate(['home']);
+        this.router.navigate(['/home','profile']);
         }else if (this.user.login_role === "school"){
           this.router.navigate(['/school'])
         }

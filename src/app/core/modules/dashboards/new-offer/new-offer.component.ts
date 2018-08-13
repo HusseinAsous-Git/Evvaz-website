@@ -1,3 +1,4 @@
+import { AuthService } from './../../../services/auth.service';
 
 import { Component, OnInit, ViewChild } from '@angular/core';
 
@@ -19,9 +20,18 @@ hash = [];
   sizeArray  =  [];
   size;
   sizeIsValid: boolean  = true;
-   constructor(private companyService: CompanyService, private router: Router ) { }
+  currentUser ;
+  loginId : number;
+   constructor(private companyService: CompanyService, private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
+
+    this.currentUser = localStorage.getItem("@MYUSER");
+    let currentUserData= JSON.parse(this.currentUser);
+    this.loginId = currentUserData['login_id'];
+    console.log("Current UserID: " + currentUserData['login_id'])
+
+
     this.newOffer = new FormGroup({
       'offerName' : new FormControl(null, Validators.required),
       'description' : new FormControl(null, Validators.required),
@@ -91,7 +101,7 @@ hash = [];
       offer_display_date:Date.now(),
       offer_expired_date:Date.now(),
       offer_deliver_date:Date.now(),
-      company_id:6
+      company_id:this.loginId
     }
 
     // console.log("Offer Title: " + this.newOffer.get('offerName').value + " is of type ("+typeof(this.newOffer.get('offerName').value)+ ")");

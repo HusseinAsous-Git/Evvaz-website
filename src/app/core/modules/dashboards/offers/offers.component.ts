@@ -14,8 +14,12 @@ export class OffersComponent implements OnInit {
   constructor(private companyService: CompanyService, private router:Router, private activatedRoute:ActivatedRoute) { }
   isloading: boolean = true;
   public companyOffers : CompanyOfferModel []=[] ;
-
+  loginId : number;
+  currentUser;
   ngOnInit() {
+    this.currentUser = localStorage.getItem("@MYUSER");
+    let userData = JSON.parse(this.currentUser);
+    this.loginId = userData['login_id'];
     this.isloading = true;
     this.companyService.seeAllOffers().subscribe(
       (response) => {
@@ -23,7 +27,14 @@ export class OffersComponent implements OnInit {
         if(response){
           this.isloading = false;
         console.log("Response: " + response)
-        this.companyOffers = response;
+
+        for(let offer of response){
+          if(offer.company_id === this.loginId){
+            this.companyOffers.push(offer);
+          }
+        }
+
+         // this.companyOffers = response;
 
         console.log(this.companyOffers);
         }

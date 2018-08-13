@@ -1,6 +1,9 @@
+import { AuthService } from './../../../services/auth.service';
 import { ProfileServiceDashboard } from './../../../services/profile.service.dashboard';
 
 import { Component, OnInit } from '@angular/core';
+import { THIS_EXPR } from '../../../../../../node_modules/@angular/compiler/src/output/output_ast';
+import { Router } from '../../../../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-header-dash',
@@ -9,16 +12,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderDashboardComponent implements OnInit {
   name: string;
-  constructor(private profileService: ProfileServiceDashboard) { }
+  currentUser;
+  loginId : number;
+  constructor(private profileService: ProfileServiceDashboard, private authService: AuthService, private router:Router) { }
 
   ngOnInit() {
-
-    this.profileService.getProfile(6).subscribe(
+    this.currentUser = localStorage.getItem("@MYUSER");
+    let userData = JSON.parse(this.currentUser);
+    this.loginId = userData['login_id'];
+    this.profileService.getProfile(this.loginId).subscribe(
       response => {
         console.log(response);
         this.name = response.company_name;
       }
     )
+  }
+
+
+
+  onLogout(){
+    this.authService.logout();
+    this.router.navigate(['/']);
+
   }
 
 }
