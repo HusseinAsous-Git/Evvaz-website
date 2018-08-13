@@ -48,6 +48,7 @@ import { SchoolProfileComponent } from './core/modules/dashboards/school-profile
 import { SchoolSidebarComponent } from './core/modules/dashboards/school-sidebar/school-sidebar.component';
 import { SidebarComponent } from './core/modules/dashboards/sidebar/sidebar.component';
 import { CommonModule } from '../../node_modules/@angular/common';
+import { OfferDetailsComponent } from './core/modules/offer-details/offer-details.component';
 
 
 @NgModule({
@@ -78,7 +79,8 @@ import { CommonModule } from '../../node_modules/@angular/common';
     SchoolOrdersHistoryComponent,
     SchoolProfileComponent,
     SchoolSidebarComponent,
-    SidebarComponent
+    SidebarComponent,
+    OfferDetailsComponent
 
   ],
   imports: [

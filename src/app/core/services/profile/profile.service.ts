@@ -15,7 +15,9 @@ export class ProfileService {
   getOffers(id) {
     return this.http.get(environment.apiPath + 'company/offer/'+id+'/company');
   }
-
+  getOfferDetails(id){
+    return this.http.get(environment.apiPath + 'company/offer/'+id);
+  }
   // getCategory(id) {
   //   return this.http.get(environment.apiPath + 'cat/get/' + id);
   // }

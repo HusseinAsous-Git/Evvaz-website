@@ -2,7 +2,7 @@ import { OfferPlatformComponent } from './core/modules/home-page/offer-platform/
 import { AuthGuard } from './core/services/auth.gaurd.service';
 import { HomePageComponent } from './core/modules/home-page/home-page.component';
 /*Outer Imports*/
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, Router, RouterModule } from '@angular/router';
 
 /*Our Components*/
@@ -25,7 +25,7 @@ import { SchoolFollowersComponent } from './core/modules/dashboards/school-follo
 import { SchoolOrdersComponent } from './core/modules/dashboards/school-orders/school-orders.component';
 import { SchoolOrdersHistoryComponent } from './core/modules/dashboards/school-orders-history/school-orders-history.component';
 import { SchoolProfileComponent } from './core/modules/dashboards/school-profile/school-profile.component';
-
+import { OfferDetailsComponent } from './core/modules/offer-details/offer-details.component';
 /*Our Services*/
 
 const routes: Routes = [
@@ -49,11 +49,12 @@ const routes: Routes = [
     ]},
     { path: 'home-page', component: HomePageComponent, canActivate: [AuthGuard] },
     {
-        path: 'offer-platform', component: OfferPlatformComponent, 
+        path: 'offer-platform', component: OfferPlatformComponent, canActivate: [AuthGuard] ,
         children: [
         ]
     },
-    { path: 'company/:id', component: CompanyProfileComponent},
+    {path:'offer-details/:id', component: OfferDetailsComponent, canActivate: [AuthGuard] },
+    { path: 'company/:id', component: CompanyProfileComponent, canActivate: [AuthGuard] },
     { path: 'unifying-platform', component: UnifyingPlatformComponent },
     { path: '', component: IndexComponent },
     { path: 'login', component: LoginComponent },
