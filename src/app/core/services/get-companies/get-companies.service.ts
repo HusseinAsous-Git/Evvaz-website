@@ -23,4 +23,10 @@ export class GetCompaniesService {
   getCompany(id) {
     return this.http.get(environment.apiPath + 'profile/get/' + id);
   }
+  getCompanyFollowCount(id){
+    return this.http.get(environment.apiPath +'follow/followers/'+id+'/count');
+  }
+  getCompanyOffersCount(id){
+    return this.http.get(environment.apiPath +'company/offer/'+id+'/count');
+  }
 }
