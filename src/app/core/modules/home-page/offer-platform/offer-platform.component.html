@@ -48,7 +48,7 @@
                 <img src="data:image/png;base64,{{company.company_logo_image}}" alt="{{company.company_name}}">
               </div>
               <div class="follow-button-position">
-                <a href="" class="follow-btn btn">Follow</a>
+                <a (click)="followCompany(company['company_id'])" class="follow-btn btn">Follow</a>
               </div>
             </div>
             <!--  -->
