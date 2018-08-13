@@ -14,6 +14,7 @@ export class FollowersComponent implements OnInit {
   schools : SchoolProfileModel [] ;
   logo: string;
   followerNumber: number = 0;
+  followFlag = false;
   constructor(private schoolService: SchoolService) { }
 
   ngOnInit() {
@@ -24,12 +25,18 @@ export class FollowersComponent implements OnInit {
        
         for(let school of this.schools) {
           school.school_logo_image = 'data:image/png;base64,' +  school.school_logo_image;
+          console.log("School id: " + school.school_id)
           this.followerNumber ++;
         }
         
         console.log(this.schools);
       }
     )
+  }
+
+  onFollow(id: number){ 
+    console.log("id is: " + id)
+    this.followFlag = true;
   }
 
 }

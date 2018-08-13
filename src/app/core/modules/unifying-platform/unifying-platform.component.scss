@@ -1,72 +1,72 @@
-.unifying{
-    border-bottom: 2px solid gainsboro;
-    text-align: left !important;
-    
-}
+    .unifying{
+        border-bottom: 2px solid gainsboro;
+        text-align: left !important;
+        
+    }
 
-body.rtl .unifying {
-    text-align: right !important;
-}
+    body.rtl .unifying {
+        text-align: right !important;
+    }
 
-.company-body{
-    margin-top: 10px;    
-    width: 100%;
-    display: flex;
-}
+    .company-body{
+        margin-top: 10px;    
+        width: 100%;
+        display: flex;
+    }
 
-.unifybody{
-    margin-top: 20px;
-    
-}
+    .unifybody{
+        margin-top: 20px;
+        
+    }
 
-.companies{
-    margin: 5px;
-}
+    .companies{
+        margin: 5px;
+    }
 
-.companies img{
-    width: 100%;
-    height: 100%;
-}
+    .companies img{
+        width: 100%;
+        height: 100%;
+    }
 
-.company-img{
-    width: 60px;
-    height: 60px;
-    border-radius: 100px;
-    background: ivory;
-    overflow: hidden;
-    padding: 2px;
-}
+    .company-img{
+        width: 60px;
+        height: 60px;
+        border-radius: 100px;
+        background: ivory;
+        overflow: hidden;
+        padding: 2px;
+    }
 
-.card-img-overlay{
-    background-color: rgba(7, 0, 0, 0.342);
-}
+    .card-img-overlay{
+        background-color: rgba(7, 0, 0, 0.342);
+    }
 
-.company-img img{
-    width: 100%;
-    height: 100%;
-}
+    .company-img img{
+        width: 100%;
+        height: 100%;
+    }
 
-.card{
-    height: 85%;
-    color: white;
-    font-family: 'Comfortaa', cursive;
-}
+    .card{
+        height: 85%;
+        color: white;
+        font-family: 'Comfortaa', cursive;
+    }
 
-.card h5{
-    color: white;
-    font-weight: bold;
-}
+    .card h5{
+        color: white;
+        font-weight: bold;
+    }
 
-.card small{
-    font-size: 0.6rem;
-    font-family: 'Comfortaa', cursive;
-}
+    .card small{
+        font-size: 0.6rem;
+        font-family: 'Comfortaa', cursive;
+    }
 
-.card .center{
-    width: 100%;
-    text-align: center;
-}
+    .card .center{
+        width: 100%;
+        text-align: center;
+    }
 
-.center button{
-    width: 100%;
-}
+    .center button{
+        width: 100%;
+    }
