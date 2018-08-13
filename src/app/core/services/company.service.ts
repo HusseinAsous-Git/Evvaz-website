@@ -41,5 +41,7 @@ export class CompanyService {
         let url = `${environment.apiPath}company/offer/ `; 
         return this.httpClient.put<CompanyNewOfferModel>(url,data) ; 
     }
+
+    
     
 }

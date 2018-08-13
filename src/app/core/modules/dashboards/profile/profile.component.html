@@ -10,15 +10,23 @@
     </ul>
   </nav>
   
-<div class="row" >
+  <div class="row justify-content-center">
+    <img *ngIf="isloading" class="mt-3" src="../../../assets/images/load.gif" alt="">
+</div>
+
+
+<p class="display-6 text-center" style="color: grey" *ngIf="firstTime">Complete Your Profile First, please..</p>
+
+
+<div class="row"  *ngIf="!isloading">
     <div class="col-sm-8 col-sm offset-2">
       <form class="mt-5" [formGroup]="profileForm" (ngSubmit)="updateProfile()">
         <div class="form-group">
-          <label for="companyName">Compang Name</label>
+          <label for="companyName">Company Name</label>
           <input type="text"
            class="form-control"
             id="companyName"
-              placeholder="Taj"
+              placeholder="Company Name"
               formControlName="companyName"
              
               >
@@ -83,7 +91,7 @@
           <input type="text"
            class="form-control"
             id="link" 
-             placeholder="http://www.youtube.com/watch/sdf4g451244" 
+             placeholder="URL Link video" 
              formControlName="link"
             
             >
@@ -96,7 +104,7 @@
           <input type="text"
            class="form-control"
             id="website" 
-             placeholder="http://www.youtube.com/watch/sdf4g451244" 
+             placeholder="Website URL" 
              formControlName="website"
             
             >
@@ -118,7 +126,7 @@
               <input type="text"
                class="form-control"
                 id="address" 
-                 placeholder="google maps"
+                 placeholder="Company address"
                  formControlName="address"
                  >
             </div>
@@ -126,7 +134,17 @@
               *ngIf="!profileForm.get('address').valid && profileForm.get('address').touched"
               class="help-block" >This feild is required!</span>
             <br>    
-              
+            <div class="form-group">
+            <label for="category">Select a Category</label>
+            <select id="category" formControlName="category" class="form-control">
+              <option  [selected]="true" [ngValue]="categoryName">{{ activeProfile.company_category_id }}</option>
+              <option *ngFor="let category of categories  , let i = index" value="{{category.category_name}}">{{category.category_name}}</option>
+            </select>
+          </div>
+          <span 
+              *ngIf="!profileForm.get('category').valid && profileForm.get('category').touched"
+              class="help-block" >This feild is required!</span>
+<br>
               <span 
               *ngIf="enableMessage"
               class="help-block" style="color: red">Please Upload a valid size for images!</span>

@@ -14,10 +14,15 @@ export class SidebarComponent implements OnInit {
   orders: SchoolOrdersModel [];
   schools : SchoolProfileModel [] ;
   countFollowers = 0;
+  currentUser;
+  loginId : number;
   constructor(private schoolService: SchoolService) { }
 
   ngOnInit() {
-    this.schoolService.getOrders(6).subscribe(
+    this.currentUser = localStorage.getItem("@MYUSER");
+    let userData = JSON.parse(this.currentUser);
+    this.loginId = userData['login_id'];
+    this.schoolService.getOrders(this.loginId).subscribe(
       
       response =>{ 
         
