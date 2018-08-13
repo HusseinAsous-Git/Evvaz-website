@@ -37,7 +37,12 @@
   <div class="overlay">
     <div class="container">
       <div class="row">
+          
         <div class="col-md-12 col-12">
+            <div routerLink="/offer-platform" class="go-back">
+              <i class="fa fa-chevron-left"></i>
+              <span>Back</span>
+            </div>
           <div class="flexf clearfix">
             <div class="Fssimg">
               <img  src="data:image/png;base64,{{company['company_logo_image']}}">
@@ -91,7 +96,7 @@
 <section class="news">
   <div class="container">
     <div class="row">
-      <div class="col-lg-4 col-md-6 col-sm-6 col-8 d-flex align-items-stretch" *ngFor="let offer of offers">
+      <div class="col-lg-4 col-md-6 col-sm-6 col-8 m-auto d-flex align-items-stretch" *ngFor="let offer of offers">
         
           <!--  -->
         <div class="card" style="background-image:url(assets/img/index/01.png)">

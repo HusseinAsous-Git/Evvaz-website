@@ -663,11 +663,14 @@ color: #12a5e1;
   color:snow;
   text-align: right;
   font-weight: 200;
+  i{
+      color: snow;
+  }
   span{
       padding-left: 5px;
       
   }
   &:hover{
-      color:#0f7bc3;
+      text-decoration: underline;
   }
 }
