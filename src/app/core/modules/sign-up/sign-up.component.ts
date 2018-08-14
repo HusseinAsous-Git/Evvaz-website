@@ -23,7 +23,11 @@ export class SignUpComponent implements OnInit {
 
   constructor(private router: Router, private signUpService: SignUpService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (localStorage.getItem("@MYUSER")) {
+      this.router.navigate(['/home-page']);
+    }
+  }
 
   signUp(): void {
     console.log(this.user)
