@@ -1,9 +1,9 @@
-import { AuthService } from './../../../services/auth.service';
+import { AuthService } from '../../../services/auth.service';
 
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { Router } from '@angular/router';
-import { FormGroup, FormControl, Validators } from '../../../../../../node_modules/@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CompanyService } from '../../../services/company.service';
 import { CompanyNewOfferModel } from '../../../models/company.offer.new.model';
 

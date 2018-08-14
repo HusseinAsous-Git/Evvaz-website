@@ -1,5 +1,5 @@
-import { CategoryModel } from './../models/category.model';
-import { CompanyProfileModel } from './../models/company.profile.model';
+import { CategoryModel } from '../models/category.model';
+import { CompanyProfileModel } from '../models/company.profile.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment.prod';

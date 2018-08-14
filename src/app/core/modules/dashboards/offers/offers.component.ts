@@ -1,6 +1,6 @@
-import { Component, OnInit } from "../../../../../../node_modules/@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { CompanyService } from "../../../services/company.service";
-import { Router, ActivatedRoute } from "../../../../../../node_modules/@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 import { CompanyOfferModel } from "../../../models/company.offer.see.model";
 
 

@@ -1,4 +1,4 @@
-import { SchoolService } from './../../../services/school.service';
+import { SchoolService } from '../../../services/school.service';
 
 import { Component, OnInit } from '@angular/core';
 import { UIService } from '../../../services/ui.service';
@@ -13,15 +13,36 @@ export class SchoolSidebarComponent implements OnInit {
   constructor(private schoolService: SchoolService, private uiService: UIService) { }
   orderCount = 0;
   historyCount = 0;
+  loginId: number;
+  currentUser;
+  companiesCount = 0;
+
+
   ngOnInit() {
-    this.schoolService.getSchoolOrders(4).subscribe(
+
+    this.currentUser = localStorage.getItem("@MYUSER");
+    let userData = JSON.parse(this.currentUser);
+    this.loginId = userData['login_id'];
+    console.log("login ID IS:"+ this.loginId)
+
+
+    this.schoolService.getSchools(this.loginId).subscribe(
+      response => {
+        for(let s of response) {
+          this.companiesCount ++;
+        }
+      }
+    )
+console.log("Company count: " + this.companiesCount)
+
+    this.schoolService.getSchoolOrders(this.loginId).subscribe(
       response => {
         for(let r of response) {
           this.orderCount ++;
         }
       }
     )
-    this.schoolService.getHistory(4).subscribe(
+    this.schoolService.getHistory(this.loginId).subscribe(
       response => {
         for(let r of response) {
           this.historyCount ++;

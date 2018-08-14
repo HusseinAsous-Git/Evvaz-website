@@ -1,9 +1,9 @@
-import { AuthService } from './../../../services/auth.service';
-import { ProfileServiceDashboard } from './../../../services/profile.service.dashboard';
+import { AuthService } from '../../../services/auth.service';
+import { ProfileServiceDashboard } from '../../../services/profile.service.dashboard';
 
 import { Component, OnInit } from '@angular/core';
-import { THIS_EXPR } from '../../../../../../node_modules/@angular/compiler/src/output/output_ast';
-import { Router } from '../../../../../../node_modules/@angular/router';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { Router } from '@angular/router';
 import { UIService } from '../../../services/ui.service';
 
 @Component({

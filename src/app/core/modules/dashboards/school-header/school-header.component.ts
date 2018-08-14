@@ -1,4 +1,6 @@
-import { UIService } from './../../../services/ui.service';
+import { Router } from '@angular/router';
+import { AuthService } from './../../../services/auth.service';
+import { UIService } from '../../../services/ui.service';
 
 import { Component, OnInit } from '@angular/core';
 import { SchoolService } from '../../../services/school.service';
@@ -10,7 +12,7 @@ import { SchoolService } from '../../../services/school.service';
 })
 export class SchoolHeaderComponent implements OnInit {
 
-  constructor(private schoolService: SchoolService, private uiService:UIService) { }
+  constructor(private schoolService: SchoolService, private uiService:UIService, private authService: AuthService, private router:Router) { }
 name : string;
   ngOnInit() {
 
@@ -29,4 +31,9 @@ name : string;
   }
 
 
+  onLogout(){
+    this.authService.logout();
+    this.router.navigate(['/']);
+
+  }
 }

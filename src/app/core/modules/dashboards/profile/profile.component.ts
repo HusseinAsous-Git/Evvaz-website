@@ -1,11 +1,11 @@
-import { CategoryModel } from './../../../models/category.model';
-import { AuthService } from './../../../services/auth.service';
-import { ProfileServiceDashboard } from './../../../services/profile.service.dashboard';
-import { Component, OnInit } from '../../../../../../node_modules/@angular/core';
-import { FormGroup, FormControl, Validators } from '../../../../../../node_modules/@angular/forms';
+import { CategoryModel } from '../../../models/category.model';
+import { AuthService } from '../../../services/auth.service';
+import { ProfileServiceDashboard } from '../../../services/profile.service.dashboard';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CompanyProfileModel } from '../../../models/company.profile.model';
 import { CompanyOfferModel } from '../../../models/company.offer.see.model';
-import { ActivatedRoute, Router } from '../../../../../../node_modules/@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -214,7 +214,7 @@ console.log("Profile is: "+ this.prfileExistance)
           
           setTimeout(()=> {
             this.isloading = false;
-          },5000)
+          },1000)
 
           
         },
