@@ -1,3 +1,4 @@
+import { UIService } from './../../../services/ui.service';
 import { Component, OnInit } from '@angular/core';
 import { SchoolOrdersModel } from '../../../models/school.orders.model';
 import { SchoolProfileModel } from '../../../models/school.profile.model';
@@ -16,7 +17,7 @@ export class SidebarComponent implements OnInit {
   countFollowers = 0;
   currentUser;
   loginId : number;
-  constructor(private schoolService: SchoolService) { }
+  constructor(private schoolService: SchoolService, private uiService: UIService) { }
 
   ngOnInit() {
     this.currentUser = localStorage.getItem("@MYUSER");
@@ -43,5 +44,16 @@ export class SidebarComponent implements OnInit {
         }
     )
   }
+
+  toggleSidebar(){
+    console.log("toggle")
+    if(this.uiService.getSidebarStatus()){
+      console.log(true);
+      this.uiService.sidebarStatus = false ; 
+    }
+  }
+
+
+
 
 }

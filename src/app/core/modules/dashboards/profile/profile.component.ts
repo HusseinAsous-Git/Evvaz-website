@@ -214,7 +214,7 @@ console.log("Profile is: "+ this.prfileExistance)
           
           setTimeout(()=> {
             this.isloading = false;
-          },1000)
+          },5000)
 
           
         },

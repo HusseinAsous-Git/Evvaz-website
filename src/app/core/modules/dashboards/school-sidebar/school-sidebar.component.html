@@ -1,12 +1,17 @@
-<section  class="col-sm-5"  id="side-bar">
+<section  [ngClass]="{'slide-out' : !uiService.sidebarStatus , 'slide-in' : uiService.sidebarStatus}" 
+ class="col-sm-5 d-sm-none d-md-block"  id="side-bar">
   <div class="row">
       <div class="col px-0">
-
+       
           <h1 class="text-light mt-2 pr-5 text-center">
-            <a  id="in" class="py-2 mb-2 mr-4 btn btn-green">
+            <!-- <a  id="in" class="py-2 mb-2 mr-4 btn btn-green">
                 <i class="fa fa-bars"></i>
-            </a>
-           <span style="color : #00b7cb">Efaz</span>
+            </a> -->
+            <a (click)="toggleSidebar()" id="in" class="navbar-brand btn btn-green mb-1 mr-5" style="margin-left: -100px"> 
+                <i class="fa fa-bars"></i> 
+              </a>
+            
+            
 
 
           </h1>

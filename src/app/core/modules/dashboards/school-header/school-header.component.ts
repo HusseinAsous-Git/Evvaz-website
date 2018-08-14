@@ -1,3 +1,4 @@
+import { UIService } from './../../../services/ui.service';
 
 import { Component, OnInit } from '@angular/core';
 import { SchoolService } from '../../../services/school.service';
@@ -9,7 +10,7 @@ import { SchoolService } from '../../../services/school.service';
 })
 export class SchoolHeaderComponent implements OnInit {
 
-  constructor(private schoolService: SchoolService) { }
+  constructor(private schoolService: SchoolService, private uiService:UIService) { }
 name : string;
   ngOnInit() {
 
@@ -19,5 +20,13 @@ name : string;
       }
     )
   }
+
+  toggleSidebar(){
+    if(!this.uiService.getSidebarStatus()){
+      this.uiService.sidebarStatus = true ; 
+    }
+    console.log("toggled")
+  }
+
 
 }
