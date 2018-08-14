@@ -1,5 +1,5 @@
-import { environment } from './../../../../environments/environment.prod';
-import { AuthService } from './../auth.service';
+import { environment } from '../../../../environments/environment.prod';
+import { AuthService } from '../auth.service';
 import { Injectable } from '@angular/core';
 import { Headers, RequestOptions } from '@angular/http';
 import { HttpHeaders } from '@angular/common/http';
@@ -9,7 +9,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { Observable } from 'rxjs/Observable';
 
 /*models*/
-import { CompaniesInfo } from './../../models/companies-info';
+import { CompaniesInfo } from '../../models/companies-info';
 
 @Injectable()
 export class GetCompaniesService {

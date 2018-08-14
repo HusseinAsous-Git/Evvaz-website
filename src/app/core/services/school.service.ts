@@ -1,3 +1,4 @@
+import {  CompanyModel } from '../models/company.model';
 import {  SchoolHistoryModel } from '../models/school.history.model';
 import { SchollFollowerModel } from '../models/shool.follower.model';
 import { SchoolOrdersModel } from '../models/school.orders.model';
@@ -46,6 +47,11 @@ getSchoolOrders(id: number) {
 getHistory(id: number){
     let url = `${environment.apiPath}school/requests/get/history/${id}`;
     return this.httpClient.get<SchoolHistoryModel[]>(url);
+}
+
+getAllCompanies(schoolId: number){
+    let url = `${environment.apiPath}follow/company/${schoolId}`;
+        return this.httpClient.get<CompanyModel[]>(url); 
 }
 
 }

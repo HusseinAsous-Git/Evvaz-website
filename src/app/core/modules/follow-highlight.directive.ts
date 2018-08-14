@@ -16,7 +16,7 @@ export class FollowHighlightDirective implements OnInit{
       this.renderer.setStyle(this.elementRef.nativeElement, 'background-color','blue');
       this.renderer.setStyle(this.elementRef.nativeElement, 'color','white');
       this.renderer.setProperty(this.elementRef.nativeElement, 'innerHTML','Follow');
-    }
+    } 
   }
 
   @HostListener('click') doFollow(eventData: Event) {

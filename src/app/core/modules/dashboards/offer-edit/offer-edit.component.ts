@@ -1,8 +1,8 @@
-import { Component, OnInit } from "../../../../../../node_modules/@angular/core";
-import { FormGroup, FormControl, Validators } from "../../../../../../node_modules/@angular/forms";
+import { Component, OnInit } from "@angular/core";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { CompanyNewOfferModel } from "../../../models/company.offer.new.model";
 import { CompanyService } from "../../../services/company.service";
-import { ActivatedRoute, Router, Params, Data } from "../../../../../../node_modules/@angular/router";
+import { ActivatedRoute, Router, Params, Data } from "@angular/router";
 
 
 @Component({

@@ -47,7 +47,7 @@ import { SchoolHeaderComponent } from './core/modules/dashboards/school-header/s
 import { SchoolProfileComponent } from './core/modules/dashboards/school-profile/school-profile.component';
 import { SchoolSidebarComponent } from './core/modules/dashboards/school-sidebar/school-sidebar.component';
 import { SidebarComponent } from './core/modules/dashboards/sidebar/sidebar.component';
-import { CommonModule } from '../../node_modules/@angular/common';
+import { CommonModule } from '@angular/common';
 import { OfferDetailsComponent } from './core/modules/offer-details/offer-details.component';
 import { FollowHighlightDirective } from './core/modules/follow-highlight.directive';
 import { UIService } from './core/services/ui.service';

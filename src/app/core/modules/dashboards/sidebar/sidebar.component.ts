@@ -1,4 +1,4 @@
-import { UIService } from './../../../services/ui.service';
+import { UIService } from '../../../services/ui.service';
 import { Component, OnInit } from '@angular/core';
 import { SchoolOrdersModel } from '../../../models/school.orders.model';
 import { SchoolProfileModel } from '../../../models/school.profile.model';
