@@ -53,7 +53,7 @@ const routes: Routes = [
         children: [
         ]
     },
-    {path:'offer-details/:id', component: OfferDetailsComponent, canActivate: [AuthGuard] },
+    {path:'offer-details/:company_id/:offer_id', component: OfferDetailsComponent, canActivate: [AuthGuard] },
     { path: 'company/:id', component: CompanyProfileComponent, canActivate: [AuthGuard] },
     { path: 'unifying-platform', component: UnifyingPlatformComponent },
     { path: '', component: IndexComponent },

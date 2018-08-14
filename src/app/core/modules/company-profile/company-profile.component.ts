@@ -68,8 +68,13 @@ export class CompanyProfileComponent implements OnInit {
       }
     );
   }
-
+  
   // sanitize(url: string) {
   //   return this.sanitizer.bypassSecurityTrustUrl('data:image/png;base64,' + url);
   // }
+  isUserFollowingThisCompany(organization_id){
+    
+  }
+
+
 }

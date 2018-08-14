@@ -1,6 +1,8 @@
 <app-home-header></app-home-header>
-
-<section class="intro clearfix " style="background-image:url(assets/img/index/footer.png)">
+<div *ngIf="!companiesInfo" class="preloader">
+    <img src="../../../../../assets/images/_ws.gif" alt="">
+  </div>
+<section class="intro clearfix " style="background-image:url(assets/img/offer-platform.png)">
   <div class="overlay">
       
     <div class="container">
@@ -36,24 +38,25 @@
     <div class="row">
       <h2 class="col-12">
         <span>Effaz</span> companies</h2>
-
+        
       <div class="col-lg-3 col-md-6 col-12" *ngFor="let company of companiesInfo">
         <div class="item item-overlay"  
         [ngStyle]="{ 'background-image': 'url(data:image/png;base64,' + company.company_cover_image + ')'}">
           <!-- *ngFor="let offer of offers" -->
-
+          
           <div class="overlay">
             <div class="container-fluid container-xt clearfix">
               <div class="company-logo">
                 <img src="data:image/png;base64,{{company.company_logo_image}}" alt="{{company.company_name}}">
               </div>
               <div class="follow-button-position">
-                <a  (click)="followCompany(company['company_id'])" class="follow-btn btn">Follow</a>
+                <a *ngIf="!company._follow" (click)="followCompany(company['company_id'])" class="follow-btn btn">Follow</a>
+                <a *ngIf="company._follow" (click)="unfollowCompany(company['company_id'])" class="unfollow-btn btn">Unfollow</a>
               </div>
             </div>
             <!--  -->
             <a  routerLink="/company/{{company.company_id}}">
-              <h5 class="heading-overlay">{{company.company_name}}</h5>
+              <h5 class="heading-overlay company-name">{{company.company_name}}</h5>
             </a>
             <!-- {{Offer.company_id}} -->
             <span class="profile d-block">{{company.company_website_url}}</span>

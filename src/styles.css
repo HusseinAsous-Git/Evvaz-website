@@ -33,14 +33,15 @@ header .navbar-toggler i{
 }
 
 header .nav-item{ 
-	color: #fff;
+	color: snow;
 	padding: 0 20px;
 }
 header .nav-link{ 
-	color: #fff;
+	color:snow;
 }
 header .nav-link i {
 	margin-right: 10px;
+	color: snow;
 }
 header .nav-link.register {
 	text-decoration: underline;
@@ -622,4 +623,11 @@ label {
 }
 .nav-link:last-child:hover{
 		text-decoration: none;
+}
+
+.footer-link:hover{
+	text-decoration:underline;
+}
+.footer-icon:hover{
+	color: snow;
 }

@@ -23,7 +23,9 @@ export class GetCompaniesService {
   getAllCompanies() {
     return this.http.get(environment.apiPath + 'profile/getAll');
   }
-
+  getMyCompanies(user_id){
+    return this.http.get(environment.apiPath + 'follow/companies/'+user_id);
+  }
   getCompany(id) {
     return this.http.get(environment.apiPath + 'profile/get/' + id);
   }
@@ -41,7 +43,12 @@ export class GetCompaniesService {
     console.log(this.follow_req_body);
     return this.http.post(environment.apiPath +'follow/add',this.follow_req_body);
   }
-  getFollowedCompanies(logged_id){
-    return this.http.get(environment.apiPath + 'follow/get/following/' + logged_id);
+  
+  unfollowCompany(org_id,school_id){
+    console.log(this.follow_req_body);
+    return this.http.delete(environment.apiPath +'follow/org/'+org_id+'/follower/'+school_id);
+  }
+  isFollowedCompany(logged_id,organization_id){
+    return this.http.get(environment.apiPath + 'follow/company/' + organization_id +'/school/'+ logged_id);
   }
 }

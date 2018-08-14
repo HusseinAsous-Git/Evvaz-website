@@ -9,10 +9,12 @@ import { HttpClientModule } from '@angular/common/http';
   styleUrls: ['./offer-details.component.scss']
 })
 export class OfferDetailsComponent implements OnInit {
-  id:Number;
+  company_id:Number;
+  offer_id:Number;
   constructor(private route: ActivatedRoute, private router: Router,) {
     this.route.params.subscribe(params => {
-      this.id = params['id'];
+      this.company_id = params['company_id'];
+      this.offer_id = params['offer_id'];
     });
    }
 

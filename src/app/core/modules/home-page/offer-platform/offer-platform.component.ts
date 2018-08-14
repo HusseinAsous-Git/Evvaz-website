@@ -27,7 +27,7 @@ export class OfferPlatformComponent implements OnInit {
   let user = localStorage.getItem('@MYUSER');
   this.UserData = JSON.parse(user);
   console.log("this user id is ====> ",this.UserData['login_id'])
-      this.Companies.getAllCompanies().subscribe(
+      this.Companies.getMyCompanies(this.UserData['login_id']).subscribe(
         (Companies) => {
           this.companiesInfo =Companies;  
           //console.log(this.companiesInfo);     
@@ -46,18 +46,32 @@ export class OfferPlatformComponent implements OnInit {
     .subscribe(
       (response) =>{
         if(response['status']==200){
-          //this.followSuccess=true;
           console.log('Follow Worked');
-          return true;
+
+          location.reload();
         }
         else{
-          //this.followSuccess=true;
           console.log('Follow Fail');
-          return false;
         }
       }
     );
     
+  }
+  unfollowCompany(organization_id){
+    let follower_id=this.UserData['login_id'];
+    this.Companies.unfollowCompany(organization_id,follower_id)
+    .subscribe(
+      (response) =>{
+        if(response['status']==200){
+          console.log('Unfollow Worked');
+
+          location.reload();
+        }
+        else{
+          console.log('unfollow Fail');
+        }
+      }
+    );
   }
   // isFollowedCompany(organization_id){
 
