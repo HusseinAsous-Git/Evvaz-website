@@ -49,12 +49,12 @@ const routes: Routes = [
     ]},
     { path: 'home-page', component: HomePageComponent, canActivate: [AuthGuard] },
     {
-        path: 'offer-platform', component: OfferPlatformComponent, canActivate: [AuthGuard] ,
+        path: 'offer-platform', component: OfferPlatformComponent,
         children: [
         ]
     },
-    {path:'offer-details/:company_id/:offer_id', component: OfferDetailsComponent, canActivate: [AuthGuard] },
-    { path: 'company/:id', component: CompanyProfileComponent, canActivate: [AuthGuard] },
+    {path:'offer-details/:company_id/:offer_id', component: OfferDetailsComponent},
+    { path: 'company/:id', component: CompanyProfileComponent,},
     { path: 'unifying-platform', component: UnifyingPlatformComponent },
     { path: '', component: IndexComponent },
     { path: 'login', component: LoginComponent },

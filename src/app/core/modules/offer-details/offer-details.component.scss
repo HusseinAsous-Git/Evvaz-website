@@ -517,9 +517,10 @@ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-right: 2%;
 }
 .fssdesc table td{
+position: relative;
   color: #fff;
   padding: 5px;
-  padding-left: 20px;
+  left: -35px;
  
 }
 
@@ -673,4 +674,20 @@ color: #12a5e1;
   &:hover{
       text-decoration: underline;
   }
+}
+.preloader{
+    position: fixed;
+    background-color: snow;
+    width:100%;
+    height: 100%;
+    display: block;
+    z-index:999999;
+    img{
+        position: relative;
+        display: block;
+        margin: auto;
+        top:50%;
+        transform: translateY(-50%);
+
+    }
 }

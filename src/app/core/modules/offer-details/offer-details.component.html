@@ -1,0 +1,71 @@
+<app-home-header></app-home-header>
+<div *ngIf="!offer_details" class="preloader">
+    <img src="../../../../../assets/images/_ws.gif" alt="">
+</div>
+
+<section class="intro" *ngIf="company" [ngStyle]="{ 'background-image': 'url(data:image/png;base64,' + company['company_cover_image'] + ')'}">
+    <div class="overlay">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-12 col-12">
+                    <div routerLink="/offer-platform" class="go-back">
+                        <i class="fa fa-chevron-left"></i>
+                        <span>Back</span>
+                    </div>
+                    <div class="flexf clearfix">
+                        <div class="Fssimg">
+                            <img src="data:image/png;base64,{{company['company_logo_image']}}">
+
+                        </div>
+                        <h3 class="font-weight-bold">
+                            {{company['company_name']}}
+                        </h3>
+                        
+                
+                    </div>
+
+                    <div class="fssdesc">
+                        <p class="spacer"></p>
+                        <table>
+                            <tr class="">
+                                <td>Adress Here ...... </td>
+
+                            </tr>
+                            <tr>
+                                <td>Description here ......</td>
+                                
+                                
+                            </tr>
+                        </table>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="news">
+    <div class="container">
+        <div class="row" *ngIf="offer_details">
+
+                
+            <ul>
+                <li>{{offer_details.offer_title}}</li>
+                <li>{{offer_details['offer_explaination']}}</li>
+                <li>{{offer_details['offer_cost']}}</li>
+                <li>{{offer_details['company_id']}}</li>
+                <li>{{offer_details['offer_count']}}</li>
+                <li><img src="data:image/png;base64,{{offer_details['image_one']}}"></li>
+                <li><img src="data:image/png;base64,{{offer_details['image_two']}}"></li>
+                <li><img src="data:image/png;base64,{{offer_details['image_third']}}"></li>
+                <li><img src="data:image/png;base64,{{offer_details['image_four']}}"></li>
+                <li><button class="btn btn-success" (click)="requestOffer()">Request</button></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+
+<app-footer></app-footer>

@@ -18,6 +18,9 @@ export class ProfileService {
   getOfferDetails(id){
     return this.http.get(environment.apiPath + 'company/offer/'+id);
   }
+  requestOffer(request_details){
+    return this.http.post(environment.apiPath + 'school/request/offer/add',request_details);
+  }
   // getCategory(id) {
   //   return this.http.get(environment.apiPath + 'cat/get/' + id);
   // }

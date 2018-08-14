@@ -26,7 +26,7 @@ export class OfferPlatformComponent implements OnInit {
   ngOnInit(): void {
   let user = localStorage.getItem('@MYUSER');
   this.UserData = JSON.parse(user);
-  console.log("this user id is ====> ",this.UserData['login_id'])
+  console.log("this user id is ====> ",this.UserData['login_id']);
       this.Companies.getMyCompanies(this.UserData['login_id']).subscribe(
         (Companies) => {
           this.companiesInfo =Companies;  
