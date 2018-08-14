@@ -1,6 +1,7 @@
 import { SchoolService } from './../../../services/school.service';
 
 import { Component, OnInit } from '@angular/core';
+import { UIService } from '../../../services/ui.service';
 
 @Component({
   selector: 'app-school-sidebar',
@@ -9,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SchoolSidebarComponent implements OnInit {
 
-  constructor(private schoolService: SchoolService) { }
+  constructor(private schoolService: SchoolService, private uiService: UIService) { }
   orderCount = 0;
   historyCount = 0;
   ngOnInit() {
@@ -29,4 +30,12 @@ export class SchoolSidebarComponent implements OnInit {
     )
   }
 
+
+  toggleSidebar(){
+    console.log("toggle")
+    if(this.uiService.getSidebarStatus()){
+      console.log(true);
+      this.uiService.sidebarStatus = false ; 
+    }
+  }
 }

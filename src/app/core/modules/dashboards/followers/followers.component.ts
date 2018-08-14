@@ -1,6 +1,7 @@
+import { CompanyService } from './../../../services/company.service';
 
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { SchoolProfileModel } from '../../../models/school.profile.model';
 import { SchoolService } from '../../../services/school.service';
 
@@ -14,10 +15,17 @@ export class FollowersComponent implements OnInit {
   schools : SchoolProfileModel [] ;
   logo: string;
   followerNumber: number = 0;
-  followFlag = false;
-  constructor(private schoolService: SchoolService) { }
+  loginId : number;
+  currentUser;
+  isFollowing = false;
+  constructor(private schoolService: SchoolService, private companyService:CompanyService) { }
 
   ngOnInit() {
+
+    this.currentUser = localStorage.getItem("@MYUSER");
+    let currentUserData = JSON.parse(this.currentUser);
+    this.loginId = currentUserData['login_id'];
+
     this.schoolService.getSchools(3).subscribe(
       response => {
         console.log(response);
@@ -34,9 +42,42 @@ export class FollowersComponent implements OnInit {
     )
   }
 
-  onFollow(id: number){ 
+  onFollow(id: number, followed: boolean ){ 
+
+    
     console.log("id is: " + id)
-    this.followFlag = true;
+    this.isFollowing= !this.isFollowing
+    followed = ! followed
+    if(this.isFollowing&&followed){
+      let  data = {
+        organization_id:id,
+        follower_id:this.loginId
+      }
+      this.companyService.follow(data).subscribe(
+        response => {
+          console.log("Successfully followed");
+          console.log(response)
+        },
+        err => console.log(err)
+      )
+    }else {
+      // delete follow here
+      let data = {
+        orgId:id,
+        followerId:this.loginId
+      }
+      this.companyService.removeFollow(data).subscribe(
+        response => {
+          console.log("Successfully deleted");
+          console.log(response)
+        },
+        err => console.log(err)
+      )
+    }
+    
+    
+   
+     
   }
 
 }

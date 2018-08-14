@@ -9,13 +9,17 @@ import { SchoolService } from '../../../services/school.service';
   styleUrls: ['./school-followers.component.css']
 })
 export class SchoolFollowersComponent implements OnInit {
-
+  loginId: number;
+  currentUser;
   private schollFollowers : SchollFollowerModel [];
   private hashLogo : string;
   constructor(private schoolservice: SchoolService) { }
   count = 0;
   ngOnInit() {
-    this.schoolservice.getFollowers(4).subscribe(
+    this.currentUser = localStorage.getItem("@MYUSER");
+    let userData = JSON.parse(this.currentUser);
+    this.loginId = userData['login_id'];
+    this.schoolservice.getFollowers(this.loginId).subscribe(
       response => {
         this.schollFollowers = response;
         for(let follower of this.schollFollowers) {

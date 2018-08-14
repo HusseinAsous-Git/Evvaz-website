@@ -49,6 +49,8 @@ import { SchoolSidebarComponent } from './core/modules/dashboards/school-sidebar
 import { SidebarComponent } from './core/modules/dashboards/sidebar/sidebar.component';
 import { CommonModule } from '../../node_modules/@angular/common';
 import { OfferDetailsComponent } from './core/modules/offer-details/offer-details.component';
+import { FollowHighlightDirective } from './core/modules/follow-highlight.directive';
+import { UIService } from './core/services/ui.service';
 
 
 @NgModule({
@@ -80,7 +82,8 @@ import { OfferDetailsComponent } from './core/modules/offer-details/offer-detail
     SchoolProfileComponent,
     SchoolSidebarComponent,
     SidebarComponent,
-    OfferDetailsComponent
+    OfferDetailsComponent,
+    FollowHighlightDirective
 
   ],
   imports: [
@@ -104,6 +107,7 @@ import { OfferDetailsComponent } from './core/modules/offer-details/offer-detail
     ProfileServiceDashboard,
     ProfileResolver,
     SchoolProfileService,
+    UIService,
     SchoolService,
     {
       provide: HTTP_INTERCEPTORS,

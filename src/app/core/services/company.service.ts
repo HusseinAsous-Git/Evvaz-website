@@ -42,6 +42,17 @@ export class CompanyService {
         return this.httpClient.put<CompanyNewOfferModel>(url,data) ; 
     }
 
+
+    follow(data : {follower_id: number, organization_id: number}) {
+        let url = `${environment.apiPath}follow/add`; 
+        return this.httpClient.post(url,data);
+    }
+
+    removeFollow(data : {orgId: number, followerId: number}){
+        let url = `${environment.apiPath}follow/org/${data.orgId}/follower/${data.followerId}`;
+        return this.httpClient.delete(url);
+    }
+
     
     
 }

@@ -351,6 +351,17 @@ footer .custom-email-width{
 
 /* You can add global styles to this file, and also import other style files */
 
+.slide-in {
+  transform: translateX(0px);
+  transition: all ease-in-out 0.3s;
+}
+
+.slide-out {
+  transform: translateX(-400px);
+  transition: all ease-in-out 0.3s;
+}
+
+
 #side-bar {
     position: fixed;
     top: 0;

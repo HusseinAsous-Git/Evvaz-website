@@ -12,7 +12,7 @@ export class SchoolService{
         constructor(private httpClient: HttpClient) {}
 
 getSchools(id: number){
-    let url = `${environment.apiPath}follow/get/followers/${id}`;
+    let url = `${environment.apiPath}follow/school/${id}`;
         return this.httpClient.get<SchoolProfileModel []>(url); 
 }
 
