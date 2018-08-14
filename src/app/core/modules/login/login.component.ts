@@ -43,5 +43,9 @@ export class LoginComponent implements OnInit {
     );
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (localStorage.getItem("@MYUSER")) {
+      this.router.navigate(['/home-page']);
+    }
+  }
 }

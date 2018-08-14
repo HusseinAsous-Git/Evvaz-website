@@ -14,9 +14,9 @@ import { CompaniesInfo } from './../../models/companies-info';
 @Injectable()
 export class GetCompaniesService {
 
-  folloow_req_body={
-    'organization_id':Number,
-    'follower_id':Number
+  follow_req_body={
+    "organization_id":0,
+    "follower_id":0
   };
   constructor(private http: HttpClient, private authService: AuthService) { }
 
@@ -36,9 +36,12 @@ export class GetCompaniesService {
 
   followCompany(org_id,school_id){
     
-    this.folloow_req_body.organization_id=org_id;
-    this.folloow_req_body.follower_id=school_id;
-
-    return this.http.post(environment.apiPath +'follow/add',this.folloow_req_body);
+    this.follow_req_body.organization_id=org_id;
+    this.follow_req_body.follower_id=school_id;
+    console.log(this.follow_req_body);
+    return this.http.post(environment.apiPath +'follow/add',this.follow_req_body);
+  }
+  getFollowedCompanies(logged_id){
+    return this.http.get(environment.apiPath + 'follow/get/following/' + logged_id);
   }
 }

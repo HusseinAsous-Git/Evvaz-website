@@ -17,14 +17,16 @@ import { CompaniesInfo } from './../../../models/companies-info';
 export class OfferPlatformComponent implements OnInit {
   companiesInfo: Object;
   UserData:Object;
-  followSucess:Boolean=false;
+  // followSuccess:Boolean=false;
+  // followListResponseHolder=null;
+  // followFlag=1;
   constructor(private http: Http, private Companies: GetCompaniesService) { }
   // get all companies
   
   ngOnInit(): void {
   let user = localStorage.getItem('@MYUSER');
   this.UserData = JSON.parse(user);
-  //console.log("this is ",this.UserData['login_id'])
+  console.log("this user id is ====> ",this.UserData['login_id'])
       this.Companies.getAllCompanies().subscribe(
         (Companies) => {
           this.companiesInfo =Companies;  
@@ -34,25 +36,51 @@ export class OfferPlatformComponent implements OnInit {
           console.log('errors ', error)
         }
       );
-      
+      //this.followedList();
+    
   }
-
+  
   followCompany(organization_id){
-    let follower_id=this.UserData['login_id']
-    this.Companies.followCompany(organization_id,follower_id).subscribe(
+    let follower_id=this.UserData['login_id'];
+    this.Companies.followCompany(organization_id,follower_id)
+    .subscribe(
       (response) =>{
         if(response['status']==200){
-          this.followSucess=true;
+          //this.followSuccess=true;
+          console.log('Follow Worked');
           return true;
         }
         else{
-          this.followSucess=true;
+          //this.followSuccess=true;
+          console.log('Follow Fail');
           return false;
         }
       }
     );
     
   }
+  // isFollowedCompany(organization_id){
+
+  //   for(let organization of this.followListResponseHolder){
+  //     if(organization['organization_id']==organization_id){
+  //       console.log(organization['organization_id']);
+  //      return true;
+  //     }
+  //   }
+  //   return false;
+    
+  // }
+  // followedList(){
+  //   let logged_id=this.UserData['login_id'];
+  //   this.Companies.getFollowedCompanies(logged_id).subscribe(
+  //     (response) =>{
+  //       if(response['status']==200){
+  //         this.followListResponseHolder=response['list'];
+  //       }
+        
+  //     }
+  //   );
+  // }
 }
 
 
