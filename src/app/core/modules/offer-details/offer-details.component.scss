@@ -691,3 +691,167 @@ color: #12a5e1;
 
     }
 }
+p.details,h4.details{
+    color:#8EB5B8;
+}
+.offer-d-title{
+    color:#0094C7;
+    span{
+        color:rgb(62, 67, 68);
+    }
+}
+.offer-r-title{
+    color:#0094C7;
+}
+
+.carousel-item > img{
+    max-height:300px;
+}
+.details-after-slider{
+    margin-top: 30px;
+}
+
+.shadowed {
+    box-shadow:0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) ;
+    border: 1px solid rgba(212, 210, 210, 0.164);
+}
+
+.bottom-d-button{
+    margin-bottom:16px;
+    
+}
+//progress bar style start =========================>
+.timeline-identicator{
+    height: 80px;
+    margin:40px 0 40px 0;
+    padding-top:40px;
+    padding-right: 20px;
+    .progress{
+        transform: translateY(-50%);
+        height: .4rem;
+        .bg-info{
+            background-color: #00A4DC!important;
+        }
+        overflow:visible;
+        .fa-circle.percentage{
+            position: absolute;;
+            color: #00A4DC;
+            font-size: 26px;
+            margin-left:69%;
+            transform:translateY(-30%);
+        }
+        .fa-circle.start-date{
+            position: absolute;;
+            color: #00A4DC;
+            font-size: 26px;
+            margin-left:0%;
+            transform:translate(-30%,-30%);
+            
+        }
+        .fa-circle.end-date{
+            position: absolute;;
+            color: #00A4DC;
+            font-size: 26px;
+            margin-left:99%;
+            transform:translateY(-30%);
+        }
+        
+        transform: translateY(-50%);
+    }
+}
+.offer-side-bar{
+    height: 60%;
+    width:100%;
+    border-radius: 1%;
+    box-shadow:0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) ;
+    .table td{
+        border-top: none;
+        padding: 2px;
+        text-align: center;
+        color: gray;
+    }
+    .table th{
+        border-top: none;
+        padding: 2px;
+        color: #434949;
+        text-align: center;
+    }
+}
+.date-started-top{
+    position: absolute;
+    top: -30px;
+}
+.current-date-top{
+    position: absolute;
+    top: -30px;
+    margin-left:50%;
+}
+.end-date-top{
+    position: absolute;
+    top: -30px;
+    margin-left:93%;
+    text-align: right;
+}
+
+.date-started-bottom{
+    position: absolute;
+    bottom: -30px;
+    color:#64d5de;
+}
+.current-date-bottom{
+    position: absolute;
+    bottom: -30px;
+    margin-left:50%;
+    color:#64d5de;
+}
+.end-date-bottom{
+    position: absolute;
+    bottom: -30px;
+    margin-left:93%;
+    text-align: right;
+    color:#64d5de;
+}
+//progress bar style end =========================>
+
+.map-marker{
+    color:snow;
+}
+.list-group-item{
+    
+    &:hover{
+        background-color:#00A4DC;
+        color: snow;
+        div>.text-muted{
+            color:snow !important;
+        }
+        div>i{
+           color:snow;
+        }
+    }
+    .text-muted{
+        span{
+            font-size:26px;
+        }
+    }
+}
+.pen-icon{
+    width: 20%;
+    i{
+        font-size: 32px;
+    }
+}
+.price-col{
+    background-color:#00A4DC;
+    color: snow;
+    font-size: 26px;
+    div>.text-muted{
+        color:snow !important;
+        font-size: 32px;
+        span{
+            font-size:42px;
+        }
+    }
+    div>i{
+       color:snow;
+    }
+}

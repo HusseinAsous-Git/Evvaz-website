@@ -49,13 +49,13 @@ const routes: Routes = [
     ]},
     { path: 'home-page', component: HomePageComponent, canActivate: [AuthGuard] },
     {
-        path: 'offer-platform', component: OfferPlatformComponent,
+        path: 'offer-platform', component: OfferPlatformComponent, canActivate: [AuthGuard],
         children: [
         ]
     },
-    {path:'offer-details/:company_id/:offer_id', component: OfferDetailsComponent},
-    { path: 'company/:id', component: CompanyProfileComponent,},
-    { path: 'unifying-platform', component: UnifyingPlatformComponent },
+    {path:'offer-details/:company_id/:offer_id', component: OfferDetailsComponent, canActivate: [AuthGuard]},
+    { path: 'company/:id', component: CompanyProfileComponent, canActivate: [AuthGuard]},
+    { path: 'unifying-platform', component: UnifyingPlatformComponent , canActivate: [AuthGuard]},
     { path: '', component: IndexComponent },
     { path: 'login', component: LoginComponent },
     { path: 'sign-up', component: SignUpComponent },

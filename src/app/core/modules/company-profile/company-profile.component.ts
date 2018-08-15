@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { GetCompaniesService } from '../../services/get-companies/get-companies.service';
-import { CompaniesInfo } from '../../models/companies-info';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ProfileService } from '../../services/profile/profile.service';
 

@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
-import { Http, Response } from '@angular/http';
-import { HttpClientModule } from '@angular/common/http';
 import { ProfileService } from '../../services/profile/profile.service';
 import { GetCompaniesService } from '../../services/get-companies/get-companies.service';
 @Component({
