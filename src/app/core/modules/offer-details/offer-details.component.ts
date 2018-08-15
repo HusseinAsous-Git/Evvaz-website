@@ -21,6 +21,7 @@ export class OfferDetailsComponent implements OnInit {
       "is_accepted":1,
       "request_offer_count":Number
   }
+  showSucces:boolean=false;
   constructor(private route: ActivatedRoute, private router: Router, private profileService : ProfileService ,private Company: GetCompaniesService) {
     this.route.params.subscribe(params => {
       this.company_id = params['company_id'];
@@ -64,6 +65,7 @@ export class OfferDetailsComponent implements OnInit {
       (response) => {
         if(response['requsted_school_id']){
           this.result=response;
+          this.showSucces=true
           //console.log(this.result);
         }
         

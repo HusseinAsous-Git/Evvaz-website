@@ -1,8 +1,8 @@
 <app-home-header></app-home-header>
-<div *ngIf="!offers" class="preloader">
+<div *ngIf="!offers || !company" class="preloader">
     <img src="../../../../../assets/images/_ws.gif" alt="">
 </div>
-<section class="intro"  [ngStyle]="{ 'background-image': 'url(data:image/png;base64,' + company['company_cover_image'] + ')'}">
+<section class="intro" *ngIf="offers && company" [ngStyle]="{ 'background-image': 'url(data:image/png;base64,' + company['company_cover_image'] + ')'}">
   <div class="overlay" >
     <div class="container">
       <div class="row">
@@ -61,7 +61,7 @@
   </div>
 </section>
 
-<section class="news">
+<section class="news" *ngIf="offers && company">
   <div class="container">
     <div class="row" >
       <div class="col-lg-4 col-md-6 col-sm-6 col-8 m-auto d-flex align-items-stretch" *ngFor="let offer of offers" routerLink="../../offer-details/{{company['company_id']}}/{{offer['offer_id']}}">

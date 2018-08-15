@@ -696,3 +696,8 @@ color: #12a5e1;
         background-color:#dc3545;
     }
 }
+.card{
+    &:hover{
+        cursor: pointer;
+    }
+}

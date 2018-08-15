@@ -3,7 +3,7 @@
     <img src="../../../../../assets/images/_ws.gif" alt="">
 </div>
 
-<section class="intro" *ngIf="company" [ngStyle]="{ 'background-image': 'url(data:image/png;base64,' + company['company_cover_image'] + ')'}">
+<section class="intro" *ngIf="offer_details && company" [ngStyle]="{ 'background-image': 'url(data:image/png;base64,' + company['company_cover_image'] + ')'}">
     <div class="overlay">
         <div class="container">
             <div class="row">
@@ -38,7 +38,7 @@
                             <tr>
                                 <td>
 
-                                    <i class="fa fa-map-marker map-marker"></i>
+                                    <i class="fa fa-paper-plane map-marker" aria-hidden="true"></i>
                                     {{company['company_website_url']}}
                                 </td>
 
@@ -52,7 +52,7 @@
         </div>
     </div>
 </section>
-<section class="news">
+<section class="news" *ngIf="offer_details && company">
     <div class="container">
         <div *ngIf="offer_details">
 
@@ -220,8 +220,11 @@
 
 
 
-
+                    <div *ngIf="showSucces" class="alert-success">
+                        Request succeeded !
+                    </div>
                     <button class="btn btn-success btn-lg btn-block bottom-d-button" (click)="requestOffer()" type="submit">Request Now</button>
+                    
                 </div>
 
 

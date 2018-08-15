@@ -1,15 +1,9 @@
 import { GetCompaniesService } from '../../../services/get-companies/get-companies.service';
-import { environment } from '../../../../../environments/environment.prod';
-import { DomSanitizer } from '@angular/platform-browser';
 import { Component, OnInit } from '@angular/core';
-import { ProfileService } from '../../../services/profile/profile.service';
-import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Http, Response } from '@angular/http';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-/*model*/
-import { CompaniesInfo } from '../../../models/companies-info';
 
 @Component({
   selector: 'app-offer-platform',
