@@ -1,3 +1,5 @@
+
+import { TenderModel } from './../models/tender.model';
 import {  CompanyModel } from '../models/company.model';
 import {  SchoolHistoryModel } from '../models/school.history.model';
 import { SchollFollowerModel } from '../models/shool.follower.model';
@@ -6,6 +8,7 @@ import { SchoolProfileModel } from '../models/school.profile.model';
 import { HttpClient } from '@angular/common/http';
 import {  Injectable } from "@angular/core";
 import { environment } from '../../../environments/environment.prod';
+import { TenderCategoryModel } from '../models/tender.category.model';
 
 @Injectable()
 export class SchoolService{
@@ -52,6 +55,23 @@ getHistory(id: number){
 getAllCompanies(schoolId: number){
     let url = `${environment.apiPath}follow/company/${schoolId}`;
         return this.httpClient.get<CompanyModel[]>(url); 
+}
+
+
+createTender(tenderData : TenderModel){
+    let url = `${environment.apiPath}school/tenders/`;
+    return this.httpClient.post(url,tenderData);
+
+}
+
+getCategories(){
+    let url = `${environment.apiPath}school/category/getAll`;
+    return this.httpClient.get<TenderCategoryModel[]>(url); 
+}
+
+getTendersbySchoolId(schoolId: number) {
+    let url = `${environment.apiPath}school/tenders/school/${schoolId}`;
+    return this.httpClient.get<TenderModel[]>(url);
 }
 
 }
