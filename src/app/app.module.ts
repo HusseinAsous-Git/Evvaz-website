@@ -51,7 +51,11 @@ import { CommonModule } from '@angular/common';
 import { OfferDetailsComponent } from './core/modules/offer-details/offer-details.component';
 import { FollowHighlightDirective } from './core/modules/follow-highlight.directive';
 import { UIService } from './core/services/ui.service';
-
+import { NewTenderComponent } from './core/modules/dashboards/new-tender/new-tender.component';
+import {AmazingTimePickerModule} from "amazing-time-picker";
+import { MyTendersComponent } from './core/modules/dashboards/my-tenders/my-tenders.component';
+import { ViewTenderComponent } from './core/modules/dashboards/view-tender/view-tender.component';
+import { CollectiveTenderComponent } from './core/modules/dashboards/collective-tender/collective-tender.component' ;
 
 @NgModule({
   declarations: [
@@ -83,7 +87,11 @@ import { UIService } from './core/services/ui.service';
     SchoolSidebarComponent,
     SidebarComponent,
     OfferDetailsComponent,
-    FollowHighlightDirective
+    FollowHighlightDirective,
+    NewTenderComponent,
+    MyTendersComponent,
+    ViewTenderComponent,
+    CollectiveTenderComponent
 
   ],
   imports: [
@@ -94,7 +102,8 @@ import { UIService } from './core/services/ui.service';
     HttpClientModule,
     HttpModule,
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AmazingTimePickerModule
   ],
   providers: [
     AuthService,

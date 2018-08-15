@@ -40,13 +40,13 @@
                <div class="list-group">
                 <a  class="list-group-item list-group-item-action"
                 routerLinkActive="active"
-                >
-                        Tenders <i class="fa fa-plus pull-right"></i>
+                [routerLink]="['/school','tenders','mine']">
+                        My Tenders <i class="fa fa-plus pull-right"></i>
                 </a>
-                <a  class="list-group-item list-group-item-action" routerLinkActive="active">
-                    Collective tenders <i class="fa fa-eye pull-right"></i>
+                <a  class="list-group-item list-group-item-action" routerLinkActive="active" [routerLink]="['/school','tender','collective']">
+                    Collective tenders  <i class="fa fa-eye pull-right"></i>
                 </a>
-                <a  class="list-group-item list-group-item-action" routerLinkActive="active">
+                <a  class="list-group-item list-group-item-action" routerLinkActive="active" [routerLink]="['/school','tenders','new']">
                   Create a tender <i class="fa fa-eye pull-right"></i>
               </a>
               

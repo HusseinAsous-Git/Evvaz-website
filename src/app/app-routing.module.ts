@@ -1,3 +1,6 @@
+import { CollectiveTenderComponent } from './core/modules/dashboards/collective-tender/collective-tender.component';
+import { ViewTenderComponent } from './core/modules/dashboards/view-tender/view-tender.component';
+import { MyTendersComponent } from './core/modules/dashboards/my-tenders/my-tenders.component';
 import { OfferPlatformComponent } from './core/modules/home-page/offer-platform/offer-platform.component';
 import { AuthGuard } from './core/services/auth.gaurd.service';
 import { HomePageComponent } from './core/modules/home-page/home-page.component';
@@ -26,6 +29,7 @@ import { SchoolOrdersComponent } from './core/modules/dashboards/school-orders/s
 import { SchoolOrdersHistoryComponent } from './core/modules/dashboards/school-orders-history/school-orders-history.component';
 import { SchoolProfileComponent } from './core/modules/dashboards/school-profile/school-profile.component';
 import { OfferDetailsComponent } from './core/modules/offer-details/offer-details.component';
+import { NewTenderComponent } from './core/modules/dashboards/new-tender/new-tender.component';
 /*Our Services*/
 
 const routes: Routes = [
@@ -46,6 +50,10 @@ const routes: Routes = [
         {path:'orders', component:SchoolOrdersComponent},
         {path:'history', component:SchoolOrdersHistoryComponent},
         {path:'profile', component:SchoolProfileComponent},
+        {path:'tenders/new', component:NewTenderComponent},
+        {path:'tenders/mine', component:MyTendersComponent},
+        {path:'tender/view', component:ViewTenderComponent},
+        {path:'tender/collective', component:CollectiveTenderComponent}
     ]},
     { path: 'home-page', component: HomePageComponent, canActivate: [AuthGuard] },
     {

@@ -19,6 +19,8 @@ body {
 	font-family: 'Oswald', sans-serif;
 	
 } 
+
+
 a:hover {
 	text-decoration: none;
 }
@@ -611,7 +613,8 @@ label {
 }
 
 .card{
-  width: 500px
+	width: 500px;
+	border: 1px solid #00b7cb	
 }
 .txt-color{
   color:#96c2c7 ;
@@ -641,4 +644,27 @@ label {
 }
 .footer-icon:hover{
 	color: snow;
+}
+
+.btn-green {
+	background-color: #96c2c7;
+}
+
+.view-btn {
+	background-color: limegreen;
+	color: white;
+	width: 80px
+}
+.card-big {
+	width: 100%
+}
+
+.btn-blue{
+	color: white;
+	background-color: #12a5e1;
+	width: 80px
+}
+
+.color-grey{
+	color: grey;
 }
