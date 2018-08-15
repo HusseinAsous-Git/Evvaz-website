@@ -48,7 +48,7 @@ export class GetCompaniesService {
     console.log(this.follow_req_body);
     return this.http.delete(environment.apiPath +'follow/org/'+org_id+'/follower/'+school_id);
   }
-  // isFollowedCompany(organization_id,logged_id){
-  //   return this.http.get(environment.apiPath + 'follow/company/' + organization_id +'/school/'+ logged_id);
-  // }
+  isFollowedCompany(organization_id,logged_id){
+    return this.http.get(environment.apiPath + 'follow/company/' + organization_id +'/school/'+ logged_id);
+  }
 }

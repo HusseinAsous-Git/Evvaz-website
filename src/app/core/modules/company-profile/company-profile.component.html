@@ -1,8 +1,8 @@
 <app-home-header></app-home-header>
-<div *ngIf="!company" class="preloader">
+<div *ngIf="!offers" class="preloader">
     <img src="../../../../../assets/images/_ws.gif" alt="">
 </div>
-<section class="intro" *ngIf="company" [ngStyle]="{ 'background-image': 'url(data:image/png;base64,' + company['company_cover_image'] + ')'}">
+<section class="intro"  [ngStyle]="{ 'background-image': 'url(data:image/png;base64,' + company['company_cover_image'] + ')'}">
   <div class="overlay" >
     <div class="container">
       <div class="row">
@@ -25,9 +25,9 @@
                 {{company['company_website_url']}} 
               </h5>
             </span>
-            <div class="map">
-              <!-- <button *ngIf="!isUserFollowingThisCompany()" (click)="followCompany(company['company_id'])" class="btn btn-outline-info">Follow</button>
-              <button *ngIf="flag" (click)="unfollowCompany(company['company_id'])" (click)="followCompany(company['company_id'])" class="btn btn-outline-danger">Unfollow</button> -->
+            <div class="map" >
+              <button *ngIf="flag==false" (click)="followCompany(id)" class="btn btn-outline-info">follow</button>
+              <button *ngIf="flag==true" (click)="unfollowCompany(id)" class="btn btn-outline-danger">Unfollow</button>
             </div>
           </div>
           
@@ -63,7 +63,7 @@
 
 <section class="news">
   <div class="container">
-    <div class="row">
+    <div class="row" >
       <div class="col-lg-4 col-md-6 col-sm-6 col-8 m-auto d-flex align-items-stretch" *ngFor="let offer of offers" routerLink="../../offer-details/{{company['company_id']}}/{{offer['offer_id']}}">
         
           <!--  -->

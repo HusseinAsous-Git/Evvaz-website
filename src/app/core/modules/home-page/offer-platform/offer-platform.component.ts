@@ -1,10 +1,12 @@
 import { GetCompaniesService } from '../../../services/get-companies/get-companies.service';
 import { environment } from '../../../../../environments/environment.prod';
-
+import { DomSanitizer } from '@angular/platform-browser';
 import { Component, OnInit } from '@angular/core';
+import { ProfileService } from '../../../services/profile/profile.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Http, Response } from '@angular/http';
+import { ActivatedRoute } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 /*model*/
 import { CompaniesInfo } from '../../../models/companies-info';
@@ -73,28 +75,7 @@ export class OfferPlatformComponent implements OnInit {
       }
     );
   }
-  // isFollowedCompany(organization_id){
-
-  //   for(let organization of this.followListResponseHolder){
-  //     if(organization['organization_id']==organization_id){
-  //       console.log(organization['organization_id']);
-  //      return true;
-  //     }
-  //   }
-  //   return false;
-    
-  // }
-  // followedList(){
-  //   let logged_id=this.UserData['login_id'];
-  //   this.Companies.getFollowedCompanies(logged_id).subscribe(
-  //     (response) =>{
-  //       if(response['status']==200){
-  //         this.followListResponseHolder=response['list'];
-  //       }
-        
-  //     }
-  //   );
-  // }
+ 
 }
 
 

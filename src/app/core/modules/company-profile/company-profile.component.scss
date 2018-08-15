@@ -690,3 +690,9 @@ color: #12a5e1;
 
     }
 }
+.btn-outline-danger{
+    background-color: snow;
+    &:hover{
+        background-color:#dc3545;
+    }
+}

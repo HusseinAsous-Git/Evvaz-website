@@ -18,7 +18,7 @@ export class CompanyProfileComponent implements OnInit {
   offers: Object;
   UserData: Object;
   checker
-  flag
+  flag;
   constructor(private route: ActivatedRoute, private profileService : ProfileService,
     private Company$: GetCompaniesService, private sanitizer: DomSanitizer) {
     this.route.params.subscribe(params => {
@@ -32,16 +32,21 @@ export class CompanyProfileComponent implements OnInit {
   ngOnInit() {
   
     this.Company$.getCompany(this.id).subscribe(
-      (Company) => {
-        this.company =Company;  
+      (response) => {
+          this.isUserFollowingThisCompany();
+          this.company = response;
+        
+          
         //console.log(this.company);     
       },
       (error) => {
         console.log('errors ', error)
       }
     );
-
-
+    
+    
+     
+    
 
     
     this.Company$.getCompanyFollowCount(this.id).subscribe(
@@ -55,14 +60,14 @@ export class CompanyProfileComponent implements OnInit {
       }
     );
     this.profileService.getOffers(this.id).subscribe(
-      (res: { list: any[] }) => {
-        //console.log("offers" + res.list.length);
-        this.offers = res.list;
-      },
-      // (offers) => {
-      //   this.offers =offers;  
-      //   //console.log("offers object : "+this.offers);     
+      // (res: { list: any[] }) => {
+      //   //console.log("offers" + res.list.length);
+      //   this.offers = res.list;
       // },
+      (offers) => {
+        this.offers =offers['list'];  
+        //console.log("offers object : "+this.offers);     
+      },
       (error) => {
         console.log('errors ', error)
       }
@@ -70,27 +75,24 @@ export class CompanyProfileComponent implements OnInit {
   }
   
 
-  // isUserFollowingThisCompany(org_id){
-  //   this.Company$.isFollowedCompany(org_id,this.UserData['login_id']).subscribe(
-  //     (response)=>{
-  //       this.flag=response;
-  //       this.checker="done";
-  //       //console.log(this.flag);
-  //       //console.log(!this.flag);
-  //       return this.flag;
-  //     }
-  //   );
-  // }
-
-  followCompany(org_id){
+  isUserFollowingThisCompany(){
+    this.Company$.isFollowedCompany(this.id,this.UserData['login_id']).subscribe(
+      (response)=>{
+        this.flag=response;
+      }
+    );
     
-    this.Company$.followCompany(org_id,this.UserData['login_id'])
+  }
+
+  followCompany(){
+    
+    this.Company$.followCompany(this.id,this.UserData['login_id'])
     .subscribe(
       (response) =>{
         if(response['status']==200){
           console.log('Follow Worked');
           this.flag=true;
-          location.reload();
+          //location.reload();
         }
         else{
           this.flag=false;
@@ -98,23 +100,24 @@ export class CompanyProfileComponent implements OnInit {
         }
       }
     );
-    
+    this.isUserFollowingThisCompany()
   }
   unfollowCompany(){
     
-    this.Company$.unfollowCompany(this.company['company_id'],this.UserData['login_id'])
+    this.Company$.unfollowCompany(this.id,this.UserData['login_id'])
     .subscribe(
       (response) =>{
         if(response['status']==200){
           console.log('Unfollow Worked');
 
-          location.reload();
+          //location.reload();
         }
         else{
           console.log('unfollow Fail');
         }
       }
     );
+    this.isUserFollowingThisCompany()
   }
 
 
