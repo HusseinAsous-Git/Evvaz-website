@@ -1,3 +1,4 @@
+import { InsurancePlatformComponent } from './core/modules/insurance-platform/insurance-platform.component';
 import { SchoolService } from './core/services/school.service';
 import { SchoolProfileService } from './core/services/school.profile.service';
 import { ProfileResolver } from './core/services/profle.resolver';
@@ -37,7 +38,6 @@ import { AuthGuard } from './core/services/auth.gaurd.service';
 import { AuthService } from './core/services/auth.service';
 import { GetCompaniesService } from './core/services/get-companies/get-companies.service';
 import { AuthInterceptor } from './core/services/auth.interceptor.service';
-import { UnifyingPlatformComponent } from './core/modules/unifying-platform/unifying-platform.component';
 import { CompanyProfileComponent } from './core/modules/company-profile/company-profile.component';
 import { ProfileService } from './core/services/profile/profile.service';
 import { MyOrdersComponent } from './core/modules/dashboards/my-orders/my-orders.component';
@@ -55,7 +55,8 @@ import { NewTenderComponent } from './core/modules/dashboards/new-tender/new-ten
 import {AmazingTimePickerModule} from "amazing-time-picker";
 import { MyTendersComponent } from './core/modules/dashboards/my-tenders/my-tenders.component';
 import { ViewTenderComponent } from './core/modules/dashboards/view-tender/view-tender.component';
-import { CollectiveTenderComponent } from './core/modules/dashboards/collective-tender/collective-tender.component' ;
+import { CollectiveTenderComponent } from './core/modules/dashboards/collective-tender/collective-tender.component';
+import { UnifyingPlatformComponent } from './core/modules/unifying-platform/unifying-platform.component' ;
 
 @NgModule({
   declarations: [
@@ -68,7 +69,7 @@ import { CollectiveTenderComponent } from './core/modules/dashboards/collective-
     HomeHeaderComponent,
     HomePageComponent,
     OfferPlatformComponent,
-    UnifyingPlatformComponent,
+    InsurancePlatformComponent,
     CompanyProfileComponent,
     FollowersComponent,
     HeaderDashboardComponent,
@@ -91,7 +92,8 @@ import { CollectiveTenderComponent } from './core/modules/dashboards/collective-
     NewTenderComponent,
     MyTendersComponent,
     ViewTenderComponent,
-    CollectiveTenderComponent
+    CollectiveTenderComponent,
+    UnifyingPlatformComponent
 
   ],
   imports: [

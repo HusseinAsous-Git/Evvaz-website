@@ -1,8 +1,8 @@
 import { Router } from '@angular/router';
-import { SchoolService } from './../../../services/school.service';
+import { SchoolService } from '../../../services/school.service';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '../../../../../../node_modules/@angular/forms';
-import { AmazingTimePickerService } from '../../../../../../node_modules/amazing-time-picker';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AmazingTimePickerService } from 'amazing-time-picker';
 import { TenderCategoryModel } from '../../../models/tender.category.model';
 
 @Component({

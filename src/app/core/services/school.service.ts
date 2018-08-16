@@ -1,5 +1,5 @@
 
-import { TenderModel } from './../models/tender.model';
+import { TenderModel } from '../models/tender.model';
 import {  CompanyModel } from '../models/company.model';
 import {  SchoolHistoryModel } from '../models/school.history.model';
 import { SchollFollowerModel } from '../models/shool.follower.model';

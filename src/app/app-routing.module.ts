@@ -1,3 +1,4 @@
+import { InsurancePlatformComponent } from './core/modules/insurance-platform/insurance-platform.component';
 import { CollectiveTenderComponent } from './core/modules/dashboards/collective-tender/collective-tender.component';
 import { ViewTenderComponent } from './core/modules/dashboards/view-tender/view-tender.component';
 import { MyTendersComponent } from './core/modules/dashboards/my-tenders/my-tenders.component';
@@ -12,7 +13,6 @@ import { Routes, Router, RouterModule } from '@angular/router';
 import { LoginComponent } from './core/modules/login/login.component';
 import { IndexComponent } from './core/modules/index/index.component';
 import { SignUpComponent } from './core/modules/sign-up/sign-up.component';
-import { UnifyingPlatformComponent } from './core/modules/unifying-platform/unifying-platform.component';
 import { CompanyProfileComponent } from './core/modules/company-profile/company-profile.component';
 import { HomeComponent } from './core/modules/dashboards/home/home.component';
 import { NewOfferComponent } from './core/modules/dashboards/new-offer/new-offer.component';
@@ -63,7 +63,7 @@ const routes: Routes = [
     },
     {path:'offer-details/:company_id/:offer_id', component: OfferDetailsComponent, canActivate: [AuthGuard]},
     { path: 'company/:id', component: CompanyProfileComponent, canActivate: [AuthGuard]},
-    { path: 'unifying-platform', component: UnifyingPlatformComponent , canActivate: [AuthGuard]},
+    { path: 'unifying-platform', component: InsurancePlatformComponent , canActivate: [AuthGuard]},
     { path: '', component: IndexComponent },
     { path: 'login', component: LoginComponent },
     { path: 'sign-up', component: SignUpComponent },

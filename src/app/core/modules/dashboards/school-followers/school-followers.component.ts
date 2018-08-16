@@ -1,4 +1,4 @@
-import { CompanyService } from './../../../services/company.service';
+import { CompanyService } from '../../../services/company.service';
 
 import { Component, OnInit } from '@angular/core';
 import { SchollFollowerModel } from '../../../models/shool.follower.model';

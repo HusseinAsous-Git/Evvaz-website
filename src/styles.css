@@ -613,7 +613,7 @@ label {
 }
 
 .card{
-	width: 500px;
+
 	border: 1px solid #00b7cb	
 }
 .txt-color{
@@ -667,4 +667,8 @@ label {
 
 .color-grey{
 	color: grey;
+}
+
+.card-f{
+	width: 500px
 }

@@ -1,4 +1,4 @@
-import { SchoolService } from './../../../services/school.service';
+import { SchoolService } from '../../../services/school.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
