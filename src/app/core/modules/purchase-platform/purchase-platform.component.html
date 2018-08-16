@@ -1,0 +1,91 @@
+<app-home-header></app-home-header>
+<div *ngIf="false" class="preloader">
+    <img src="../../../../../assets/images/_ws.gif" alt="">
+</div>
+<section class="intro clearfix " style="background-image:url(assets/img/Heading.png)">
+    <div class="overlay">
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col col-12">
+                    <!-- <div class="col-md- ">
+              
+                 
+            </div> -->
+
+                    <div routerLink="/home-page" class="go-back">
+                        <i class="fa fa-chevron-left"></i>
+                        <span>Back</span>
+                    </div>
+
+
+                    <h3 class=" offers">Purchasing Platform</h3>
+                    <p class="description  ">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur quis deleniti blanditiis mollitia minus cum distinctio
+                        saepe consequatur nisi? Consequatur beatae vitae aperiam minus necessitatibus amet nemo pariatur
+                        illum officia.
+                    </p>
+
+
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+<section class="internal-page">
+    <div class="container">
+        <div class="row lister">
+            <div class="col-md-12 heading-pp">
+                <h2>
+                    <span>Purchasing</span> Category</h2>
+            </div>
+            <div class="col-lg-3 col-md-6 col-12" *ngFor="let category  of ['Electric Devices','IT devices','IT service','consulting','Contracting','Education&Training','Equepment','Regulation','Food Items','Fuirnature','Logistic services','Maintainance']">
+                <div class="item item-overlay" style="background-image:url(../../../assets/img/orders/01.png)">
+                    <!-- *ngFor="let offer of offers" -->
+
+                    <div class="overlay">
+                        <!--  -->
+                        <a>
+                            <h5 class="heading-overlay company-name">{{category}}</h5>
+                        </a>
+
+                        <p>helps editors access reliable sources to improve Wikipedia. </p>
+                        <div class="followers " >
+                            <div class="icons-holder">
+                                <div class="profile-icon" *ngFor="let index  of [1,2,3,4,5]"></div>
+                                <span>+15 Followers</span>
+                            </div>
+                            
+                        </div>
+                        <hr>
+                        
+                        <div class="values d-flex justify-content-between align-items-center">
+                            <div class="">
+                                <p>Offers</p>
+                                <p>12345</p>
+                            </div>
+                            <div>
+                                <p>requests</p>
+                                <p>124500</p>
+                            </div>
+                            <div class="go d-flex align-items-center">
+                                <span>go</span>
+
+                                <i class="fa fa-chevron-right "></i>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<app-footer></app-footer>

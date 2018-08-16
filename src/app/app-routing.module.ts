@@ -30,6 +30,7 @@ import { SchoolOrdersHistoryComponent } from './core/modules/dashboards/school-o
 import { SchoolProfileComponent } from './core/modules/dashboards/school-profile/school-profile.component';
 import { OfferDetailsComponent } from './core/modules/offer-details/offer-details.component';
 import { NewTenderComponent } from './core/modules/dashboards/new-tender/new-tender.component';
+import { PurchasePlatformComponent } from './core/modules/purchase-platform/purchase-platform.component';
 /*Our Services*/
 
 const routes: Routes = [
@@ -67,6 +68,7 @@ const routes: Routes = [
     { path: '', component: IndexComponent },
     { path: 'login', component: LoginComponent },
     { path: 'sign-up', component: SignUpComponent },
+    { path: 'purchase-platform', component: PurchasePlatformComponent }
     
 ];
 

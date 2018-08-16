@@ -55,7 +55,8 @@ import { NewTenderComponent } from './core/modules/dashboards/new-tender/new-ten
 import {AmazingTimePickerModule} from "amazing-time-picker";
 import { MyTendersComponent } from './core/modules/dashboards/my-tenders/my-tenders.component';
 import { ViewTenderComponent } from './core/modules/dashboards/view-tender/view-tender.component';
-import { CollectiveTenderComponent } from './core/modules/dashboards/collective-tender/collective-tender.component' ;
+import { CollectiveTenderComponent } from './core/modules/dashboards/collective-tender/collective-tender.component';
+import { PurchasePlatformComponent } from './core/modules/purchase-platform/purchase-platform.component' ;
 
 @NgModule({
   declarations: [
@@ -91,7 +92,8 @@ import { CollectiveTenderComponent } from './core/modules/dashboards/collective-
     NewTenderComponent,
     MyTendersComponent,
     ViewTenderComponent,
-    CollectiveTenderComponent
+    CollectiveTenderComponent,
+    PurchasePlatformComponent
 
   ],
   imports: [
