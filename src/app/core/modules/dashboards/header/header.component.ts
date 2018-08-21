@@ -33,9 +33,9 @@ export class HeaderDashboardComponent implements OnInit {
   }
 
   toggleSidebar(){
-    if(!this.uiservice.getSidebarStatus()){
-      this.uiservice.sidebarStatus = true ; 
-    }
+    
+      this.uiservice.sidebarStatus = !this.uiservice.sidebarStatus ; 
+    
     console.log("toggled")
   }
 

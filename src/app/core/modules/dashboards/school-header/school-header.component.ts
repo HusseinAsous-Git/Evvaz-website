@@ -24,9 +24,9 @@ name : string;
   }
 
   toggleSidebar(){
-    if(!this.uiService.getSidebarStatus()){
-      this.uiService.sidebarStatus = true ; 
-    }
+    
+      this.uiService.sidebarStatus = !this.uiService.sidebarStatus ; 
+    
     console.log("toggled")
   }
 

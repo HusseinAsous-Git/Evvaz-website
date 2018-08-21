@@ -56,7 +56,15 @@ import {AmazingTimePickerModule} from "amazing-time-picker";
 import { MyTendersComponent } from './core/modules/dashboards/my-tenders/my-tenders.component';
 import { ViewTenderComponent } from './core/modules/dashboards/view-tender/view-tender.component';
 import { CollectiveTenderComponent } from './core/modules/dashboards/collective-tender/collective-tender.component';
-import { PurchasePlatformComponent } from './core/modules/purchase-platform/purchase-platform.component' ;
+import { PurchasePlatformComponent } from './core/modules/purchase-platform/purchase-platform.component';
+import { AdminSidebarComponent } from './core/modules/dashboards/admin-sidebar/admin-sidebar.component';
+import { AdminHeaderComponent } from './core/modules/dashboards/admin-header/admin-header.component';
+import { AdminHomeComponent } from './core/modules/dashboards/admin-home/admin-home.component';
+import { AdminNewTenderComponent } from './core/modules/dashboards/admin-new-tender/admin-new-tender.component';
+import { AdminMyTendersComponent } from './core/modules/dashboards/admin-my-tenders/admin-my-tenders.component';
+import { AdminOrdersComponent } from './core/modules/dashboards/admin-orders/admin-orders.component';
+import { AdminRequestsComponent } from './core/modules/dashboards/admin-requests/admin-requests.component';
+import { AdminHistoryComponent } from './core/modules/dashboards/admin-history/admin-history.component' ;
 
 @NgModule({
   declarations: [
@@ -93,7 +101,15 @@ import { PurchasePlatformComponent } from './core/modules/purchase-platform/purc
     MyTendersComponent,
     ViewTenderComponent,
     CollectiveTenderComponent,
-    PurchasePlatformComponent
+    PurchasePlatformComponent,
+    AdminSidebarComponent,
+    AdminHeaderComponent,
+    AdminHomeComponent,
+    AdminNewTenderComponent,
+    AdminMyTendersComponent,
+    AdminOrdersComponent,
+    AdminRequestsComponent,
+    AdminHistoryComponent
 
   ],
   imports: [

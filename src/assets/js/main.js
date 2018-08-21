@@ -68,3 +68,14 @@
 //         sideMenu.classList.add("slide-out");
 //     })
 // }
+
+
+// var elementPosition = $('#in').offset();
+
+// $(window).scroll(function(){
+//         if($(window).scrollTop() > elementPosition.top){
+//               $('#in').css('position','fixed').css('top','0');
+//         } else {
+//             $('#in').css('position','static');
+//         }    
+// });

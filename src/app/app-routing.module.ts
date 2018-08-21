@@ -31,6 +31,12 @@ import { SchoolProfileComponent } from './core/modules/dashboards/school-profile
 import { OfferDetailsComponent } from './core/modules/offer-details/offer-details.component';
 import { NewTenderComponent } from './core/modules/dashboards/new-tender/new-tender.component';
 import { PurchasePlatformComponent } from './core/modules/purchase-platform/purchase-platform.component';
+import { AdminHomeComponent } from './core/modules/dashboards/admin-home/admin-home.component';
+import { AdminNewTenderComponent } from './core/modules/dashboards/admin-new-tender/admin-new-tender.component';
+import { AdminMyTendersComponent } from './core/modules/dashboards/admin-my-tenders/admin-my-tenders.component';
+import { AdminOrdersComponent } from './core/modules/dashboards/admin-orders/admin-orders.component';
+import { AdminRequestsComponent } from './core/modules/dashboards/admin-requests/admin-requests.component';
+import { AdminHistoryComponent } from './core/modules/dashboards/admin-history/admin-history.component';
 /*Our Services*/
 
 const routes: Routes = [
@@ -45,6 +51,13 @@ const routes: Routes = [
 
 
 
+    ]},
+    {path:'admin', component: AdminHomeComponent, children: [
+        {path:'tenders/new', component:AdminNewTenderComponent},
+        {path:'tenders/mine', component:AdminMyTendersComponent},
+        {path:'orders', component:AdminOrdersComponent},
+        {path:'requests', component:AdminRequestsComponent},
+        {path:'history', component:AdminHistoryComponent},
     ]},
     {path:'school', component:SchoolHomeComponent, children: [
         {path:'followers', component:SchoolFollowersComponent},

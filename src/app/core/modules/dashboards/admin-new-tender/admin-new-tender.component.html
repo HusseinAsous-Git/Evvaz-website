@@ -1,17 +1,17 @@
-<div style="margin-top: 100px;">
+<nav class="">
   <ul class="breadcrumb ">
     <li class="breadcrumb-item">
-      <a [routerLink]="['/home']">Dashboard</a>
+      <a [routerLink]="['/admin']">Dashboard</a>
     </li>
 
     <li class="breadcrumb-item">
-      <a [routerLink]="['/home']">Tenders</a>
+      <a [routerLink]="['/admin']">Tenders</a>
     </li>
     <li class="breadcrumb-item active">
       New
     </li>
   </ul>
-</div>
+</nav>
  
       <!-- new tender form here -->
       <div class="col-sm-8 col-sm offset-2">
@@ -59,27 +59,28 @@
                 class="help-block" >This feild is required!</span>
   
                 <br>
-                
+                <label for="#" style="color: black; font-weight: bold">School TimeFrime</label>
+                <hr>
                 <div class="row">
                   <div class="col-sm-6">
                     <div class="form-group">
-                      <label for="fromdate">From</label>
+                      <label for="schoolfromdate">From</label>
                       <input type="date"
                        class="form-control"
-                        id="fromdate"
-                          placeholder="Tender name"
-                          formControlName="fromdate"
+                        id="schoolfromdate"
+                          
+                          formControlName="schoolfromdate"
                          
                           >
                     </div>
                   </div>
                   <div class="col-sm-6">
                     <div class="form-group">
-                      <label for="startTime">Time from</label>
-                      <input type="text" formControlName="startTime"  id="startTime"
+                      <label for="schoolstartTime">Time from</label>
+                      <input type="text" formControlName="schoolstartTime"  id="schoolstartTime"
           apt-time-picker class="form-control"
-           placeholder="start time" #startTime 
-           (click)="setStartTime()">
+           placeholder="start time" #schoolstartTime 
+           (click)="setSchoolStartTime()">
                     </div>
                   </div>
                 </div>
@@ -87,35 +88,86 @@
                 <div class="row">
                   <div class="col-sm-6">
                     <div class="form-group">
-                      <label for="todate">To</label>
+                      <label for="schooltodate">To</label>
                       <input type="date"
                        class="form-control"
-                        id="todate"
-                          placeholder="Tender name"
-                          formControlName="todate"
+                        id="schooltodate"
+                          
+                          formControlName="schooltodate"
                          
                           >
                     </div>
                   </div>
                   <div class="col-sm-6">
                     <div class="form-group">
-                      <label for="timeto">Time to</label>
-                      <input type="text" id="timeto"
-           formControlName="endTime" 
+                      <label for="schooltimeto">Time to</label>
+                      <input type="text" id="schooltimeto"
+           formControlName="schoolendTime" 
            class="form-control" 
            placeholder="end time" 
-           apt-time-picker #endTime
-            (click)="setEndTime()" >
+           apt-time-picker #schoolendTime
+            (click)="setSchoolEndTime()" >
                     </div>
                   </div>
                 </div>
             
+                <br>
 
-               
+               <label for="#" style="color: black; font-weight: bold">Company TimeFrime</label>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="companyfromdate">From</label>
+                      <input type="date"
+                       class="form-control"
+                        id="companyfromdate"
+                          
+                          formControlName="companyfromdate"
+                         
+                          >
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="companystartTime">Time from</label>
+                      <input type="text" formControlName="companystartTime"  id="companystartTime"
+          apt-time-picker class="form-control"
+           placeholder="start time" #companystartTime 
+           (click)="setCompanyStartTime()">
+                    </div>
+                  </div>
+                </div>
+         
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="companytodate">To</label>
+                      <input type="date"
+                       class="form-control"
+                        id="companytodate"
+                          
+                          formControlName="companytodate"
+                         
+                          >
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="companytimeto">Time to</label>
+                      <input type="text" id="companytimeto"
+           formControlName="companyendTime" 
+           class="form-control" 
+           placeholder="end time" 
+           apt-time-picker #companyendTime
+            (click)="setCompanyEndTime()" >
+                    </div>
+                  </div>
+                </div>
 
 
               
-                <button class="btn btn-danger ml-2 pull-right" [routerLink]="['/school']">Cancel</button>
+                <button class="btn btn-danger ml-2 pull-right" [routerLink]="['/admin']">Cancel</button>
             <button class="btn btn-success ml-2 pull-right" type="submit">Create</button>
             
             
