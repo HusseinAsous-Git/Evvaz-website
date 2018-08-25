@@ -1,0 +1,70 @@
+<div class="" style="margin-top: 100px">
+  <ul class="breadcrumb ">
+      <li class="breadcrumb-item">
+          <a [routerLink]="['/admin']">Admin</a>
+      </li>
+     
+      <li class="breadcrumb-item ">
+        <a [routerLink]="['/admin','requests']">Requests</a>
+      </li>
+      <li class="breadcrumb-item active">
+        View
+      </li>
+  </ul>
+</div>
+
+<div class="col-sm-12">
+        
+  <div class="card card-big">
+    <div class="card-title mx-4 mt-2">
+      <!-- Taj tenders  <br> {{this.date | date}}
+      <div class="pull-right">
+         <button class="btn view-btn" [routerLink]="['/school/tender/view']">View</button>
+      </div>  -->
+      <div class="row">
+        <div class="col-sm-10">
+          Taj Company  <br> <div style="color: grey">{{this.date | date:'short'}} </div>
+        </div>
+                  
+        <div class="col-sm-2">
+          <button class="btn view-btn" style="margin-left: 70px; margin-top: 10px;">Agree</button>
+        </div>
+        
+       
+       
+      </div>
+    </div>
+    <hr>
+    
+    <div class="row mt-4 mb-4">
+    <i class="fa fa-at " style="font-size: 50px; margin-left: 30px;margin-top: -15px"></i>
+   <div style="margin-left: 20px; margin-top: -15px;"> 
+     Email <br> <div style="color: grey">Tag51Group@Gmail.com</div> 
+   </div>
+    </div>
+    <hr>
+    <div class="row mt-4 mb-4">
+        <i class="fa fa-phone " style="font-size: 50px; margin-left: 30px;margin-top: -15px"></i>
+       <div style="margin-left: 20px; margin-top: -15px;"> 
+         Phone Number <br>  <div style="color: grey">002 5412 45448 125 </div> 
+       </div>
+        </div>
+        <hr>
+    <div class="row mt-4 mb-4">
+        <i class="fa fa-cog " style="font-size: 50px; margin-left: 30px;margin-top: -15px"></i>
+       <div style="margin-left: 20px; margin-top: -15px;"> 
+        <div > Services </div>
+         <br> 
+         <div style="color: grey">
+         Books <br>
+         Pencils <br>
+         Pens <br>
+         Papers <br>
+         colors
+        </div>
+       </div>
+        </div>
+  </div>
+
+</div>
+

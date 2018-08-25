@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-requests.component.scss']
 })
 export class AdminRequestsComponent implements OnInit {
-
+date:Date;
   constructor() { }
 
   ngOnInit() {
+    this.date = new Date();
   }
 
 }
