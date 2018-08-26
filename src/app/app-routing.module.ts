@@ -30,6 +30,7 @@ import { SchoolOrdersHistoryComponent } from './core/modules/dashboards/school-o
 import { SchoolProfileComponent } from './core/modules/dashboards/school-profile/school-profile.component';
 import { OfferDetailsComponent } from './core/modules/offer-details/offer-details.component';
 import { NewTenderComponent } from './core/modules/dashboards/new-tender/new-tender.component';
+import { UnifyingPlatformComponent } from './core/modules/unifying-platform/unifying-platform.component';
 /*Our Services*/
 
 const routes: Routes = [
@@ -63,10 +64,11 @@ const routes: Routes = [
     },
     {path:'offer-details/:company_id/:offer_id', component: OfferDetailsComponent, canActivate: [AuthGuard]},
     { path: 'company/:id', component: CompanyProfileComponent, canActivate: [AuthGuard]},
-    { path: 'unifying-platform', component: InsurancePlatformComponent , canActivate: [AuthGuard]},
+    { path: 'insurance-platform', component: InsurancePlatformComponent , canActivate: [AuthGuard]},
     { path: '', component: IndexComponent },
     { path: 'login', component: LoginComponent },
     { path: 'sign-up', component: SignUpComponent },
+    { path: 'unifying-platform', component: UnifyingPlatformComponent },
     
 ];
 
