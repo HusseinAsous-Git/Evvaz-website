@@ -1,4 +1,7 @@
-<nav class="">
+<app-school-sidebar></app-school-sidebar>
+<app-school-header></app-school-header>
+<div class="container">
+<div style="margin-top: 100px;">
   <ul class="breadcrumb ">
     <li class="breadcrumb-item">
       <a [routerLink]="['/school']">Dashboard</a>
@@ -8,7 +11,7 @@
       Profile
     </li>
   </ul>
-</nav>
+</div>
 
 <div class="row" >
   <div class="col-sm-8 col-sm offset-2">
@@ -132,4 +135,5 @@
         <img *ngIf="isloading" class="mt-3" src="../../../assets/images/bs.gif" alt="">
     </div>
   </div>
+</div>
 </div>

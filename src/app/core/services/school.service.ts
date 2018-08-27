@@ -43,7 +43,7 @@ getFollowers(id: number){
 }
 
 getSchoolOrders(id: number) {
-    let url = `${environment.apiPath}school/requests/get/${id}`;
+    let url = `${environment.apiPath}school/tenders/school/${id}`;
     return this.httpClient.get<SchoolOrdersModel[]>(url);
 }
 

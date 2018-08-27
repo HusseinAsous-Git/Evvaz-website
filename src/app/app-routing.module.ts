@@ -1,3 +1,6 @@
+import { AdminTenderInCompanyComponent } from './core/modules/dashboards/admin-tender-in-company/admin-tender-in-company.component';
+import { AdminHistoryViewComponent } from './core/modules/dashboards/admin-history-view/admin-history-view.component';
+import { AdminAllTendersComponent } from './core/modules/dashboards/admin-all-tenders/admin-all-tenders.component';
 import { InsurancePlatformComponent } from './core/modules/insurance-platform/insurance-platform.component';
 import { CollectiveTenderComponent } from './core/modules/dashboards/collective-tender/collective-tender.component';
 import { ViewTenderComponent } from './core/modules/dashboards/view-tender/view-tender.component';
@@ -31,31 +34,49 @@ import { SchoolProfileComponent } from './core/modules/dashboards/school-profile
 import { OfferDetailsComponent } from './core/modules/offer-details/offer-details.component';
 import { NewTenderComponent } from './core/modules/dashboards/new-tender/new-tender.component';
 import { UnifyingPlatformComponent } from './core/modules/unifying-platform/unifying-platform.component';
+import { PurchasePlatformComponent } from './core/modules/purchase-platform/purchase-platform.component';
+import { AdminHomeComponent } from './core/modules/dashboards/admin-home/admin-home.component';
+import { AdminNewTenderComponent } from './core/modules/dashboards/admin-new-tender/admin-new-tender.component';
+import { AdminMyTendersComponent } from './core/modules/dashboards/admin-my-tenders/admin-my-tenders.component';
+import { AdminOrdersComponent } from './core/modules/dashboards/admin-orders/admin-orders.component';
+import { AdminRequestsComponent } from './core/modules/dashboards/admin-requests/admin-requests.component';
+import { AdminHistoryComponent } from './core/modules/dashboards/admin-history/admin-history.component';
+import { AdminRequestsViewComponent } from './core/modules/dashboards/admin-requests-view/admin-requests-view.component';
+import { AdminOrderViewComponent } from './core/modules/dashboards/admin-order-view/admin-order-view.component';
 /*Our Services*/
 
 const routes: Routes = [
     {path:'', component:IndexComponent},
-    {path:'home', component: HomeComponent, children: [
-        {path:'offers/new', component:NewOfferComponent},
-        {path:'offers/see', component:OffersComponent},
-        {path:'profile', component:ProfileComponent , resolve: {profile: ProfileResolver}},
-        {path:'followers', component:FollowersComponent},
-        {path:'my-orders', component:MyOrdersComponent},
-        {path:'offers/:id/edit', component:OfferEditComponent, resolve: {offer: OfferResolver}}
+    {path:'company', component: HomeComponent},
+    {path:'company/offers/new', component:NewOfferComponent},
+    {path:'company/offers/see', component:OffersComponent},
+    {path:'company/profile', component:ProfileComponent , resolve: {profile: ProfileResolver}},
+    {path:'company/followers', component:FollowersComponent},
+    {path:'company/my-orders', component:MyOrdersComponent},
+    {path:'company/offers/:id/edit', component:OfferEditComponent, resolve: {offer: OfferResolver}},
 
+    {path:'admin', component: AdminHomeComponent},
+    {path:'admin/tenders/new', component:AdminNewTenderComponent},
+        {path:'admin/tenders/mine', component:AdminAllTendersComponent},
+        {path:'admin/tenders/company', component:AdminTenderInCompanyComponent},
+        {path:'admin/tenders/school', component:AdminMyTendersComponent},
+        {path:'admin/tenders/:tenderId/details', component:AdminMyTendersComponent},
+        {path:'admin/orders', component:AdminOrdersComponent},
+        {path:'admin/orders/:orderId/view', component:AdminOrderViewComponent},
+        {path:'admin/requests', component:AdminRequestsComponent},
+        {path:'admin/request/view', component:AdminRequestsViewComponent},
+        {path:'admin/history', component:AdminHistoryComponent},
+        {path:'admin/history/:orderId/view', component:AdminHistoryViewComponent},
 
-
-    ]},
-    {path:'school', component:SchoolHomeComponent, children: [
-        {path:'followers', component:SchoolFollowersComponent},
-        {path:'orders', component:SchoolOrdersComponent},
-        {path:'history', component:SchoolOrdersHistoryComponent},
-        {path:'profile', component:SchoolProfileComponent},
-        {path:'tenders/new', component:NewTenderComponent},
-        {path:'tenders/mine', component:MyTendersComponent},
-        {path:'tender/view', component:ViewTenderComponent},
-        {path:'tender/collective', component:CollectiveTenderComponent}
-    ]},
+    {path:'school', component:SchoolHomeComponent},
+    {path:'school/followers', component:SchoolFollowersComponent},
+    {path:'school/orders', component:SchoolOrdersComponent},
+    {path:'school/history', component:SchoolOrdersHistoryComponent},
+    {path:'school/profile', component:SchoolProfileComponent},
+    {path:'school/tenders/new', component:NewTenderComponent},
+    {path:'school/tenders/mine', component:MyTendersComponent},
+    {path:'school/tender/view', component:ViewTenderComponent},
+    {path:'school/tender/collective', component:CollectiveTenderComponent},
     { path: 'home-page', component: HomePageComponent, canActivate: [AuthGuard] },
     {
         path: 'offer-platform', component: OfferPlatformComponent, canActivate: [AuthGuard],
@@ -69,6 +90,7 @@ const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'sign-up', component: SignUpComponent },
     { path: 'unifying-platform', component: UnifyingPlatformComponent },
+    { path: 'purchase-platform', component: PurchasePlatformComponent }
     
 ];
 

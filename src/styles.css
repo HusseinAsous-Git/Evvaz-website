@@ -374,7 +374,7 @@ footer .custom-email-width{
     top: 0;
     bottom: 0;
     z-index: 30;
-    width: 270px;
+    width: 250px;
     overflow-y: auto;
   }
   
@@ -386,11 +386,11 @@ footer .custom-email-width{
     font-size: 20px;
   }
   .fa{
-    color: #00b7cb ;
+    color: #12a5e1 ;
   }
  
   h3 {
-    color: #00b7cb;
+    color: #12a5e1;
   }
   
   #side-bar::-webkit-scrollbar {
@@ -409,12 +409,12 @@ footer .custom-email-width{
   #side-bar::-webkit-scrollbar-thumb {
     width: 5px;
     border-radius: 5px;
-    background: rgba(4, 162, 179, 0.8);
+    background: #12a5e1;
     transition: all 0.3s ease-in-out;
   }
   
   #side-bar::-webkit-scrollbar-thumb:hover {
-    background: rgba(4, 162, 179, 1);
+    background: #12a5e1;
     transition: all 0.3s ease-in-out;
   }
   .breadcrumb{
@@ -422,7 +422,7 @@ footer .custom-email-width{
   }
   .breadcrumb-item a {
     text-decoration: none;
-    color: #00b7cb;
+    color: #12a5e1;
   }
 
   
@@ -432,17 +432,17 @@ footer .custom-email-width{
 }
 
 .list-group .list-group-item.active {
-  background: #04a2b3 !important;
-  border: solid 1px #04a2b3;
+  background: #12a5e1!important;
+  /* border: solid 1px #12a5e1; */
   color: white;
 }
 
 .list-group .list-group-item .badge {
-  background: #00b7cb;
+  background: #12a5e1
 }
 
 .nav-item.active i {
-  color: #00b7cb !important;
+  color: #12a5e1 !important;
 }
 
 .list-group .list-group-item .fa,
@@ -453,12 +453,12 @@ h1 {
 }
 
 .list-group .list-group-item-action:hover {
-  background: rgba(4, 162, 179, 0.7);
+  background: #12a5e1;
   color: white !important;
 }
 
 .list-group-item {
-  background: rgba(4, 162, 179, 0.6);
+  background: #12a5e1;
   color: rgba(255, 255, 255, 0.60);
   padding-left: 40px !important;
   font-weight: 500;
@@ -466,15 +466,15 @@ h1 {
 }
 
  .list-group-item:hover {
-  background: rgba(4, 162, 179, 1);
+  background: #12a5e1;
   color: rgba(255, 255, 255) !important;
-  border-bottom: solid 1.3px rgba(4, 162, 179, 0.7);
+  border-bottom: solid 1.3px #12a5e1;
   transition: all 0.2s ease-in;
   /* background-color : #222; */
 }
 
  .list-group-item {
-  background: rgba(4, 162, 179, 0.6);
+  background: #12a5e1;
   color: rgba(255, 255, 255, 0.60);
   padding-left: 40px !important;
   font-weight: 500;
@@ -482,9 +482,9 @@ h1 {
 }
 
  .list-group-item:hover {
-  background: rgba(4, 162, 179, 1);
+  background: #12a5e1;
   color: rgba(255, 255, 255) !important;
-  border-bottom: solid 1.3px rgba(4, 162, 179, 0.7);
+  border-bottom: solid 1.3px #12a5e1;
   transition: all 0.2s ease-in;
   /* background-color : #222; */
 }
@@ -519,7 +519,7 @@ h1 {
 }
 
 .table-hover tbody tr:hover {
-  background: rgba(4, 162, 179, 0.7) !important;
+  background: #12a5e1 !important;
   color: white;
 }
 
@@ -548,7 +548,7 @@ a {
 .form-group label {
   font-size: 18px;
   font-weight: 500;
-  color: #00b7cb;
+  color: #12a5e1;
   opacity: 0.8;
 }
 
@@ -561,13 +561,13 @@ a {
 } */
 
 .form-control:focus {
-  border-color: #00b7cb !important;
-  color: #00b7cb;
+  border-color: #12a5e1 !important;
+  color: #12a5e1;
 }
 
 .form-control:focus+.input-group-addon {
-  border-color: #00b7cb;
-  color: #00b7cb;
+  border-color: #12a5e1;
+  color: #12a5e1;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 
@@ -575,7 +575,7 @@ a {
 
 
 .link-green:hover {
-  color: #04a2b3;
+  color: #12a5e1;
   text-decoration: none;
 }
 
@@ -601,24 +601,36 @@ label {
 
 .btn-edit {
   
-  border-color: #00b7cb;
-  color: #00b7cb !important;
-  border: 2px solid #00b7cb; 
+  border-color: #12a5e1;
+  color: #12a5e1 !important;
+  border: 2px solid #12a5e1; 
   transition: all ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 .btn-edit:hover {
   background: white;
-  border-color: #00b7cb;
-  color: #00b7cb !important;
+  border-color: #12a5e1;
+	color: #12a5e1!important;
+	transition: all ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
-
+.edit-green{
+	border-color: green;
+	color: white !important;
+	border: 2px solid green;
+background: #0fc35b
+}
+.edit-green:hover{
+	background: green;
+	border-color: green;
+	color: white !important;
+	transition: all ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
 .avilable{
   color:green;
 }
 
 .card{
-
-	border: 1px solid #00b7cb	
+	width: 500px;
+	border: 1px solid #12a5e1
 }
 .txt-color{
   color:#96c2c7 ;
@@ -675,4 +687,41 @@ label {
 
 .card-f{
 	width: 500px
+}
+.btn-size{
+	width: 130px;
+	margin-left: 35px;
+	margin-top: -20px;
+	position: absolute;
+		z-index: 10;
+		background-color: #12a5e1;
+}
+.btn-primary{
+	background-color: #12a5e1;
+}
+
+.nav{
+	background-color: #12a5e1;
+	color: white;
+	height: 50px;
+	
+}
+
+.summary{
+	position: absolute;
+	background-color: #12a5e1;
+	height: 150px;
+	font-size: 16px;
+	border-radius: 10px;
+	color: white;
+	
+}
+
+.summary-s{
+	position: absolute;
+	background-color: #12a5e1;
+	height: 150px;
+	font-size: 16px;
+	border-radius: 10px;
+	color: white;
 }

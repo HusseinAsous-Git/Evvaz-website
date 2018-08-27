@@ -1,11 +1,11 @@
-<nav class="navbar navbar-expand-sm  pt-1 ">
+<nav class="navbar nav navbar-expand-sm  pt-1 fixed-top" >
   
-  <a (click)="toggleSidebar()" id="in" class="navbar-brand btn btn-green"> 
-    <i class="fa fa-bars"></i> 
+  <a (click)="toggleSidebar()" id="in" class="navbar-brand " style="color: white"> 
+    <i class="fa fa-bars" style="color: white"></i> 
   </a>
-  <span style="color : #00b7cb; font-size: 30px">Evvaz Options</span>
-  <button class="navbar-toggler" data-toggle="collapse" data-target="#navbar">
-    <span class="navbar-toggler-icon"></span>
+  <span style="font-size: 30px">Evvaz School</span>
+  <button class="navbar-toggler" data-toggle="collapse" data-target="#navbar" >
+    <span class="navbar-toggler-icon" style="color: white"></span>
   </button>
   <div class="navbar-collapse collapse" id="navbar">
     <!-- <form [formGroup]="searchForm" class="form-inline form-row" >
@@ -34,8 +34,8 @@
 
       </li> -->
       <li class="nav-item  py-2 dropdown">
-        <a href="#" data-toggle='dropdown' class="nav-link" style="color: black">
-          <i class="fa fa-user-o" ></i>{{name}} <i class="fa fa-caret-down"></i>
+        <a href="#" data-toggle='dropdown' class="nav-link" style="color:white" >
+          <i class="fa fa-user-o" style="color:white"></i>Username <i class="fa fa-caret-down" style="color: white"></i>
         </a>
 
         <div class="dropdown-menu dropdown-menu-right">
@@ -49,14 +49,3 @@
 
 
   </div>
-</nav>
-<!-- <nav class="">
-    <ul class="breadcrumb bg-dark">
-        <li class="breadcrumb-item">
-            <a href="#">Dashboard</a>
-        </li>
-        <li class="breadcrumb-item active">
-            Absence Table
-        </li>
-    </ul>
-</nav> -->

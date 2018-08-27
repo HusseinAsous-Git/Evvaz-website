@@ -1,5 +1,7 @@
-
-<nav class="">
+<app-school-sidebar></app-school-sidebar>
+<app-school-header></app-school-header>
+<div class="container">
+<div style="margin-top: 100px;">
   <ul class="breadcrumb ">
       <li class="breadcrumb-item">
           <a [routerLink]="['/school']">Dashboard</a>
@@ -9,7 +11,7 @@
           My Orders
       </li>
   </ul>
-</nav>
+</div>
 
 <div class="pull-right">
     <p style="color:blue ">({{ count }}) Orders</p>
@@ -49,4 +51,5 @@
              
                
                  
+</div>
 </div>

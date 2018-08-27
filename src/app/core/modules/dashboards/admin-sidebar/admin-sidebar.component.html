@@ -1,0 +1,72 @@
+<section  [ngClass]="{'slide-out' : !uiService.sidebarStatus , 'slide-in' : uiService.sidebarStatus}" 
+ class="col-sm-5 d-sm-none d-md-block"  id="side-bar">
+  <div class="row">
+      <div class="col px-0">
+       
+          <h1 class="text-light mt-2 pr-5 text-center">
+            <!-- <a  id="in" class="py-2 mb-2 mr-4 btn btn-green">
+                <i class="fa fa-bars"></i>
+            </a> -->
+           
+            
+            
+
+
+          </h1>
+          <p class="text-muted pl-4 py-1">Menu</p>
+
+          <div class="list-group ">
+              <a  class=" pl-4 list-group-item list-group-item-action" 
+                  [routerLink]="['/admin']"
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]={exact:true}>
+                  <i class="fa fa-fort-awesome pr-3"></i> Dashboard
+              </a>
+             
+              <!-- <a href="#" class=" pl-4 list-group-item  list-group-item-action">
+                  <i class="fa fa-group pr-3"></i> Memebers
+              </a> -->
+              <a  href="#trenders"  data-toggle ="collapse" 
+              class=" pl-4 list-group-item list-group-item-action" 
+              routerLinkActive="active" [routerLinkActiveOptions]={exact:true}>
+                <i class="fa fa-calendar pr-3"></i> Tenders
+                <span class="d-inline-block mt-1 float-right ">
+                    <i class="fa fa-caret-down"></i>
+                </span>
+            </a>
+            <div class="collapse" id="trenders">
+               <div class="list-group">
+                <a  class="list-group-item list-group-item-action"
+                routerLinkActive="active"
+                [routerLink]="['/admin','tenders','mine']">
+                        My Tenders <i class="fa fa-plus pull-right"></i>
+                </a>
+               
+                <a  class="list-group-item list-group-item-action" routerLinkActive="active" [routerLink]="['/admin','tenders','new']">
+                  Create a tender <i class="fa fa-eye pull-right"></i>
+              </a>
+              
+               </div>
+            </div>
+            <a  class=" pl-4 list-group-item list-group-item-action" [routerLink]="['/admin','orders']"
+            routerLinkActive="active">
+                <i class="fa fa-user pr-3"></i> Orders
+            </a>
+            <a  class=" pl-4 list-group-item list-group-item-action"
+             [routerLink]="['/admin','requests']" routerLinkActive="active">
+                <i class="fa fa-user pr-3"></i> Requests <span class="badge badge-primary badge-pill pull-right">12</span>
+            </a>
+            <a  class=" pl-4 list-group-item list-group-item-action"
+             [routerLink]="['/admin','history']" routerLinkActive="active">
+                <i class="fa fa-user pr-3"></i> History <span class="badge badge-primary badge-pill pull-right">12</span>
+            </a>
+          
+                
+
+                
+                  
+          </div>
+
+      </div>
+  </div>
+</section>

@@ -58,6 +58,22 @@ import { ViewTenderComponent } from './core/modules/dashboards/view-tender/view-
 import { CollectiveTenderComponent } from './core/modules/dashboards/collective-tender/collective-tender.component';
 import { UnifyingPlatformComponent } from './core/modules/unifying-platform/unifying-platform.component' ;
 
+import { AdminSidebarComponent } from './core/modules/dashboards/admin-sidebar/admin-sidebar.component';
+import { AdminHeaderComponent } from './core/modules/dashboards/admin-header/admin-header.component';
+import { AdminHomeComponent } from './core/modules/dashboards/admin-home/admin-home.component';
+import { AdminNewTenderComponent } from './core/modules/dashboards/admin-new-tender/admin-new-tender.component';
+import { AdminMyTendersComponent } from './core/modules/dashboards/admin-my-tenders/admin-my-tenders.component';
+import { AdminOrdersComponent } from './core/modules/dashboards/admin-orders/admin-orders.component';
+import { AdminRequestsComponent } from './core/modules/dashboards/admin-requests/admin-requests.component';
+import { AdminHistoryComponent } from './core/modules/dashboards/admin-history/admin-history.component';
+import { AdminRequestsViewComponent } from './core/modules/dashboards/admin-requests-view/admin-requests-view.component';
+import { AdminOrderViewComponent } from './core/modules/dashboards/admin-order-view/admin-order-view.component' ;
+import { PurchasePlatformComponent } from './core/modules/purchase-platform/purchase-platform.component';
+import { AdminAllTendersComponent } from './core/modules/dashboards/admin-all-tenders/admin-all-tenders.component';
+import { AdminOrderDetailsComponent } from './core/modules/dashboards/admin-order-details/admin-order-details.component';
+import { AdminHistoryViewComponent } from './core/modules/dashboards/admin-history-view/admin-history-view.component';
+import { AdminTenderInCompanyComponent } from './core/modules/dashboards/admin-tender-in-company/admin-tender-in-company.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -93,7 +109,22 @@ import { UnifyingPlatformComponent } from './core/modules/unifying-platform/unif
     MyTendersComponent,
     ViewTenderComponent,
     CollectiveTenderComponent,
-    UnifyingPlatformComponent
+    UnifyingPlatformComponent,
+    PurchasePlatformComponent,
+    AdminSidebarComponent,
+    AdminHeaderComponent,
+    AdminHomeComponent,
+    AdminNewTenderComponent,
+    AdminMyTendersComponent,
+    AdminOrdersComponent,
+    AdminRequestsComponent,
+    AdminHistoryComponent,
+    AdminRequestsViewComponent,
+    AdminOrderViewComponent,
+    AdminAllTendersComponent,
+    AdminOrderDetailsComponent,
+    AdminHistoryViewComponent,
+    AdminTenderInCompanyComponent
 
   ],
   imports: [

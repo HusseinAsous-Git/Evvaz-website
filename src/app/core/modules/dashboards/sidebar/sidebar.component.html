@@ -7,9 +7,7 @@
             <!-- <a  id="in" class="py-2 mb-2 mr-4 btn btn-green">
                 <i class="fa fa-bars"></i>
             </a> -->
-            <a (click)="toggleSidebar()" id="in" class="navbar-brand btn btn-green mb-1 mr-5" style="margin-left: -100px"> 
-                <i class="fa fa-bars"></i> 
-              </a>
+            
             
             
 
@@ -19,7 +17,7 @@
 
           <div class="list-group ">
               <a  class=" pl-4 list-group-item list-group-item-action" 
-                  [routerLink]="['/home']"
+                  [routerLink]="['/company']"
                   routerLinkActive="active"
                   [routerLinkActiveOptions]="{exact: true}">
                   <i class="fa fa-fort-awesome pr-3"></i> Dashboard
@@ -37,13 +35,13 @@
             <div class="collapse" id="offers">
                <div class="list-group">
                 <a  class="list-group-item list-group-item-action"
-                [routerLink]="['/home/offers/new']"
+                [routerLink]="['/company/offers/new']"
                 routerLinkActive="active"
                 [routerLinkActiveOptions]="{exact: true}">
                         Add new offer <i class="fa fa-plus pull-right"></i>
                 </a>
                 <a  class="list-group-item list-group-item-action"
-                [routerLink]="['/home/offers/see']"
+                [routerLink]="['/company/offers/see']"
                 routerLinkActive="active">
                     See all offers <i class="fa fa-eye pull-right"></i>
                 </a>
@@ -52,15 +50,15 @@
                </div>
             </div>
             <a  class=" pl-4 list-group-item list-group-item-action"
-            [routerLink]="['/home/profile']" routerLinkActive="active">
+            [routerLink]="['/company/profile']" routerLinkActive="active">
                 <i class="fa fa-user pr-3"></i> My Profile
             </a>
             <a  class=" pl-4 list-group-item list-group-item-action"
-            [routerLink]="['/home/followers']" routerLinkActive="active">
+            [routerLink]="['/company/followers']" routerLinkActive="active">
                 <i class="fa fa-user pr-3"></i> Followers <span class="badge badge-primary badge-pill pull-right">{{countFollowers}}</span>
             </a>
             <a  class=" pl-4 list-group-item list-group-item-action"
-            [routerLink]="['/home/my-orders']" routerLinkActive="active">
+            [routerLink]="['/company/my-orders']" routerLinkActive="active">
                 <i class="fa fa-shopping-basket pr-3"></i> Orders  <span class="badge badge-primary badge-pill pull-right">{{count}}</span>
             </a>
                 

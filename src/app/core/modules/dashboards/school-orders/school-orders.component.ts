@@ -10,12 +10,18 @@ import { SchoolService } from '../../../services/school.service';
 })
 export class SchoolOrdersComponent implements OnInit {
 
+  loginId: number;
+  currentUser;
   private schoolOrders : SchoolOrdersModel [];
   count = 0;
   constructor(private schoolService: SchoolService) { }
 
   ngOnInit() {
-    this.schoolService.getSchoolOrders(4).subscribe(
+    this.currentUser = localStorage.getItem("@MYUSER");
+    let userData = JSON.parse(this.currentUser);
+    this.loginId = userData['login_id'];
+    console.log("Login id: " + this.loginId)
+    this.schoolService.getSchoolOrders(this.loginId).subscribe(
       response => {
         
         console.log(response)

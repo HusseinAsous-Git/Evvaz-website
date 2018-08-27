@@ -1,0 +1,144 @@
+<app-admin-header></app-admin-header>
+<app-admin-sidebar></app-admin-sidebar>
+<div class="container">
+<div style="margin-top: 100px;">
+    <ul class="breadcrumb ">
+        <li class="breadcrumb-item">
+            <a [routerLink]="['/admin']">Admin</a>
+        </li>
+       
+        <li class="breadcrumb-item active">
+            Orders
+        </li>
+    </ul>
+  </div>
+  
+  <div class="pull-right">
+      <p style="color:blue ">({{ count }}) Orders</p>
+  </div>
+  <br><br>
+  <div class="row mx-auto">
+    <div class="col-xs-6 mr-2 ml-2 mt-2 mb-2" style="cursor: pointer;">
+      <a (click)="linkNav(66)" >
+      <div class="card ">
+        <div class="card-title mx-4 mt-2">
+          Order Number <button class="btn btn-blue ml-2" disabled>#5062</button>
+          <div class="pull-right">
+            <img src="../../../../../assets/images/colors.png" alt="" width="50" height="50" class="mr-2">
+            <img src="../../../../../assets/images/colors.png" alt="" width="50" height="50">
+          </div>
+        </div>
+        <hr>
+          <div class="card-body">
+        <div class="row">
+          <div class="col-sm-4">
+           <span class="card-h"> Amount</span> <br>  <i class="fa fa-archive mr-1"></i> <span class="card-content text-center">1250.99 $</span>  
+          </div>
+          <div class="col-sm-4">
+              <span class="card-h"> Products</span> <br> <i class="fa fa-shopping-cart mr-1"></i> <span class="card-content text-center">{{ 1252 }}</span>  
+          </div>
+          <div class="col-sm-4">
+              <span class="card-h">Date </span> <br> <i class="fa fa-calendar mr-1"></i> <span class="card-content text-center">{{ this.date | date  }}</span>   
+          </div>
+        </div>
+      </div>
+      </div>
+    </a>
+    </div>
+
+    <div class="col-xs-6 mr-2 ml-2 mt-2 mb-2" style="cursor: pointer;">
+        <a (click)="linkNav(66)" >
+        <div class="card ">
+          <div class="card-title mx-4 mt-2">
+            Order Number <button class="btn btn-blue ml-2" disabled>#5062</button>
+            <div class="pull-right">
+              <img src="../../../../../assets/images/colors.png" alt="" width="50" height="50" class="mr-2">
+              <img src="../../../../../assets/images/colors.png" alt="" width="50" height="50">
+            </div>
+          </div>
+          <hr>
+            <div class="card-body">
+          <div class="row">
+            <div class="col-sm-4">
+             <span class="card-h"> Amount</span> <br>  <i class="fa fa-archive mr-1"></i> <span class="card-content text-center">1250.99 $</span>  
+            </div>
+            <div class="col-sm-4">
+                <span class="card-h"> Products</span> <br> <i class="fa fa-shopping-cart mr-1"></i> <span class="card-content text-center">{{ 1252 }}</span>  
+            </div>
+            <div class="col-sm-4">
+                <span class="card-h">Date </span> <br> <i class="fa fa-calendar mr-1"></i> <span class="card-content text-center">{{ this.date | date  }}</span>   
+            </div>
+          </div>
+        </div>
+        </div>
+      </a>
+      </div>
+
+      <div class="col-xs-6 mr-2 ml-2 mt-2 mb-2" style="cursor: pointer;">
+          <a (click)="linkNav(66)" >
+          <div class="card ">
+            <div class="card-title mx-4 mt-2">
+              Order Number <button class="btn btn-blue ml-2" disabled>#5062</button>
+              <div class="pull-right">
+                <img src="../../../../../assets/images/colors.png" alt="" width="50" height="50" class="mr-2">
+                <img src="../../../../../assets/images/colors.png" alt="" width="50" height="50">
+              </div>
+            </div>
+            <hr>
+              <div class="card-body">
+            <div class="row">
+              <div class="col-sm-4">
+               <span class="card-h"> Amount</span> <br>  <i class="fa fa-archive mr-1"></i> <span class="card-content text-center">1250.99 $</span>  
+              </div>
+              <div class="col-sm-4">
+                  <span class="card-h"> Products</span> <br> <i class="fa fa-shopping-cart mr-1"></i> <span class="card-content text-center">{{ 1252 }}</span>  
+              </div>
+              <div class="col-sm-4">
+                  <span class="card-h">Date </span> <br> <i class="fa fa-calendar mr-1"></i> <span class="card-content text-center">{{ this.date | date  }}</span>   
+              </div>
+            </div>
+          </div>
+          </div>
+        </a>
+        </div>
+
+        <div class="col-xs-6 mr-2 ml-2 mt-2 mb-2" style="cursor: pointer;">
+            <a (click)="linkNav(66)" >
+            <div class="card ">
+              <div class="card-title mx-4 mt-2">
+                Order Number <button class="btn btn-blue ml-2" disabled>#5062</button>
+                <div class="pull-right">
+                  <img src="../../../../../assets/images/colors.png" alt="" width="50" height="50" class="mr-2">
+                  <img src="../../../../../assets/images/colors.png" alt="" width="50" height="50">
+                </div>
+              </div>
+              <hr>
+                <div class="card-body">
+              <div class="row">
+                <div class="col-sm-4">
+                 <span class="card-h"> Amount</span> <br>  <i class="fa fa-archive mr-1"></i> <span class="card-content text-center">1250.99 $</span>  
+                </div>
+                <div class="col-sm-4">
+                    <span class="card-h"> Products</span> <br> <i class="fa fa-shopping-cart mr-1"></i> <span class="card-content text-center">{{ 1252 }}</span>  
+                </div>
+                <div class="col-sm-4">
+                    <span class="card-h">Date </span> <br> <i class="fa fa-calendar mr-1"></i> <span class="card-content text-center">{{ this.date | date  }}</span>   
+                </div>
+              </div>
+            </div>
+            </div>
+          </a>
+          </div>
+   
+    
+    
+      
+       
+         
+           
+            
+               
+                 
+                   
+  </div>
+  </div>

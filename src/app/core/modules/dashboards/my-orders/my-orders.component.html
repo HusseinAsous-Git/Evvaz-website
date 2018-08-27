@@ -1,5 +1,7 @@
-
-<nav class="">
+<app-sidebar></app-sidebar>
+<app-header-dash></app-header-dash>
+<div class="container">
+<div class="" style="margin-top: 100px">
     <ul class="breadcrumb ">
         <li class="breadcrumb-item">
             <a [routerLink]="['/']">Dashboard</a>
@@ -9,7 +11,7 @@
             My Orders
         </li>
     </ul>
-  </nav>
+</div>
   <div class="pull-right">
     <p style="color:blue ">({{count}}) Orders</p>
 </div>
@@ -17,8 +19,9 @@
   <p class="display-4 text-center" *ngIf="applyMessage" style="color: gray"> You have no Orders Yet!</p>
 
  
-  <br><br>
+  
   <div class="row mx-auto">
+      
     <div class="col-xs-6 mr-2 ml-2 mt-2 mb-2" *ngFor="let order of schoolOrders">
       <a >
       <div class="card card-f">
@@ -48,3 +51,4 @@
                  
                    
   </div>
+</div>
