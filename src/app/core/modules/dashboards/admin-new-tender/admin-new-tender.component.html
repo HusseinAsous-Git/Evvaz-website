@@ -37,17 +37,29 @@
 
                 <!-- Category dropdown here -->
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                   <label for="category">Tender Category</label>
                   <select id="category" formControlName="category" class="form-control">
                     <option disabled="disabled" [selected]="true" [ngValue]="categoryName">Select a category..</option>
-                    <option *ngFor="let category of categories  , let i = index" value="{{category.request_category_name}}">{{category.request_category_name}}</option>
+                    <option *ngFor="let category of categories  , let i = index" value="{{category.category_name}}">{{category.category_name}}</option>
                   </select>
-                </div>
-                <span 
-                *ngIf="!newTenderForm.get('category').valid && newTenderForm.get('category').touched"
-                class="help-block" >This feild is required!</span>
+                </div> -->
+               
           
+                  <!-- check boxes -->
+                  <label for="" style="color: #12a5e1">Category</label>
+                  <div class="row ml-1">
+                <div class=" col-sm-4"  *ngFor="let category of categories  , let i = index">
+                  <label class="form-check-label"  style="color: gray;">
+                    <input type="checkbox" class="form-check-input" (change)="hasChecked($event, category, i)" value="{{category.categoryName}}" style="color: gray; width: 1rem; height: 1rem;" formControlName="category">{{category.category_name}}
+                  </label>
+                </div>
+              </div>
+              <span 
+              *ngIf="!newTenderForm.get('category').valid && newTenderForm.get('category').touched"
+              class="help-block" >This feild is required!</span>
+                <!-- end check boxes -->
+<br>  
                 <div class="form-group">
                   <label for="description">Description</label>
                   <textarea class="form-control"

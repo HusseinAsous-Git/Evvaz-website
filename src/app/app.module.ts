@@ -76,6 +76,8 @@ import { AdminAllTendersComponent } from './core/modules/dashboards/admin-all-te
 import { AdminOrderDetailsComponent } from './core/modules/dashboards/admin-order-details/admin-order-details.component';
 import { AdminHistoryViewComponent } from './core/modules/dashboards/admin-history-view/admin-history-view.component';
 import { AdminTenderInCompanyComponent } from './core/modules/dashboards/admin-tender-in-company/admin-tender-in-company.component';
+import { AllCollectiveTendersComponent } from './core/modules/dashboards/all-collective-tenders/all-collective-tenders.component';
+import { AdminService } from './core/services/admin.service';
 
 @NgModule({
   declarations: [
@@ -128,7 +130,8 @@ import { AdminTenderInCompanyComponent } from './core/modules/dashboards/admin-t
     AdminOrderDetailsComponent,
     AdminHistoryViewComponent,
     AdminTenderInCompanyComponent,
-    RegisterationSuccessComponent
+    RegisterationSuccessComponent,
+    AllCollectiveTendersComponent
 
   ],
   imports: [
@@ -157,6 +160,7 @@ import { AdminTenderInCompanyComponent } from './core/modules/dashboards/admin-t
     SchoolProfileService,
     UIService,
     SchoolService,
+    AdminService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

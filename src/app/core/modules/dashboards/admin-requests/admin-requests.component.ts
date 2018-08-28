@@ -1,3 +1,5 @@
+import { AdminRequestModel } from './../../../models/admin.request.model';
+import { AdminService } from './../../../services/admin.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,10 +9,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminRequestsComponent implements OnInit {
 date:Date;
-  constructor() { }
+requests: AdminRequestModel [];
+
+  constructor(private adminService: AdminService) { }
 
   ngOnInit() {
     this.date = new Date();
+    this.adminService.getAllRequests().subscribe(
+      response => {
+        this.requests = response;
+        console.log(response)
+      },
+      err => console.log(err)
+    )
+  }
+
+
+
+
+  activateRequest(id: number, i: number){
+    this.adminService.activateRequest(id).subscribe(
+      response => console.log(response),
+      err => console.log(err)
+    )
+
+    this.requests.splice(i, 1);
+    
+  
+
   }
 
 }
