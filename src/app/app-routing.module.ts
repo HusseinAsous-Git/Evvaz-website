@@ -1,3 +1,4 @@
+import { AllCollectiveTendersComponent } from './core/modules/dashboards/all-collective-tenders/all-collective-tenders.component';
 import { AdminTenderInCompanyComponent } from './core/modules/dashboards/admin-tender-in-company/admin-tender-in-company.component';
 import { AdminHistoryViewComponent } from './core/modules/dashboards/admin-history-view/admin-history-view.component';
 import { AdminAllTendersComponent } from './core/modules/dashboards/admin-all-tenders/admin-all-tenders.component';
@@ -75,6 +76,7 @@ const routes: Routes = [
     {path:'school/profile', component:SchoolProfileComponent},
     {path:'school/tenders/new', component:NewTenderComponent},
     {path:'school/tenders/mine', component:MyTendersComponent},
+    {path:'school/collective/all', component:AllCollectiveTendersComponent},
     {path:'school/tender/view', component:ViewTenderComponent},
     {path:'school/tender/collective', component:CollectiveTenderComponent},
     { path: 'home-page', component: HomePageComponent, canActivate: [AuthGuard] },

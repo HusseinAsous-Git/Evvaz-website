@@ -1,3 +1,4 @@
+import { SchoolTenderModel } from './../models/school.tender.model';
 
 import { TenderModel } from '../models/tender.model';
 import {  CompanyModel } from '../models/company.model';
@@ -73,5 +74,12 @@ getTendersbySchoolId(schoolId: number) {
     let url = `${environment.apiPath}school/tenders/school/${schoolId}`;
     return this.httpClient.get<TenderModel[]>(url);
 }
+
+
+getAllCollectiveTenders(){
+    let url = `${environment.apiPath}takataf/tenders/admin`;
+    return this.httpClient.get<SchoolTenderModel[]>(url);
+}
+
 
 }

@@ -1,8 +1,9 @@
+import { AdminCategory } from './../../../models/admin.cat.model';
+import { AdminService } from './../../../services/admin.service';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { TenderCategoryModel } from '../../../models/tender.category.model';
 import { AmazingTimePickerService } from 'amazing-time-picker';
-import { SchoolService } from '../../../services/school.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,13 +12,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./admin-new-tender.component.scss']
 })
 export class AdminNewTenderComponent implements OnInit {
-
+  returnedCats: AdminCategory [] = [];
   loginId: number;
 currentUser;
-
+changeFlag = true;
   newTenderForm: FormGroup;
-  categories : TenderCategoryModel [];
-
+  categories : AdminCategory [];
+ catNames : {category_name: string} [] = [];
   @ViewChild("schoolstartTime") schoolStartTime: ElementRef;
   @ViewChild("schoolendTime") schoolEndTime: ElementRef;
 
@@ -25,11 +26,11 @@ currentUser;
   @ViewChild("companyendTime") companyEndTime: ElementRef;
 
 
-  constructor( private atp : AmazingTimePickerService, private schoolService: SchoolService, private router:Router) { }
+  constructor( private atp : AmazingTimePickerService, private adminService: AdminService, private router:Router) { }
 
   ngOnInit() {
 
-    this.schoolService.getCategories().subscribe(
+    this.adminService.getCategories().subscribe(
       response => {console.log(response);
         this.categories = response; }
 
@@ -136,6 +137,27 @@ amazingTimePicker.afterClose().subscribe(time => {
          });
 }
 
+hasChecked(e  ,category: AdminCategory, index: number){
+  console.log(e.checked);
+  console.log(category);
+
+
+
+
+  if(e.target.checked){
+
+    
+
+    this.returnedCats.push(category)
+   
+  }
+  else{
+    this.returnedCats.splice(index, 1);
+    
+   }
+  
+ 
+}
 
 
 newTender(){
@@ -149,7 +171,10 @@ newTender(){
 
  const companytoDate = new Date(this.newTenderForm.get('companytodate').value +  " " + this.newTenderForm.get('companyendTime').value);
  
-
+ for(let c of this.returnedCats){
+   this.catNames.push({category_name: c.category_name});
+  console.log("Retuen cat: " + c.category_name)
+}
 
  console.log(schoolfromDate.getTime() + "is of type: " + typeof(schoolfromDate.getTime() ));
  console.log(schooltoDate.getTime());
@@ -162,32 +187,37 @@ newTender(){
 
 
 
-//  let data = {
-//   request_title : this.newTenderForm.get('tenderName').value,
-//   request_explaination: this.newTenderForm.get('description').value,
-//   request_display_date: fromDate.getTime(),
-//   request_expired_date: toDate.getTime(),
-//   school_id: this.loginId,
-//   request_category_id: this.newTenderForm.get('category').value
-//  }
+ let data = {
+  tender_logo : null,
+  tender_explain: this.newTenderForm.get('description').value,
+  tender_title: this.newTenderForm.get('tenderName').value,
+  tender_display_date: schoolfromDate.getTime(),
+  tender_expire_date: schooltoDate.getTime(),
+  tender_company_display_date: companyfromDate.getTime(),
+  tender_company_expired_date: companytoDate.getTime(),
+  cats: this.catNames
+ }
 
  console.log("Name is: " + this.newTenderForm.get('tenderName').value + " is of type: " + typeof(this.newTenderForm.get('tenderName').value))
  console.log(" description is: " + this.newTenderForm.get('description').value + " is of type: " + typeof(this.newTenderForm.get('description').value))
  console.log("from date is: "+ schoolfromDate.getTime() + " is of type: " + typeof(schoolfromDate.getTime()));
  console.log("to date is: "+ schooltoDate.getTime() + " is of type: " + typeof(schooltoDate.getTime()));
  console.log("Login ID: " + this.loginId);
- console.log("category is: " + this.newTenderForm.get('category').value + " is of type: " + typeof(this.newTenderForm.get('category').value))
+
+
+
+ 
 
 
 
 
 
-//  this.schoolService.createTender(data).subscribe(
-//   response => {
-//     console.log(response)
-//     this.router.navigate(['/school','tenders','mine']);
-//   },err => console.log(err)
-//  )
+ this.adminService.createTender(data).subscribe(
+  response => {
+    console.log(response)
+   this.router.navigate(['/admin','tenders','mine']);
+  },err => console.log(err)
+ )
 
 
 
