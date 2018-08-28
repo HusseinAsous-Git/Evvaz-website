@@ -1,0 +1,110 @@
+.formd{
+                    
+    background-image: url('assets/img/index/footer.png');
+    background-size: cover;
+    height: 100vh;
+}
+
+.formheader{
+    height: 10%;
+}
+.image{
+    padding-top: 30px;
+    float: left;
+    margin-left: 10%;
+    
+}
+.close-it{
+    color: white;
+    padding-top: 30px;
+    margin-right: 10%;
+    float: right;
+    cursor: pointer;
+    i{
+        color:snow;
+    }
+}
+.success-holder{
+    height: 90%;
+    width: 100%;
+    background:transparent;
+    color: snow;
+    text-align: center;
+    margin: auto;
+    padding-top: 10%;
+    svg {
+        width: 100px;
+        display: block;
+        margin: 40px auto 0;
+      }
+      
+      .path {
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 0;
+        &.circle {
+          -webkit-animation: dash 1.2s ease-in-out;
+          animation: dash 1.2s ease-in-out;
+        }
+        &.line {
+          stroke-dashoffset: 1000;
+          -webkit-animation: dash 1.2s 1s ease-in-out forwards;
+          animation: dash 1.2s 1s ease-in-out forwards;
+        }
+        &.check {
+          stroke-dashoffset: -100;
+          -webkit-animation: dash-check 1.2s 1s ease-in-out forwards;
+          animation: dash-check 1.2s 1s ease-in-out forwards;
+        }
+      }
+      
+      p {
+        text-align: center;
+        margin: 10px;
+        font-size: 1.25em;
+        &.success {
+          color: snow;
+        }
+      }
+      
+      
+      @-webkit-keyframes dash {
+        0% {
+          stroke-dashoffset: 1000;
+        }
+        100% {
+          stroke-dashoffset: 0;
+        }
+      }
+      
+      @keyframes dash {
+        0% {
+          stroke-dashoffset: 1000;
+        }
+        100% {
+          stroke-dashoffset: 0;
+        }
+      }
+      
+      @-webkit-keyframes dash-check {
+        0% {
+          stroke-dashoffset: -100;
+        }
+        100% {
+          stroke-dashoffset: 900;
+        }
+      }
+      
+      @keyframes dash-check {
+        0% {
+          stroke-dashoffset: -100;
+        }
+        100% {
+          stroke-dashoffset: 900;
+        }
+      }
+}
+
+.ar{
+	font-family: 'Changa', sans-serif !important;
+	font-weight: 700 !important;
+}

@@ -43,6 +43,7 @@ import { AdminRequestsComponent } from './core/modules/dashboards/admin-requests
 import { AdminHistoryComponent } from './core/modules/dashboards/admin-history/admin-history.component';
 import { AdminRequestsViewComponent } from './core/modules/dashboards/admin-requests-view/admin-requests-view.component';
 import { AdminOrderViewComponent } from './core/modules/dashboards/admin-order-view/admin-order-view.component';
+import { RegisterationSuccessComponent } from './core/modules/registeration-success/registeration-success.component';
 /*Our Services*/
 
 const routes: Routes = [
@@ -90,8 +91,8 @@ const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'sign-up', component: SignUpComponent },
     { path: 'unifying-platform', component: UnifyingPlatformComponent },
-    { path: 'purchase-platform', component: PurchasePlatformComponent }
-    
+    { path: 'purchase-platform', component: PurchasePlatformComponent },
+    { path: 'reigsteration-success', component: RegisterationSuccessComponent }
 ];
 
 /*Our Services

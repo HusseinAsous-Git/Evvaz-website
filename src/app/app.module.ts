@@ -21,6 +21,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
+import { RecaptchaModule } from 'ng-recaptcha';
+import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
 /* component */
 import { AppComponent } from './app.component';
 import { IndexComponent } from './core/modules/index/index.component';
@@ -32,7 +35,7 @@ import { HomeHeaderComponent } from './core/modules/home-header/home-header.comp
 import { HomePageComponent } from './core/modules/home-page/home-page.component';
 import { SignUpService } from './core/services/sign-up.service';
 import { OfferPlatformComponent } from './core/modules/home-page/offer-platform/offer-platform.component';
-
+import { RegisterationSuccessComponent } from './core/modules/registeration-success/registeration-success.component';
 /* services */
 import { AuthGuard } from './core/services/auth.gaurd.service';
 import { AuthService } from './core/services/auth.service';
@@ -124,7 +127,8 @@ import { AdminTenderInCompanyComponent } from './core/modules/dashboards/admin-t
     AdminAllTendersComponent,
     AdminOrderDetailsComponent,
     AdminHistoryViewComponent,
-    AdminTenderInCompanyComponent
+    AdminTenderInCompanyComponent,
+    RegisterationSuccessComponent
 
   ],
   imports: [
@@ -136,7 +140,9 @@ import { AdminTenderInCompanyComponent } from './core/modules/dashboards/admin-t
     HttpModule,
     CommonModule,
     ReactiveFormsModule,
-    AmazingTimePickerModule
+    AmazingTimePickerModule,
+    RecaptchaModule.forRoot(),
+    RecaptchaFormsModule
   ],
   providers: [
     AuthService,
