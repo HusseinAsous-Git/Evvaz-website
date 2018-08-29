@@ -1,3 +1,4 @@
+import { MyTenderResolver } from './core/services/mytender.resolver.service';
 import { InsurancePlatformComponent } from './core/modules/insurance-platform/insurance-platform.component';
 import { SchoolService } from './core/services/school.service';
 import { SchoolProfileService } from './core/services/school.profile.service';
@@ -78,6 +79,9 @@ import { AdminHistoryViewComponent } from './core/modules/dashboards/admin-histo
 import { AdminTenderInCompanyComponent } from './core/modules/dashboards/admin-tender-in-company/admin-tender-in-company.component';
 import { AllCollectiveTendersComponent } from './core/modules/dashboards/all-collective-tenders/all-collective-tenders.component';
 import { AdminService } from './core/services/admin.service';
+import { AdminTenderResolver } from './core/services/admin.tender.resolver';
+import { SchoolTenderResolver } from './core/services/school.tender.resolver';
+import { AgreeHighlightDirective } from './core/modules/dashboards/agree.highlight.directive';
 
 @NgModule({
   declarations: [
@@ -110,6 +114,7 @@ import { AdminService } from './core/services/admin.service';
     SidebarComponent,
     OfferDetailsComponent,
     FollowHighlightDirective,
+    AgreeHighlightDirective,
     NewTenderComponent,
     MyTendersComponent,
     ViewTenderComponent,
@@ -159,7 +164,10 @@ import { AdminService } from './core/services/admin.service';
     ProfileResolver,
     SchoolProfileService,
     UIService,
+    SchoolTenderResolver,
+    AdminTenderResolver,
     SchoolService,
+    MyTenderResolver,
     AdminService,
     {
       provide: HTTP_INTERCEPTORS,

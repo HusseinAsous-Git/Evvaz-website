@@ -20,7 +20,7 @@
 <br><br>
 <div class="row mx-auto">
 <div class="col-xs-6 mr-2 ml-2 mt-2 mb-2" *ngFor="let collective of allCollectiveTenders" >
-  <a (click)="getTenderDetails()">
+  <a (click)="getTenderDetails(collective.tender_id)">
   <div class="card card-f" >
     <div class="card-title mx-4 mt-2">
      {{ collective.tender_title }} <br> <div  style="color:gray">on {{collective.tender_display_date | date}}

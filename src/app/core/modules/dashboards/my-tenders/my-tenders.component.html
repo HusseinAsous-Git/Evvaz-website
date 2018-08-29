@@ -25,7 +25,7 @@
       <div class="card-title mx-4 mt-2">
         {{ order.request_title }}  <br> {{ order.request_display_date | date:'short' }}
         <div class="pull-right">
-           <button class="btn view-btn" [routerLink]="['/school/tender/view']">View</button>
+           <button class="btn view-btn" [routerLink]="['/school','tender',order.request_id,'view']">View</button>
         </div> 
       </div>
         <div class="card-body">

@@ -1,3 +1,5 @@
+import { AdminTenderResolver } from './core/services/admin.tender.resolver';
+import { MyTenderResolver } from './core/services/mytender.resolver.service';
 import { AllCollectiveTendersComponent } from './core/modules/dashboards/all-collective-tenders/all-collective-tenders.component';
 import { AdminTenderInCompanyComponent } from './core/modules/dashboards/admin-tender-in-company/admin-tender-in-company.component';
 import { AdminHistoryViewComponent } from './core/modules/dashboards/admin-history-view/admin-history-view.component';
@@ -45,6 +47,7 @@ import { AdminHistoryComponent } from './core/modules/dashboards/admin-history/a
 import { AdminRequestsViewComponent } from './core/modules/dashboards/admin-requests-view/admin-requests-view.component';
 import { AdminOrderViewComponent } from './core/modules/dashboards/admin-order-view/admin-order-view.component';
 import { RegisterationSuccessComponent } from './core/modules/registeration-success/registeration-success.component';
+import { SchoolTenderResolver } from './core/services/school.tender.resolver';
 /*Our Services*/
 
 const routes: Routes = [
@@ -60,7 +63,7 @@ const routes: Routes = [
     {path:'admin', component: AdminHomeComponent},
     {path:'admin/tenders/new', component:AdminNewTenderComponent},
         {path:'admin/tenders/mine', component:AdminAllTendersComponent},
-        {path:'admin/tenders/company', component:AdminTenderInCompanyComponent},
+        {path:'admin/tenders/:tenderId/company', component:AdminTenderInCompanyComponent, resolve : {tender : AdminTenderResolver}},
         {path:'admin/tenders/school', component:AdminMyTendersComponent},
         {path:'admin/tenders/:tenderId/details', component:AdminMyTendersComponent},
         {path:'admin/orders', component:AdminOrdersComponent},
@@ -75,11 +78,12 @@ const routes: Routes = [
     {path:'school/orders', component:SchoolOrdersComponent},
     {path:'school/history', component:SchoolOrdersHistoryComponent},
     {path:'school/profile', component:SchoolProfileComponent},
-    {path:'school/tenders/new', component:NewTenderComponent},
-    {path:'school/tenders/mine', component:MyTendersComponent},
+    {path:'school/tenders/new', component:NewTenderComponent},  
     {path:'school/collective/all', component:AllCollectiveTendersComponent},
-    {path:'school/tender/view', component:ViewTenderComponent},
-    {path:'school/tender/collective', component:CollectiveTenderComponent},
+    {path:'school/tender/:tenderId/collective', component:CollectiveTenderComponent, resolve : {tender: SchoolTenderResolver}},
+    {path:'school/tenders/mine', component:MyTendersComponent},
+    {path:'school/tender/:tenderId/view', component:ViewTenderComponent, resolve: {tender:MyTenderResolver}},
+    
     { path: 'home-page', component: HomePageComponent, canActivate: [AuthGuard] },
     {
         path: 'offer-platform', component: OfferPlatformComponent, canActivate: [AuthGuard],

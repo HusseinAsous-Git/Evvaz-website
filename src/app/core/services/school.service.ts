@@ -10,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
 import {  Injectable } from "@angular/core";
 import { environment } from '../../../environments/environment.prod';
 import { TenderCategoryModel } from '../models/tender.category.model';
+import { SchoolSingleTender } from '../models/school.single.tender.model';
 
 @Injectable()
 export class SchoolService{
@@ -81,5 +82,15 @@ getAllCollectiveTenders(){
     return this.httpClient.get<SchoolTenderModel[]>(url);
 }
 
+
+getSingleTender(schoolId: number){
+    let url = `${environment.apiPath}school/tenders/request/school/${schoolId}`;
+    return this.httpClient.get(url); 
+}
+
+getTender(tenderId: number){
+    let url = `${environment.apiPath}tender/request/get/${tenderId}`;
+    return this.httpClient.get(url); 
+}
 
 }
