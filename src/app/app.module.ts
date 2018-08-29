@@ -78,7 +78,7 @@ import { AdminHistoryViewComponent } from './core/modules/dashboards/admin-histo
 import { AdminTenderInCompanyComponent } from './core/modules/dashboards/admin-tender-in-company/admin-tender-in-company.component';
 import { AllCollectiveTendersComponent } from './core/modules/dashboards/all-collective-tenders/all-collective-tenders.component';
 import { AdminService } from './core/services/admin.service';
-
+import { PurchasePlatformService } from './core/services/purchase-platform/purchase-platform.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -161,6 +161,7 @@ import { AdminService } from './core/services/admin.service';
     UIService,
     SchoolService,
     AdminService,
+    PurchasePlatformService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

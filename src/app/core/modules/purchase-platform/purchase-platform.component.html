@@ -36,49 +36,51 @@
         </div>
     </div>
 </section>
-<section class="internal-page">
+<section class="internal-page" *ngIf="categories">
     <div class="container">
-        <div class="row lister">
+        <div class="row row-eq-height lister">
             <div class="col-md-12 heading-pp">
                 <h2>
                     <span>Purchasing</span> Category</h2>
             </div>
-            <div class="col-lg-3 col-md-6 col-12" *ngFor="let category  of ['Electric Devices','IT devices','IT service','consulting','Contracting','Education&Training','Equepment','Regulation','Food Items','Fuirnature','Logistic services','Maintainance']">
+            <div class="col-lg-3 col-md-6 col-12" *ngFor="let category  of categories">
                 <div class="item item-overlay" style="background-image:url(../../../assets/img/orders/01.png)">
                     <!-- *ngFor="let offer of offers" -->
 
                     <div class="overlay">
                         <!--  -->
                         <a>
-                            <h5 class="heading-overlay company-name">{{category}}</h5>
+                            <h5 class="heading-overlay company-name">{{category['request_category_name']}}</h5>
                         </a>
 
-                        <p>helps editors access reliable sources to improve Wikipedia. </p>
-                        <div class="followers " >
-                            <div class="icons-holder">
-                                <div class="profile-icon" *ngFor="let index  of [1,2,3,4,5]"></div>
-                                <span>+15 Followers</span>
-                            </div>
-                            
-                        </div>
-                        <hr>
+                        <!-- <p>helps editors access reliable sources to improve Wikipedia. </p> -->
                         
-                        <div class="values d-flex justify-content-between align-items-center">
-                            <div class="">
-                                <p>Offers</p>
-                                <p>12345</p>
-                            </div>
-                            <div>
-                                <p>requests</p>
-                                <p>124500</p>
-                            </div>
-                            <div class="go d-flex align-items-center">
-                                <span>go</span>
+                        <div class="bottom-placing">
+                                <div class="followers ">
+                                        <div class="icons-holder">
+                                            <!-- <div class="profile-icon" *ngFor="let index  of [1,2,3,4,5]"></div> -->
+                                            <span>{{category['school_count']}} Schools</span>
+                                        </div>
+            
+                                    </div>
+                            <hr>
+                            <div class="values d-flex justify-content-between align-items-center">
 
-                                <i class="fa fa-chevron-right "></i>
+                                <div class="">
+                                    <p>Offers</p>
+                                    <p>{{category['offer_count']}}</p>
+                                </div>
+                                <div>
+                                    <p>requests</p>
+                                    <p>{{category['request_count']}}</p>
+                                </div>
+                                <div class="go d-flex align-items-center">
+                                    <span>go</span>
+
+                                    <i class="fa fa-chevron-right "></i>
+                                </div>
                             </div>
                         </div>
-
                     </div>
 
                 </div>

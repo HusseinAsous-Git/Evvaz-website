@@ -10,23 +10,33 @@
 
 .internal-page .item-overlay {
     padding: 0;
+    height: 95%;
 }
 
 .internal-page .item-overlay .overlay{
     padding: 15px;
     background-color: rgba(37, 38, 41, 0.664);
     border-radius: 5px;
+    position: relative;
+    min-height: 100%;
+    .bottom-placing{
+        position: absolute;
+        width: 88%;
+        bottom: 5px;
+    }
 }
 
 .internal-page h5 {
     color: #fff;
     font-size: 25px;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .internal-page p {
     color: #fff;
     font-size: 17px;
+    text-align: center;
 }
 .internal-page img {
     max-width: 60px;
@@ -44,43 +54,11 @@ body.rtl .internal-page .btn i {
     margin-bottom: 25px;
 }
 
-.internal-page .follow-btn {
-    color: #0fc35b;
-    height: 24px;
-    text-align: center;
-    font-size: 12px;
-    font-family: 'Oswald', sans-serif;
-    vertical-align: middle;
-    font-weight: 600;
-    line-height: 12px;
-    margin-top: 20%;
-    
 
-    &:hover{
-        background-color: #0974b3;
-        color: #fff;
-    }
-}
 
-.internal-page .unfollow-btn {
-    background-color: #17ce31;
-    color: #fff;
-    height: 24px;
-    text-align: center;
-    font-size: 12px;
-    font-family: 'Oswald', sans-serif;
-    vertical-align: middle;
-    font-weight: 600;
-    line-height: 12px;
-    margin-top: 20%;
-    &:hover{
-        background-color: #f04b22;
-        color: #fff;
-    }
-}
 
 .internal-page .heading-overlay {
-    margin-bottom: 5px;
+    margin-bottom: 35%;
 }
 .internal-page span.profile {
     color: #fff;
@@ -110,11 +88,6 @@ body.rtl .internal-page .requests img:first-of-type {
     margin: 0 -15px;
     border-top: 1px solid #999;
 }
-.internal-page .values  {
-    margin-top: 11px;
-    
-    
-}
 .internal-page {
     .company-name{
         margin-top: 10px;
@@ -132,12 +105,18 @@ body.rtl .internal-page .requests img:first-of-type {
         }
     }
 }
-.internal-page .values p {
-    margin-bottom: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 400;
-    font-size: 15px;
+.internal-page .values{
+    margin-top: 11px;
+    width: 100%;
+    p {
+        margin-bottom: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 400;
+        font-size: 15px;
+    }
+
 }
+
 
 .internal-page .go{
     cursor: pointer;
@@ -473,37 +452,39 @@ body.rtl .input-group>.input-group-append>.input-group-text {
 .followers{
     height:35px;
     span{
-        position: absolute;
         font-size: 14px;
-        color:snow;
-        right:10%;
+        color:rgb(255, 255, 255);
+        background: rgba(5, 5, 5, 0.342);
+        padding: 5px 0;
         margin-top:8px;
-        display: inline-block;
+        display: block;
+        margin: auto;
+        text-align: center;
     }
     //border: 1px solid red;
 }
 //$colors vars
-$s-min: 20;
-$s-max: 70;
-$l-min: 30;
-$l-max: 90;
+// $s-min: 20;
+// $s-max: 70;
+// $l-min: 30;
+// $l-max: 90;
 
 
-.icons-holder{
-    //border: 1px solid red;
-   height: 100%;
+// .icons-holder{
+//     //border: 1px solid red;
+//    height: 100%;
    
-    @for $icon-counter from 1 through 5  {
-        .profile-icon:nth-child(#{$icon-counter}){
-            position: relative;
-            height:30px;
-            width:30px;
-            border-radius: 50%;
-            background-color: hsl(random(360),$s-min+random($s-max+-$s-min),$l-min+random($l-max+-$l-min));
-            display: inline-block;
-            left:-8px*$icon-counter;
-            z-index:$icon-counter+1;
-        }
-    }
+//     @for $icon-counter from 1 through 5  {
+//         .profile-icon:nth-child(#{$icon-counter}){
+//             position: relative;
+//             height:30px;
+//             width:30px;
+//             border-radius: 50%;
+//             background-color: hsl(random(360),$s-min+random($s-max+-$s-min),$l-min+random($l-max+-$l-min));
+//             display: inline-block;
+//             left:-8px*$icon-counter;
+//             z-index:$icon-counter+1;
+//         }
+//     }
     
-}
+// }
