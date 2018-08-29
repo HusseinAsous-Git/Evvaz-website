@@ -1,3 +1,4 @@
+import { MyTenderResolver } from './core/services/mytender.resolver.service';
 import { InsurancePlatformComponent } from './core/modules/insurance-platform/insurance-platform.component';
 import { SchoolService } from './core/services/school.service';
 import { SchoolProfileService } from './core/services/school.profile.service';
@@ -79,6 +80,10 @@ import { AdminTenderInCompanyComponent } from './core/modules/dashboards/admin-t
 import { AllCollectiveTendersComponent } from './core/modules/dashboards/all-collective-tenders/all-collective-tenders.component';
 import { AdminService } from './core/services/admin.service';
 import { PurchasePlatformService } from './core/services/purchase-platform/purchase-platform.service';
+import { AdminTenderResolver } from './core/services/admin.tender.resolver';
+import { SchoolTenderResolver } from './core/services/school.tender.resolver';
+import { AgreeHighlightDirective } from './core/modules/dashboards/agree.highlight.directive';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -110,6 +115,7 @@ import { PurchasePlatformService } from './core/services/purchase-platform/purch
     SidebarComponent,
     OfferDetailsComponent,
     FollowHighlightDirective,
+    AgreeHighlightDirective,
     NewTenderComponent,
     MyTendersComponent,
     ViewTenderComponent,
@@ -159,7 +165,10 @@ import { PurchasePlatformService } from './core/services/purchase-platform/purch
     ProfileResolver,
     SchoolProfileService,
     UIService,
+    SchoolTenderResolver,
+    AdminTenderResolver,
     SchoolService,
+    MyTenderResolver,
     AdminService,
     PurchasePlatformService,
     {

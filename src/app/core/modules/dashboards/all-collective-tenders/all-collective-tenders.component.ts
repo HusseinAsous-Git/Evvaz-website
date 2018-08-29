@@ -35,8 +35,8 @@ export class AllCollectiveTendersComponent implements OnInit {
   }
 
 
-  getTenderDetails(){
-    this.router.navigate(['/school','tender','collective']);
+  getTenderDetails(tenderId: number){
+    this.router.navigate(['/school','tender',tenderId,'collective']);
   }
 
 
