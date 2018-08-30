@@ -27,7 +27,7 @@
     border-radius: 5px;
     position: relative;
     min-height: 100%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0px 0px 5px 0px rgba(235,235,235,1);
     p{
         margin-bottom: 20%;
     }
@@ -108,8 +108,11 @@ body.rtl .internal-page .requests img:first-of-type {
         }
     }
     .status{
+        //border:1px solid red;
+        
         button{
             float: left;
+            cursor: help;
         }
         span{
             float: right;
@@ -486,7 +489,7 @@ body.rtl .input-group>.input-group-append>.input-group-text {
     @include desktop {
         
         //border:1px solid rgb(189, 188, 188);
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        box-shadow: 0px 0px 5px 0px rgba(235,235,235,1);
     }
     .search-box{
         border-right: 0;
