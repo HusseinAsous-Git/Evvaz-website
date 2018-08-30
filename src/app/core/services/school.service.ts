@@ -108,4 +108,22 @@ addCollectiveTender(tenderData: {
     return this.httpClient.post(url,tenderData);
 }
 
+
+getAllOrders(schoolId: number){
+    let url = `${environment.apiPath}school/requests/get/order/${schoolId}`;
+    return this.httpClient.get<SchoolOrdersModel[]>(url);
+}
+
+
+agreeToCompany(companyId: number) {
+    let url = `${environment.apiPath}response/school/request/accept/${companyId}`;
+    return this.httpClient.put(url,{});
+}
+
+
+deleteCompany(companyId: number){
+    let url = `${environment.apiPath}response/school/request/delete/${companyId}`;
+    return this.httpClient.delete(url);
+}
+
 }

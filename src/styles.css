@@ -725,3 +725,7 @@ background: #0fc35b
 	border-radius: 10px;
 	color: white;
 }
+
+.skillhover:hover{
+	transform: scale(1.03);
+}

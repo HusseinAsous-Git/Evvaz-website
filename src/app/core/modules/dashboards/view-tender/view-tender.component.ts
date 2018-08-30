@@ -17,6 +17,7 @@ tenderId: number;
 tender: SchoolSingleTender;
 companies: CompanyOfferResponse [];
 srcLogo: string;
+showCard: boolean = true;
   constructor(private schoolService: SchoolService, private activatedRoute:ActivatedRoute, private router:Router) { }
 
   toggle = false;
@@ -34,10 +35,14 @@ srcLogo: string;
         this.tender = data['tender'];
         this.companies = this.tender.companies;
         console.log(this.tender)
+        if(this.companies){
+
+        
         for (let c of this.companies){
         c.company_logo_image = 'data:image/png;base64,' + c.company_logo_image;
        
       }
+    }
     }
     );
 
@@ -58,11 +63,25 @@ srcLogo: string;
   }
 
 
-  agree(id: number){
-      this.toggle = true;
-      setTimeout(()=>{
-        this.companies.splice(id,1);
-      } , 1000)
+  agree(id: number, index:number){
+    this.toggle = true;
+    this.schoolService.agreeToCompany(id).subscribe(
+      response=>{ 
+        this.schoolService.deleteCompany(id).subscribe(
+          response => console.log(response)
+        )
+        console.log(response);
+        this.showCard = false;
+
+          this.companies.splice(index,1);
+          setTimeout(() => {
+            this.showCard = true;
+          },2000)
+         
+      }
+    )
+      
+      
       
   }
 
