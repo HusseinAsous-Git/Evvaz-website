@@ -58,8 +58,12 @@ srcLogo: string;
   }
 
 
-  agree(){
+  agree(id: number){
       this.toggle = true;
+      setTimeout(()=>{
+        this.companies.splice(id,1);
+      } , 1000)
+      
   }
 
 

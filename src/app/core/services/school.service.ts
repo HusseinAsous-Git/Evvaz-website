@@ -93,4 +93,19 @@ getTender(tenderId: number){
     return this.httpClient.get(url); 
 }
 
+addCollectiveTender(tenderData: {
+    request_school_id: number,
+    request_tender_id: number,
+    is_aproved: number,
+    t_date: number,
+     category : {
+        cat_name: string,
+        count: number
+    }   [] 
+}
+  ){
+    let url = `${environment.apiPath}tender/request/add`;
+    return this.httpClient.post(url,tenderData);
+}
+
 }
