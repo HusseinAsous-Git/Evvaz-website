@@ -48,6 +48,7 @@ import { AdminRequestsViewComponent } from './core/modules/dashboards/admin-requ
 import { AdminOrderViewComponent } from './core/modules/dashboards/admin-order-view/admin-order-view.component';
 import { RegisterationSuccessComponent } from './core/modules/registeration-success/registeration-success.component';
 import { SchoolTenderResolver } from './core/services/school.tender.resolver';
+import { PurchaseCategoryComponent } from './core/modules/purchase-category/purchase-category.component';
 /*Our Services*/
 
 const routes: Routes = [
@@ -98,7 +99,8 @@ const routes: Routes = [
     { path: 'sign-up', component: SignUpComponent },
     { path: 'unifying-platform', component: UnifyingPlatformComponent },
     { path: 'purchase-platform', component: PurchasePlatformComponent },
-    { path: 'reigsteration-success', component: RegisterationSuccessComponent }
+    { path: 'reigsteration-success', component: RegisterationSuccessComponent },
+    { path: 'purchase-category', component: PurchaseCategoryComponent }
 ];
 
 /*Our Services
