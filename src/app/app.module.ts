@@ -83,6 +83,7 @@ import { PurchasePlatformService } from './core/services/purchase-platform/purch
 import { AdminTenderResolver } from './core/services/admin.tender.resolver';
 import { SchoolTenderResolver } from './core/services/school.tender.resolver';
 import { AgreeHighlightDirective } from './core/modules/dashboards/agree.highlight.directive';
+import { PurchaseCategoryComponent } from './core/modules/purchase-category/purchase-category.component';
 
 @NgModule({
   declarations: [
@@ -137,7 +138,8 @@ import { AgreeHighlightDirective } from './core/modules/dashboards/agree.highlig
     AdminHistoryViewComponent,
     AdminTenderInCompanyComponent,
     RegisterationSuccessComponent,
-    AllCollectiveTendersComponent
+    AllCollectiveTendersComponent,
+    PurchaseCategoryComponent
 
   ],
   imports: [
