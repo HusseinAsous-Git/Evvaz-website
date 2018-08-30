@@ -10,13 +10,19 @@ import { SchoolService } from '../../../services/school.service';
 })
 export class SchoolOrdersHistoryComponent implements OnInit {
 
+  loginId: number;
+  currentUser;
   private schoolHistory : SchoolHistoryModel [];
   count = 0;
   constructor(private schoolService: SchoolService) { }
 
   ngOnInit() {
 
-    this.schoolService.getHistory(4).subscribe(
+    this.currentUser = localStorage.getItem("@MYUSER");
+    let userData = JSON.parse(this.currentUser);
+    this.loginId = userData['login_id'];
+    console.log("Login Id: "+ this.loginId)
+    this.schoolService.getHistory(this.loginId).subscribe(
       response => {
         this.schoolHistory = response;
         console.log(response);
