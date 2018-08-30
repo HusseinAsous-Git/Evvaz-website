@@ -21,7 +21,7 @@ export class SchoolOrdersComponent implements OnInit {
     let userData = JSON.parse(this.currentUser);
     this.loginId = userData['login_id'];
     console.log("Login id: " + this.loginId)
-    this.schoolService.getSchoolOrders(this.loginId).subscribe(
+    this.schoolService.getAllOrders(this.loginId).subscribe(
       response => {
         
         console.log(response)

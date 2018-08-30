@@ -10,13 +10,13 @@ export class FollowHighlightDirective implements OnInit{
   ngOnInit(){
     if(this.toggle){
       this.renderer.setStyle(this.elementRef.nativeElement, 'background-color','white');
-      this.renderer.setStyle(this.elementRef.nativeElement, 'border-color','red');
-      this.renderer.setStyle(this.elementRef.nativeElement, 'color','red');
+      this.renderer.setStyle(this.elementRef.nativeElement, 'border-color','#12a5e1');
+      this.renderer.setStyle(this.elementRef.nativeElement, 'color','#12a5e1');
       this.renderer.setStyle(this.elementRef.nativeElement, 'width','100px');
-      this.renderer.setProperty(this.elementRef.nativeElement, 'innerHTML','UnFollow');
+      this.renderer.setProperty(this.elementRef.nativeElement, 'innerHTML','<i class="fa fa-check mr-1"></i>Followed');
     }else {
-      this.renderer.setStyle(this.elementRef.nativeElement, 'background-color','blue');
-      this.renderer.setStyle(this.elementRef.nativeElement, 'border-color','blue');
+      this.renderer.setStyle(this.elementRef.nativeElement, 'background-color','#12a5e1');
+      this.renderer.setStyle(this.elementRef.nativeElement, 'border-color','#12a5e1');
       this.renderer.setStyle(this.elementRef.nativeElement, 'color','white');
       this.renderer.setStyle(this.elementRef.nativeElement, 'width','100px');
       this.renderer.setProperty(this.elementRef.nativeElement, 'innerHTML','Follow');
@@ -27,17 +27,17 @@ export class FollowHighlightDirective implements OnInit{
     this.toggle = !this.toggle;
     if(this.toggle){
       this.renderer.setStyle(this.elementRef.nativeElement, 'background-color','white');
-      this.renderer.setStyle(this.elementRef.nativeElement, 'border-color','red');
-      this.renderer.setStyle(this.elementRef.nativeElement, 'color','red');
+      this.renderer.setStyle(this.elementRef.nativeElement, 'border-color','#12a5e1');
+      this.renderer.setStyle(this.elementRef.nativeElement, 'color','#12a5e1');
       this.renderer.setStyle(this.elementRef.nativeElement, 'width','100px');
-      this.renderer.setProperty(this.elementRef.nativeElement, 'innerHTML','UnFollow');
-    }else {
-      this.renderer.setStyle(this.elementRef.nativeElement, 'background-color','blue');
-      this.renderer.setStyle(this.elementRef.nativeElement, 'border-color','blue');
+      this.renderer.setProperty(this.elementRef.nativeElement, 'innerHTML','<i class="fa fa-check mr-1"></i>Followed');
+  }else {
+      this.renderer.setStyle(this.elementRef.nativeElement, 'background-color','#12a5e1');
+      this.renderer.setStyle(this.elementRef.nativeElement, 'border-color','#12a5e1');
       this.renderer.setStyle(this.elementRef.nativeElement, 'color','white');
       this.renderer.setStyle(this.elementRef.nativeElement, 'width','100px');
       this.renderer.setProperty(this.elementRef.nativeElement, 'innerHTML','Follow');
-    }
+  }
   }
 
  

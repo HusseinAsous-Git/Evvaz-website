@@ -18,22 +18,22 @@
 </div>
 <br><br>
 <div class="row mx-auto">
-  <div class="col-xs-6 mr-2 ml-2 mt-2 mb-2" *ngFor="let order of schoolOrders">
+  <div class="col-xs-6 mr-2 ml-2 mt-2 mb-2 skillhover" *ngFor="let order of schoolOrders">
     <a >
     <div class="card card-f">
       <div class="card-title mx-4 mt-2">
-        Order Number <button class="btn btn-primary ml-2" disabled># {{ order.request_id }}</button>
+        Order Number <button class="btn btn-primary ml-2" disabled># {{ order.response_id }}</button>
       </div>
         <div class="card-body">
       <div class="row">
         <div class="col-sm-4">
          <span class="card-h"> Name</span> <br>  <i class="fa fa-archive mr-1"></i> <span class="card-content text-center">{{ order.request_title }}</span>  
-        </div>
+        </div>  
         <div class="col-sm-4">
             <span class="card-h"> Amount</span> <br> <i class="fa fa-shopping-cart mr-1"></i> <span class="card-content text-center">{{ order.request_count }}</span>  
         </div>
         <div class="col-sm-4">
-            <span class="card-h">Date </span> <br> <i class="fa fa-calendar mr-1"></i> <span class="card-content text-center">{{ order.request_display_date | date  }}</span>   
+            <span class="card-h">Date </span> <br> <i class="fa fa-calendar mr-1"></i> <span class="card-content text-center">{{ order.request_date | date  }}</span>   
         </div>
       </div>
     </div>

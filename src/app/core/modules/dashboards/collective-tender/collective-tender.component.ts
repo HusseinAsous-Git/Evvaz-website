@@ -1,8 +1,8 @@
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
 import { SchoolService } from './../../../services/school.service';
 import { SchoolTenderResolverModel } from './../../../models/school.tender.resolver.model';
 import { ActivatedRoute, Router, Params, Data } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
 
 @Component({
   selector: 'app-collective-tender',
@@ -13,9 +13,11 @@ export class CollectiveTenderComponent implements OnInit {
   loginId: number;
   currentUser;
   date:Date;
+  progress: number;
 tenderId: number;
 tender:SchoolTenderResolverModel ;
-newRequest : FormGroup;
+displayForm : boolean = true;
+
   constructor(private activatedRoute:ActivatedRoute, private router:Router, private schoolService: SchoolService) { }
 
   ngOnInit() {
@@ -24,27 +26,47 @@ newRequest : FormGroup;
     this.loginId = userData['login_id'];
     this.date = new Date();
 
-    this.newRequest = new FormGroup({});
+    
 
-  //  this.newTenderForm.controls['companyendTime'].setValue(this.companyEndTime.nativeElement.value) ; 
+ 
 
     this.activatedRoute.params.subscribe(
       (params: Params) => {
         this.tenderId = +params['tenderId'];
         console.log("Tender id: " + this.tenderId)
+
       }
     );
     this.activatedRoute.data.subscribe(
       (data: Data) => {
         this.tender = data['tender'];
+        
+        var display_date = new Date(this.tender.data.tender_display_date);
+        console.log("Display date: " + display_date)
+        
+        var expire_date = new Date(this.tender.data.tender_expire_date);
+        console.log("Expire date: " + expire_date) 
+
+
+        var diffDate = expire_date.getTime() - display_date.getTime() ;
+
+        var currentDate =expire_date.getTime() - new Date().getTime();
+
+        
+
+         this.progress = currentDate / diffDate;
+
+        
+         console.log("Progress: " + Math.floor(this.progress)*100)
+
+         if(new Date().getTime()>expire_date.getTime()){
+          this.progress = 100;
+        }
         console.log(this.tender)
         
 
 
-        for(let cats of this.tender.categories){
-          this.newRequest.setControl(cats.category_name,null)
-       //  this.newRequest.controls[cats.category_name].setValue(null);
-        }
+        
 
     }
     );
@@ -53,15 +75,16 @@ newRequest : FormGroup;
     
   }
 
-  request(){
-    
-    var catData : {cat_name: string, count : number} []  = [];
+  request(form:NgForm){
+    console.log(form)
+   var catData : {cat_name: string, count : number} []  = [];
 
-    for(let cat of this.tender.categories){
-//console.log("cat name: " + cat.category_name)
-     // console.log("Cat is : " +cat.category_name + " has count: " +  this.newRequest.get(cat.category_name).value);
-    //  catData.push({cat_name: cat.category_name, count: this.newRequest.get(cat.category_name).value})
-        }
+   for(let cat of this.tender.categories){
+    // console.log("cat name: " + cat.category_name)
+    
+    console.log("Cat is : " +cat.category_name + " has count: " +   form.value[cat.category_name]);
+     catData.push({cat_name: cat.category_name, count: form.value[cat.category_name]})
+      }
 
 
    
@@ -75,10 +98,19 @@ newRequest : FormGroup;
     }
   
     this.schoolService.addCollectiveTender(data).subscribe(
-      response => console.log(response)
+      response => {
+        console.log(response)
+        if(response['state'] !== 400){
+          this.displayForm = false;
+          setTimeout(()=> {
+            this.router.navigate(['/school','collective','all'])
+          },1500)
+        }
+
+      }
     )
 
-
+    
   }
 
 

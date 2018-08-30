@@ -1,7 +1,7 @@
 <app-school-sidebar></app-school-sidebar>
 <app-school-header></app-school-header>
 <div class="container">
-<nav class="">
+<nav class="" style="margin-top: 100px">
   <ul class="breadcrumb ">
       <li class="breadcrumb-item">
           <a [routerLink]="['/']">Dashboard</a>
@@ -24,7 +24,7 @@
 </div>
 
 <div class="row mx-auto">
-  <div class="col-xs-6 mr-2 ml-2 mt-2 mb-2" *ngFor="let company of allCompanies">
+  <div class="col-xs-6 mr-2 ml-2 mt-2 mb-2 skillhover" *ngFor="let company of allCompanies">
     <div class="card card-f">
       
       <div class="card-body">
