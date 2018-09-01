@@ -1,4 +1,6 @@
 import { environment } from '../../../../environments/environment.prod';
+import {SchoolRequest} from '../../models/school-category-request.model';
+import {CategoryDetails} from '../../models/purchase-category-details.model';
 import { AuthService } from '../auth.service';
 import { Injectable } from '@angular/core';
 import { Headers, RequestOptions } from '@angular/http';
@@ -13,8 +15,13 @@ import { Observable } from 'rxjs/Observable';
 export class PurchasePlatformService {
 
   constructor(private http: HttpClient, private authService: AuthService) { }
-  getCategory(){
+  getCategories(){
     return this.http.get(environment.apiPath + 'school/category/getCat');
   }
-
+  getCategoryRequests(cat_id){
+    return this.http.get<SchoolRequest[]>(environment.apiPath + 'school/requests/filterCat/'+cat_id);
+  }
+  getCategoryDetails(cat_id){
+    return this.http.get<CategoryDetails>(environment.apiPath + 'school/category/getCat/'+cat_id);
+  }
 }

@@ -1,7 +1,7 @@
 import { SchoolService } from './school.service';
-import { ActivatedRouteSnapshot, RouterStateSnapshot } from "../../../../node_modules/@angular/router";
-import { Observable } from "../../../../node_modules/rxjs";
-import { Injectable } from "../../../../node_modules/@angular/core";
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from "@angular/router";
+import { Observable } from "rxjs";
+import { Injectable } from "@angular/core";
 import { SchoolTenderResolverModel } from '../models/school.tender.resolver.model';
 
 

@@ -86,11 +86,7 @@ const routes: Routes = [
     {path:'school/tender/:tenderId/view', component:ViewTenderComponent, resolve: {tender:MyTenderResolver}},
     
     { path: 'home-page', component: HomePageComponent, canActivate: [AuthGuard] },
-    {
-        path: 'offer-platform', component: OfferPlatformComponent, canActivate: [AuthGuard],
-        children: [
-        ]
-    },
+    {path: 'offer-platform', component: OfferPlatformComponent, canActivate: [AuthGuard]},
     {path:'offer-details/:company_id/:offer_id', component: OfferDetailsComponent, canActivate: [AuthGuard]},
     { path: 'company/:id', component: CompanyProfileComponent, canActivate: [AuthGuard]},
     { path: 'insurance-platform', component: InsurancePlatformComponent , canActivate: [AuthGuard]},
@@ -100,7 +96,7 @@ const routes: Routes = [
     { path: 'unifying-platform', component: UnifyingPlatformComponent },
     { path: 'purchase-platform', component: PurchasePlatformComponent },
     { path: 'reigsteration-success', component: RegisterationSuccessComponent },
-    { path: 'purchase-category', component: PurchaseCategoryComponent }
+    { path: 'purchase-category/:catId', component: PurchaseCategoryComponent }
 ];
 
 /*Our Services

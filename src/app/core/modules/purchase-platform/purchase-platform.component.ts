@@ -12,7 +12,7 @@ export class PurchasePlatformComponent implements OnInit {
   constructor(private http: Http, private purchasPlatform: PurchasePlatformService) { }
 
   ngOnInit() {
-    this.purchasPlatform.getCategory().subscribe(
+    this.purchasPlatform.getCategories().subscribe(
       (response) => {
         this.categories =response;  
         //console.log(this.companiesInfo);     

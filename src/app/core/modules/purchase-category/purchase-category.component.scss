@@ -132,7 +132,7 @@ body.rtl .internal-page .requests img:first-of-type {
 }
 
 
-.internal-page .go{
+.internal-page .days{
     cursor: pointer;
     color: rgb(90, 87, 87);
     span {
@@ -145,6 +145,12 @@ body.rtl .internal-page .requests img:first-of-type {
         font-size: 20px;
         font-weight: 100;
         margin-left: 10px;
+    }
+    &.done{
+        span{
+            color: #f56a51;
+        }
+        
     }
 
     &:hover{
@@ -510,10 +516,11 @@ body.rtl .input-group>.input-group-append>.input-group-text {
 }
 .filter-button{
     border-radius: 1px;
-    background-color: #1DA4DD;
-    &:hover{
-        background-color: rgb(57, 176, 228);
-        border-color: rgb(57, 176, 228);
+    background-color: #3492dd;
+    &:hover &:focus{
+        background-image: none;
+        background-color: #1DA4DD;
+        border-color: #1DA4DD;
 
     }
     @include desktop {
@@ -523,11 +530,12 @@ body.rtl .input-group>.input-group-append>.input-group-text {
     }
 }
 
-.co-logo{
+.school-logo{
     height: 32px;
     width: 32px;
     border-radius: 50%;
     background-color: #00A4DC;
+    background-size: 32px 32px;
 }
 .school-name{
     span{

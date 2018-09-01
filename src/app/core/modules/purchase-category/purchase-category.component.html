@@ -14,16 +14,15 @@
                  
             </div> -->
 
-          <div routerLink="/home-page" class="go-back">
+          <div routerLink="/purchase-platform" class="go-back">
             <i class="fa fa-chevron-left"></i>
             <span>Back</span>
           </div>
 
 
-          <h3 class=" offers">Electric Devices</h3>
+          <h3 class=" offers">Purchase Platform : {{categoryDetails.request_category_name}}</h3>
           <p class="description  ">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur quis deleniti blanditiis mollitia minus cum distinctio
-            saepe consequatur nisi? Consequatur beatae vitae aperiam minus necessitatibus amet nemo pariatur illum officia.
+            You Can search requests from schools and Filter it accourding to days left or open / close status.
           </p>
 
 
@@ -36,73 +35,83 @@
   </div>
 </section>
 <section class="internal-page">
-    
+
   <div class="container">
     <div class="search-bar">
-        <form action="" >
-            <div class="form-row">
-                <div class="form-group col-md-9">
-                  <!-- <input type="text" class="form-control" id="inputCity"> -->
-                  <div class="input-group mb-3">
-                      <input type="text" class="form-control search-box" placeholder="search" >
-                      <div class="input-group-append">
-                        <span class="input-group-text search-glass" id="inputGroup-sizing-default"><i class="fa fa-search" aria-hidden="true"></i></span>
-                      </div>
-                      
-                    </div>
-                </div>
-                <div class="form-group col-md-2">
-                  <select id="inputState" class="form-control">
-                    <option selected>Sort By</option>
-                    <option>Open</option>
-                    <option>Asc</option>
-                    <option>Desc</option>
-                  </select>
-                </div>
-                <div class="form-group col-md-1">
-                  <button class="btn btn-info filter-button"><i class="fa fa-sliders snow" aria-hidden="true"></i> Filters</button>
-                </div>
+      <form #filterForm="ngForm">
+        <div class="form-row">
+          <div class="form-group col-md-9">
+            <!-- <input type="text" class="form-control" id="inputCity"> -->
+            <div class="input-group mb-3">
+              <input type="text" class="form-control search-box" placeholder="search" [(ngModel)]="searchTitle" [ngModelOptions]="{standalone: true}">
+              <div class="input-group-append">
+                <span class="input-group-text search-glass" id="inputGroup-sizing-default">
+                  <i class="fa fa-search" aria-hidden="true"></i>
+                </span>
               </div>
-        </form>
-    </div>
-    <div class="row">
-        <div class="col-lg-4 col-md-6 col-12" *ngFor="let x of [1,2,3,4,5,6,7,8,9,10,11,12]" >
-            <div class="item item-overlay" >
-                
-
-                <div class="overlay">
-                  <div class="status" >
-                      <button *ngIf="x%2==0" class="btn btn-success" disabled>open</button>
-                      <button *ngIf="x%2==1" class="btn btn-danger" disabled>closed</button>
-                      <span><i class="fa fa-eye" aria-hidden="true"></i>&nbsp; 1503</span>
-                      <div class="clearfix"></div>
-                  </div>
-                    
-                    <a>
-                        <h5 class="heading-overlay request-name">Request Title</h5>
-                    </a>
-
-                    <p>helps editors access reliable sources to improve Wikipedia. </p>
-                    
-                    <div class="bottom-placing">
-                        <hr>
-                        <div class="values d-flex justify-content-between align-items-center">
-
-                            <div>
-                              <div class="co-logo"></div>
-                            </div>
-                            <div class="school-name">
-                                <span>Mohamed Adel School</span>
-                            </div>
-                            <div class="go d-flex align-items-center">
-                                <span>7&nbsp;</span>Days
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
             </div>
+          </div>
+          <div class="form-group col-md-2">
+            <select id="inputState" class="form-control" name="filterSort" [(ngModel)]="formFilterChoice"   >
+              <option value="descending"  selected>More days</option>
+              <option value="ascending" >Less days</option>
+
+              <option value="open" >Open Only</option>
+            </select>
+          </div>
+          <div class="form-group col-md-1">
+            <button class="btn btn-primary filter-button" (click)="filterChoice()" >
+              <i class="fa fa-sliders snow" aria-hidden="true"></i> Filter</button>
+          </div>
         </div>
+      </form>
+    </div>
+    <div class="row" *ngIf="requestsView">
+      <div class="col-lg-4 col-md-6 col-12" *ngFor="let request of requestsView | categoryFilter:searchTitle">
+        <div class="item item-overlay">
+
+
+          <div class="overlay">
+            <div class="status">
+              <button *ngIf="request.open" class="btn btn-success" disabled>open</button>
+              <button *ngIf="!request.open" class="btn btn-danger" disabled>closed</button>
+              <span>
+                <i class="fa fa-eye" aria-hidden="true"></i>&nbsp; 1503</span>
+              <div class="clearfix"></div>
+            </div>
+
+            <a>
+              <h5 class="heading-overlay request-name">{{request.request_title}}</h5>
+            </a>
+
+            <p>{{request.request_explaination.substring(0,20)}} .....</p>
+
+            <div class="bottom-placing">
+              <hr>
+              <div class="values d-flex justify-content-between align-items-center">
+
+                <div>
+                  <div class="school-logo" [ngStyle]="{ 'background-image': 'url(data:image/png;base64,' + request.school_logo_image + ')'}"></div>
+                </div>
+                <div class="school-name">
+                  <span>{{request.school_name}}</span>
+                </div>
+                <div *ngIf="request.daysLeft>1" class="days d-flex align-items-center">
+                  <span>{{request.daysLeft}}&nbsp;</span>Days
+                </div>
+                <div *ngIf="request.daysLeft<=0" class="days done d-flex align-items-center">
+                  <span>0&nbsp;</span>Days
+                </div>
+                <div *ngIf="request.daysLeft==1" class="days d-flex align-items-center">
+                  <span>1&nbsp;</span>Day
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </div>
   </div>
 

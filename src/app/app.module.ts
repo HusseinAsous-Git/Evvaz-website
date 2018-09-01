@@ -85,6 +85,7 @@ import { SchoolTenderResolver } from './core/services/school.tender.resolver';
 import { AgreeHighlightDirective } from './core/modules/dashboards/agree.highlight.directive';
 import { ProgressDirective } from './core/modules/dashboard/progress.directive';
 import { PurchaseCategoryComponent } from './core/modules/purchase-category/purchase-category.component';
+import { categoryFilterPipe } from './core/modules/purchase-category/category-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -141,7 +142,8 @@ import { PurchaseCategoryComponent } from './core/modules/purchase-category/purc
     RegisterationSuccessComponent,
     AllCollectiveTendersComponent,
     ProgressDirective,
-    PurchaseCategoryComponent
+    PurchaseCategoryComponent,
+    categoryFilterPipe
 
   ],
   imports: [
