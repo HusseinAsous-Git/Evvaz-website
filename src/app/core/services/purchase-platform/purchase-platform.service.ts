@@ -16,7 +16,7 @@ export class PurchasePlatformService {
 
   constructor(private http: HttpClient, private authService: AuthService) { }
   getCategories(){
-    return this.http.get(environment.apiPath + 'school/category/getCat');
+    return this.http.get<CategoryDetails[]>(environment.apiPath + 'school/category/getCat');
   }
   getCategoryRequests(cat_id){
     return this.http.get<SchoolRequest[]>(environment.apiPath + 'school/requests/filterCat/'+cat_id);

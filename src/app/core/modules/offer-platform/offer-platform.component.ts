@@ -1,4 +1,4 @@
-import { GetCompaniesService } from '../../../services/get-companies/get-companies.service';
+import { GetCompaniesService } from '../../services/get-companies/get-companies.service';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Http, Response } from '@angular/http';

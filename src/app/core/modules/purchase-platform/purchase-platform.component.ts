@@ -1,3 +1,4 @@
+import {CategoryDetails} from '../../models/purchase-category-details.model';
 import { PurchasePlatformService } from '../../services/purchase-platform/purchase-platform.service';
 import { Component, OnInit } from '@angular/core';
 import { Http, Response } from '@angular/http';
@@ -8,7 +9,7 @@ import { Http, Response } from '@angular/http';
   styleUrls: ['./purchase-platform.component.scss']
 })
 export class PurchasePlatformComponent implements OnInit {
-  categories:Object;
+  categories:CategoryDetails[];
   constructor(private http: Http, private purchasPlatform: PurchasePlatformService) { }
 
   ngOnInit() {

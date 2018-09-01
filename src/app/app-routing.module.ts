@@ -8,7 +8,7 @@ import { InsurancePlatformComponent } from './core/modules/insurance-platform/in
 import { CollectiveTenderComponent } from './core/modules/dashboards/collective-tender/collective-tender.component';
 import { ViewTenderComponent } from './core/modules/dashboards/view-tender/view-tender.component';
 import { MyTendersComponent } from './core/modules/dashboards/my-tenders/my-tenders.component';
-import { OfferPlatformComponent } from './core/modules/home-page/offer-platform/offer-platform.component';
+import { OfferPlatformComponent } from './core/modules/offer-platform/offer-platform.component';
 import { AuthGuard } from './core/services/auth.gaurd.service';
 import { HomePageComponent } from './core/modules/home-page/home-page.component';
 /*Outer Imports*/
@@ -49,6 +49,7 @@ import { AdminOrderViewComponent } from './core/modules/dashboards/admin-order-v
 import { RegisterationSuccessComponent } from './core/modules/registeration-success/registeration-success.component';
 import { SchoolTenderResolver } from './core/services/school.tender.resolver';
 import { PurchaseCategoryComponent } from './core/modules/purchase-category/purchase-category.component';
+import { RequestDetailsComponent } from './core/modules/request-details/request-details.component';
 /*Our Services*/
 
 const routes: Routes = [
@@ -96,7 +97,8 @@ const routes: Routes = [
     { path: 'unifying-platform', component: UnifyingPlatformComponent },
     { path: 'purchase-platform', component: PurchasePlatformComponent },
     { path: 'reigsteration-success', component: RegisterationSuccessComponent },
-    { path: 'purchase-category/:catId', component: PurchaseCategoryComponent }
+    { path: 'purchase-category/:catId', component: PurchaseCategoryComponent },
+    { path: 'request-details/:reqId', component: RequestDetailsComponent }
 ];
 
 /*Our Services

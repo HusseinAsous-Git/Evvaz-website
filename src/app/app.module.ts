@@ -35,7 +35,7 @@ import { FooterComponent } from './core/modules/footer/footer.component';
 import { HomeHeaderComponent } from './core/modules/home-header/home-header.component';
 import { HomePageComponent } from './core/modules/home-page/home-page.component';
 import { SignUpService } from './core/services/sign-up.service';
-import { OfferPlatformComponent } from './core/modules/home-page/offer-platform/offer-platform.component';
+import { OfferPlatformComponent } from './core/modules/offer-platform/offer-platform.component';
 import { RegisterationSuccessComponent } from './core/modules/registeration-success/registeration-success.component';
 /* services */
 import { AuthGuard } from './core/services/auth.gaurd.service';
@@ -86,6 +86,7 @@ import { AgreeHighlightDirective } from './core/modules/dashboards/agree.highlig
 import { ProgressDirective } from './core/modules/dashboard/progress.directive';
 import { PurchaseCategoryComponent } from './core/modules/purchase-category/purchase-category.component';
 import { categoryFilterPipe } from './core/modules/purchase-category/category-filter.pipe';
+import { RequestDetailsComponent } from './core/modules/request-details/request-details.component';
 
 @NgModule({
   declarations: [
@@ -143,7 +144,8 @@ import { categoryFilterPipe } from './core/modules/purchase-category/category-fi
     AllCollectiveTendersComponent,
     ProgressDirective,
     PurchaseCategoryComponent,
-    categoryFilterPipe
+    categoryFilterPipe,
+    RequestDetailsComponent
 
   ],
   imports: [
