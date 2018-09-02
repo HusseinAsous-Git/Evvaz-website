@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class AdminRequestsComponent implements OnInit {
 date:Date;
 requests: AdminRequestModel [];
-
+count=0;
   constructor(private adminService: AdminService) { }
 
   ngOnInit() {
@@ -19,6 +19,11 @@ requests: AdminRequestModel [];
       response => {
         this.requests = response;
         console.log(response)
+
+        for(let i of this.requests){
+          this.count++;
+        }
+
       },
       err => console.log(err)
     )

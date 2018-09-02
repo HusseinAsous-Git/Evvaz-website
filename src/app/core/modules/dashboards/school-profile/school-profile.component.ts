@@ -29,10 +29,14 @@ export class SchoolProfileComponent implements OnInit {
   coverSizeIsValid: boolean = true;
   logoSize: number; 
   coverSize: number;
+  loginId: number;
+  currentUser;
   constructor(private schoolSerivce: SchoolService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    
+    this.currentUser = localStorage.getItem("@MYUSER");
+    let userData= JSON.parse(this.currentUser);
+    this.loginId = userData['login_id'];
 
     this.SchoolProfileForm = new FormGroup({
       'schoolName': new FormControl(null, Validators.required),
@@ -47,7 +51,7 @@ export class SchoolProfileComponent implements OnInit {
 
     
 
-    this.schoolSerivce.getProfile(4).subscribe(
+    this.schoolSerivce.getProfile(this.loginId).subscribe(
       (response) => { 
         if(response){
           this.isloading = false;

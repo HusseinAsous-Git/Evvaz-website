@@ -23,7 +23,7 @@
     </div>
     <br><br>
       <div class="col-sm-12">
-          
+          <!-- 8310  -->
               <div class="card card-big">
                 <div class="card-title mx-4 mt-2">
                   <!-- Taj tenders  <br> {{this.date | date}}
@@ -62,11 +62,11 @@
       </div>
   </div>    
   <div class="row mt-4 " >
-    <div class="col-sm-2 ml-0 mr-3" *ngFor="let c of cats">
+    <div class="col-sm-2 ml-0 mr-3" *ngFor="let cat of tenderCategories.categories">
         <div class="card" style="width: 200px">
             <img class="card-img-top" src="../../../../../assets/images/books.png" alt="logo" width="100" height="100"> 
             <div class="card-body">
-              <h5 class="card-title text-center"> {{ c.category_name }}</h5>
+              <h5 class="card-title text-center"> {{ cat.category_name }}</h5>
             </div>
           </div>
           
@@ -114,14 +114,14 @@
             </div>
           </div>
           
-    </div>
-  </div> -->
+    </div> -->
+  </div> 
 
   <div class="row mt-3">
   
   
   
-    <div class="col-sm-12 mt-3" *ngFor="let c of cats">
+    <div class="col-sm-12 mt-3" *ngFor="let s of tenderRequest.schools">
         
         <div class="card card-big">
           <div class="card-title mx-4 mt-2">
@@ -131,7 +131,7 @@
             </div>  -->
             <div class="row">
               <div class="col-sm-1">
-                 <img src="{{ c.school_logo_image }}" width="60" height="60" alt="logo" class="rounded-circle mt-3">
+                 <img src="{{ s.school_logo_image }}" width="60" height="60" alt="logo" class="rounded-circle mt-3">
               </div>
               <div class="col-sm-2" style="margin-left: -20px">
                   Google.com <br>  {{this.date | date}}
@@ -140,22 +140,15 @@
              
            <hr>
             <div class="card-body">
-          <div class="row justify-content-center">
-            <div class="col-sm-2">
-                <button class="btn btn-default" disabled="disabled" style="background-color: transparent; color: black; border: 1px solid black">Books: 500 Item</button>
+          <div class="row ">
+            <div class="col-sm-3 mt-4" *ngFor="let cat of s.categories">
+                <button class="btn btn-default btn-sm" disabled="disabled" style="background-color: transparent; color: black; border: 1px solid black">{{ cat.category_name }}: ({{cat.count}}) Item</button>
+                <hr>
             </div>
-            <div class="col-sm-2">
-                <button class="btn btn-default" disabled="disabled" style="background-color: transparent; color: black; border: 1px solid black">Books: 500 Item</button>
-            </div>
-            <div class="col-sm-2">
-                <button class="btn btn-default" disabled="disabled" style="background-color: transparent; color: black; border: 1px solid black">Books: 500 Item</button>
-            </div>
-            <div class="col-sm-2">
-                <button class="btn btn-default" disabled="disabled" style="background-color: transparent; color: black; border: 1px solid black">Books: 500 Item</button>
-            </div>
-            <div class="col-sm-2">
-                <button class="btn btn-default" disabled="disabled" style="background-color: transparent; color: black; border: 1px solid black">Books: 500 Item</button>
-            </div>
+            
+            
+            
+           
           
           </div>
         </div>

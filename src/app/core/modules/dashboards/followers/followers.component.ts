@@ -26,7 +26,7 @@ export class FollowersComponent implements OnInit {
     let currentUserData = JSON.parse(this.currentUser);
     this.loginId = currentUserData['login_id'];
 
-    this.schoolService.getSchools(3).subscribe(
+    this.schoolService.getSchools(this.loginId).subscribe(
       response => {
         console.log(response);
         this.schools = response;

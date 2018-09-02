@@ -1,3 +1,6 @@
+import { AdminTenderCategoriesModel } from './../../../models/admin.tender.cayegories.model';
+import { AdminRequestTenderModel } from './../../../models/admin.request.tender.model';
+import { AdminService } from './../../../services/admin.service';
 import { AdminTenderResolverModel } from './../../../models/admin.tender.resolve.model';
 import { Router, ActivatedRoute, Params, Data } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -12,7 +15,9 @@ date:Date;
 tenderId: number;
 tender: AdminTenderResolverModel ;
 cats ;
-  constructor(private router:Router, private activatedRoute: ActivatedRoute) { }
+tenderRequest:any ;
+tenderCategories: any;
+  constructor(private router:Router, private activatedRoute: ActivatedRoute, private adminService:AdminService) { }
 
   ngOnInit() {
     this.date = new Date();
@@ -40,12 +45,28 @@ this.cats = this.tender.categories;
 
     }
 
-
+    
     
 
 
     );
 
+    this.adminService.getTenderById(this.tenderId).subscribe(
+      response => {
+        console.log(response);
+        this.tenderRequest = response;
+        for(let s of this.tenderRequest.schools){
+          s.school_logo_image = 'data:image/png;base64,' + s.school_logo_image;
+        }
+      }
+    )
+
+
+    this.adminService.getTenderCategories(this.tenderId).subscribe(
+      response => {
+        this.tenderCategories = response;
+      }
+    )
 
   }
   goViewBySchool(){

@@ -30,6 +30,10 @@ export class AdminService{
         let url = `${environment.apiPath}register/getInActive`;
         return this.httpClient.get<AdminRequestModel[]>(url); 
     }
+    getSingleRequest(requestId: number) {
+        let url = `${environment.apiPath}register/get/${requestId}`;
+        return this.httpClient.get(url);
+    }
 
     activateRequest(id: number){
         let url = `${environment.apiPath}register/confirm/${id}`;
@@ -45,7 +49,17 @@ export class AdminService{
         let url = `${environment.apiPath}tender/request/${tenderId}`;
         return this.httpClient.get(url); 
     }
+
+
+
+    getTenderById(tenderId: number) {
+        let url = `${environment.apiPath}request/tender/${tenderId}`;
+        return this.httpClient.get(url); 
+    }
     
-  
+  getTenderCategories(tenderId: number){
+    let url = `${environment.apiPath}tender/request/get/${tenderId}`;
+    return this.httpClient.get(url); 
+  }
 
 }

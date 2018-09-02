@@ -19,9 +19,17 @@ export class OfferEditComponent implements OnInit {
   base64textString = [];
   hash = [];
 
+  loginId: number;
+  currentUser;
   constructor(private companyService: CompanyService, private activatedRoute:ActivatedRoute, private router:Router) { }
 
   ngOnInit() {
+
+
+    this.currentUser = localStorage.getItem("@MYUSER");
+    let userData = JSON.parse(this.currentUser);
+    this.loginId = userData['login_id'];
+console.log("Login ID: " + this.loginId)
     this.editOffer = new FormGroup({
       'offerName' : new FormControl(null, Validators.required),
       'description' : new FormControl(null, Validators.required),
@@ -69,7 +77,7 @@ console.log("Incoming offer is: " + this.offer);
       offer_title: this.editOffer.get('offerName').value,
       offer_explaination: this.editOffer.get('description').value,
       offer_cost: this.editOffer.get('cost').value,
-      company_id: 6,
+      company_id: this.loginId,
       offer_count: this.editOffer.get('count').value,
       offer_display_date:Date.now(),
     	offer_expired_date:Date.now(),
@@ -79,10 +87,10 @@ console.log("Incoming offer is: " + this.offer);
     console.log("Image 1: " + this.editOffer.get('image_one'))
 
     this.companyService.update(data).subscribe(
-      response => {
+      response => { 
          console.log("Successful edit");
          console.log(response);
-         this.router.navigate(['/home','offers','see'])
+         this.router.navigate(['/company','offers','see'])
         },
         err => console.log("Error: " + err)
     )

@@ -13,8 +13,8 @@ export class CompanyService {
 
     
 
-    seeAllOffers(){
-        let url = `${environment.apiPath}company/offer/`;
+    seeAllOffers(companyId: number){
+        let url = `${environment.apiPath}company/offer/${companyId}/company`;
         return this.httpClient.get<CompanyOfferModel []>(url); 
     }
 

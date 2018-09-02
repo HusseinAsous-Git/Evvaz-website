@@ -19,7 +19,7 @@
     
   </div>
   <div class="col-sm-2 txt-color">
-    16 Requests 
+    ({{count}}) Requests 
     </div>
 </div>
 
@@ -32,7 +32,7 @@
       <div style="margin-top: -35px">
         <a  class="btn btn-blue pull-right ml-2" 
         style="color: white"
-         [routerLink]="['/admin','request','view']">Profile</a>
+         [routerLink]="['/admin','request',request.registration_id,'view']">Profile</a>
         <a  class="btn view-btn pull-right" style="color: white" (click)="activateRequest(request.registration_id, i)">Agree</a>
       </div>
       </div>
