@@ -59,7 +59,7 @@ export class OfferDetailsComponent implements OnInit {
   requestOffer(){
     this.request_details['requsted_school_id']=this.UserData['login_id'];
     this.request_details['requsted_offer_id']=this.offer_details['offer_id'];
-    this.request_details['request_offer_count']=this.offer_details['offer_count'];
+    //this.request_details['request_offer_count']=this.offer_details['offer_count'];
 
     this.profileService.requestOffer(this.request_details).subscribe(
       (response) => {

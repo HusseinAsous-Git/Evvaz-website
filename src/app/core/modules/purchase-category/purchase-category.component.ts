@@ -14,6 +14,7 @@ import { ActivatedRoute } from '@angular/router';
 export class PurchaseCategoryComponent implements OnInit {
   requests:SchoolRequest[];
   requestsView:SchoolRequest[];
+  closedView:SchoolRequest[];
   today = new Date();
   formFilterChoice='descending';
 
@@ -35,7 +36,7 @@ export class PurchaseCategoryComponent implements OnInit {
              rquest.open=false;
           }
           else{
-            let delta = Math.abs(rquest.request_expired_date - 1533384000000) / 1000;
+            let delta = Math.abs(rquest.request_expired_date - +this.today) / 1000;
             let days = Math.floor(delta / 86400);
             rquest.daysLeft=days;
             //delta -= days * 86400;
@@ -83,11 +84,24 @@ export class PurchaseCategoryComponent implements OnInit {
     }
   }
   ascendingSort(){
+    
     this.requests.sort((a, b) => {
       //console.log("works-asc");
       return a.daysLeft-b.daysLeft;
     });
-    this.requestsView=this.requests;
+
+    this.requestsView=[];
+    this.closedView=[];
+    for(let request of this.requests){
+      if(!request.open){
+        this.closedView.push(request);
+      }
+      else{
+        
+        this.requestsView.push(request);
+      }
+    }
+    Array.prototype.push.apply(this.requestsView,this.closedView)
   }
   descendingSort(){
     this.requests.sort((a, b) => {

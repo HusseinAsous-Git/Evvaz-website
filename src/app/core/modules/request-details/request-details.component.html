@@ -1,9 +1,9 @@
 <app-home-header></app-home-header>
-<div *ngIf="false" class="preloader">
+<div *ngIf="!requestDetails" class="preloader">
     <img src="../../../../../assets/images/_ws.gif" alt="">
 </div>
 
-<section class="intro"   style="background-image:url(assets/img/Heading.png)">
+<section class="intro"   style="background-image:url(assets/img/Heading.png)" *ngIf="requestDetails">
     <div class="overlay">
         <div class="container">
             <div class="row">
@@ -18,8 +18,8 @@
                             <img src="../../../../assets/img/company/panda.png">
 
                         </div>
-                        <h3 class="font-weight-bold ">
-                            School Name
+                        <h3 class="font-weight-bold " style="text-transform: capitalize;">
+                            {{requestDetails['school_name']}}
                         </h3>
 
 
@@ -31,7 +31,7 @@
                             <tr class="">
                                 <td>
                                     <i class="fa fa-folder-open "></i>
-                                    Category Name
+                                    {{requestDetails['request_category_name']}}
                                 </td>
 
                             </tr>
@@ -51,7 +51,7 @@
         </div>
     </div>
 </section>
-<section class="news" >
+<section class="news" *ngIf="requestDetails">
     <div class="container">
         <div >
 
@@ -65,16 +65,16 @@
                             </span>
                             <i class="fa fa-circle start-date"></i>
                             <span class="date-started-bottom">
-                                11/7/2018
+                                {{requestDetails['request_display_date'] | date :  "dd/MM/yyyy"}}
                             </span>
                         </span>
                         <span>
                             <span class="current-date-top">
-                                Current Date
+                                Current Date : <span>{{today | date :  "dd/MM/yyyy"}}</span> 
                             </span>
-                            <i class="fa fa-circle percentage"></i>
-                            <span class="current-date-bottom">
-                                15/8/2018
+                            <i class="fa fa-circle percentage" [style.marginLeft.%] ="timeLinePrecent-1" ></i>
+                            <span class="days-left-bottom" [class.done]="!daysLeft">
+                                {{daysLeft}}&nbsp;Days Left
                             </span>
                         </span>
                         <span>
@@ -83,24 +83,24 @@
                             </span>
                             <i class="fa fa-circle end-date"></i>
                             <span class="end-date-bottom">
-                                20/10/2018
+                                {{requestDetails['request_expired_date'] | date :  "dd/MM/yyyy"}}
                             </span>
                         </span>
-                        <div class="progress-bar bg-info" style="width:60%"></div>
+                        <div class="progress-bar bg-info" [style.width.%]="timeLinePrecent"></div>
                     </div>
 
                 </div>
 
-                <div class="col-md-3 col-lg-3 order-md-1 mb-4">
+                <div class="col-md-4 col-lg-4 order-md-1 mb-4">
                     <div class="request-side-bar shadowed">
                         <div class="Fssimg-small"><img src="../../../../assets/img/company/panda.png"></div>
                         <h5>Published by</h5>
-                        <h6 class="side-school-name">School Name </h6>
+                        <h6 class="side-school-name">{{requestDetails['school_name']}}</h6>
                         <hr>
-                        <h6 class="side-details">Publication Date : <span>9/11/2018</span></h6>
-                        <h6 class="side-details">Category : <span>Electric</span></h6>
-                        <h6 class="side-details">Address : <span>9 maaly st. roxy</span></h6>
-                        <h6 class="side-details">Days left : <span>7 days</span></h6>
+                        <h6 class="side-details">Publication Date : <span>{{requestDetails['request_display_date'] | date :  "dd/MM/yyyy"}}</span></h6>
+                        <h6 class="side-details">Category : <span>{{requestDetails['request_category_name']}}</span></h6>
+                        <h6 class="side-details">Days left : <span>{{daysLeft}}&nbsp;Days Left</span></h6>
+                        <h6 class="side-details">Views : <span>{{requestDetails['views_count']}}&nbsp; view</span></h6>
                     </div>
                     
 
@@ -109,42 +109,19 @@
                 </div>
 
 
-                <div class="col-md-9 col-lg-9 order-md-2 offer-details shadowed">
+                <div class="col-md-8 col-lg-8 order-md-2 offer-details shadowed">
                     <br>
                     <h4 class="offer-d-title"><span>Details</span></h4>
 
                     <hr>
-                    <h4 class="mb-3 offer-r-title ">Request Title</h4>
+                    <h4 class="mb-3 offer-r-title ">{{requestDetails['request_title']}}</h4>
                     <!-- <p class="details">
                         {{offer_details['offer_explaination']}}
                     </p> -->
                     
                     <p class="details">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque incidunt error similique, veritatis vitae qui vero facere
-                        sequi reprehenderit minima aliquid at autem quod ipsa delectus dolores id quis modi!
+                        {{requestDetails['request_explaination']}}
                     </p>
-                    <p class="details ">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque incidunt error similique, veritatis vitae qui vero facere
-                        sequi reprehenderit minima aliquid at autem quod ipsa delectus dolores id quis modi!
-                    </p>
-                    <p class="details">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque incidunt error similique, veritatis vitae qui vero facere
-                        sequi reprehenderit minima aliquid at autem quod ipsa delectus dolores id quis modi!
-                    </p>
-                    <p class="details">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque incidunt error similique, veritatis vitae qui vero facere
-                        sequi reprehenderit minima aliquid at autem quod ipsa delectus dolores id quis modi!
-                    </p>
-
-
-
-
-
-
-                    <!-- <div *ngIf="showSucces" class="alert-success">
-                        Request succeeded !
-                    </div> -->
-                    <!-- (click)="requestOffer()" -->
                     <button class="btn btn-success btn-lg btn-block bottom-d-button"  type="submit">Offer Your Service</button>
                     
                 </div>

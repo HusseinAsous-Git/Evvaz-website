@@ -167,8 +167,7 @@
                     </p> -->
                     
                     <p class="details">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque incidunt error similique, veritatis vitae qui vero facere
-                        sequi reprehenderit minima aliquid at autem quod ipsa delectus dolores id quis modi!
+                        {{offer_details.offer_explaination}}
                     </p>
 
 
@@ -218,11 +217,16 @@
 
 
 
-
-
+                    
+                    <div class="form-group">
+                        <label for="count">Number of Times you want this offer</label>
+                        <input name="count" [(ngModel)]="offer_details['request_offer_count']" type="file" class="form-control-file" id="count" aria-describedby="countHelp">
+                        <small id="countHelp" class="form-text text-muted">You will get this number of this offer package.</small>
+                      </div>
                     <div *ngIf="showSucces" class="alert-success">
                         Request succeeded !
                     </div>
+                    
                     <button class="btn btn-success btn-lg btn-block bottom-d-button" (click)="requestOffer()" type="submit">Request Now</button>
                     
                 </div>

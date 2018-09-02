@@ -1,9 +1,9 @@
 <app-home-header></app-home-header>
-<div *ngIf="false" class="preloader">
+<div *ngIf="!categoryDetails" class="preloader">
   <img src="../../../../../assets/images/_ws.gif" alt="">
 </div>
 <section class="intro clearfix " style="background-image:url(assets/img/Heading.png)">
-  <div class="overlay">
+  <div class="overlay" *ngIf="categoryDetails">
 
     <div class="container">
       <div class="row">
@@ -37,7 +37,7 @@
 <section class="internal-page">
 
   <div class="container">
-    <div class="search-bar">
+    <div class="search-bar" >
       <form #filterForm="ngForm">
         <div class="form-row">
           <div class="form-group col-md-9">
@@ -54,8 +54,8 @@
           </div>
           <div class="form-group col-md-2">
             <select id="inputState" class="form-control" name="filterSort" [(ngModel)]="formFilterChoice"   >
-              <option value="descending"  selected>More days</option>
-              <option value="ascending" >Less days</option>
+              <option value="descending" >More days left</option>
+              <option value="ascending" >Less days left</option>
 
               <option value="open" >Open Only</option>
             </select>
@@ -69,7 +69,7 @@
     </div>
     <div class="row" *ngIf="requestsView">
       <div class="col-lg-4 col-md-6 col-12" *ngFor="let request of requestsView | categoryFilter:searchTitle">
-        <div class="item item-overlay" routerLink="/request-details/1">
+        <div class="item item-overlay" routerLink="/request-details/{{request.request_id}}">
 
 
           <div class="overlay">
@@ -77,15 +77,15 @@
               <button *ngIf="request.open" class="btn btn-success" disabled>open</button>
               <button *ngIf="!request.open" class="btn btn-danger" disabled>closed</button>
               <span>
-                <i class="fa fa-eye" aria-hidden="true"></i>&nbsp; 1503</span>
+                <i class="fa fa-eye" aria-hidden="true"></i>&nbsp; {{request.view_count}}</span>
               <div class="clearfix"></div>
             </div>
 
             <a>
-              <h5 class="heading-overlay request-name">{{request.request_title}}</h5>
+              <h5 class="heading-overlay request-name">{{request['request_title']}}</h5>
             </a>
 
-            <p>{{request.request_explaination.substring(0,20)}} .....</p>
+            <p>{{request.request_explaination.substring(0,30)}} .....</p>
 
             <div class="bottom-placing">
               <hr>

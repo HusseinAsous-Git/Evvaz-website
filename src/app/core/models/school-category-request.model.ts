@@ -13,6 +13,7 @@ export class SchoolRequest{
     request_category_name: string;
     extended_payment:number=0;
     request_count: number=0;
+    view_count:number;
     daysLeft:number;
     open:boolean;
 }

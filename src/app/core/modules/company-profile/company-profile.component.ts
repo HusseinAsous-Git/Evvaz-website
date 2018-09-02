@@ -24,8 +24,8 @@ export class CompanyProfileComponent implements OnInit {
       this.id = params['id'];
     });
     let user = localStorage.getItem('@MYUSER');
-  this.UserData = JSON.parse(user);
-  console.log("this user id is ====> ",this.UserData['login_id'])
+    this.UserData = JSON.parse(user);
+  //console.log("this user id is ====> ",this.UserData['login_id'])
   }
 
   ngOnInit() {
