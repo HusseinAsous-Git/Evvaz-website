@@ -21,18 +21,15 @@ export class OffersComponent implements OnInit {
     let userData = JSON.parse(this.currentUser);
     this.loginId = userData['login_id'];
     this.isloading = true;
-    this.companyService.seeAllOffers().subscribe(
+    this.companyService.seeAllOffers(this.loginId).subscribe(
       (response) => {
         
         if(response){
           this.isloading = false;
-        console.log("Response: " + response)
+          this.companyOffers = response['list'];
+        console.log(response)
 
-        for(let offer of response){
-          if(offer.company_id === this.loginId){
-            this.companyOffers.push(offer);
-          }
-        }
+       
 
          // this.companyOffers = response;
 

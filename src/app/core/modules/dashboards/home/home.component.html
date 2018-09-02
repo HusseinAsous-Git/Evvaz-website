@@ -5,15 +5,15 @@
 
 <div class="container">
   <div class="row justify-content-center">
-   <img src="../../../../../assets/images/colors.png" width="70" height="70" alt=""> <h3 class="mt-3">Company</h3>
+   <img [src]="activeProfile.company_logo_image" width="70" height="70" alt="" class="rounded-circle"> <h3 class="mt-3">{{activeProfile.company_name}}</h3>
   </div>
   <br>
   <div class="row ">
     <div class="col-sm-4"></div>
     <div class="col-sm-4 pb-2" style="border-bottom: 1px solid gray; border-bottom-right-radius: 30px; border-bottom-left-radius: 30px">
         <i class="fa fa-map-marker mr-1 ml-2" style="font-size: 30px"></i> 
-        <span style="font-weight: bold">Egypt</span> 
-        <span style="color: gray;"> Alexandria,damieetta,Nasr street 190 </span>
+       
+        <span style="color: cornflowerblue;"> {{activeProfile.company_address}} </span>
     </div>
  
   </div>
@@ -23,13 +23,13 @@
   </div>
   <div class="row mt-4">
     <div class="col-sm-4">
-        <i class="fa fa-university mr-1 ml-2" style="font-size: 20px"></i> <span style="color: gray">www.companysite.com</span>
+        <i class="fa fa-university mr-1 ml-2" style="font-size: 20px"></i> <span style="color: gray"><a href="{{activeProfile.company_website_url}}" target="_blank">Official Website</a></span>
     </div>
     <div class="col-sm-4">
-        <i class="fa fa-phone mr-1 ml-2" style="font-size: 20px"></i> <span style="color: gray">0020 256 3252 023</span>
+        <i class="fa fa-phone mr-1 ml-2" style="font-size: 20px"></i> <span style="color: gray">{{activeProfile.company_phone_number}}</span>
     </div>
     <div class="col-sm-4">
-        <i class="fa fa-facebook mr-1 ml-2" style="font-size: 20px"></i> <span style="color: gray">facebook/companyprofile</span>
+        <i class="fa fa-youtube mr-1 ml-2" style="font-size: 20px"></i> <span style="color: gray"><a href="{{activeProfile.company_link_youtube}}" target="_blank">YouTube</a></span>
     </div>
   </div>
   <div class="row" style="margin-top: 80px">

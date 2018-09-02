@@ -16,7 +16,10 @@
   </ul>
 </div>
 
-<div class="col-sm-12">
+<div class="row justify-content-center">
+    <img *ngIf="isLoading" class="mt-3" src="../../../assets/images/load.gif" alt="">
+</div>
+<div class="col-sm-12" *ngIf="!isLoading">
         
   <div class="card card-big">
     <div class="card-title mx-4 mt-2">
@@ -26,11 +29,11 @@
       </div>  -->
       <div class="row">
         <div class="col-sm-10">
-          Taj Company  <br> <div style="color: grey">{{this.date | date:'short'}} </div>
+          {{profile.registration_organization_name}}  <br> <div style="color: grey">{{profile.registeration_date | date:'short'}} </div>
         </div>
                   
         <div class="col-sm-2">
-          <button class="btn view-btn" style="margin-left: 70px; margin-top: 10px;">Agree</button>
+          <button class="btn view-btn" style="margin-left: 70px; margin-top: 10px;" (click)="activateRequest(profile.registration_id)">Agree</button>
         </div>
         
        
@@ -42,14 +45,14 @@
     <div class="row mt-4 mb-4">
     <i class="fa fa-at " style="font-size: 50px; margin-left: 30px;margin-top: -15px"></i>
    <div style="margin-left: 20px; margin-top: -15px;"> 
-     Email <br> <div style="color: grey">Tag51Group@Gmail.com</div> 
+     Email <br> <div style="color: grey">{{ profile.registeration_email }}</div> 
    </div>
     </div>
     <hr>
     <div class="row mt-4 mb-4">
         <i class="fa fa-phone " style="font-size: 50px; margin-left: 30px;margin-top: -15px"></i>
        <div style="margin-left: 20px; margin-top: -15px;"> 
-         Phone Number <br>  <div style="color: grey">002 5412 45448 125 </div> 
+         Phone Number <br>  <div style="color: grey">{{profile.registeration_phone_number}} </div> 
        </div>
         </div>
         <hr>
@@ -59,11 +62,12 @@
         <div > Services </div>
          <br> 
          <div style="color: grey">
-         Books <br>
+           <p class="display-4">Account hasn't been activated Yet!</p>
+         <!-- Books <br>
          Pencils <br>
          Pens <br>
          Papers <br>
-         colors
+         colors -->
         </div>
        </div>
         </div>

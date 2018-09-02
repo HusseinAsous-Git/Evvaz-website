@@ -122,7 +122,7 @@ hash = [];
         console.log("size is: " + this.size + "is of type"+ typeof(this.size))
         
         console.log(this.newOffer)
-        this.router.navigate(['/home/offers/see']);
+        this.router.navigate(['/company/offers/see']);
       }
       ,(err) => console.log(err)
     );

@@ -71,7 +71,7 @@ const routes: Routes = [
         {path:'admin/orders', component:AdminOrdersComponent},
         {path:'admin/orders/:orderId/view', component:AdminOrderViewComponent},
         {path:'admin/requests', component:AdminRequestsComponent},
-        {path:'admin/request/view', component:AdminRequestsViewComponent},
+        {path:'admin/request/:requestId/view', component:AdminRequestsViewComponent},
         {path:'admin/history', component:AdminHistoryComponent},
         {path:'admin/history/:orderId/view', component:AdminHistoryViewComponent},
 

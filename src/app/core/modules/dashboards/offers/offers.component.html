@@ -14,7 +14,7 @@
       </ul>
     </div>
     <div class="pull-right ">
-        <a style="color: blue" [routerLink]="['/home','offers','new']"> <i class="fa fa-plus"> </i> New Offer </a>
+        <a style="color: blue" [routerLink]="['/company','offers','new']"> <i class="fa fa-plus"> </i> New Offer </a>
      </div>
     <div class="container-fluid">
       
@@ -57,7 +57,7 @@
                                         <td>{{ offer.offer_cost }}</td>
                                         <td>All Days</td>
                                         <td class="control">
-                                                <button class="btn btn-sm btn-edit" [routerLink]="['/home','offers',offer.offer_id,'edit']">Edit</button>
+                                                <button class="btn btn-sm btn-edit" [routerLink]="['/company','offers',offer.offer_id,'edit']">Edit</button>
                                                 <button class="btn btn-sm btn-outline-danger ml-2" (click)="deleteOffer(offer,i)" >Delete</button>
                                             </td>
                                             <td class="avilable">Available</td>
