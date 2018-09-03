@@ -9,31 +9,31 @@
     </li>
 
     <li class="breadcrumb-item">
-      <a [routerLink]="['/admin']">Tenders</a>
+      <a [routerLink]="['/admin','tenders','mine']">Tenders</a>
     </li>
     <li class="breadcrumb-item active">
-      New
+      Edit
     </li>
   </ul>
 </nav>
  
       <!-- new tender form here -->
       <div class="col-sm-8 col-sm offset-2">
-        <form class="mt-5" [formGroup]="newTenderForm" (ngSubmit)="newTender()">
+        <form class="mt-5" [formGroup]="editTenderForm" (ngSubmit)="editTender()">
           <div class="form-group">
             <label for="tenderName">Tender Name</label>
             <input type="text"
              class="form-control"
               id="tenderName"
                 placeholder="Tender name"
-                formControlName="tenderName"
+                formControlName="tenderName"  
                
                 >
           </div>
           <span 
-                *ngIf="!newTenderForm.get('tenderName').valid && newTenderForm.get('tenderName').touched"
+                *ngIf="!editTenderForm.get('tenderName').valid && editTenderForm.get('tenderName').touched"
                 class="help-block" >Tender name Required!</span>
-
+<br>
 
                 <!-- Category dropdown here -->
 
@@ -56,7 +56,7 @@
                 </div>
               </div>
               <span 
-              *ngIf="!newTenderForm.get('category').valid && newTenderForm.get('category').touched"
+              *ngIf="!editTenderForm.get('category').valid && editTenderForm.get('category').touched"
               class="help-block" >This feild is required!</span>
                 <!-- end check boxes -->
 <br>  
@@ -71,7 +71,7 @@
                 </div>
          
                 <span 
-                *ngIf="!newTenderForm.get('description').valid && newTenderForm.get('description').touched"
+                *ngIf="!editTenderForm.get('description').valid && editTenderForm.get('description').touched"
                 class="help-block" >This feild is required!</span>
   
                 <br>
@@ -183,8 +183,8 @@
 
 
               
-                <button class="btn btn-danger ml-2 pull-right" [routerLink]="['/admin']">Cancel</button>
-            <button class="btn btn-success ml-2 pull-right" type="submit" [disabled]="!newTenderForm.valid">Create</button>
+                <button class="btn btn-danger ml-2 pull-right" [routerLink]="['/admin','tenders',tender.tender_data.tender_id,'company']">Cancel</button>
+            <button class="btn btn-success ml-2 pull-right" type="submit" [disabled]="!editTenderForm.valid">Save</button>
             
             
           

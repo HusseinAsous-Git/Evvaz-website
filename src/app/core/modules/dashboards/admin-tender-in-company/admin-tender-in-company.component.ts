@@ -17,6 +17,9 @@ tender: AdminTenderResolverModel ;
 cats ;
 tenderRequest:any ;
 tenderCategories: any;
+tenderData:any;
+progressPercentage=0;
+progressStatus;
   constructor(private router:Router, private activatedRoute: ActivatedRoute, private adminService:AdminService) { }
 
   ngOnInit() {
@@ -28,6 +31,19 @@ tenderCategories: any;
         console.log("Tender id: " + this.tenderId)
       }
     );
+
+    this.adminService.getTenderById(this.tenderId).subscribe(
+      response => {
+        console.log("This is Tender request:");
+        console.log(response);
+        this.tenderRequest = response;
+        for(let s of this.tenderRequest.schools){
+          s.school_logo_image = 'data:image/png;base64,' + s.school_logo_image;
+        }
+      }
+    )
+
+
     this.activatedRoute.data.subscribe(
       (data: Data) => {
         this.tender = data['tender'];
@@ -51,27 +67,51 @@ this.cats = this.tender.categories;
 
     );
 
-    this.adminService.getTenderById(this.tenderId).subscribe(
-      response => {
-        console.log(response);
-        this.tenderRequest = response;
-        for(let s of this.tenderRequest.schools){
-          s.school_logo_image = 'data:image/png;base64,' + s.school_logo_image;
-        }
-      }
-    )
+    
 
 
     this.adminService.getTenderCategories(this.tenderId).subscribe(
       response => {
-        this.tenderCategories = response;
+        console.log("This is Tender categories:")
+        console.log(response)
+        this.tenderData = response;
+        var percentage = this.tenderData.data['tender_expire_date'] - this.tenderData.data['tender_display_date'];
+        var diff = this.tenderData.data['tender_expire_date'] - new Date().getTime();
+        var division = diff / percentage;
+        this.progressPercentage = 100 - (Math.floor( division * 100));
+        if(division <0) {
+          this.progressPercentage = 100 ;
+          this.progressStatus = "Expired";
+        }
+
+        console.log("Difference between two dates: " + this.progressPercentage )
+
       }
     )
 
   }
-  goViewBySchool(){
+  goViewBySchool(tenderId: number){
 
-    this.router.navigate(['/admin','tenders','school'])
+    this.router.navigate(['/admin','tenders',tenderId,'school'])
 
   }
+
+
+deleteTender(tenderId : number) {
+
+  if(confirm("Are you sure to delete This tender?")) {
+    this.adminService.deleteTender(tenderId).subscribe(
+      response => {
+        console.log(response);
+        console.log("Successfully deleted!");
+        this.router.navigate(['/admin','tenders','mine'])
+      }
+    )
+  }
+
+
+  
+}
+
+
 }

@@ -87,6 +87,8 @@ import { ProgressDirective } from './core/modules/dashboard/progress.directive';
 import { PurchaseCategoryComponent } from './core/modules/purchase-category/purchase-category.component';
 import { categoryFilterPipe } from './core/modules/purchase-category/category-filter.pipe';
 import { RequestDetailsComponent } from './core/modules/request-details/request-details.component';
+import { AdminTenderEditComponent } from './core/modules/dashboards/admin-tender-edit/admin-tender-edit.component';
+import { AdminTenderEditResolver } from './core/services/admin.tender.edit.resolver';
 
 @NgModule({
   declarations: [
@@ -145,7 +147,8 @@ import { RequestDetailsComponent } from './core/modules/request-details/request-
     ProgressDirective,
     PurchaseCategoryComponent,
     categoryFilterPipe,
-    RequestDetailsComponent
+    RequestDetailsComponent,
+    AdminTenderEditComponent
 
   ],
   imports: [
@@ -169,6 +172,7 @@ import { RequestDetailsComponent } from './core/modules/request-details/request-
     ProfileService,
     CompanyService,
     OfferResolver,
+    
     ProfileServiceDashboard,
     ProfileResolver,
     SchoolProfileService,

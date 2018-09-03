@@ -1,3 +1,5 @@
+import { AdminTenderEditResolver } from './core/services/admin.tender.edit.resolver';
+import { AdminTenderEditComponent } from './core/modules/dashboards/admin-tender-edit/admin-tender-edit.component';
 import { AdminTenderResolver } from './core/services/admin.tender.resolver';
 import { MyTenderResolver } from './core/services/mytender.resolver.service';
 import { AllCollectiveTendersComponent } from './core/modules/dashboards/all-collective-tenders/all-collective-tenders.component';
@@ -66,7 +68,8 @@ const routes: Routes = [
     {path:'admin/tenders/new', component:AdminNewTenderComponent},
         {path:'admin/tenders/mine', component:AdminAllTendersComponent},
         {path:'admin/tenders/:tenderId/company', component:AdminTenderInCompanyComponent, resolve : {tender : AdminTenderResolver}},
-        {path:'admin/tenders/school', component:AdminMyTendersComponent},
+        {path:'admin/tenders/:tenderId/edit', component:AdminTenderEditComponent, resolve : {tender : AdminTenderResolver}},
+        {path:'admin/tenders/:tenderId/school', component:AdminMyTendersComponent},
         {path:'admin/tenders/:tenderId/details', component:AdminMyTendersComponent},
         {path:'admin/orders', component:AdminOrdersComponent},
         {path:'admin/orders/:orderId/view', component:AdminOrderViewComponent},
