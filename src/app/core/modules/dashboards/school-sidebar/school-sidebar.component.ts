@@ -16,7 +16,7 @@ export class SchoolSidebarComponent implements OnInit {
   loginId: number;
   currentUser;
   companiesCount = 0;
-
+  followCount=0;
 
   ngOnInit() {
 
@@ -35,13 +35,44 @@ export class SchoolSidebarComponent implements OnInit {
     )
 console.log("Company count: " + this.companiesCount)
 
-    this.schoolService.getSchoolOrders(this.loginId).subscribe(
+    this.schoolService.getAllOrders(this.loginId).subscribe(
       response => {
+        console.log("Order count:");
+        console.log(response)
         for(let r of response) {
           this.orderCount ++;
         }
       }
     )
+
+    this.schoolService.getAllCompanies(this.loginId).subscribe(
+      response => {
+       
+        for(let company of response) {
+          this.followCount ++;
+          
+        }
+        console.log(response)
+      }
+    )
+
+
+
+    // this.schoolService.getAllOrders(this.loginId).subscribe(
+    //   response => {
+        
+    //     console.log(response)
+    //     this.schoolOrders = response;
+
+    //     for(let o of this.schoolOrders){
+    //       this.count ++;
+    //     }
+        
+    //    }
+
+       
+    // )
+
     this.schoolService.getHistory(this.loginId).subscribe(
       response => {
         for(let r of response) {
@@ -49,6 +80,9 @@ console.log("Company count: " + this.companiesCount)
         }
       }
     )
+
+   
+
   }
 
 

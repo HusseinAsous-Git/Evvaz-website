@@ -119,7 +119,7 @@
 
               
                 <button class="btn btn-danger ml-2 pull-right" [routerLink]="['/school']">Cancel</button>
-            <button class="btn btn-success ml-2 pull-right" type="submit">Create</button>
+            <button class="btn btn-success ml-2 pull-right" type="submit" [disabled]="!newTenderForm.valid">Create</button>
             
             
           

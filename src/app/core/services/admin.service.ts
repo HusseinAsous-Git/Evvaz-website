@@ -62,4 +62,71 @@ export class AdminService{
     return this.httpClient.get(url); 
   }
 
+  updateTender(tenderData : {
+    tender_id: number,
+    tender_title:string,
+    tender_explain: string,
+    tender_display_date: number,
+    tender_expire_date: number,
+    tender_company_display_date: number,
+    tender_company_expired_date: number,
+    cats : {
+        category_name: string;
+    } [] 
+
+  }){
+    let url = `${environment.apiPath}takataf/tenders/`;
+    return this.httpClient.put(url,tenderData); 
+    
+  }
+
+
+  deleteTender(tenderId: number) {
+    let url = `${environment.apiPath}takataf/tenders/${tenderId}`;
+    return this.httpClient.delete(url); 
+  }
+
+
+  getTenderDetailsInCompany(tenderId: number) {
+    let url = `${environment.apiPath}tender/details/company/${tenderId}`;
+    return this.httpClient.get(url);
+    
+  }
+
+  getAllCompaniesInTender(tenderId: number){
+    let url = `${environment.apiPath}tender/companies/${tenderId}`;
+    return this.httpClient.get(url);
+  }
+
+
+  agreeForCompany(companyId: number, tenderId: number){
+    let url = `${environment.apiPath}tender/companies/${companyId}/${tenderId}`;
+    return this.httpClient.put(url,{});
+}
+
+
+
+
+getAllOrders(){
+    let url = `${environment.apiPath}admin/orders/`;
+    return this.httpClient.get(url);
+    
+}
+
+
+getOrderByOfferId(offerId: number) {
+    let url = `${environment.apiPath}admin/orders/${offerId}`;
+    return this.httpClient.get(url);
+}
+
+getAllHistory() {
+    let url = `${environment.apiPath}admin/orders/history/`;
+    return this.httpClient.get(url);
+}
+
+getHistoryOrder(orderId:number) {
+    let url = `${environment.apiPath}admin/orders/history/${orderId}`;
+    return this.httpClient.get(url);
+}
+
 }

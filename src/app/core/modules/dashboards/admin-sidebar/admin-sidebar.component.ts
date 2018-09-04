@@ -1,3 +1,4 @@
+import { AdminService } from './../../../services/admin.service';
 import { UIService } from './../../../services/ui.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -7,10 +8,49 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-sidebar.component.scss']
 })
 export class AdminSidebarComponent implements OnInit {
-
-  constructor(private uiService:UIService) { }
+history;
+requests;
+orders;
+historyCount=0;
+requestCount=0;
+orderCount=0;
+  constructor(private uiService:UIService, private adminService:AdminService) { }
 
   ngOnInit() {
+
+    this.adminService.getAllHistory().subscribe(
+      response => {
+        console.log(response);
+        this.history = response;
+        for(let h of this.history){
+         this.historyCount++;
+        }
+      }
+    )
+
+    this.adminService.getAllRequests().subscribe(
+      response => {
+        this.requests = response;
+        console.log(response)
+
+        for(let i of this.requests){
+          this.requestCount++;
+        }
+
+      },
+      err => console.log(err)
+    )
+
+    this.adminService.getAllOrders().subscribe(
+      response => {
+        console.log(response);
+        this.orders = response;
+        for(let o of this.orders) {
+          this.orderCount++;
+        }
+      }
+    )
+
   }
 
 
@@ -22,6 +62,6 @@ export class AdminSidebarComponent implements OnInit {
   //   }
   // }
 
-
+ 
 
 }
