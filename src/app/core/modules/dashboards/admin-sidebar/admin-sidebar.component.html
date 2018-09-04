@@ -39,26 +39,26 @@
                 <a  class="list-group-item list-group-item-action"
                 routerLinkActive="active"
                 [routerLink]="['/admin','tenders','mine']">
-                        My Tenders <i class="fa fa-plus pull-right"></i>
+                        My Tenders <i class="fa fa-eye pull-right"></i>
                 </a>
                
                 <a  class="list-group-item list-group-item-action" routerLinkActive="active" [routerLink]="['/admin','tenders','new']">
-                  Create a tender <i class="fa fa-eye pull-right"></i>
+                  Create a tender <i class="fa fa-plus pull-right"></i>
               </a>
               
                </div>
             </div>
             <a  class=" pl-4 list-group-item list-group-item-action" [routerLink]="['/admin','orders']"
             routerLinkActive="active">
-                <i class="fa fa-user pr-3"></i> Orders
+                <i class="fa fa-user pr-3"></i> Orders <span class="badge badge-primary badge-pill pull-right">{{orderCount}}</span>
             </a>
             <a  class=" pl-4 list-group-item list-group-item-action"
              [routerLink]="['/admin','requests']" routerLinkActive="active">
-                <i class="fa fa-user pr-3"></i> Requests <span class="badge badge-primary badge-pill pull-right">12</span>
+                <i class="fa fa-bell pr-3"></i> Requests <span class="badge badge-primary badge-pill pull-right">{{requestCount}}</span>
             </a>
             <a  class=" pl-4 list-group-item list-group-item-action"
              [routerLink]="['/admin','history']" routerLinkActive="active">
-                <i class="fa fa-user pr-3"></i> History <span class="badge badge-primary badge-pill pull-right">12</span>
+                <i class="fa fa-history pr-3"></i> History <span class="badge badge-primary badge-pill pull-right">{{historyCount}}</span>
             </a>
           
                 

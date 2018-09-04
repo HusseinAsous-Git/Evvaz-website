@@ -24,6 +24,34 @@ export class AuthService {
             return true;
         }
     }
+
+     isCompanyLogin() : boolean {
+         if(this.isAuthenticated()) {
+             if(this.currentUser.login_role === "company") {
+                 return true;
+             }else {
+                 return false;
+             }
+         }
+     }
+     isSchoolLogin(){
+        if(this.isAuthenticated()) {
+            if(this.currentUser.login_role === "school") {
+                return true;
+            }else {
+                return false;
+            }
+        }
+     }
+     isAdminLogin(){
+        if(this.isAuthenticated()) {
+            if(this.currentUser.login_role === "admin") {
+                return true;
+            }else {
+                return false;
+            }
+        }
+     }
     checkUser() {
         const user = localStorage.getItem('@MYUSER');
 

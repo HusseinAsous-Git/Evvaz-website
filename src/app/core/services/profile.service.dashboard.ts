@@ -11,7 +11,7 @@ export class ProfileServiceDashboard{
 
 
     getProfile(id:number){
-        let url = `${environment.apiPath}profile/get/${id}`;
+        let url = `${environment.apiPath}company/profile/${id}`;
         return this.httpClient.get<CompanyProfileModel>(url);
     }
 

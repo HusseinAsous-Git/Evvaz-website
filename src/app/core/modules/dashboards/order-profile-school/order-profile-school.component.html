@@ -1,0 +1,92 @@
+<app-admin-header></app-admin-header>
+<app-admin-sidebar></app-admin-sidebar>
+<div class="container">
+<div class="" style="margin-top: 100px">
+  <ul class="breadcrumb ">
+      <li class="breadcrumb-item">
+          <a [routerLink]="['/admin']">Admin</a>
+      </li>
+     
+      <li class="breadcrumb-item ">
+        School
+      </li>
+      <li class="breadcrumb-item ">
+          {{schoolProfile.school_name}}
+        </li>
+      <li class="breadcrumb-item active">
+        Profile
+      </li>
+  </ul>
+</div>
+
+<div class="row justify-content-center">
+    <img *ngIf="isLoading" class="mt-3" src="../../../assets/images/load.gif" alt="">
+</div>
+<!--  -->
+<div class="col-sm-12" *ngIf="!isLoading">
+        
+  <div class="card card-big">
+    <div class="card-title mx-4 mt-2">
+      <!-- Taj tenders  <br> {{this.date | date}}
+      <div class="pull-right">
+         <button class="btn view-btn" [routerLink]="['/school/tender/view']">View</button>
+      </div>  -->
+      <div class="row">
+        <div class="col-sm-9">
+         
+          <br> <div style="color: grey">
+              <i class="fa fa-map-marker mr-1 ml-2" style="font-size: 50px; margin-left: 30px;margin-top: -15px"></i>  {{schoolProfile.school_address}}
+          </div>
+        </div>
+                  
+        <div class="col-sm-1">
+            <img src="{{schoolProfile.school_logo_image}}" alt="" width="50" height="50" class="rounded-circle">
+        </div>
+        <div class="col-sm-2" style="margin-top: 10px;margin-left: -10px;">
+             <h3>{{schoolProfile.school_name}} </h3> 
+         </div>
+        
+       
+       
+      </div>
+    </div>
+    <hr>
+    
+    <div class="row mt-4 mb-4">
+    <i class="fa fa-at " style="font-size: 50px; margin-left: 30px;margin-top: -15px"></i>
+   <div style="margin-left: 20px; margin-top: -15px;"> 
+     Email <br> <div style="color: grey">
+       {{ schoolProfile.school_website_url }}
+      </div> 
+   </div>
+    </div>
+    <hr>
+    <div class="row mt-4 mb-4">
+        <i class="fa fa-phone " style="font-size: 50px; margin-left: 30px;margin-top: -15px"></i>
+       <div style="margin-left: 20px; margin-top: -15px;"> 
+         Phone Number <br>  <div style="color: grey">
+           {{schoolProfile.school_phone_number}} 
+          </div> 
+       </div>
+        </div>
+        <hr>
+    <div class="row mt-4 mb-4">
+        <i class="fa fa-cog " style="font-size: 50px; margin-left: 30px;margin-top: -15px"></i>
+       <div style="margin-left: 20px; margin-top: -15px;"> 
+        <div > Services </div>
+         <br> 
+         <div style="color: grey">
+           <p>{{schoolProfile.school_service_desc}}</p>
+         <!-- Books <br>
+         Pencils <br>
+         Pens <br>
+         Papers <br>
+         colors -->
+        </div>
+       </div>
+        </div>
+  </div>
+
+</div>
+
+</div>

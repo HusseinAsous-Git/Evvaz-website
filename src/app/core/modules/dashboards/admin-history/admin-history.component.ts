@@ -1,3 +1,4 @@
+import { AdminService } from './../../../services/admin.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,10 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminHistoryComponent implements OnInit {
 date:Date;
-  constructor(private router:Router) { }
+history:any;
+  constructor(private router:Router, private adminService:AdminService) { }
 
   ngOnInit() {
     this.date = new Date();
+    this.adminService.getAllHistory().subscribe(
+      response => {
+        console.log(response);
+        this.history = response;
+        for(let h of this.history){
+          h.company_logo_image =  'data:image/png;base64,' +h.company_logo_image;
+          h.school_logo_image = 'data:image/png;base64,' +  h.school_logo_image;
+        }
+      }
+    )
   }
 
 

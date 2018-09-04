@@ -12,7 +12,10 @@ export class AdminMyTendersComponent implements OnInit {
   tender:any;
   tenderId: number;
   tenders:any;
-  companies:any;
+  companies:any = [];
+  showCard: boolean = true;
+  progressPercentage;
+  progressStatus;
   constructor(private adminService:AdminService, private activatedRoute:ActivatedRoute) { }
 
   ngOnInit() {
@@ -29,6 +32,31 @@ export class AdminMyTendersComponent implements OnInit {
         this.tenders = response;
         this.tender = response[1];
         console.log(this.tender)
+
+        console.log("Display date:" + this.tender.tender_company_display_date)
+
+
+
+
+
+
+        var percentage = this.tender.tender_company_expired_date - this.tender.tender_company_display_date;
+
+        console.log("Percentage: " + percentage)
+        var diff = this.tender.tender_company_expired_date - new Date().getTime();
+        var division = diff / percentage;
+        console.log("Division: " + division)
+        this.progressPercentage = 100 - (Math.floor( division * 100));  
+        console.log("Progress:"+ this.progressPercentage)
+        if(division <0 || this.progressPercentage<0) {
+          this.progressPercentage = 100 ;
+          this.progressStatus = "Expired";
+        }
+
+        console.log("Difference between two dates: " + this.progressPercentage )
+
+
+
       }
     )
     this.adminService.getAllCompaniesInTender(this.tenderId).subscribe(
@@ -45,11 +73,15 @@ export class AdminMyTendersComponent implements OnInit {
 
 
 
-  agree(companyId: number) {
+  agree(companyId: number,index:number) {
     this.adminService.agreeForCompany(companyId,this.tenderId).subscribe(
       response => {
         console.log(response);
-        
+        this.showCard = false;
+        this.companies.splice(index,1);
+        setTimeout(() => {
+          this.showCard = true;
+        },2000)
       }
     )
   }

@@ -119,5 +119,14 @@ getOrderByOfferId(offerId: number) {
     return this.httpClient.get(url);
 }
 
+getAllHistory() {
+    let url = `${environment.apiPath}admin/orders/history/`;
+    return this.httpClient.get(url);
+}
+
+getHistoryOrder(orderId:number) {
+    let url = `${environment.apiPath}admin/orders/history/${orderId}`;
+    return this.httpClient.get(url);
+}
 
 }

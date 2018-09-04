@@ -89,6 +89,11 @@ import { categoryFilterPipe } from './core/modules/purchase-category/category-fi
 import { RequestDetailsComponent } from './core/modules/request-details/request-details.component';
 import { AdminTenderEditComponent } from './core/modules/dashboards/admin-tender-edit/admin-tender-edit.component';
 import { AdminTenderEditResolver } from './core/services/admin.tender.edit.resolver';
+import { OrderProfileComponent } from './core/modules/dashboards/order-profile-company/order-profile.component';
+import { OrderProfileSchoolComponent } from './core/modules/dashboards/order-profile-school/order-profile-school.component';
+import { AuthGuardCompany } from './core/services/auth.guard.company.service';
+import { AuthGuardSchool } from './core/services/auth.guard.school.service';
+import { AuthGuardAdmin } from './core/services/auth.guard.admin.service';
 
 @NgModule({
   declarations: [
@@ -148,7 +153,9 @@ import { AdminTenderEditResolver } from './core/services/admin.tender.edit.resol
     PurchaseCategoryComponent,
     categoryFilterPipe,
     RequestDetailsComponent,
-    AdminTenderEditComponent
+    AdminTenderEditComponent,
+    OrderProfileComponent,
+    OrderProfileSchoolComponent
 
   ],
   imports: [
@@ -172,10 +179,12 @@ import { AdminTenderEditResolver } from './core/services/admin.tender.edit.resol
     ProfileService,
     CompanyService,
     OfferResolver,
-    
+    AuthGuardAdmin,
+    AuthGuardCompany,
     ProfileServiceDashboard,
     ProfileResolver,
     SchoolProfileService,
+    AuthGuardSchool,
     UIService,
     SchoolTenderResolver,
     AdminTenderResolver,
