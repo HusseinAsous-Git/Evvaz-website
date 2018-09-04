@@ -53,7 +53,8 @@ import { RequestDetailsComponent } from './core/modules/request-details/request-
 /*Our Services*/
 
 const routes: Routes = [
-    {path:'', component:IndexComponent},
+    { path: '', redirectTo: '/home', pathMatch: 'full' },
+    {path:'home', component:IndexComponent},
     {path:'company', component: HomeComponent},
     {path:'company/offers/new', component:NewOfferComponent},
     {path:'company/offers/see', component:OffersComponent},

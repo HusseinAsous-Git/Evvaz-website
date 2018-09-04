@@ -24,6 +24,15 @@ export class RequestDetailsComponent implements OnInit {
   daysLeft:Number;
   requestDetails:SchoolRequest;
   timeLinePrecent:Number;
+  showSucces=false;
+  showFail=false;
+  isClosed=false;
+  cost='0';
+  service_details={
+    "responsed_company_id":0,
+	  "responsed_request_id":0,
+	  "responsed_cost":0
+  }
   constructor(private route: ActivatedRoute, private router: Router,private http: Http, private purchasPlatform: PurchasePlatformService) { 
     this.route.params.subscribe(params => {
       this.request_id = params['reqId'];
@@ -51,11 +60,14 @@ export class RequestDetailsComponent implements OnInit {
           if(this.timeLinePrecent>100){
             this.timeLinePrecent=100;
             this.daysLeft=0;
+            this.isClosed=true;
+            
           }
           else{
             let delta = Math.abs(response['request_expired_date'] - +this.today) / 1000;
             let days = Math.floor(delta / 86400);
             this.daysLeft=days;
+            
           }
         }
         
@@ -77,6 +89,31 @@ export class RequestDetailsComponent implements OnInit {
         }
       },
       (error) => {
+        console.log('errors ', error)
+      }
+    );
+  }
+
+  offerYourService(){
+    this.service_details.responsed_company_id=this.UserData['login_id'];
+    this.service_details.responsed_request_id= +this.request_id;
+    this.service_details.responsed_cost= +this.cost;
+    //console.log("request === > " ,this.service_details);
+    this.purchasPlatform.offerService(this.service_details).subscribe(
+      (response) =>{
+        if(response['responsed_company_id']){
+          this.showSucces=true;
+          this.showFail=false;
+          //console.log("response === > " ,response);
+        }
+        else{
+          this.showSucces=false;
+          this.showFail=true;
+        }
+      },
+      (error) => {
+        this.showSucces=false;
+        this.showFail=true;
         console.log('errors ', error)
       }
     );

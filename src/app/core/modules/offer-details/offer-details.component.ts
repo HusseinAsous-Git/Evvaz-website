@@ -19,9 +19,10 @@ export class OfferDetailsComponent implements OnInit {
       "requsted_school_id":Number, 
       "requsted_offer_id":Number, 
       "is_accepted":1,
-      "request_offer_count":Number
+      "request_offer_count":0
   }
-  showSucces:boolean=false;
+  showSucces=false;
+  showFail=false;
   constructor(private route: ActivatedRoute, private router: Router, private profileService : ProfileService ,private Company: GetCompaniesService) {
     this.route.params.subscribe(params => {
       this.company_id = params['company_id'];
@@ -49,10 +50,10 @@ export class OfferDetailsComponent implements OnInit {
         }
         //console.log(response) ;
       }
-      // ,
-      // (error) => {
-      //   console.log('errors ', error)
-      // }
+      ,
+      (error) => {
+        console.log('errors ', error)
+      }
     );
   }
 
@@ -65,10 +66,21 @@ export class OfferDetailsComponent implements OnInit {
       (response) => {
         if(response['requsted_school_id']){
           this.result=response;
-          this.showSucces=true
+          this.showSucces=true;
+          this.showFail=false;
           //console.log(this.result);
         }
+        else{
+          this.showSucces=false;
+          this.showFail=true;
+        }
         
+      }
+      ,
+      (error) => {
+        this.showSucces=false;
+        this.showFail=true;
+        console.log('errors ', error)
       }
     );
   }

@@ -30,4 +30,7 @@ export class PurchasePlatformService {
   addView(request){
     return this.http.post(environment.apiPath + 'seen/add',request);
   }
+  offerService(service_offer){
+    return this.http.post(environment.apiPath + 'response/school/request/add',service_offer);
+  }
 }
