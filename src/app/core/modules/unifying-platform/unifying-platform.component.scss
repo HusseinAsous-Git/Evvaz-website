@@ -30,12 +30,7 @@
     margin-bottom: 25px;
 }
 
-.news .card .overlay {
-    background: linear-gradient(360deg, rgba(18, 165, 225, 0.19) 0%, rgba(189,222,240,1) 63%, rgba(243,243,243,1) 100%);
-    height: 100%;
-    border-radius: 5px;
-    padding: 15px;
-}
+
 
 .news .card .date-container {
     margin-bottom: 100px;
@@ -700,4 +695,55 @@ color: #12a5e1;
     &:hover{
         cursor: pointer;
     }
+}
+.parent-comp{
+    margin-bottom: 25px;
+}
+.wide-comp,.small-comp{
+    min-height :160px;
+    
+}
+.tall-comp{
+    min-height :320px;
+}
+
+.unicard{
+    width:98%;
+    height:98%;
+    border-radius: 5px;
+    overflow: hidden;
+    margin:auto;
+    margin-top:20px;
+    color:white;
+    
+    button{
+        margin-bottom: 20px;
+        background-color:white;
+        &:hover{
+            color: white;
+            background-color: rgba(0, 0, 0, 0.829);
+        }
+    }
+    // background-repeat: no-repeat;
+    // background-size: auto;
+    &.uni-1{ background-image: url('../../../../assets/img/unifying-platform/maidens.png');}
+    &.uni-2{background-image: url('../../../../assets/img/unifying-platform/superheater.png');}
+    &.uni-3{background-image: url('../../../../assets/img/unifying-platform/insurance-contract.png');
+        margin-right:0px;}
+    &.uni-4{background-image: url('../../../../assets/img/unifying-platform/employment-contracts.png');}
+    &.uni-5{background-image: url('../../../../assets/img/unifying-platform/security-contracts.png');}
+    &.uni-6{background-image: url('../../../../assets/img/unifying-platform/fuel-contracts.png');
+    margin-left:0px;}
+    &.uni-7{background-image: url('../../../../assets/img/unifying-platform/school-uniforms.png');}
+    &.uni-8{background-image: url('../../../../assets/img/unifying-platform/office-tools.png');}
+    &.uni-9{background-image: url('../../../../assets/img/unifying-platform/other-services.png');}
+
+
+}
+
+.overlay {
+    height: 100%;
+    width:100%;
+    padding: 16px;
+    background: rgba(49, 48, 48, 0.562);
 }

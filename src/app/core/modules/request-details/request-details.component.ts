@@ -57,7 +57,7 @@ export class RequestDetailsComponent implements OnInit {
           let timeBase = response['request_expired_date']-response['request_display_date'];
           let percent = +this.today-response['request_display_date'];
           this.timeLinePrecent=Math.floor((percent/timeBase)*100);
-          if(this.timeLinePrecent>100){
+          if(this.timeLinePrecent>=100){
             this.timeLinePrecent=100;
             this.daysLeft=0;
             this.isClosed=true;
@@ -78,14 +78,13 @@ export class RequestDetailsComponent implements OnInit {
     );
   }
   addView(){
-    //if(this.UserData)
     this.purchasPlatform.addView(this.req_view_add).subscribe(
       (response) => {
         if(response['state']==400){
-          //console.log("view didn't count : " , response);
+          console.log("view didn't count : " , response);
         }
         else {
-          //console.log("view added : " , response);
+          console.log("view added : " , response);
         }
       },
       (error) => {

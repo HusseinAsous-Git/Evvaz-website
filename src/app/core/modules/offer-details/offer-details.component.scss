@@ -786,6 +786,11 @@ p.details,h4.details{
     position: absolute;
     top: -30px;
     margin-left:50%;
+    transform: translateX(-25%);
+    background-color:#1c94d1;
+    padding: 0 5px;
+    color:snow;
+    border-radius:2px;
 }
 .end-date-top{
     position: absolute;
@@ -799,11 +804,17 @@ p.details,h4.details{
     bottom: -30px;
     color:#64d5de;
 }
-.current-date-bottom{
+.days-left-bottom{
     position: absolute;
     bottom: -30px;
     margin-left:50%;
-    color:#64d5de;
+    background-color:#28a744;
+    padding: 0 5px;
+    color:snow;
+    border-radius:2px;
+    &.done{
+        background-color: #ec1b24;
+    }
 }
 .end-date-bottom{
     position: absolute;
@@ -813,7 +824,13 @@ p.details,h4.details{
     color:#64d5de;
 }
 //progress bar style end =========================>
-
+.status-btn{
+    cursor: help;
+    margin-right: 20px;
+}
+.white-bg{
+    background-color: white;
+}
 .map-marker{
     color:snow;
 }
@@ -855,4 +872,8 @@ p.details,h4.details{
     div>i{
        color:snow;
     }
+}
+.head-d{
+    margin-top:16px;
+    color: #ec8a8f;
 }

@@ -36,9 +36,13 @@
 
                             </tr>
                             <tr>
-                                <td>
+                                <td *ngIf="daysLeft">
 
-                                    <div class="btn btn-success btn-sm status-btn " dis>Open</div> <span>7 Days Left</span>
+                                    <div class="btn btn-success btn-sm status-btn disabled" >Open</div> <span>{{daysLeft}} Days Left</span>
+                                    
+                                </td>
+                                <td *ngIf="!daysLeft">
+                                        <div class="btn btn-danger btn-sm status-btn disabled" >closed</div>
                                 </td>
 
 
