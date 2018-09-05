@@ -1,3 +1,4 @@
+import { AuthService } from './../../../services/auth.service';
 import { AdminService } from './../../../services/admin.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -10,10 +11,20 @@ import { Component, OnInit } from '@angular/core';
 export class AdminHistoryComponent implements OnInit {
 date:Date;
 history:any;
-  constructor(private router:Router, private adminService:AdminService) { }
+loginId:number;
+currentUser;
+token : string;
+  constructor(private router:Router, private adminService:AdminService, private authService:AuthService) { }
 
   ngOnInit() {
+    this.currentUser = localStorage.getItem("@MYUSER");
+    let userData = JSON.parse(this.currentUser);
+    this.loginId = userData['login_id'];
+    this.token = this.authService.getToken()
+    console.log("token is: " + this.token)
     this.date = new Date();
+
+    
     this.adminService.getAllHistory().subscribe(
       response => {
         console.log(response);
