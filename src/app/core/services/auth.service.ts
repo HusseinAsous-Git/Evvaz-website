@@ -63,8 +63,11 @@ export class AuthService {
     }
 
     getToken() {
+
+        return this.currentUser.login_token;
+
         // return 'Bearer ' + this.currentUser.token;
-        return 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJNYWhtb3VkIEFobWVkIiwidXNlcklkIjoiOCIsInJvbGUiOiJhZG1pbiJ9.hwkLA3MHa1Zz54PMrS1Geg1vQtwunKD7HUHCNXFDjDcaXk3c3Fdqc9LEmhYHhSU09n6-8otvzqbR0QCbZFYGrQ';
+       // return 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJNYWhtb3VkIEFobWVkIiwidXNlcklkIjoiOCIsInJvbGUiOiJhZG1pbiJ9.hwkLA3MHa1Zz54PMrS1Geg1vQtwunKD7HUHCNXFDjDcaXk3c3Fdqc9LEmhYHhSU09n6-8otvzqbR0QCbZFYGrQ';
     }
 
     logout() {
