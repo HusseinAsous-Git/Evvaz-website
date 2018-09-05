@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { Router } from '@angular/router';
-
 @Injectable()
 export class AuthService {
     currentUser;
@@ -18,11 +17,15 @@ export class AuthService {
     }
 
     isAuthenticated(): boolean {
+
+       // const token = this.getToken();
         if (this.checkUser() == false) {
             return false;
         } else {
             return true;
         }
+
+         //return tokenNotExpired(null, token);
     }
 
      isCompanyLogin() : boolean {
@@ -57,17 +60,18 @@ export class AuthService {
 
         if (user) {
             this.currentUser = JSON.parse(user);
+            return true;
         } else {
             return false;
         }
     }
 
     getToken() {
-
-        return this.currentUser.login_token;
-
-        // return 'Bearer ' + this.currentUser.token;
-       // return 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJNYWhtb3VkIEFobWVkIiwidXNlcklkIjoiOCIsInJvbGUiOiJhZG1pbiJ9.hwkLA3MHa1Zz54PMrS1Geg1vQtwunKD7HUHCNXFDjDcaXk3c3Fdqc9LEmhYHhSU09n6-8otvzqbR0QCbZFYGrQ';
+        if (this.checkUser()){
+            return  this.currentUser.login_token;
+        }
+        return 'some useless text';
+        //return 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJNYWhtb3VkIEFobWVkIiwidXNlcklkIjoiOCIsInJvbGUiOiJhZG1pbiJ9.hwkLA3MHa1Zz54PMrS1Geg1vQtwunKD7HUHCNXFDjDcaXk3c3Fdqc9LEmhYHhSU09n6-8otvzqbR0QCbZFYGrQ';
     }
 
     logout() {

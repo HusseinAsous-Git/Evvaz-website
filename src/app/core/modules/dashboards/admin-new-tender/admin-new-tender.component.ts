@@ -215,7 +215,8 @@ newTender(){
  this.adminService.createTender(data).subscribe(
   response => {
     console.log(response)
-   this.router.navigate(['/admin','tenders','mine']);
+    this.router.navigate(['/admin','tenders','mine']);
+    
   },err => console.log(err)
  )
 

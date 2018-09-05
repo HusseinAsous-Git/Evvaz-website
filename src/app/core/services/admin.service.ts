@@ -4,7 +4,7 @@ import { AdminTenderModel } from './../models/admin.tender.model';
 import { Injectable } from "../../../../node_modules/@angular/core";
 
 import { environment } from "../../../environments/environment.prod";
-import { HttpClient } from '../../../../node_modules/@angular/common/http';
+import { HttpClient, HttpHeaders } from '../../../../node_modules/@angular/common/http';
 import { AdminCategory } from '../models/admin.cat.model';
 import { AdminMyTenderModel } from '../models/admin.mytender.model';
 
@@ -120,8 +120,8 @@ getOrderByOfferId(offerId: number) {
 }
 
 getAllHistory() {
-    let url = `${environment.apiPath}admin/orders/history/`;
-    return this.httpClient.get(url);
+    let url = `${environment.apiPath}evvaz/admin/orders/history/`;
+    return this.httpClient.get(url,);
 }
 
 getHistoryOrder(orderId:number) {
