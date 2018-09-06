@@ -23,6 +23,7 @@ export class SchoolHomeComponent implements OnInit {
         console.log(response);
         this.activeProfile = response;
         this.activeProfile.school_logo_image =  'data:image/png;base64,' + this.activeProfile.school_logo_image;
+        this.activeProfile.school_cover_image =  'data:image/png;base64,' + this.activeProfile.school_cover_image;
        }
     )
 }

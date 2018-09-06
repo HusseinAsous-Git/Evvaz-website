@@ -1,3 +1,4 @@
+import { AdminService } from './../../../services/admin.service';
 import { AuthService } from '../../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { ProfileService } from '../../../services/profile/profile.service';
@@ -14,8 +15,9 @@ export class HomeComponent implements OnInit {
   isAuthenticated = false;
   loginId: number;
   currentUser;
+  adminCategories;
   activeProfile:CompanyProfileModel;
-  constructor(private authService: AuthService, private profileService: ProfileServiceDashboard) { }
+  constructor(private authService: AuthService, private profileService: ProfileServiceDashboard, private adminService:AdminService) { }
 
   ngOnInit() {
 
@@ -30,11 +32,18 @@ export class HomeComponent implements OnInit {
 
   this.profileService.getProfile(this.loginId).subscribe(
     (response) => { 
+      console.log("Company profile:");  
       console.log(response);
       this.activeProfile = response;
       this.activeProfile.company_logo_image = 'data:image/png;base64,' + this.activeProfile.company_logo_image;
     }
   )
+  // this.adminService.getCategories().subscribe(
+  //   response => {console.log(response);
+  //     this.adminCategories = response; }
+
+  // )
+
   }
 
 }

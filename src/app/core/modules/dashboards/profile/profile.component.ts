@@ -1,3 +1,4 @@
+import { AdminService } from './../../../services/admin.service';
 import { CategoryModel } from '../../../models/category.model';
 import { AuthService } from '../../../services/auth.service';
 import { ProfileServiceDashboard } from '../../../services/profile.service.dashboard';
@@ -6,6 +7,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CompanyProfileModel } from '../../../models/company.profile.model';
 import { CompanyOfferModel } from '../../../models/company.offer.see.model';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AdminCategory } from '../../../models/admin.cat.model';
 
 @Component({
   selector: 'app-profile',
@@ -34,8 +36,11 @@ coverSize;
   categoryName : string;
   isloading: boolean = false;
   firstTime: boolean = false;
+  adminCategories;
+  returnedCats: AdminCategory [] = [];
+  catNames : {category_name: string} [] = [];
   constructor(private profileService: ProfileServiceDashboard,
-     private activatedRoute: ActivatedRoute,
+     private activatedRoute: ActivatedRoute, private adminService:AdminService,
       private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
@@ -54,14 +59,15 @@ coverSize;
       'website': new FormControl(null, Validators.required),
       'logo': new FormControl(null, Validators.required),
       'cover': new FormControl(null, Validators.required),
+      'description': new FormControl(null, Validators.required),
       'category' : new FormControl(null, Validators.required)
     });
 
 
     this.profileService.getCategories().subscribe(
       respnse => {
-        this.categories = respnse;
-        console.log("Categories: "+ this.categories)
+        this.adminCategories = respnse;
+        console.log("Categories: "+ this.adminCategories)
       }
     )
     
@@ -74,7 +80,7 @@ coverSize;
         this.srcCover = 'data:image/png;base64,' + this.activeProfile.company_cover_image;
         console.log("Active profile");
         console.log(this.activeProfile)
-        this.categoryName = this.activeProfile.company_category_id;
+        
         this.prfileExistance = true;
         this.profileForm = new FormGroup({
           'companyName': new FormControl(this.activeProfile.company_name, [Validators.required,Validators.minLength(3)]),
@@ -82,7 +88,8 @@ coverSize;
           'phone': new FormControl(this.activeProfile.company_phone_number, Validators.required),
           'address': new FormControl(this.activeProfile.company_address, Validators.required),
           'website': new FormControl(this.activeProfile.company_website_url, Validators.required),
-          'category' : new FormControl(this.activeProfile.company_category_id, Validators.required)
+          'category' : new FormControl(null, Validators.required),
+          'description' : new FormControl(this.activeProfile.company_desc, Validators.required)
         });
     
       
@@ -101,8 +108,37 @@ coverSize;
     }
  
    
+    this.adminService.getCategories().subscribe(
+      response => {console.log(response);
+        this.adminCategories = response; }
+
+    )
+  }
+
+
+  hasChecked(e  ,category: AdminCategory, index: number){
+    console.log(e.checked);
+    console.log(category);
+  
+  
+  
+  
+    if(e.target.checked){
+  
+      
+  
+      this.returnedCats.push(category)
+     
+    }
+    else{
+      this.returnedCats.splice(index, 1);
+      
+     }
+    
    
   }
+
+  
     onUploadChange(evt: any) {
       const file = evt.target.files[0];
     this.logoSize = file.size;
@@ -154,7 +190,10 @@ coverSize;
 
     updateProfile(){
 
-
+      for(let c of this.returnedCats){
+        this.catNames.push({category_name: c.category_name});
+       console.log("Retuen cat: " + c.category_name)
+     }
 
       // this.profileForm = new FormGroup({
       //   'companyName': new FormControl(this.activeProfile.company_name, Validators.required),
@@ -186,7 +225,9 @@ coverSize;
         company_website_url: this.profileForm.get('website').value,
         company_cover_image: this.hashCover == null ? this.activeProfile.company_cover_image : this.hashCover,
         company_phone_number: this.profileForm.get('phone').value,
-        company_category_id: this.profileForm.get('category').value
+        
+        company_desc:this.profileForm.get('description').value,
+        category:this.catNames
       }
 
 
@@ -197,7 +238,7 @@ coverSize;
       console.log("website: " + data.company_website_url + " is of type: "+ typeof(data.company_website_url));
       console.log("cover: " + data.company_cover_image + " is of type: "+ typeof(data.company_cover_image));
       console.log("phone: " + data.company_phone_number + " is of type: "+ typeof(data.company_phone_number));
-      console.log("category: " + data.company_category_id + "is of type: " + typeof(data.company_category_id))
+    
 
 
       
@@ -214,6 +255,7 @@ console.log("Profile is: "+ this.prfileExistance)
           
           setTimeout(()=> {
             this.isloading = false;
+            this.router.navigate(['/company']);
           },1000)
 
           
@@ -226,6 +268,9 @@ console.log("Profile is: "+ this.prfileExistance)
     else {
       this.profileService.createProfile(data).subscribe(
         response => {
+
+
+
           console.log("Succeeded created" + response);
           setTimeout(()=> {
             this.isloading = true;
@@ -233,7 +278,12 @@ console.log("Profile is: "+ this.prfileExistance)
           
           setTimeout(()=> {
             this.isloading = false;
+            this.router.navigate(['/company']);
           },1000)
+
+
+
+
 
          
         },

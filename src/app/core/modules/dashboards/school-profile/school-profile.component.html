@@ -12,8 +12,10 @@
     </li>
   </ul>
 </div>
-
-<div class="row" >
+<div class="row justify-content-center">
+    <img *ngIf="isloading" class="mt-3" src="../../../assets/images/load.gif" alt="">
+</div>
+<div class="row" *ngIf="!isloading" >
   <div class="col-sm-8 col-sm offset-2">
     <form class="mt-5" [formGroup]="SchoolProfileForm" (ngSubmit)="updateProfile()">
       <div class="form-group">
@@ -131,9 +133,9 @@
         
       </div>
     </form>
-    <div class="row justify-content-center">
+    <!-- <div class="row justify-content-center">
         <img *ngIf="isloading" class="mt-3" src="../../../assets/images/bs.gif" alt="">
-    </div>
+    </div> -->
   </div>
 </div>
 </div>

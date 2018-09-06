@@ -40,36 +40,11 @@
   </div>
 
   <div class="row mt-5">
-    <div class="col-sm-4">
-        <i class="fa fa-university mr-1 ml-2" style="font-size: 20px"></i> <span style="color: gray">Pencils and Paper</span>
+    <div class="col-sm-4" *ngFor="let cat of activeProfile.category">
+        <i class="fa fa-university mr-1 ml-2" style="font-size: 20px"></i> <span style="color: gray">{{cat.category_name}}</span>
     </div>
-    <div class="col-sm-4">
-        <i class="fa fa-university mr-1 ml-2" style="font-size: 20px"></i> <span style="color: gray">Pencils and Paper</span>
-    </div>
-    <div class="col-sm-4">
-        <i class="fa fa-university mr-1 ml-2" style="font-size: 20px"></i> <span style="color: gray">Pencils and Paper</span>
-    </div>
+    
   </div>
-  <div class="row mt-5">
-      <div class="col-sm-4">
-          <i class="fa fa-university mr-1 ml-2" style="font-size: 20px"></i> <span style="color: gray">Pencils and Paper</span>
-      </div>
-      <div class="col-sm-4">
-          <i class="fa fa-university mr-1 ml-2" style="font-size: 20px"></i> <span style="color: gray">Pencils and Paper</span>
-      </div>
-      <div class="col-sm-4">
-          <i class="fa fa-university mr-1 ml-2" style="font-size: 20px"></i> <span style="color: gray">Pencils and Paper</span>
-      </div>
-    </div>
-    <div class="row mt-5">
-        <div class="col-sm-4">
-            <i class="fa fa-university mr-1 ml-2" style="font-size: 20px"></i> <span style="color: gray">Pencils and Paper</span>
-        </div>
-        <div class="col-sm-4">
-            <i class="fa fa-university mr-1 ml-2" style="font-size: 20px"></i> <span style="color: gray">Pencils and Paper</span>
-        </div>
-        <div class="col-sm-4">
-            <i class="fa fa-university mr-1 ml-2" style="font-size: 20px"></i> <span style="color: gray">Pencils and Paper</span>
-        </div>
-      </div>
+ 
+    
 </div>

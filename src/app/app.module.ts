@@ -96,6 +96,7 @@ import { AuthGuardCompany } from './core/services/auth.guard.company.service';
 import { AuthGuardSchool } from './core/services/auth.guard.school.service';
 import { AuthGuardAdmin } from './core/services/auth.guard.admin.service';
 import { UnifyingCatComponent } from './core/modules/unifying-cat/unifying-cat.component';
+import { PageNotFoundComponent } from './core/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -158,7 +159,8 @@ import { UnifyingCatComponent } from './core/modules/unifying-cat/unifying-cat.c
     AdminTenderEditComponent,
     OrderProfileComponent,
     OrderProfileSchoolComponent,
-    UnifyingCatComponent
+    UnifyingCatComponent,
+    PageNotFoundComponent
 
   ],
   imports: [

@@ -120,13 +120,19 @@ getOrderByOfferId(offerId: number) {
 }
 
 getAllHistory() {
-    let url = `${environment.apiPath}evvaz/admin/orders/history/`;
-    return this.httpClient.get(url,);
+    let url = `${environment.apiPath}admin/orders/history/`;
+    return this.httpClient.get(url);
 }
 
 getHistoryOrder(orderId:number) {
     let url = `${environment.apiPath}admin/orders/history/${orderId}`;
     return this.httpClient.get(url);
+}
+
+
+addShip(data : {ship:number, ship_company_offer_id: number}) {
+    let url = `${environment.apiPath}admin/orders/ship`;
+    return this.httpClient.post(url,data);
 }
 
 }

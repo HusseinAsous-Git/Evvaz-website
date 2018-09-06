@@ -45,4 +45,8 @@ export class HeaderDashboardComponent implements OnInit {
 
   }
 
+
+  goToHome(){
+    this.router.navigate(['../'])
+  }
 }
