@@ -18,12 +18,12 @@ export class ProfileServiceDashboard{
 
     updateProfile(data : CompanyProfileModel) { 
         
-        let url = `${environment.apiPath}profile/update `; 
+        let url = `${environment.apiPath}company/profile/`; 
         return this.httpClient.put<CompanyProfileModel>(url,data) ; 
     }
 
     createProfile(data: CompanyProfileModel){
-        let url = `${environment.apiPath}profile/add`;
+        let url = `${environment.apiPath}company/profile/`;
         return this.httpClient.post<CompanyProfileModel>(url,data) ; 
     }
 

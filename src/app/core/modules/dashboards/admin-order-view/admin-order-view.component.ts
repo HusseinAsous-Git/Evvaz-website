@@ -4,6 +4,7 @@ import { AdminService } from './../../../services/admin.service';
 import { Component, OnInit } from '@angular/core';
 
 import { ProfileServiceDashboard } from '../../../services/profile.service.dashboard';
+import { NgForm } from '../../../../../../node_modules/@angular/forms';
 
 @Component({
   selector: 'app-admin-order-view',
@@ -18,6 +19,8 @@ unitPrice;
 companyProfile;
 schoolProfile;
 loading= true;
+shipping;
+total;
   constructor(private adminService: AdminService,
      private activatedRoute:ActivatedRoute, 
      private profileService:ProfileServiceDashboard,
@@ -34,6 +37,8 @@ loading= true;
       (response) => {
         console.log(response);
         this.offer = response;
+        this.shipping = this.offer.ship;
+        this.total = this.shipping + this.offer.offer_cost;
         this.offer.offer_image = 'data:image/png;base64,' + this.offer.offer_image;
         this.unitPrice = this.offer.offer_cost / this.offer.request_offer_count;
 
@@ -58,6 +63,23 @@ loading= true;
         )
       }
     )
+  }
+
+  onAddShipping(form: NgForm){
+    if (form.valid) {
+      this.total = this.offer.offer_cost + form.value.shipping;
+      console.log("Shipping is: " + form.value.shipping);
+      let data = {
+        ship:form.value.shipping,
+        ship_company_offer_id:this.offerId
+      }
+      this.adminService.addShip(data).subscribe(
+        (response) => {
+          console.log("Ship response:");
+          console.log(response);
+        }
+      )
+    }
   }
 
 }

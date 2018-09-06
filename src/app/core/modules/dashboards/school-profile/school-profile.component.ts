@@ -16,7 +16,7 @@ export class SchoolProfileComponent implements OnInit {
    
   public SchoolProfileForm: FormGroup;
   private activeProfile : SchoolProfileModel ;
-  isloading : boolean = true;
+  isloading : boolean = false;
 //  private currentProfile: CompanyOfferModel [];
 
 
@@ -30,6 +30,7 @@ export class SchoolProfileComponent implements OnInit {
   logoSize: number; 
   coverSize: number;
   loginId: number;
+  profileExistance = false;
   currentUser;
   constructor(private schoolSerivce: SchoolService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
@@ -55,6 +56,7 @@ export class SchoolProfileComponent implements OnInit {
       (response) => { 
         if(response){
           this.isloading = false;
+          this.profileExistance = true;
         this.activeProfile = response;
         this.srcLogo = 'data:image/png;base64,' + this.activeProfile.school_logo_image;
         this.srcCover = 'data:image/png;base64,' + this.activeProfile.school_cover_image;
@@ -73,6 +75,9 @@ export class SchoolProfileComponent implements OnInit {
 
 
 
+      }, err => {
+        this.profileExistance = false;
+        console.log(err)
       }
     );
 
@@ -142,7 +147,7 @@ export class SchoolProfileComponent implements OnInit {
 
       
       let data  = {
-        school_id : 4,
+        school_id : this.loginId,
         school_name: this.SchoolProfileForm.get('schoolName').value,
         school_logo_image: this.hashLogo == null ? this.activeProfile.school_logo_image : this.hashLogo,
         school_address: this.SchoolProfileForm.get('address').value, 
@@ -150,7 +155,7 @@ export class SchoolProfileComponent implements OnInit {
         school_website_url: this.SchoolProfileForm.get('website').value,
         school_cover_image: this.hashCover == null ? this.activeProfile.school_cover_image : this.hashCover,
         school_phone_number: this.SchoolProfileForm.get('phone').value,
-        school_service_desc: null
+        school_service_desc: this.SchoolProfileForm.get('description').value,
       }
 
 
@@ -162,15 +167,71 @@ export class SchoolProfileComponent implements OnInit {
       console.log("cover: " + data.school_cover_image + " is of type: "+ typeof(data.school_cover_image));
       console.log("phone: " + data.school_phone_number + " is of type: "+ typeof(data.school_phone_number));
 
+      // this.schoolSerivce.updateProfile(data).subscribe(
+
+      //   response => {
+      //     console.log("Succeeded" + response); 
+      //     this.router.navigate(['/school']);
+      //   },
+      //   err => console.log("Error: "+err)
+
+      // )
+
+
+
+      console.log("Profile is: "+ this.profileExistance)
+      if(this.profileExistance){
       this.schoolSerivce.updateProfile(data).subscribe(
 
         response => {
-          console.log("Succeeded" + response); 
-          this.router.navigate(['/school']);
+          console.log("Succeeded updated" + response); 
+
+          setTimeout(()=> {
+            this.isloading = true;
+          },0)
+          
+          setTimeout(()=> {
+            this.isloading = false;
+            this.router.navigate(['/school']);
+          },1000)
+
+          
         },
         err => console.log("Error: "+err)
 
       )
+      return ;
+    }
+    else {
+      this.schoolSerivce.createProfile(data).subscribe(
+        response => {
+
+
+
+          console.log("Succeeded created" + response);
+          setTimeout(()=> {
+            this.isloading = true;
+          },0)
+          
+          setTimeout(()=> {
+            this.isloading = false;
+            this.router.navigate(['/school']);
+          },1000)
+
+
+          this.profileExistance = true;
+
+
+         
+        },
+        err => console.log(err)
+      )
+      return ;
+    }
+
+
+
+
 
     }
 

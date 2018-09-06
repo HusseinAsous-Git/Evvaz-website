@@ -216,7 +216,7 @@ newTender(){
   response => {
     console.log(response)
     this.router.navigate(['/admin','tenders','mine']);
-    
+      
   },err => console.log(err)
  )
 

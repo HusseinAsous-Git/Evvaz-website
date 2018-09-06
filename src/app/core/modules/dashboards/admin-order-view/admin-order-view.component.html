@@ -51,13 +51,34 @@
       <div class="col-sm-2" style="color: gray"> </div>
       <div class="col-sm-2  summary">
         <p class="text-center" style="">Summary</p>
-        Subtotal <div class="pull-right">250 $</div>
+        Subtotal <div class="pull-right">{{offer.offer_cost}} $</div>
         <br>
-        Shipping <div class="pull-right">50 $</div>
+        Shipping <div class="pull-right">{{shipping}} $</div>
         <br> <br>
-        Total  <div class="pull-right">300 $</div>
+        Total  <div class="pull-right">{{total}} $</div>
       </div>
       
+      </div>
+      <div class="row " style="margin-top: 60px;margin-left: 40px;">
+           
+     <div class="col-sm-8"></div> 
+        <div class="col-sm-4">
+
+          <form #addShippingForm = "ngForm" (ngSubmit)="onAddShipping(addShippingForm)" >
+              <div class="row">
+                  <div class="col-sm-6">
+                        <input type="number" ngModel class="form-control" [value]="shipping" (input)="shipping = $event.target.value" name="shipping">
+                  </div>
+                  <div class="col-sm-6">
+                        <button class="btn btn-success " style="" type="submit" [disabled]="!addShippingForm.form.valid">Add Shipping</button>
+                  </div>
+              </div>
+                   
+                
+         </form>
+      </div>
+    
+
       </div>
       
       <div style="margin-top: -190px">
@@ -79,7 +100,7 @@
       </div>
       
       
-      <hr>
+     
       
      
       

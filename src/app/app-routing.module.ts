@@ -1,3 +1,4 @@
+import { PageNotFoundComponent } from './core/page-not-found/page-not-found.component';
 import { OrderProfileComponent } from './core/modules/dashboards/order-profile-company/order-profile.component';
 import { AdminTenderEditResolver } from './core/services/admin.tender.edit.resolver';
 import { AdminTenderEditComponent } from './core/modules/dashboards/admin-tender-edit/admin-tender-edit.component';
@@ -117,7 +118,9 @@ const routes: Routes = [
     { path: 'purchase-platform', component: PurchasePlatformComponent },
     { path: 'reigsteration-success', component: RegisterationSuccessComponent },
     { path: 'purchase-category/:catId', component: PurchaseCategoryComponent },
-    { path: 'request-details/:reqId', component: RequestDetailsComponent }
+    { path: 'request-details/:reqId', component: RequestDetailsComponent },
+    {path:'page-not-found',component:PageNotFoundComponent},
+    {path:'**' ,redirectTo:'page-not-found'}
 ];
 
 /*Our Services
@@ -135,7 +138,7 @@ const routes: Routes = [
 
 @NgModule({
     imports: [
-        RouterModule.forRoot(routes)
+        RouterModule.forRoot(routes,{useHash: true})
     ],
     exports: [
         RouterModule

@@ -1,0 +1,13 @@
+
+    a , a:not([href]):not([tabindex]){
+        margin-top: 10px;
+        color: black;
+        display: inline-block;
+        padding-right: 20px;
+        
+        &:hover{
+            color: blue;
+            text-decoration:underline;
+        }
+    }
+  

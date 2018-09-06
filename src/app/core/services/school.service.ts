@@ -37,6 +37,10 @@ updateProfile(data: SchoolProfileModel) {
     let url = `${environment.apiPath}school/profile/update`; 
     return this.httpClient.put<SchoolProfileModel>(url,data) ;
 }
+createProfile(data: SchoolProfileModel){
+    let url = `${environment.apiPath}school/profile/addProfile`; 
+    return this.httpClient.post<SchoolProfileModel>(url,data) ;
+}
 
 
 getFollowers(id: number){

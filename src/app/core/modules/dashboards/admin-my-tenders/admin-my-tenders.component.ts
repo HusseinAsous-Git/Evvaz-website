@@ -30,7 +30,8 @@ export class AdminMyTendersComponent implements OnInit {
       response => {
         console.log(response);
         this.tenders = response;
-        this.tender = response[1];
+        this.tender = response[0];
+        console.log("Tender is:")
         console.log(this.tender)
 
         console.log("Display date:" + this.tender.tender_company_display_date)

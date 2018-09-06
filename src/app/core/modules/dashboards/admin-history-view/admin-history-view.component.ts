@@ -15,6 +15,7 @@ export class AdminHistoryViewComponent implements OnInit {
   loading = true;
   companyProfile;
   schoolProfile;
+  total:number = 0;
   constructor(private adminService:AdminService,
      private activatedRoute:ActivatedRoute,
       private profileService:ProfileServiceDashboard,
@@ -33,6 +34,9 @@ export class AdminHistoryViewComponent implements OnInit {
             this.order.company_logo_image = 'data:image/png;base64,'+this.order.company_logo_image;
             this.order.school_logo_image = 'data:image/png;base64,'+this.order.school_logo_image;
             this.order.offer_image = 'data:image/png;base64,'+this.order.offer_image;
+            console.log("cost: " +this.order.loffer_cost + " is of type: "+ typeof(this.order.offer_cost) );
+            console.log("Ship: " +this.order.ship + " is of type: "+ typeof(this.order.ship) );
+            this.total = this.order.ship + this.order.offer_cost
             // here i get company profile
             this.profileService.getProfile(this.order.company_id).subscribe(
                       
