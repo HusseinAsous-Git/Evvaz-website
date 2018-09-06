@@ -64,7 +64,7 @@
 <section class="news" *ngIf="offers && company">
   <div class="container">
     <div class="row" >
-      <div class="col-lg-4 col-md-6 col-sm-6 col-8 m-auto d-flex align-items-stretch" *ngFor="let offer of offers" routerLink="../../offer-details/{{company['company_id']}}/{{offer['offer_id']}}">
+      <div class="col-lg-4 col-md-6 col-sm-6 col-8 m-auto d-flex align-items-stretch" *ngFor="let offer of offers" routerLink="/offer-details/{{company['company_id']}}/{{offer['offer_id']}}">
         
           <!--  -->
         <div class="card" style="background-image:url(assets/img/index/01.png)" >
@@ -85,12 +85,13 @@
             </div>
             <div class="pandadesc">
                 <!-- {{offer.offer_explaination}} -->
+                <h3>{{offer.offer_title}}</h3>
               <p>{{offer.offer_explaination}}</p>
             </div>
             <div class="pandaimg">
               <img src="data:image/png;base64,{{ offer.image_one}}">
             </div>
-            <div class="pandareq">
+            <!-- <div class="pandareq">
               <table class="table">
                 <tr>
                   <th>
@@ -149,7 +150,7 @@
                   </td>
                 </tr>
               </table>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>

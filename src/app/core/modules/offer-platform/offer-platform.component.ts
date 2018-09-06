@@ -16,13 +16,16 @@ export class OfferPlatformComponent implements OnInit {
   // followSuccess:Boolean=false;
   // followListResponseHolder=null;
   // followFlag=1;
-  constructor(private http: Http, private Companies: GetCompaniesService) { }
+  isLogged=false;
+  constructor(private http: Http, private Companies: GetCompaniesService) { window.scrollTo(0, 0);}
   // get all companies
   
   ngOnInit(): void {
-  let user = localStorage.getItem('@MYUSER');
-  this.UserData = JSON.parse(user);
-  //console.log("this user id is ====> ",this.UserData['login_id']);
+  if(localStorage.getItem('@MYUSER')){
+    this.isLogged=true;
+    let user = localStorage.getItem('@MYUSER');
+    this.UserData = JSON.parse(user);
+    //console.log("this user id is ====> ",this.UserData['login_id']);
       this.Companies.getMyCompanies(this.UserData['login_id']).subscribe(
         (Companies) => {
           this.companiesInfo =Companies;  
@@ -33,6 +36,19 @@ export class OfferPlatformComponent implements OnInit {
         }
       );
       //this.followedList();
+  }
+  else{
+    this.Companies.getAllCompanies().subscribe(
+      (Companies) => {
+        this.companiesInfo =Companies;  
+        //console.log(this.companiesInfo);     
+      },
+      (error) => {
+        console.log('errors ', error)
+      }
+    );
+  }
+  
     
   }
   

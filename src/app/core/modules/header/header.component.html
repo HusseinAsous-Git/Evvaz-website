@@ -8,17 +8,17 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" ><img src="assets/img/index/ar.png" alt="">
+            <!-- <a class="nav-link" ><img src="assets/img/index/ar.png" alt="">
             Arabic </a>
           </li>
           <li class="nav-item active">
             <a class="nav-link" href="./services.html"><i class="fa fa-tag" aria-hidden="true"></i>Services </a>
+          </li> -->
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/login']"><i class="fa fa-user" aria-hidden="true"></i>Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="../login"><i class="fa fa-user" aria-hidden="true"></i>Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link register" routerLink="../sign-up"><i class="fa fa-hand-pointer-o" aria-hidden="true"></i>Register Now</a>
+            <a class="nav-link register" [routerLink]="['/sign-up']"><i class="fa fa-hand-pointer-o" aria-hidden="true"></i>Register Now</a>
           </li>
         </ul>
       </div>

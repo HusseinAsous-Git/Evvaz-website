@@ -24,7 +24,7 @@ export class SignUpComponent implements OnInit {
 
   success_flag:boolean=false;
   fail_flag:boolean=false;
-  constructor(private router: Router, private signUpService: SignUpService) { }
+  constructor(private router: Router, private signUpService: SignUpService) {window.scrollTo(0, 0); }
 
   ngOnInit() {
     // if (localStorage.getItem("@MYUSER")) {

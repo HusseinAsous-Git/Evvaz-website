@@ -21,6 +21,10 @@ export class OfferDetailsComponent implements OnInit {
     "is_accepted": 0,
     "request_offer_count": 0
   }
+  req_view_add={
+    "seen_offer_id":0,
+    "seen_offer_school_id":''
+  };
   showSucces = false;
   showFail = false;
   timeLinePrecent: Number;
@@ -30,15 +34,20 @@ export class OfferDetailsComponent implements OnInit {
   isClosed = false;
   today = new Date();
   constructor(private route: ActivatedRoute, private router: Router, private profileService: ProfileService, private Company: GetCompaniesService) {
+    window.scrollTo(0, 0);
     this.route.params.subscribe(params => {
       this.company_id = params['company_id'];
-      this.offer_id = params['offer_id'];
+      this.offer_id = +params['offer_id'];
     });
+    
   }
 
   ngOnInit() {
     let user = localStorage.getItem('@MYUSER');
     this.UserData = JSON.parse(user);
+    this.req_view_add['seen_offer_school_id']=this.UserData['login_id'];
+    this.req_view_add['seen_offer_id']=+this.offer_id;
+    this.addView();
     console.log("this user id is ====> ", this.UserData['login_id']);
 
     this.Company.getCompany(this.company_id).subscribe(
@@ -111,6 +120,24 @@ export class OfferDetailsComponent implements OnInit {
       (error) => {
         this.showSucces = false;
         this.showFail = true;
+        console.log('errors ', error)
+      }
+    );
+  }
+  addView(){
+    this.profileService.addView(this.req_view_add).subscribe(
+      (response) => {
+        if(response['state']==400 || response['state']==500){
+          console.log("view didn't count : " , response);
+        }
+        else if (response['message'] == "Already Exist"){
+          console.log("view didn't count : " , response['message']);
+        }
+        else {
+          console.log("view added : " , response);
+        }
+      },
+      (error) => {
         console.log('errors ', error)
       }
     );

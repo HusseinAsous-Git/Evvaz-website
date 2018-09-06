@@ -1,12 +1,35 @@
 <app-home-header></app-home-header>
-<section class="intro" style="background-image:url(assets/img/index/footer.png)">
+<section class="intro clearfix " style="background-image:url(assets/img/Heading.png)">
   <div class="overlay">
+      
     <div class="container">
       <div class="row">
-        <div class="col-12 m-auto unify">
-          <h3 class="font-weight-bold">Unifying Platform</h3>
-          <p class="description m-auto text-center">Here are highlights of stationery needs of schools during the year will occur continously</p>
+
+        <div class="col col-12">
+            <!-- <div class="col-md- ">
+              
+                 
+            </div> -->
+                   
+            <div *ngIf="islogged" routerLink="/home-page" class="go-back">
+                <i class="fa fa-chevron-left"></i>
+                <span>Back</span>
+              </div>
+              <div *ngIf="!islogged" routerLink="/home" class="go-back">
+                <i class="fa fa-chevron-left"></i>
+                <span>Back</span>
+            </div>
+                    
+               
+                <h3 class=" offers" >Unifying Platform</h3>
+                <p class="description  ">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.
+                </p>
+                
+              
+                
         </div>
+
+
       </div>
     </div>
   </div>
@@ -22,34 +45,37 @@
           <span style="color:#12a5e1;">Unifying</span> Services</h2>
 
       </div>
-      <div class="row parent-comp">
+      <div class="row parent-comp ">
         <div class="col-md-6 wide-comp">
           <div class="unicard uni-1">
             <div class="overlay">
-                <h3>Madians</h3>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque aliquam sunt.</p>
-                <button class="btn btn-default">More <i class="fa fa-chevron-right"></i></button>
+              <h3>Madians</h3>
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque aliquam sunt.</p>
+              <button *ngIf="islogged" class="btn btn-default" routerLink="../unifying-cat/1">More <i class="fa fa-chevron-right"></i></button>
+              <button *ngIf="!islogged" class="btn btn-default" routerLink="../login">More <i class="fa fa-chevron-right"></i></button>
             </div>
-            
+
           </div>
         </div>
         <div class="col-md-6 wide-comp">
           <div class="unicard uni-2">
-              <div class="overlay">
-            <h3>Superheater</h3>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque aliquam sunt.</p>
-            <button class="btn btn-default">More <i class="fa fa-chevron-right"></i></button>
+            <div class="overlay">
+              <h3>Superheater</h3>
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque aliquam sunt.</p>
+              <button *ngIf="islogged" class="btn btn-default" routerLink="../unifying-cat/2">More <i class="fa fa-chevron-right"></i></button>
+              <button *ngIf="!islogged" class="btn btn-default" routerLink="../login">More <i class="fa fa-chevron-right"></i></button>
             </div>
           </div>
         </div>
-
-
+      </div>
+      <div class="row parent-comp">
         <div class="col-md-3 tall-comp">
           <div class="unicard uni-3">
-              <div class="overlay">
-            <h3>Insurance Contracts</h3>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque aliquam sunt.</p>
-            <button class="btn btn-default">More <i class="fa fa-chevron-right"></i></button>
+            <div class="overlay">
+              <h3>Insurance Contracts</h3>
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque aliquam sunt.</p>
+              <button *ngIf="islogged" class="btn btn-default" routerLink="../unifying-cat/3">More <i class="fa fa-chevron-right"></i></button>
+              <button *ngIf="!islogged" class="btn btn-default" routerLink="../login">More <i class="fa fa-chevron-right"></i></button>
             </div>
           </div>
         </div>
@@ -57,19 +83,21 @@
           <div class="row">
             <div class="col-md-12 wide-comp">
               <div class="unicard uni-4">
-                  <div class="overlay">
-                <h3>Employment contracts</h3>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque aliquam sunt.</p>
-                <button class="btn btn-default">More <i class="fa fa-chevron-right"></i></button>
+                <div class="overlay">
+                  <h3>Employment contracts</h3>
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque aliquam sunt.</p>
+                  <button *ngIf="islogged" class="btn btn-default" routerLink="../unifying-cat/4">More <i class="fa fa-chevron-right"></i></button>
+                  <button *ngIf="!islogged" class="btn btn-default" routerLink="../login">More <i class="fa fa-chevron-right"></i></button>
                 </div>
               </div>
             </div>
             <div class="col-md-12 wide-comp">
               <div class="unicard uni-5">
-                  <div class="overlay">
-                <h3>Security contracts</h3>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque aliquam sunt.</p>
-                <button class="btn btn-default">More <i class="fa fa-chevron-right"></i></button>
+                <div class="overlay">
+                  <h3>Security contracts</h3>
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque aliquam sunt.</p>
+                  <button *ngIf="islogged" class="btn btn-default" routerLink="../unifying-cat/5">More <i class="fa fa-chevron-right"></i></button>
+                  <button *ngIf="!islogged" class="btn btn-default" routerLink="../login">More <i class="fa fa-chevron-right"></i></button>
                 </div>
               </div>
             </div>
@@ -77,47 +105,52 @@
         </div>
         <div class="col-md-3 tall-comp">
           <div class="unicard uni-6">
-              <div class="overlay">
-            <h3>Fuel contracts</h3>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque aliquam sunt.</p>
-            <button class="btn btn-default">More <i class="fa fa-chevron-right"></i></button>
+            <div class="overlay">
+              <h3>Fuel contracts</h3>
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque aliquam sunt.</p>
+              <button *ngIf="islogged" class="btn btn-default" routerLink="../unifying-cat/6">More <i class="fa fa-chevron-right"></i></button>
+              <button *ngIf="!islogged" class="btn btn-default" routerLink="../login">More <i class="fa fa-chevron-right"></i></button>
             </div>
           </div>
         </div>
-
-        <div class="col-md-4 small-comp">
-          <div class="unicard uni-7">
-              <div class="overlay">
+      </div>
+      <div class="row parent-comp">
+      <div class="col-md-4 small-comp">
+        <div class="unicard uni-7">
+          <div class="overlay">
             <h3>School uniforms</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque aliquam sunt.</p>
-            <button class="btn btn-default">More <i class="fa fa-chevron-right"></i></button>
-            </div>
+            <button *ngIf="islogged" class="btn btn-default" routerLink="../unifying-cat/7">More <i class="fa fa-chevron-right"></i></button>
+            <button *ngIf="!islogged" class="btn btn-default" routerLink="../login">More <i class="fa fa-chevron-right"></i></button>
           </div>
         </div>
-        <div class="col-md-4 small-comp">
-          <div class="unicard uni-8">
-              <div class="overlay">
+      </div>
+      <div class="col-md-4 small-comp">
+        <div class="unicard uni-8">
+          <div class="overlay">
             <h3>Office tools</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque aliquam sunt.</p>
-            <button class="btn btn-default">More <i class="fa fa-chevron-right"></i></button>
-            </div>
+            <button *ngIf="islogged" class="btn btn-default" routerLink="../unifying-cat/8">More <i class="fa fa-chevron-right"></i></button>
+            <button *ngIf="!islogged" class="btn btn-default" routerLink="../login">More <i class="fa fa-chevron-right"></i></button>
           </div>
         </div>
-        <div class="col-md-4 small-comp">
-          <div class="unicard uni-9">
-              <div class="overlay">
+      </div>
+      <div class="col-md-4 small-comp">
+        <div class="unicard uni-9">
+          <div class="overlay">
             <h3>Other Services</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque aliquam sunt.</p>
-            <button class="btn btn-default">More <i class="fa fa-chevron-right"></i></button>
-              </div>
+            <button *ngIf="islogged" class="btn btn-default" routerLink="../unifying-cat/9">More <i class="fa fa-chevron-right"></i></button>
+            <button *ngIf="!islogged" class="btn btn-default" routerLink="../login">More <i class="fa fa-chevron-right"></i></button>
           </div>
         </div>
       </div>
     </div>
   </div>
+  </div>
 
 
-  
+
 
 
 

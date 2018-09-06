@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
     "login_role": "school"
   }
 
-  constructor(private router: Router, private authService: AuthService) { }
+  constructor(private router: Router, private authService: AuthService) {window.scrollTo(0, 0); }
 
   DoLogin(): void {
     this.authService.signIn(this.user).subscribe(

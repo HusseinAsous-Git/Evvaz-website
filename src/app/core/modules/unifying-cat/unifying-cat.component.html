@@ -1,0 +1,151 @@
+<app-home-header></app-home-header>
+<div *ngIf="!tenderDetails" class="preloader">
+    <img src="../../../../../assets/images/_ws.gif" alt="">
+</div>
+
+<section class="intro" style="background-image:url(assets/img/Heading.png)" *ngIf="tenderDetails">
+    <div class="overlay">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-12 col-12">
+                    <div routerLink="/unifying-platform" class="go-back">
+                        <i class="fa fa-chevron-left"></i>
+                        <span>Back</span>
+                    </div>
+                    <!-- <div class="Fssimg">
+                            <img src="../../../../assets/img/company/panda.png">
+
+                        </div> -->
+                    <h3 class="font-weight-bold " style="text-transform: capitalize;">
+                        Unifying platform
+                    </h3>
+
+
+                    <div class="fssdesc">
+                        <p class="spacer"></p>
+                        <table>
+                            <tr class="">
+                                <td *ngIf="showForUser">
+                                    <i class="fa fa-folder-open "></i>
+                                    {{tenderDetails['category_name']}}
+                                </td>
+                                <td *ngIf="!showForUser">
+                                    <i class="fa fa-folder-open "></i>
+                                    -
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td *ngIf="!isClosed && showForUser">
+
+                                    <div class="btn btn-success btn-sm status-btn disabled">Open</div> <span>{{daysLeft}}
+                                        Days Left</span>
+
+                                </td>
+                                <td *ngIf="isClosed && showForUser">
+                                    <div class="btn btn-danger btn-sm status-btn disabled">closed</div>
+                                </td>
+
+
+                            </tr>
+                        </table>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="news text-center" *ngIf="!showForUser" style>
+    <h1>ther is Nothing To show for you  currently.</h1>
+</section>
+<section class="news" *ngIf="tenderDetails && showForUser">
+    <!-- showForUser -->
+    <div class="container">
+        <div>
+
+            <div class="row">
+                <div class="col-md-12 timeline-identicator shadowed">
+                    <div class="progress">
+
+                        <span>
+                            <span class="date-started-top">
+                                Date Posted
+                            </span>
+                            <i class="fa fa-circle start-date"></i>
+                            <span class="date-started-bottom">
+                                {{tenderDetails['tender_display_date'] | date : "dd/MM/yyyy"}}
+                            </span>
+                        </span>
+                        <span>
+                            <span class="current-date-top">
+                                Current Date : <span>{{today | date : "dd/MM/yyyy"}}</span>
+                            </span>
+                            <i class="fa fa-circle percentage" [style.marginLeft.%]="timeLinePrecent-1"></i>
+                            <span class="days-left-bottom" [class.done]="!daysLeft">
+                                {{daysLeft}}&nbsp;Days Left
+                            </span>
+                        </span>
+                        <span>
+                            <span class="end-date-top">
+                                Closing Date
+                            </span>
+                            <i class="fa fa-circle end-date"></i>
+                            <span class="end-date-bottom">
+                                {{tenderDetails['tender_expire_date'] | date : "dd/MM/yyyy"}}
+                            </span>
+                        </span>
+                        <div class="progress-bar bg-info" [style.width.%]="timeLinePrecent"></div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-4 col-lg-4 order-md-1 mb-4">
+                    <div class="request-side-bar shadowed">
+                        <div class="Fssimg-small"><img src="../../../../assets/img/company/panda.png"></div>
+                        <h5>Published by</h5>
+                        <h6 class="side-school-name">Admins</h6>
+                        <hr>
+                        <h6 class="side-details">Publication Date : <span>{{tenderDetails['tender_display_date'] | date :
+                                "dd/MM/yyyy"}}</span></h6>
+                        <h6 class="side-details">Category : <span>{{tenderDetails['category_name']}}</span></h6>
+                        <h6 class="side-details">Days left : <span>{{daysLeft}}&nbsp;Days Left</span></h6>
+                        <h6 class="side-details">Views : <span>{{tenderDetails['response_count']}}&nbsp; View</span></h6>
+                        <h6 class="side-details">Responses : <span>{{tenderDetails['view_count']}}&nbsp; Response</span></h6>
+                    </div>
+
+
+
+
+                </div>
+
+
+                <div class="col-md-8 col-lg-8 order-md-2 offer-details shadowed">
+                    <br>
+                    <h4 class="offer-d-title"><span>Details</span></h4>
+
+                    <hr>
+                    <h4 class="mb-3 offer-r-title ">{{tenderDetails['tender_title']}}</h4>
+                    <!-- <p class="details">
+                        {{offer_details['offer_explaination']}}
+                    </p> -->
+
+                    <p class="details">
+                        {{tenderDetails['tender_explain']}}
+                    </p>
+
+
+                    <button class="btn btn-success btn-lg btn-block bottom-d-button" type="submit">view on your dash</button>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<app-footer></app-footer>

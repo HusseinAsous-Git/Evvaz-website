@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./unifying-platform.component.scss']
 })
 export class UnifyingPlatformComponent implements OnInit {
-
-  constructor() { }
+  islogged=false;
+  constructor() { window.scrollTo(0, 0);}
 
   ngOnInit() {
+    if(localStorage.getItem('@MYUSER')){
+      this.islogged=true;
+    }
+    
   }
 
 }

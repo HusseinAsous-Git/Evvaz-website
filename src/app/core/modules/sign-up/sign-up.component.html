@@ -24,7 +24,7 @@
         <br>
         <label>Username:</label>
         <input name="registeration_username" [(ngModel)]="user.registeration_username" type="text" class="form-control" placeholder="Username"
-        minlength="4" #uname="ngModel" pattern = "^[a-z0-9_-]{4,15}$"  required>
+        minlength="4" #uname="ngModel" pattern = "^[a-zA-Z0-9]{4,15}$"  required>
         <div *ngIf="uname.errors?.minlength || uname.errors?.pattern" class="alert-danger" >
           Name must be at least 4 characters, lower case latin Characters and numbers only without spaces.
      </div> 
@@ -67,7 +67,7 @@
         <!-- if Company  -->
         <input *ngIf="user.registration_role=='company'" name="registeration_website" [(ngModel)]="user.registration_website_url" type="url" class="form-control" placeholder="url" required>
         <br>
-        <label>Password</label>
+        <!-- <label>Password</label>
         <div ngModelGroup="password" #userPassword="ngModelGroup" required class="passflex">
           <input name="pwd" [(ngModel)]="user.registeration_password" ngModel placeholder="Password" type="password"
             id="registeration_password" class="form-control pass pass-box1"
@@ -87,7 +87,31 @@
               Passwords don't match
             </ng-template>
           </div>
+        </div> -->
+        <label>Password</label>
+        <div ngModelGroup="password" #userPassword="ngModelGroup" required class="passflex">
+          <input name="pwd" [(ngModel)]="user.registeration_password" ngModel placeholder="Password" type="password"
+            id="registeration_password" class="form-control pass pass-box1"
+            #passwordone="ngModel"
+            pattern="^(?=.*?[#?!@$%^&*-]).{8,}$"
+             required>
+          <input name="confirmPwd" type="password" ngModel id="confirm_password" placeholder="Confirm Password" class="form-control pass"
+            required>
+          
         </div>
+        <div *ngIf="(userPassword.invalid|| passwordone.errors?.pattern || userPassword.value?.pwd != userPassword.value?.confirmPwd) && (userPassword.touched)"
+            class=" alert-danger">
+            <div *ngIf="userPassword.invalid || passwordone.errors?.pattern; else nomatch">
+              <p>
+                Password must be atleast 8 characters/number and contain a special character.
+                  <span>[#?!@$%^&*-]</span>
+              </p> 
+              
+            </div>
+            <ng-template #nomatch>
+              Passwords don't match
+            </ng-template>
+          </div>
         <div class="rec-holder">
             <re-captcha (resolved)="resolved($event)" siteKey="6LdbeGwUAAAAANsYmppwmJ0n9ZzQIi2cGhea2fvq" [(ngModel)]="signupForm.captcha"
             name="captcha"

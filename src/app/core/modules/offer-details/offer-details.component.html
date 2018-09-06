@@ -100,14 +100,14 @@
                             </span>
                             <i class="fa fa-circle start-date"></i>
                             <span class="date-started-bottom">
-                                {{offer_details['offer_display_date'] | date :  "dd/MM/yyyy"}}
+                                {{offer_details['offer_display_date'] | date : "dd/MM/yyyy"}}
                             </span>
                         </span>
                         <span>
                             <span class="current-date-top">
-                                Current Date : <span>{{today | date :  "dd/MM/yyyy"}}</span> 
+                                Current Date : <span>{{today | date : "dd/MM/yyyy"}}</span>
                             </span>
-                            <i class="fa fa-circle percentage" [style.marginLeft.%] ="timeLinePrecent-1" ></i>
+                            <i class="fa fa-circle percentage" [style.marginLeft.%]="timeLinePrecent-1"></i>
                             <span class="days-left-bottom" [class.done]="!daysLeft">
                                 {{daysLeft}}&nbsp;Days Left
                             </span>
@@ -118,7 +118,7 @@
                             </span>
                             <i class="fa fa-circle end-date"></i>
                             <span class="end-date-bottom">
-                                {{offer_details['offer_expired_date'] | date :  "dd/MM/yyyy"}}
+                                {{offer_details['offer_expired_date'] | date : "dd/MM/yyyy"}}
                             </span>
                         </span>
                         <div class="progress-bar bg-info" [style.width.%]="timeLinePrecent"></div>
@@ -130,35 +130,35 @@
 
                 <div class="col-md-3 col-lg-3 order-md-1 mb-4">
                     <div class="offer-side-bar">
-                        <h4 class="text-center " >
+                        <h4 class="text-center ">
                             <br>
                             <span class="head-d">Much Left To Finish</span>
-                            
+
                         </h4>
                         <table class="table">
-                                <tr>
-                                    <th>
-                                        {{daysLeft}}
-                                    </th>
-                                    <th>
-                                        {{hoursLeft}}
-                                    </th>
-                                    <th>
-                                        {{minutesLeft}}
-                                    </th>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        Days
-                                    </td>
-                                    <td>
-                                        Hours
-                                    </td>
-                                    <td>
-                                        Minutes
-                                    </td>
-                                </tr>
-                            </table>
+                            <tr>
+                                <th>
+                                    {{daysLeft}}
+                                </th>
+                                <th>
+                                    {{hoursLeft}}
+                                </th>
+                                <th>
+                                    {{minutesLeft}}
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Days
+                                </td>
+                                <td>
+                                    Hours
+                                </td>
+                                <td>
+                                    Minutes
+                                </td>
+                            </tr>
+                        </table>
                         <ul class="list-group mb-3 ">
                             <li class="list-group-item d-flex ">
                                 <div class="pen-icon">
@@ -168,7 +168,7 @@
                                     <h6 class="my-0">Requests</h6>
                                     <small class="text-muted"><span>{{offer_details['request_count']}}</span> Request</small>
                                 </div>
-                                
+
                             </li>
                             <li class="list-group-item d-flex ">
                                 <div class="pen-icon">
@@ -204,7 +204,7 @@
                     <!-- <p class="details">
                         {{offer_details['offer_explaination']}}
                     </p> -->
-                    
+
                     <p class="details">
                         {{offer_details.offer_explaination}}
                     </p>
@@ -244,21 +244,25 @@
 
 
 
-                    
-                    <div class="form-group">
+
+                    <div *ngIf="minutesLeft" class="form-group">
                         <label for="count">Number of Times you want this offer</label>
-                        <input name="count" [(ngModel)]="request_details['request_offer_count']" type="number" class="form-control-file" id="count" aria-describedby="countHelp" required>
-                        <small id="countHelp" class="form-text text-muted">Total Price : {{+offer_details.offer_cost*request_details['request_offer_count']}} r.s</small>
-                      </div>
-                    <div *ngIf="showSucces" class="alert-success white-bg">
-                        Request succeeded !
+                        <input name="count" [(ngModel)]="request_details['request_offer_count']" type="number" class="form-control-file" id="count"
+                            aria-describedby="countHelp" required>
+                        <small id="countHelp" class="form-text text-muted">Total Price : {{+offer_details.offer_cost*request_details['request_offer_count']}}
+                            r.s</small>
+
+                        <div *ngIf="showSucces" class="alert-success white-bg">
+                            Request succeeded !
+                        </div>
+                        <div *ngIf="showFail" class="alert-warning white-bg">
+                            Request failed ! only schools can request an offer.
+                        </div>
+
+                        <button class="btn btn-success btn-lg btn-block bottom-d-button" [attr.disabled]="request_details['request_offer_count'] ? null: true"
+                            (click)="requestOffer()" type="submit">Request Now</button>
                     </div>
-                    <div *ngIf="showFail" class="alert-warning white-bg">
-                        Request failed ! only schools can request an offer.
-                    </div>
-                    
-                    <button class="btn btn-success btn-lg btn-block bottom-d-button" [attr.disabled]="request_details['request_offer_count']? null: true" (click)="requestOffer()" type="submit">Request Now</button>
-                    
+                    <h4 *ngIf="!minutesLeft" class="text-center offer-closed">Offer Is Closed</h4>
                 </div>
 
 

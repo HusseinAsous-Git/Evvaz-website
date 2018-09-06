@@ -33,6 +33,9 @@ export class HomeHeaderComponent implements OnInit {
         this.isCompany = false;
         this.isAdmin = false;
       }
+      else{
+
+      }
     }
 
 

@@ -20,6 +20,7 @@ export class CompanyProfileComponent implements OnInit {
   flag;
   constructor(private route: ActivatedRoute, private profileService : ProfileService,
     private Company$: GetCompaniesService, private sanitizer: DomSanitizer) {
+    window.scrollTo(0, 0);
     this.route.params.subscribe(params => {
       this.id = params['id'];
     });

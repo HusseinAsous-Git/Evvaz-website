@@ -80,6 +80,7 @@ import { AdminTenderInCompanyComponent } from './core/modules/dashboards/admin-t
 import { AllCollectiveTendersComponent } from './core/modules/dashboards/all-collective-tenders/all-collective-tenders.component';
 import { AdminService } from './core/services/admin.service';
 import { PurchasePlatformService } from './core/services/purchase-platform/purchase-platform.service';
+import { UnifyingPlatformService } from './core/services/unifying-platform/unifying-platform.service';
 import { AdminTenderResolver } from './core/services/admin.tender.resolver';
 import { SchoolTenderResolver } from './core/services/school.tender.resolver';
 import { AgreeHighlightDirective } from './core/modules/dashboards/agree.highlight.directive';
@@ -94,6 +95,7 @@ import { OrderProfileSchoolComponent } from './core/modules/dashboards/order-pro
 import { AuthGuardCompany } from './core/services/auth.guard.company.service';
 import { AuthGuardSchool } from './core/services/auth.guard.school.service';
 import { AuthGuardAdmin } from './core/services/auth.guard.admin.service';
+import { UnifyingCatComponent } from './core/modules/unifying-cat/unifying-cat.component';
 
 @NgModule({
   declarations: [
@@ -155,7 +157,8 @@ import { AuthGuardAdmin } from './core/services/auth.guard.admin.service';
     RequestDetailsComponent,
     AdminTenderEditComponent,
     OrderProfileComponent,
-    OrderProfileSchoolComponent
+    OrderProfileSchoolComponent,
+    UnifyingCatComponent
 
   ],
   imports: [
@@ -192,6 +195,7 @@ import { AuthGuardAdmin } from './core/services/auth.guard.admin.service';
     MyTenderResolver,
     AdminService,
     PurchasePlatformService,
+    UnifyingPlatformService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

@@ -57,6 +57,7 @@ import { OrderProfileSchoolComponent } from './core/modules/dashboards/order-pro
 import { AuthGuardCompany } from './core/services/auth.guard.company.service';
 import { AuthGuardSchool } from './core/services/auth.guard.school.service';
 import { AuthGuardAdmin } from './core/services/auth.guard.admin.service';
+import { UnifyingCatComponent } from './core/modules/unifying-cat/unifying-cat.component';
 /*Our Services*/
 
 const routes: Routes = [
@@ -106,7 +107,7 @@ const routes: Routes = [
     {path:'school/tender/:tenderId/view', component:ViewTenderComponent, resolve: {tender:MyTenderResolver}, canActivate: [AuthGuardSchool]},
     
     { path: 'home-page', component: HomePageComponent, canActivate: [AuthGuard] },
-    {path: 'offer-platform', component: OfferPlatformComponent, canActivate: [AuthGuard]},
+    {path: 'offer-platform', component: OfferPlatformComponent},
     {path:'offer-details/:company_id/:offer_id', component: OfferDetailsComponent, canActivate: [AuthGuard]},
     { path: 'company/:id', component: CompanyProfileComponent, canActivate: [AuthGuard]},
     { path: 'insurance-platform', component: InsurancePlatformComponent , canActivate: [AuthGuard]},
@@ -117,7 +118,8 @@ const routes: Routes = [
     { path: 'purchase-platform', component: PurchasePlatformComponent },
     { path: 'reigsteration-success', component: RegisterationSuccessComponent },
     { path: 'purchase-category/:catId', component: PurchaseCategoryComponent },
-    { path: 'request-details/:reqId', component: RequestDetailsComponent }
+    { path: 'request-details/:reqId', component: RequestDetailsComponent },
+    { path: 'unifying-cat/:id', component: UnifyingCatComponent }
 ];
 
 /*Our Services

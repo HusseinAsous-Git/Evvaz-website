@@ -17,10 +17,6 @@ export class RequestDetailsComponent implements OnInit {
     "request_company_id":'',
     "request_id":''
   };
-  req_view_response={
-    "request_company_id":'',
-    "request_id":''
-  };
   daysLeft:Number;
   requestDetails:SchoolRequest;
   timeLinePrecent:Number;
@@ -34,6 +30,7 @@ export class RequestDetailsComponent implements OnInit {
 	  "responsed_cost":0
   }
   constructor(private route: ActivatedRoute, private router: Router,private http: Http, private purchasPlatform: PurchasePlatformService) { 
+    window.scrollTo(0, 0);
     this.route.params.subscribe(params => {
       this.request_id = params['reqId'];
     });
@@ -80,8 +77,11 @@ export class RequestDetailsComponent implements OnInit {
   addView(){
     this.purchasPlatform.addView(this.req_view_add).subscribe(
       (response) => {
-        if(response['state']==400){
+        if(response['state']==400 || response['state']==500){
           console.log("view didn't count : " , response);
+        }
+        else if (response['message'] == "Already Exist"){
+          console.log("view didn't count : " , response['message']);
         }
         else {
           console.log("view added : " , response);

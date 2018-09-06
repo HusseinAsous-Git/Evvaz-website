@@ -696,6 +696,119 @@ color: #12a5e1;
         cursor: pointer;
     }
 }
+
+
+.intro {
+    position: relative;
+    h3 {
+        
+        text-align: left;
+        font-family: Arial, Helvetica, sans-serif ;
+    }
+    
+}
+
+
+.go-back{
+    position: absolute;
+    top:68%;
+    left:-7%;
+    font-family: Arial, Helvetica, sans-serif ;
+    color:snow;
+    text-align: right;
+    font-weight: 200;
+    cursor: pointer;
+    i{
+        color: snow;
+    }
+    span{
+        padding-left: 5px;
+    }
+    &:hover{
+       text-decoration: underline;
+    }
+}
+
+.intro {
+	background-position: top;
+}
+.intro .description {
+	font-size: 18px ;
+	max-width: 70%;
+    padding-bottom: 70px;
+}
+.intro .overlay {
+	
+	height: 100%;
+}
+
+@media (max-width: 992px) { 
+	.intro h3 {
+		text-align: left;
+	}
+	.intro .description {
+		font-size: 14px;
+		max-width: 80%;
+		margin-bottom: 40px;
+	}
+}
+
+
+
+.back{
+    margin-left: -15%;
+    
+    font-weight: unset;
+    color:#0fc35b;
+}
+.back a{
+    color: #0fc35b;
+    text-decoration: underline;
+}
+
+
+
+.company-logo{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    padding: 0;
+    //border: 1px solid red;
+    background-color: #ced4da;
+    float: left;
+    img{
+        height: 100%;
+        width: 100%;
+        display:block;
+        margin:auto;
+    }
+}
+.follow-button-position{
+    float:right;
+}
+// .container-xt{
+//     width: 100%;
+//     margin:0;
+//     padding:0;
+//     //border:1px solid red;
+// }
+.preloader{
+    position: fixed;
+    background-color: white;
+    width:100%;
+    height: 100%;
+    display: block;
+    z-index:999999;
+    img{
+        position: relative;
+        display: block;
+        margin: auto;
+        top:50%;
+        transform: translateY(-50%);
+
+    }
+}
 .parent-comp{
     margin-bottom: 25px;
 }
@@ -729,9 +842,21 @@ color: #12a5e1;
     &.uni-1{ background-image: url('../../../../assets/img/unifying-platform/maidens.png');}
     &.uni-2{background-image: url('../../../../assets/img/unifying-platform/superheater.png');}
     &.uni-3{background-image: url('../../../../assets/img/unifying-platform/insurance-contract.png');
-        margin-right:0px;}
-    &.uni-4{background-image: url('../../../../assets/img/unifying-platform/employment-contracts.png');}
-    &.uni-5{background-image: url('../../../../assets/img/unifying-platform/security-contracts.png');}
+        margin-right:0px;
+        h1{
+            
+        }
+    }
+    &.uni-4{
+        background-image: url('../../../../assets/img/unifying-platform/employment-contracts.png');
+        height:180px;
+        margin-bottom: 15px;
+    }
+    &.uni-5{
+        background-image: url('../../../../assets/img/unifying-platform/security-contracts.png');
+        margin-top: 15px;
+        height:180px;
+    }
     &.uni-6{background-image: url('../../../../assets/img/unifying-platform/fuel-contracts.png');
     margin-left:0px;}
     &.uni-7{background-image: url('../../../../assets/img/unifying-platform/school-uniforms.png');}

@@ -21,6 +21,9 @@ export class ProfileService {
   requestOffer(request_details){
     return this.http.post(environment.apiPath + 'school/request/offer/add',request_details);
   }
+  addView(request){
+    return this.http.post(environment.apiPath + 'offer/seen/add',request);
+  }
   // getCategory(id) {
   //   return this.http.get(environment.apiPath + 'cat/get/' + id);
   // }

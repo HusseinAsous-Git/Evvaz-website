@@ -10,9 +10,15 @@ import { Http, Response } from '@angular/http';
 })
 export class PurchasePlatformComponent implements OnInit {
   categories:CategoryDetails[];
-  constructor(private http: Http, private purchasPlatform: PurchasePlatformService) { }
+  islogged=false;
+  
+  constructor(private http: Http, private purchasPlatform: PurchasePlatformService) {window.scrollTo(0, 0); }
 
   ngOnInit() {
+    if(localStorage.getItem('@MYUSER')){
+      this.islogged=true;
+    }
+    
     this.purchasPlatform.getCategories().subscribe(
       (response) => {
         this.categories =response;  

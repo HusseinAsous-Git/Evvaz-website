@@ -21,6 +21,7 @@ export class PurchaseCategoryComponent implements OnInit {
   category_id:Number;
   categoryDetails:CategoryDetails;
   constructor(private route: ActivatedRoute, private router: Router,private http: Http, private purchasPlatform: PurchasePlatformService) { 
+    window.scrollTo(0, 0);
     this.route.params.subscribe(params => {
       this.category_id = params['catId'];
     });

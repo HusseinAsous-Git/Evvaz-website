@@ -14,10 +14,14 @@
                  
             </div> -->
                    
-            <div routerLink="/home-page" class="go-back">
+            <div *ngIf="islogged" routerLink="/home-page" class="go-back">
                 <i class="fa fa-chevron-left"></i>
                 <span>Back</span>
               </div>
+              <div *ngIf="!islogged" routerLink="/home" class="go-back">
+                <i class="fa fa-chevron-left"></i>
+                <span>Back</span>
+            </div>
                     
                
                 <h3 class=" offers" >Offers Platform</h3>
@@ -50,12 +54,16 @@
                 <img src="data:image/png;base64,{{company.company_logo_image}}" alt="{{company.company_name}}">
               </div>
               <div class="follow-button-position">
-                <a *ngIf="!company._follow" (click)="followCompany(company['company_id'])" class="follow-btn btn">Follow</a>
-                <a *ngIf="company._follow" (click)="unfollowCompany(company['company_id'])" class="unfollow-btn btn">Unfollow</a>
+                <a *ngIf="!company._follow && isLogged" (click)="followCompany(company['company_id'])" class="follow-btn btn">Follow</a>
+                <a *ngIf="company._follow && isLogged" (click)="unfollowCompany(company['company_id'])" class="unfollow-btn btn">Unfollow</a>
+                <a *ngIf="!isLogged" (click)="unfollowCompany(company['company_id'])" class="follow-btn btn">Follow</a>
               </div>
             </div>
             <!--  -->
-            <a  routerLink="/company/{{company.company_id}}">
+            <a *ngIf="isLogged" routerLink="/company/{{company.company_id}}">
+              <h5 class="heading-overlay company-name">{{company.company_name}}</h5>
+            </a>
+            <a *ngIf="!isLogged" routerLink="../login">
               <h5 class="heading-overlay company-name">{{company.company_name}}</h5>
             </a>
             <!-- {{Offer.company_id}} -->
@@ -73,7 +81,12 @@
                 <p>Followers</p>
                 <p>{{company.offer_count}}</p>
               </div>
-              <div routerLink="/company/{{company.company_id}}" class="go d-flex align-items-center">
+              <div *ngIf="isLogged" routerLink="/company/{{company.company_id}}" class="go d-flex align-items-center">
+                <span >go</span>
+
+                <i class="fa fa-chevron-right "></i>
+              </div>
+              <div *ngIf="!isLogged" routerLink="../login" class="go d-flex align-items-center">
                 <span >go</span>
 
                 <i class="fa fa-chevron-right "></i>

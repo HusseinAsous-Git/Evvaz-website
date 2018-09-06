@@ -1,5 +1,5 @@
 <app-home-header></app-home-header>
-<div *ngIf="false" class="preloader">
+<div *ngIf="!categories" class="preloader">
     <img src="../../../../../assets/images/_ws.gif" alt="">
 </div>
 <section class="intro clearfix " style="background-image:url(assets/img/Heading.png)">
@@ -14,7 +14,11 @@
                  
             </div> -->
 
-                    <div routerLink="/home-page" class="go-back">
+                    <div *ngIf="islogged" routerLink="/home-page" class="go-back">
+                        <i class="fa fa-chevron-left"></i>
+                        <span>Back</span>
+                    </div>
+                    <div *ngIf="!islogged" routerLink="/home" class="go-back">
                         <i class="fa fa-chevron-left"></i>
                         <span>Back</span>
                     </div>
@@ -49,7 +53,10 @@
 
                     <div class="overlay">
                         <!--  -->
-                        <a routerLink="/purchase-category/{{category['request_category_id']}}">
+                        <a *ngIf="islogged" routerLink="/purchase-category/{{category['request_category_id']}}">
+                            <h5 class="heading-overlay company-name">{{category['request_category_name']}}</h5>
+                        </a>
+                        <a *ngIf="!islogged" routerLink="../login">
                             <h5 class="heading-overlay company-name">{{category['request_category_name']}}</h5>
                         </a>
 
@@ -74,7 +81,13 @@
                                     <p>requests</p>
                                     <p>{{category['request_count']}}</p>
                                 </div>
-                                <div class="go d-flex align-items-center" routerLink="/purchase-category/{{category['request_category_id']}}">
+                                <div class="go d-flex align-items-center" *ngIf="islogged" routerLink="/purchase-category/{{category['request_category_id']}}">
+                                    <span>go</span>
+
+                                    <i class="fa fa-chevron-right "></i>
+                                </div>
+
+                                <div class="go d-flex align-items-center" *ngIf="!islogged" routerLink="../login">
                                     <span>go</span>
 
                                     <i class="fa fa-chevron-right "></i>
