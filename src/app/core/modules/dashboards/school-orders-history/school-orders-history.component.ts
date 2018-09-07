@@ -12,7 +12,7 @@ export class SchoolOrdersHistoryComponent implements OnInit {
 
   loginId: number;
   currentUser;
-  private schoolHistory : SchoolHistoryModel [];
+  public schoolHistory : SchoolHistoryModel [];
   count = 0;
   constructor(private schoolService: SchoolService) { }
 

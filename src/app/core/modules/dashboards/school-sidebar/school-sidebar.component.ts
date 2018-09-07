@@ -10,7 +10,7 @@ import { UIService } from '../../../services/ui.service';
 })
 export class SchoolSidebarComponent implements OnInit {
 
-  constructor(private schoolService: SchoolService, private uiService: UIService) { }
+  constructor(private schoolService: SchoolService, public uiService: UIService) { }
   orderCount = 0;
   historyCount = 0;
   loginId: number;

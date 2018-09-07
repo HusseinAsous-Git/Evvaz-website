@@ -14,7 +14,7 @@ orders;
 historyCount=0;
 requestCount=0;
 orderCount=0;
-  constructor(private uiService:UIService, private adminService:AdminService) { }
+  constructor(public uiService:UIService, private adminService:AdminService) { }
 
   ngOnInit() {
 

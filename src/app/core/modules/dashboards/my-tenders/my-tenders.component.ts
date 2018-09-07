@@ -12,7 +12,7 @@ export class MyTendersComponent implements OnInit {
   
   loginId: number;
   currentUser;
-  private schoolOrders : SchoolOrdersModel [];
+  public schoolOrders : SchoolOrdersModel [];
   count = 0;
   constructor(private schoolService: SchoolService) { }
 

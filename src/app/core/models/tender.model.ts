@@ -5,5 +5,6 @@ export class TenderModel {
     request_expired_date: number;
     school_id: number;
     request_category_id: string;
+    response_count;
     // response_count: number;
 }

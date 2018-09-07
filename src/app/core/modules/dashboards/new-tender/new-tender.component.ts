@@ -15,7 +15,7 @@ export class NewTenderComponent implements OnInit {
 
   loginId: number;
 currentUser;
-
+categoryName;
   newTenderForm: FormGroup;
   categories : TenderCategoryModel [];
 
@@ -106,6 +106,7 @@ newTender(){
     request_display_date: fromDate.getTime(),
     request_expired_date: toDate.getTime(),
     school_id: this.loginId,
+    response_count:null,
     request_category_id: this.newTenderForm.get('category').value
    }
 

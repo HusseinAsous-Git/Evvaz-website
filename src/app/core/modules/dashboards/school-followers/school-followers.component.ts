@@ -13,7 +13,7 @@ import { CompanyModel } from '../../../models/company.model';
 export class SchoolFollowersComponent implements OnInit {
   loginId: number;
   currentUser;
-  private allCompanies : CompanyModel [];
+  public allCompanies : CompanyModel [];
   private hashLogo : string;
   isFollowing = false;
   constructor(private schoolservice: SchoolService, private companyService: CompanyService) { }

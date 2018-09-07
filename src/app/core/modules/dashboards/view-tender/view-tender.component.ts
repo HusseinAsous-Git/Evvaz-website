@@ -13,6 +13,7 @@ import { CompanyOfferResponse } from '../../../models/company.offer.response.mod
 })
 export class ViewTenderComponent implements OnInit {
 date: Date;
+
 tenderId: number;
 tender: SchoolSingleTender;
 companies: CompanyOfferResponse [];

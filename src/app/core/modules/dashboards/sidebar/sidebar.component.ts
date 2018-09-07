@@ -17,7 +17,7 @@ export class SidebarComponent implements OnInit {
   countFollowers = 0;
   currentUser;
   loginId : number;
-  constructor(private schoolService: SchoolService, private uiService: UIService) { }
+  constructor(private schoolService: SchoolService, public uiService: UIService) { }
 
   ngOnInit() {
     this.currentUser = localStorage.getItem("@MYUSER");

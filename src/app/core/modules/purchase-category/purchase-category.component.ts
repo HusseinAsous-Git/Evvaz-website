@@ -15,6 +15,7 @@ export class PurchaseCategoryComponent implements OnInit {
   requests:SchoolRequest[];
   requestsView:SchoolRequest[];
   closedView:SchoolRequest[];
+  searchTitle;
   today = new Date();
   formFilterChoice='descending';
 
