@@ -97,7 +97,11 @@ import { AuthGuardSchool } from './core/services/auth.guard.school.service';
 import { AuthGuardAdmin } from './core/services/auth.guard.admin.service';
 import { UnifyingCatComponent } from './core/modules/unifying-cat/unifying-cat.component';
 import { PageNotFoundComponent } from './core/page-not-found/page-not-found.component';
-
+import { OrderProfileCompanyCpyComponent } from './core/modules/dashboards/order-profile-company-cpy/order-profile-company-cpy.component';
+import { OrderProfileSchoolCpyComponent } from './core/modules/dashboards/order-profile-school-cpy/order-profile-school-cpy.component';
+import { ImageCropperModule } from 'ngx-image-cropper';
+import { NgxCropperModule } from 'ngx-cropper';
+import 'ngx-cropper/dist/ngx-cropper.min.css';
 @NgModule({
   declarations: [
     AppComponent,
@@ -160,7 +164,9 @@ import { PageNotFoundComponent } from './core/page-not-found/page-not-found.comp
     OrderProfileComponent,
     OrderProfileSchoolComponent,
     UnifyingCatComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    OrderProfileCompanyCpyComponent,
+    OrderProfileSchoolCpyComponent
 
   ],
   imports: [
@@ -174,7 +180,9 @@ import { PageNotFoundComponent } from './core/page-not-found/page-not-found.comp
     ReactiveFormsModule,
     AmazingTimePickerModule,
     RecaptchaModule.forRoot(),
-    RecaptchaFormsModule
+    RecaptchaFormsModule,
+    ImageCropperModule,
+    NgxCropperModule
   ],
   providers: [
     AuthService,

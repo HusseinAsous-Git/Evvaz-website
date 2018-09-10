@@ -17,7 +17,9 @@ export class CollectiveTenderComponent implements OnInit {
 tenderId: number;
 tender:SchoolTenderResolverModel ;
 displayForm : boolean = true;
-
+enableErrMessage = false;
+errMessage;
+enableSuccessMessage = false;
   constructor(private activatedRoute:ActivatedRoute, private router:Router, private schoolService: SchoolService) { }
 
   ngOnInit() {
@@ -99,6 +101,8 @@ displayForm : boolean = true;
   
     this.schoolService.addCollectiveTender(data).subscribe(
       response => {
+        this.enableSuccessMessage = true;
+        this.displayForm = false;
         console.log(response)
         if(response['state'] !== 400){
           this.displayForm = false;
@@ -107,6 +111,12 @@ displayForm : boolean = true;
           },1500)
         }
 
+      },
+      err => {
+        this.enableErrMessage = true;
+        this.displayForm = false;
+        this.errMessage = err.error.message+"!";
+        console.log(err.error.message)
       }
     )
 

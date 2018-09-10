@@ -19,6 +19,8 @@ tender: SchoolSingleTender;
 companies: CompanyOfferResponse [];
 srcLogo: string;
 showCard: boolean = true;
+progressPercentage;
+progressStatus;
   constructor(private schoolService: SchoolService, private activatedRoute:ActivatedRoute, private router:Router) { }
 
   toggle = false;
@@ -44,6 +46,22 @@ showCard: boolean = true;
        
       }
     }
+    
+    var percentage = this.tender.tender.request_expired_date - this.tender.tender.request_display_date;
+
+    console.log("Percentage: " + percentage)
+    var diff = this.tender.tender.request_expired_date - new Date().getTime();
+    var division = diff / percentage;
+    console.log("Division: " + division)
+    this.progressPercentage = 100 - (Math.floor( division * 100));  
+    console.log("Progress:"+ this.progressPercentage)
+    if(division <0 || this.progressPercentage<0) {
+      this.progressPercentage = 100 ;
+      this.progressStatus = "Expired";
+    }
+
+    console.log("Difference between two dates: " + this.progressPercentage )
+
     }
     );
 

@@ -11,6 +11,7 @@ export class SchoolHomeComponent implements OnInit {
   activeProfile: SchoolProfileModel;
   loginId: number;
   currentUser;
+  isLoading = true;
   constructor(private schoolService:SchoolService) { }
 
   ngOnInit() {
@@ -20,6 +21,7 @@ export class SchoolHomeComponent implements OnInit {
     
     this.schoolService.getProfile(this.loginId).subscribe(
       (response) => { 
+        this.isLoading = false;
         console.log(response);
         this.activeProfile = response;
         this.activeProfile.school_logo_image =  'data:image/png;base64,' + this.activeProfile.school_logo_image;

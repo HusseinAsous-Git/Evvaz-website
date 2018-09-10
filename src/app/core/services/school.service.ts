@@ -18,82 +18,82 @@ export class SchoolService{
         constructor(private httpClient: HttpClient) {}
 
 getSchools(id: number){
-    let url = `${environment.apiPath}follow/school/${id}`;
+    let url = `${environment.apiPath}evvaz/follow/school/${id}`;
         return this.httpClient.get<SchoolProfileModel []>(url); 
 }
 
 getOrders(companyId: number){
-    let url = `${environment.apiPath}orders/${companyId}`;
+    let url = `${environment.apiPath}evvaz/orders/${companyId}`;
         return this.httpClient.get<SchoolOrdersModel []>(url); 
 }
 
 getProfile(id: number) {
-    let url = `${environment.apiPath}school/profile/get/${id}`;
+    let url = `${environment.apiPath}evvaz/school/profile/get/${id}`;
     return this.httpClient.get<SchoolProfileModel>(url);
 }
 
 
 updateProfile(data: SchoolProfileModel) {
-    let url = `${environment.apiPath}school/profile/update`; 
+    let url = `${environment.apiPath}evvaz/school/profile/update`; 
     return this.httpClient.put<SchoolProfileModel>(url,data) ;
 }
 createProfile(data: SchoolProfileModel){
-    let url = `${environment.apiPath}school/profile/addProfile`; 
+    let url = `${environment.apiPath}evvaz/school/profile/addProfile`; 
     return this.httpClient.post<SchoolProfileModel>(url,data) ;
 }
 
 
 getFollowers(id: number){
-    let url = `${environment.apiPath}follow/school/followers/${id}`;
+    let url = `${environment.apiPath}evvaz/follow/school/followers/${id}`;
         return this.httpClient.get<SchollFollowerModel[]>(url); 
 }
 
 getSchoolOrders(id: number) {
-    let url = `${environment.apiPath}school/tenders/school/${id}`;
+    let url = `${environment.apiPath}evvaz/school/tenders/school/${id}`;
     return this.httpClient.get<SchoolOrdersModel[]>(url);
 }
 
 getHistory(id: number){
-    let url = `${environment.apiPath}school/requests/get/history/${id}`;
+    let url = `${environment.apiPath}evvaz/school/requests/get/history/${id}`;
     return this.httpClient.get<SchoolHistoryModel[]>(url);
 }
 
 getAllCompanies(schoolId: number){
-    let url = `${environment.apiPath}follow/company/${schoolId}`;
+    let url = `${environment.apiPath}evvaz/follow/company/${schoolId}`;
         return this.httpClient.get<CompanyModel[]>(url); 
 }
 
 
 createTender(tenderData : TenderModel){
-    let url = `${environment.apiPath}school/tenders/`;
+    let url = `${environment.apiPath}evvaz/school/tenders/`;
     return this.httpClient.post(url,tenderData);
 
 }
 
 getCategories(){
-    let url = `${environment.apiPath}school/category/getAll`;
+    let url = `${environment.apiPath}evvaz/school/category/getAll`;
     return this.httpClient.get<TenderCategoryModel[]>(url); 
 }
 
 getTendersbySchoolId(schoolId: number) {
-    let url = `${environment.apiPath}school/tenders/school/${schoolId}`;
+    let url = `${environment.apiPath}evvaz/school/tenders/school/${schoolId}`;
     return this.httpClient.get<TenderModel[]>(url);
 }
 
 
 getAllCollectiveTenders(){
-    let url = `${environment.apiPath}takataf/tenders/admin`;
+    let url = `${environment.apiPath}evvaz/takataf/tenders/admin`;
     return this.httpClient.get<SchoolTenderModel[]>(url);
 }
 
 
 getSingleTender(schoolId: number){
-    let url = `${environment.apiPath}school/tenders/request/school/${schoolId}`;
+    let url = `${environment.apiPath}evvaz/school/tenders/request/school/${schoolId}`;
     return this.httpClient.get(url); 
 }
 
 getTender(tenderId: number){
-    let url = `${environment.apiPath}tender/request/get/${tenderId}`;
+    let url = `${environment.apiPath}evvaz/tender/request/get/${tenderId}`;
     return this.httpClient.get(url); 
 }
 
@@ -108,25 +108,25 @@ addCollectiveTender(tenderData: {
     }   [] 
 }
   ){
-    let url = `${environment.apiPath}tender/request/add`;
+    let url = `${environment.apiPath}evvaz/tender/request/add`;
     return this.httpClient.post(url,tenderData);
 }
 
 
 getAllOrders(schoolId: number){
-    let url = `${environment.apiPath}school/requests/get/order/${schoolId}`;
+    let url = `${environment.apiPath}evvaz/school/requests/get/order/${schoolId}`;
     return this.httpClient.get<SchoolOrdersModel[]>(url);
 }
 
 
 agreeToCompany(companyId: number) {
-    let url = `${environment.apiPath}response/school/request/accept/${companyId}`;
+    let url = `${environment.apiPath}evvaz/response/school/request/accept/${companyId}`;
     return this.httpClient.put(url,{});
 }
 
 
 deleteCompany(companyId: number){
-    let url = `${environment.apiPath}response/school/request/delete/${companyId}`;
+    let url = `${environment.apiPath}evvaz/response/school/request/delete/${companyId}`;
     return this.httpClient.delete(url);
 }
 

@@ -29,7 +29,8 @@
       </div>  -->
       <div class="row">
         <div class="col-sm-10">
-          {{profile.registration_organization_name}}  <br> <div style="color: grey">{{profile.registeration_date | date:'short'}} </div>
+          {{profile.registration_organization_name}}  <br> <div style="color: grey">{{profile.registeration_date | date:'short'}}
+             <br> <span style="font-size: 20px;"> Role ({{profile.registration_role}})</span> </div>
         </div>
                   
         <div class="col-sm-2">
@@ -49,6 +50,13 @@
    </div>
     </div>
     <hr>
+    <div class="row mt-4 mb-4">
+        <i class="fa fa-map-marker" style="font-size: 50px; margin-left: 30px;margin-top: -15px"></i>
+       <div style="margin-left: 20px; margin-top: -15px;"> 
+         Address <br> <div style="color: grey">{{ profile.registration_address_desc }}</div> 
+       </div>
+        </div>
+        <hr>
     <div class="row mt-4 mb-4">
         <i class="fa fa-phone " style="font-size: 50px; margin-left: 30px;margin-top: -15px"></i>
        <div style="margin-left: 20px; margin-top: -15px;"> 

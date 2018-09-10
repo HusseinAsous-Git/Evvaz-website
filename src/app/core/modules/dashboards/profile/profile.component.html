@@ -163,7 +163,7 @@
  <!-- check boxes -->
  <label for="" style="color: #12a5e1">Choose Category</label>
  <div class="row ml-1">
-<div class=" col-sm-4"  *ngFor="let category of adminCategories  , let i = index">
+<div class=" col-sm-4"  *ngFor="let category of adminCategories  , let i = index" style="font-size: 22px">
  <label class="form-check-label"  style="color: gray;">
    <input type="checkbox" class="form-check-input"
           (change)="hasChecked($event, category, i)"

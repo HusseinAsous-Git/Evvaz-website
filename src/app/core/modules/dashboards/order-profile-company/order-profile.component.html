@@ -3,20 +3,22 @@
 <div class="container">
 <div class="" style="margin-top: 100px">
   <ul class="breadcrumb ">
-      <li class="breadcrumb-item">
-          <a [routerLink]="['/admin']">Admin</a>
+    <li class="breadcrumb-item">
+        <a [routerLink]="['/admin']">Admin</a>
+    </li>
+    <li class="breadcrumb-item ">
+      <a [routerLink]="['/admin','history']">History</a>
+    </li>
+    <li class="breadcrumb-item ">
+      <a [routerLink]="['/admin','history',offerId,'view']">Tender</a>
+    </li>
+    <li class="breadcrumb-item ">
+        {{companyProfile.company_name}}
       </li>
-     
-      <li class="breadcrumb-item ">
-        Company
-      </li>
-      <li class="breadcrumb-item ">
-          {{companyProfile.company_name}}
-        </li>
-      <li class="breadcrumb-item active">
-        Profile
-      </li>
-  </ul>
+    <li class="breadcrumb-item active">
+      Profile
+    </li>
+</ul>
 </div>
 
 <div class="row justify-content-center">

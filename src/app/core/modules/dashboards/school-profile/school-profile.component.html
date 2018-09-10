@@ -36,6 +36,7 @@
        (change)="onUploadChange($event)"
        accept=".png, .jpg, .jpeg"
        >
+       
 
        <br>  <br>
          <img  src={{srcLogo}} alt="" id="img" width="100" height="100">
@@ -51,6 +52,17 @@
           
           (change)="onUploadChangeCover($event)"
           accept=".png, .jpg, .jpeg">
+          <!-- <image-cropper
+    [imageChangedEvent]="imageChangedEvent"
+    [maintainAspectRatio]="true"
+    [aspectRatio]="4 / 3"
+    [resizeToWidth]="128"
+    format="png"
+    (imageCroppedBase64)="imageCropped($event)"
+    (imageLoaded)="imageLoaded()"
+    (loadImageFailed)="loadImageFailed()"
+></image-cropper> -->
+
           <br> <br>
           <img [src]="srcCover" width="800" height="300">
           <div class="pull-right">
@@ -124,7 +136,7 @@
             <input type="text"
              class="form-control"
               id="address" 
-               placeholder="google maps"
+               placeholder="address"
                formControlName="address"
                >
           </div>
@@ -132,6 +144,10 @@
         <button class="btn btn-success ml-2 " type="submit">Save</button>
         
       </div>
+
+<br>
+<br>
+      <!-- <ngx-cropper [config]="ngxCropperConfig" (returnData)="onReturnData($event)"></ngx-cropper> -->
     </form>
     <!-- <div class="row justify-content-center">
         <img *ngIf="isloading" class="mt-3" src="../../../assets/images/bs.gif" alt="">

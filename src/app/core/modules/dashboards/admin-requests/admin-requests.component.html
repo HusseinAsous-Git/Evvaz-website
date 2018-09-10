@@ -23,26 +23,78 @@
     </div>
 </div>
 
-<div class="row mx-auto">
-  <div class="col-xs-6 mr-2 ml-2 mt-2 mb-2 confirmDiv skillhover" *ngFor="let request of requests; let i = index">
-    <div class="card ">
+
+<div class="row">
+  <div class="col-sm-6 text-center" style="color: #12a5e1; font-size: 22px">School Requests</div>
+  <div class="col-sm-6 text-center" style="color: #12a5e1; font-size: 22px">Company Requests</div>
+</div>
+
+<div class="row">
+  <div class="col-sm-6">
+<div class="card" style="border: none">
+    <div class="card-body">
+<div class="row mx-auto confirmDiv skillhover"  *ngFor="let request of schoolRequests; let  i = index" style="margin-right: 20px; margin-top: 10px;">
+  
+  
+      <a (click)="goToRequests(request.registration_id)">
+    <div class="card">
       
       <div class="card-body">
       {{ request.registration_organization_name }}  <br> {{this.date | date:'short'}}
       <div style="margin-top: -35px">
-        <a  class="btn btn-blue pull-right ml-2" 
-        style="color: white"
-         [routerLink]="['/admin','request',request.registration_id,'view']">Profile</a>
+       
         <a  class="btn view-btn pull-right" style="color: white" (click)="activateRequest(request.registration_id, i)">Agree</a>
       </div>
       </div>
     </div>
-  </div>
-
- 
+  </a>
  
 
+  
+
+
  
+
+ 
+
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="col-sm-6">
+    <div class="card" style="border: none">
+        <div class="card-body">
+    <div class="row mx-auto confirmDiv skillhover"  *ngFor="let request of companyRequests; let  i = index" style="margin-left: 20px; margin-top: 10px;">
+      
+      
+          <a (click)="goToRequests(request.registration_id)">
+        <div class="card">
+          
+          <div class="card-body">
+          {{ request.registration_organization_name }}  <br> {{this.date | date:'short'}}
+          <div style="margin-top: -35px">
+           
+            <a  class="btn view-btn pull-right" style="color: white" (click)="activateRequest(request.registration_id, i)">Agree</a>
+          </div>
+          </div>
+        </div>
+      </a>
+     
+    
+      
+    
+    
+     
+    
+     
+    
+    
+    </div>
+    </div>
+    </div>
+    </div>
 
 
 </div>

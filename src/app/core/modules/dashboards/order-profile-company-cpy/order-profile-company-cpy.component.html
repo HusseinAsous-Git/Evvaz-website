@@ -3,22 +3,22 @@
 <div class="container">
 <div class="" style="margin-top: 100px">
   <ul class="breadcrumb ">
-      <li class="breadcrumb-item">
-          <a [routerLink]="['/admin']">Admin</a>
+    <li class="breadcrumb-item">
+        <a [routerLink]="['/admin']">Admin</a>
+    </li>
+    <li class="breadcrumb-item ">
+      <a [routerLink]="['/admin','orders']">Orders</a>
+    </li>
+    <li class="breadcrumb-item ">
+      <a [routerLink]="['../../../../']">Tender</a>
+    </li>
+    <li class="breadcrumb-item ">
+        {{companyProfile.company_name}}
       </li>
-      <li class="breadcrumb-item ">
-        <a [routerLink]="['/admin','history']">History</a>
-      </li>
-      <li class="breadcrumb-item ">
-        <a [routerLink]="['/admin','history',offerId,'view']">Tender</a>
-      </li>
-      <li class="breadcrumb-item ">
-          {{schoolProfile.school_name}}
-        </li>
-      <li class="breadcrumb-item active">
-        Profile
-      </li>
-  </ul>
+    <li class="breadcrumb-item active">
+      Profile
+    </li>
+</ul>
 </div>
 
 <div class="row justify-content-center">
@@ -37,15 +37,15 @@
         <div class="col-sm-9">
          
           <br> <div style="color: grey">
-              <i class="fa fa-map-marker mr-1 ml-2" style="font-size: 50px; margin-left: 30px;margin-top: -15px"></i>  {{schoolProfile.school_address}}
+              <i class="fa fa-map-marker mr-1 ml-2" style="font-size: 50px; margin-left: 30px;margin-top: -15px"></i>  {{companyProfile.company_address}}
           </div>
         </div>
                   
         <div class="col-sm-1">
-            <img src="{{schoolProfile.school_logo_image}}" alt="" width="50" height="50" class="rounded-circle">
+            <img src="{{companyProfile.company_logo_image}}" alt="" width="50" height="50" class="rounded-circle">
         </div>
         <div class="col-sm-2" style="margin-top: 10px;margin-left: -10px;">
-             <h3>{{schoolProfile.school_name}} </h3> 
+             <h3>{{companyProfile.company_name}} </h3> 
          </div>
         
        
@@ -58,7 +58,7 @@
     <i class="fa fa-at " style="font-size: 50px; margin-left: 30px;margin-top: -15px"></i>
    <div style="margin-left: 20px; margin-top: -15px;"> 
      Email <br> <div style="color: grey">
-       {{ schoolProfile.school_website_url }}
+       {{ companyProfile.company_website_url }}
       </div> 
    </div>
     </div>
@@ -67,7 +67,7 @@
         <i class="fa fa-phone " style="font-size: 50px; margin-left: 30px;margin-top: -15px"></i>
        <div style="margin-left: 20px; margin-top: -15px;"> 
          Phone Number <br>  <div style="color: grey">
-           {{schoolProfile.school_phone_number}} 
+           {{companyProfile.company_phone_number}} 
           </div> 
        </div>
         </div>
@@ -77,8 +77,8 @@
        <div style="margin-left: 20px; margin-top: -15px;"> 
         <div > Services </div>
          <br> 
-         <div style="color: grey">
-           <p>{{schoolProfile.school_service_desc}}</p>
+         <div style="color: grey" *ngFor="let cat of cats">
+           <p>{{cat.category_name}}</p>
          <!-- Books <br>
          Pencils <br>
          Pens <br>

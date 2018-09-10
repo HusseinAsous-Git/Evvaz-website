@@ -189,7 +189,7 @@ coverSize;
 
 
     updateProfile(){
-
+      this.isloading = true;
       for(let c of this.returnedCats){
         this.catNames.push({category_name: c.category_name});
        console.log("Retuen cat: " + c.category_name)

@@ -4,6 +4,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { SchoolProfileModel } from '../../../models/school.profile.model';
 import { SchoolService } from '../../../services/school.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgxCropperOption } from '../../../../../../node_modules/ngx-cropper';
 
 
 @Component({
@@ -12,13 +13,13 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./school-profile.component.css']
 })
 export class SchoolProfileComponent implements OnInit {
-
+  public ngxCropperConfig: NgxCropperOption;
    
   public SchoolProfileForm: FormGroup;
   private activeProfile : SchoolProfileModel ;
-  isloading : boolean = false;
+  isloading : boolean = true;
 //  private currentProfile: CompanyOfferModel [];
-
+file;
 
   srcLogo: string;
   srcCover: string;
@@ -32,7 +33,58 @@ export class SchoolProfileComponent implements OnInit {
   loginId: number;
   profileExistance = false;
   currentUser;
-  constructor(private schoolSerivce: SchoolService, private activatedRoute: ActivatedRoute, private router: Router) { }
+  constructor(private schoolSerivce: SchoolService, private activatedRoute: ActivatedRoute, private router: Router) {
+    // this.ngxCropperConfig = {
+    //   url: this.srcCover, // image server url
+    //   maxsize: 512000, // image max size, default 500k = 512000bit
+    //   title: 'Apply your image size and position', // edit modal title, this is default
+    //   uploadBtnName: 'Upload Image', // default Upload Image
+    //   uploadBtnClass: null, // default bootstrap styles, btn btn-primary
+    //   cancelBtnName: 'Cancel', // default Cancel
+    //   cancelBtnClass: null, // default bootstrap styles, btn btn-default
+    //   applyBtnName: 'Apply', // default Apply
+    //   applyBtnClass: null, // default bootstrap styles, btn btn-primary
+    //   fdName: 'file', // default 'file', this is  Content-Disposition: form-data; name="file"; filename="fire.jpg"
+    //   aspectRatio: 1 / 1, // default 1 / 1, for example: 16 / 9, 4 / 3 ...
+    //   viewMode: 0 // default 0, value can be 0, 1, 2, 3
+    // };
+
+   }
+   public onReturnData(data: any) {
+    // Do what you want to do
+    console.warn(JSON.parse(data));
+ 
+ 
+    //  Here has three type of messages now
+    //  1. Max size
+    // {
+    //     code: 4000,
+    //     data: null,
+    //     msg: `The size is max than ${this.viewConfig.maxsize}, now size is ${currentSize}k`
+    //  }
+ 
+    //  2. Error
+    //  {
+    //       code: 4001,
+    //       data: null,
+    //       msg: 'ERROR: When sent to server, something wrong, please check the server url.'
+    //  }
+ 
+    //  3. Image type error
+    // {
+    //       code: 4002,
+    //       data: null,
+    //       msg: `The type you can upload is only image format`
+    // }
+ 
+    //  4. Success
+    //  {
+    //       code: 2000,
+    //       data,
+    //       msg: 'The image was sent to server successly'
+    //  }
+  }
+  
 
   ngOnInit() {
     this.currentUser = localStorage.getItem("@MYUSER");
@@ -108,13 +160,13 @@ export class SchoolProfileComponent implements OnInit {
   
   
     onUploadChangeCover(evt: any) {
-      const file = evt.target.files[0];
-      this.coverSize = file.size;
-      if (file) {
+      this.file = evt.target.files[0];
+      this.coverSize = this.file.size;
+      if (this.file) {
         const reader = new FileReader();
     
         reader.onload = this.handleReaderLoadedCover.bind(this);
-        reader.readAsBinaryString(file);
+        reader.readAsBinaryString(this.file);
         if(this.coverSize >2097152 ){
           this.coverSizeIsValid = false;
           }else{
@@ -130,10 +182,18 @@ export class SchoolProfileComponent implements OnInit {
     }
 
 
-
+    imageCropped(image: string) {
+      this.srcCover = image;
+  }
+  imageLoaded() {
+      // show cropper
+  }
+  loadImageFailed() {
+      // show message
+  }
 
     updateProfile(){
-
+      this.isloading = true;
       // this.profileForm = new FormGroup({
       //   'companyName': new FormControl(this.activeProfile.company_name, Validators.required),
       //   'link': new FormControl(this.activeProfile.company_link_youtube, Validators.required),

@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { AdminRequestModel } from './../../../models/admin.request.model';
 import { AdminService } from './../../../services/admin.service';
 import { Component, OnInit } from '@angular/core';
@@ -11,17 +12,25 @@ export class AdminRequestsComponent implements OnInit {
 date:Date;
 requests: AdminRequestModel [];
 count=0;
-  constructor(private adminService: AdminService) { }
+schoolRequests = [];
+companyRequests = [];
+  constructor(private adminService: AdminService, private router:Router) { }
 
   ngOnInit() {
     this.date = new Date();
     this.adminService.getAllRequests().subscribe(
       response => {
         this.requests = response;
+        
         console.log(response)
 
-        for(let i of this.requests){
+        for(let req of this.requests){
           this.count++;
+          if(req.registration_role === 'school') {
+            this.schoolRequests.push(req);
+          }else if (req.registration_role === 'company'){
+            this.companyRequests.push(req);
+          }
         }
 
       },
@@ -43,5 +52,10 @@ count=0;
   
 
   }
+
+  goToRequests(id:number){
+    this.router.navigate(['/admin','request',id,'view'])
+  }
+  
 
 }
