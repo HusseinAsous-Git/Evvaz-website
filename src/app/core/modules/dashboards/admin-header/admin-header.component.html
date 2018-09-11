@@ -3,7 +3,8 @@
   <a (click)="toggleSidebar()" id="in" class="navbar-brand " style="color: white"> 
     <i class="fa fa-bars" style="color: white"></i> 
   </a>
-  <span style="font-size: 30px">Evvaz Admin</span>
+  <!-- <span style="font-size: 30px">Evvaz School</span> -->
+  <a  [routerLink]="['/home-page']"><img src="../../../../../assets/img/index/logo.png" alt=""> </a> 
   <button class="navbar-toggler" data-toggle="collapse" data-target="#navbar" >
     <span class="navbar-toggler-icon" style="color: white"></span>
   </button>
@@ -35,28 +36,17 @@
       </li> -->
       <li class="nav-item  py-2 dropdown">
         <a href="#" data-toggle='dropdown' class="nav-link" style="color:white" >
-          <i class="fa fa-user-o" style="color:white"></i>Admin <i class="fa fa-caret-down" style="color: white"></i>
+          <i class="fa fa-user-o mr-1" style="color:white"></i><a  class="" (click)="onLogout()">Logout</a> 
         </a>
 
-        <div class="dropdown-menu dropdown-menu-right">
-          <a  class="dropdown-item" [routerLink]="['/home-page']">Home</a>
-          <div class="dropdown-divider"></div>
-          <a  class="dropdown-item" (click)="onLogout()">Logout</a>
-        </div>
+        <!-- <div class="dropdown-menu dropdown-menu-right"> -->
+          <!-- <a  class="dropdown-item" [routerLink]="['/home-page']">Home</a>
+          <div class="dropdown-divider"></div> -->
+          <!-- <a  class="dropdown-item" (click)="onLogout()">Logout</a> -->
+        <!-- </div> -->
       </li>
 
     </ul>
 
 
   </div>
-</nav>
-<!-- <nav class="">
-    <ul class="breadcrumb bg-dark">
-        <li class="breadcrumb-item">
-            <a href="#">Dashboard</a>
-        </li>
-        <li class="breadcrumb-item active">
-            Absence Table
-        </li>
-    </ul>
-</nav> -->

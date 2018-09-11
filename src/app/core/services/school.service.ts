@@ -125,9 +125,9 @@ agreeToCompany(companyId: number) {
 }
 
 
-deleteCompany(companyId: number){
-    let url = `${environment.apiPath}evvaz/response/school/request/delete/${companyId}`;
-    return this.httpClient.delete(url);
-}
+// deleteCompany(companyId: number){
+//     let url = `${environment.apiPath}evvaz/response/school/request/delete/${companyId}`;
+//     return this.httpClient.delete(url);
+// }
 
 }

@@ -56,7 +56,7 @@
        
   </div>
   
-<div *ngIf="showCard">
+<!-- <div *ngIf="showCard"> -->
   <div class="col-sm-12 mt-3 skillhover" *ngFor="let company of companies; let i = index" >
       
           <div class="card card-big">
@@ -75,8 +75,8 @@
               </div>
                 <div class="pull-right" style="margin-top: -50px">
                     <i class="fa fa-usd "></i>   {{ company.responsed_cost }} 
-                    <button class="btn btn-blue ml-4" (click)="agree(company.response_id, i)" >Agree</button>
-                    <!-- appAgreeHighlight [toggle]="toggle" -->
+                    <button class="btn btn-blue ml-4" (click)="agree(company.response_id, i)" appAgreeHighlight [toggle]="toggle">Agree</button>
+                    
                 </div>
              <hr>
               <div class="card-body">
@@ -90,10 +90,10 @@
           </div>
        
   </div>
-</div>
-  <div *ngIf="!showCard">
+<!-- </div> -->
+  <!-- <div *ngIf="!showCard">
     <p class="display-4 mt-5 mr-3"> <span style="color: gray; border: green" > Your request has deliverd successfully </span><i class="fa fa-check" ></i></p>
-  </div>
+  </div> -->
   
 
   
