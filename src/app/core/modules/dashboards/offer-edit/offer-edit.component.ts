@@ -1,8 +1,9 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { CompanyNewOfferModel } from "../../../models/company.offer.new.model";
 import { CompanyService } from "../../../services/company.service";
 import { ActivatedRoute, Router, Params, Data } from "@angular/router";
+import { AmazingTimePickerService } from "../../../../../../node_modules/amazing-time-picker";
 
 
 @Component({
@@ -21,7 +22,9 @@ export class OfferEditComponent implements OnInit {
 
   loginId: number;
   currentUser;
-  constructor(private companyService: CompanyService, private activatedRoute:ActivatedRoute, private router:Router) { }
+  @ViewChild("startTime") startTime: ElementRef;
+  @ViewChild("endTime") endTime: ElementRef;
+  constructor(private companyService: CompanyService, private activatedRoute:ActivatedRoute, private router:Router,private atp : AmazingTimePickerService) { }
 
   ngOnInit() {
 
@@ -35,6 +38,10 @@ console.log("Login ID: " + this.loginId)
       'description' : new FormControl(null, Validators.required),
       'cost' : new FormControl(null, Validators.required),
       'count' : new FormControl(null, Validators.required),
+      'fromdate':new FormControl(null, Validators.required), 
+      'startTime':new FormControl(null, Validators.required),
+      'todate':new FormControl(null, Validators.required),
+      'endTime':new FormControl(null, Validators.required),
       // 'availableInDays' : new FormControl(null, Validators.required),
       'image_one' : new FormControl(null, Validators.required)
     });
@@ -56,6 +63,10 @@ console.log("Login ID: " + this.loginId)
           'offerName' : new FormControl(this.offer.offer_title, Validators.required),
           'description' : new FormControl(this.offer.offer_explaination, Validators.required),
           'cost': new FormControl(this.offer.offer_cost, Validators.required),
+          'fromdate':new FormControl(null, Validators.required), 
+      'startTime':new FormControl(null, Validators.required),
+      'todate':new FormControl(null, Validators.required),
+      'endTime':new FormControl(null, Validators.required),
           'count': new FormControl(this.offer.offer_count, Validators.required),
           // 'image_one': new FormControl(this.offer.image_one, Validators.required)
         });
@@ -66,7 +77,49 @@ console.log("Incoming offer is: " + this.offer);
   }
 
 
+  setStartTime() {
+    
+    const amazingTimePicker = this.atp.open(
+      {
+        theme: 'light',  // Default: 'light'
+           // Default: 'en'
+        arrowStyle: {
+            background: '#00b7cb',
+            color: 'white'
+        }
+    }
+    );
+    amazingTimePicker.afterClose().subscribe(time => {
+      this.editOffer.controls['startTime'].setValue(time) ;
+      this.editOffer.controls['endTime'].setValue(this.endTime.nativeElement.value) ; 
+             });
+
+
+}
+
+setEndTime() {
+  const amazingTimePicker = this.atp.open(
+    {
+      theme: 'light',  // Default: 'light'
+      arrowStyle: {
+          background: '#00b7cb',
+          color: 'white'
+      }
+  }
+  );
+  amazingTimePicker.afterClose().subscribe(time => {
+    this.editOffer.controls['endTime'].setValue(time) ;
+    this.editOffer.controls['startTime'].setValue(this.startTime.nativeElement.value) ;
+           });
+}
+
+
   onSubmit(){
+    const fromDate = new Date(this.editOffer.get('fromdate').value +  " " + this.editOffer.get('startTime').value);
+    const toDate = new Date(this.editOffer.get('todate').value +  " " + this.editOffer.get('endTime').value);
+    console.log(fromDate.getTime() + "is of type: " + typeof(fromDate.getTime() ));
+    console.log(toDate.getTime());
+    console.log("String Hash: "+ this.hash);
 
     let data = {
       offer_id : this.offerId ,
@@ -79,8 +132,8 @@ console.log("Incoming offer is: " + this.offer);
       offer_cost: this.editOffer.get('cost').value,
       company_id: this.loginId,
       offer_count: this.editOffer.get('count').value,
-      offer_display_date:Date.now(),
-    	offer_expired_date:Date.now(),
+      offer_display_date:fromDate.getTime(),
+    	offer_expired_date:toDate.getTime(),
     	offer_deliver_date:Date.now()
     }
 

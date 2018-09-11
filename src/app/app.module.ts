@@ -99,9 +99,8 @@ import { UnifyingCatComponent } from './core/modules/unifying-cat/unifying-cat.c
 import { PageNotFoundComponent } from './core/page-not-found/page-not-found.component';
 import { OrderProfileCompanyCpyComponent } from './core/modules/dashboards/order-profile-company-cpy/order-profile-company-cpy.component';
 import { OrderProfileSchoolCpyComponent } from './core/modules/dashboards/order-profile-school-cpy/order-profile-school-cpy.component';
-import { ImageCropperModule } from 'ngx-image-cropper';
-import { NgxCropperModule } from 'ngx-cropper';
-import 'ngx-cropper/dist/ngx-cropper.min.css';
+import { UserIdleModule } from 'angular-user-idle';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -181,8 +180,11 @@ import 'ngx-cropper/dist/ngx-cropper.min.css';
     AmazingTimePickerModule,
     RecaptchaModule.forRoot(),
     RecaptchaFormsModule,
-    ImageCropperModule,
-    NgxCropperModule
+  
+     // Optionally you can set time for `idle`, `timeout` and `ping` in seconds.
+    // Default values: `idle` is 600 (10 minutes), `timeout` is 300 (5 minutes) 
+    // and `ping` is 120 (2 minutes).
+    UserIdleModule.forRoot({idle: 10, timeout: 1, ping: 10})
   ],
   providers: [
     AuthService,

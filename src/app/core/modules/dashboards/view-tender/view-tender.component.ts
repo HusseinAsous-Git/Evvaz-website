@@ -83,19 +83,20 @@ progressStatus;
 
 
   agree(id: number, index:number){
-    this.toggle = true;
+    
     this.schoolService.agreeToCompany(id).subscribe(
       response=>{ 
-        this.schoolService.deleteCompany(id).subscribe(
-          response => console.log(response)
-        )
-        console.log(response);
-        this.showCard = false;
+        // this.schoolService.deleteCompany(id).subscribe(
+        //   response => console.log(response)
+        // )
 
-          this.companies.splice(index,1);
-          setTimeout(() => {
-            this.showCard = true;
-          },2000)
+        console.log(response);
+      //   this.showCard = false;
+
+          
+      //     setTimeout(() => {
+      //       this.showCard = true;
+      //     },2000)
          
       }
     )

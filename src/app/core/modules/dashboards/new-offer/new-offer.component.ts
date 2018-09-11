@@ -1,11 +1,12 @@
 import { AuthService } from '../../../services/auth.service';
 
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CompanyService } from '../../../services/company.service';
 import { CompanyNewOfferModel } from '../../../models/company.offer.new.model';
+import { AmazingTimePickerService } from '../../../../../../node_modules/amazing-time-picker';
 
 @Component({
   selector: 'app-new-offer',
@@ -22,7 +23,9 @@ hash = [];
   sizeIsValid: boolean  = true;
   currentUser ;
   loginId : number;
-   constructor(private companyService: CompanyService, private router: Router, private authService: AuthService) { }
+  @ViewChild("startTime") startTime: ElementRef;
+  @ViewChild("endTime") endTime: ElementRef;
+   constructor(private companyService: CompanyService, private router: Router, private authService: AuthService,private atp : AmazingTimePickerService) { }
 
   ngOnInit() {
 
@@ -37,13 +40,52 @@ hash = [];
       'description' : new FormControl(null, Validators.required),
       'cost' : new FormControl(null, Validators.required),
       'count' : new FormControl(null, Validators.required),
-     
+      'fromdate':new FormControl(null, Validators.required), 
+      'startTime':new FormControl(null, Validators.required),
+      'todate':new FormControl(null, Validators.required),
+      'endTime':new FormControl(null, Validators.required),
       'image_one' : new FormControl(null, Validators.required)
     });
     console.log("Date is:  "+ Date.now()+ "is of type: "+ typeof(new Date()));
 
   }
 
+
+  setStartTime() {
+    
+    const amazingTimePicker = this.atp.open(
+      {
+        theme: 'light',  // Default: 'light'
+           // Default: 'en'
+        arrowStyle: {
+            background: '#00b7cb',
+            color: 'white'
+        }
+    }
+    );
+    amazingTimePicker.afterClose().subscribe(time => {
+      this.newOffer.controls['startTime'].setValue(time) ;
+      this.newOffer.controls['endTime'].setValue(this.endTime.nativeElement.value) ; 
+             });
+
+
+}
+
+setEndTime() {
+  const amazingTimePicker = this.atp.open(
+    {
+      theme: 'light',  // Default: 'light'
+      arrowStyle: {
+          background: '#00b7cb',
+          color: 'white'
+      }
+  }
+  );
+  amazingTimePicker.afterClose().subscribe(time => {
+    this.newOffer.controls['endTime'].setValue(time) ;
+    this.newOffer.controls['startTime'].setValue(this.startTime.nativeElement.value) ;
+           });
+}
 
   
 
@@ -84,7 +126,10 @@ hash = [];
 
 
   onSubmit(){
-    
+    const fromDate = new Date(this.newOffer.get('fromdate').value +  " " + this.newOffer.get('startTime').value);
+    const toDate = new Date(this.newOffer.get('todate').value +  " " + this.newOffer.get('endTime').value);
+    console.log(fromDate.getTime() + "is of type: " + typeof(fromDate.getTime() ));
+    console.log(toDate.getTime());
     console.log("String Hash: "+ this.hash);
 
     
@@ -98,8 +143,8 @@ hash = [];
       offer_explaination: this.newOffer.get('description').value,
       offer_cost: this.newOffer.get('cost').value,
       offer_count: this.newOffer.get('count').value,
-      offer_display_date:Date.now(),
-      offer_expired_date:Date.now(),
+      offer_display_date: fromDate.getTime(),
+      offer_expired_date: toDate.getTime(),
       offer_deliver_date:Date.now(),
       company_id:this.loginId
     }

@@ -82,7 +82,56 @@
         *ngIf="!newOffer.get('availableInDays').valid && newOffer.get('availableInDays').touched"
         class="help-block" >This field is Requird!</span>
       </div> -->
-      
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="fromdate">From</label>
+            <input type="date"
+             class="form-control"
+              id="fromdate"
+                placeholder="Tender name"
+                formControlName="fromdate"
+               
+                >
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="startTime">Time from</label>
+            <input type="text" formControlName="startTime"  id="startTime"
+ apt-time-picker class="form-control"
+ placeholder="start time" #startTime 
+ (click)="setStartTime()">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="todate">To</label>
+            <input type="date"
+             class="form-control"
+              id="todate"
+                placeholder="Tender name"
+                formControlName="todate"
+               
+                >
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="timeto">Time to</label>
+            <input type="text" id="timeto"
+ formControlName="endTime" 
+ class="form-control" 
+ placeholder="end time" 
+ apt-time-picker #endTime
+  (click)="setEndTime()" >
+          </div>
+        </div>
+      </div>
+
       <div class="form-group">
         <label for="image_one">Offer Logo</label> <br>
         

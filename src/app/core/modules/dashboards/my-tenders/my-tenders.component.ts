@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { SchoolService } from '../../../services/school.service';
 import { Component, OnInit } from '@angular/core';
 import { SchoolOrdersModel } from '../../../models/school.orders.model';
@@ -14,7 +15,7 @@ export class MyTendersComponent implements OnInit {
   currentUser;
   public schoolOrders : SchoolOrdersModel [];
   count = 0;
-  constructor(private schoolService: SchoolService) { }
+  constructor(private schoolService: SchoolService, private router:Router) { }
 
   ngOnInit() {
 
@@ -43,7 +44,9 @@ export class MyTendersComponent implements OnInit {
   }
 
 
-
+goToDetails(id: number){
+  this.router.navigate(['/school','tender',id,'view']);
+}
 
 
 
