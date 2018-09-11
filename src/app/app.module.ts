@@ -184,7 +184,7 @@ import { UserIdleModule } from 'angular-user-idle';
      // Optionally you can set time for `idle`, `timeout` and `ping` in seconds.
     // Default values: `idle` is 600 (10 minutes), `timeout` is 300 (5 minutes) 
     // and `ping` is 120 (2 minutes).
-    UserIdleModule.forRoot({idle: 10, timeout: 1, ping: 10})
+    UserIdleModule.forRoot({idle: 7200, timeout: 1, ping: 10})
   ],
   providers: [
     AuthService,

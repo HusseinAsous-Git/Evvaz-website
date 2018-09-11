@@ -55,7 +55,9 @@ file;
     });
 
 
-    
+   
+
+   
 
     this.schoolSerivce.getProfile(this.loginId).subscribe(
       (response) => { 
@@ -86,7 +88,7 @@ file;
       }
     );
 
- 
+  
    
    
   }
