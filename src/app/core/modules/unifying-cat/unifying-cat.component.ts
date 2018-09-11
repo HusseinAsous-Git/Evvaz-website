@@ -78,9 +78,9 @@ export class UnifyingCatComponent implements OnInit {
             }
           }
           else if(this.UserData['login_role']=="company"){
-            if(company_start<this.nToday && this.nToday< company_end){
-              this.showForUser=true;
-            }
+            // if(company_start<this.nToday && this.nToday< company_end){
+            //   this.showForUser=true;
+            // }
           }
 
           this.tenderDetails=response[0];

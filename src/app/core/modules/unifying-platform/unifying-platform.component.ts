@@ -7,11 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UnifyingPlatformComponent implements OnInit {
   islogged=false;
+  isCompany=false;
+  UserData;
   constructor() { window.scrollTo(0, 0);}
 
   ngOnInit() {
-    if(localStorage.getItem('@MYUSER')){
+    let user;
+    if(user = localStorage.getItem('@MYUSER')){
       this.islogged=true;
+
+      this.UserData=JSON.parse(user);
+      if(this.UserData['login_role'] =="company"){
+        this.isCompany=true;
+      }
     }
     
   }
