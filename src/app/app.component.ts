@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { AuthService } from './core/services/auth.service';
 import { OnInit } from '@angular/core';
 import { Component } from '@angular/core';
 import { UserIdleService } from '../../node_modules/angular-user-idle';
@@ -13,7 +15,7 @@ export class AppComponent implements OnInit{
     //console.log(`Resolved captcha with response ${captchaResponse}:`);
   //}
 
-  constructor(private userIdle: UserIdleService) {}
+  constructor(private userIdle: UserIdleService, private authService:AuthService,private router:Router) {}
 
 
 
@@ -31,7 +33,15 @@ export class AppComponent implements OnInit{
       });
      
      // Start watch when time is up.
-     this.userIdle.onTimeout().subscribe(() => console.log('Time is up!'));
+     this.userIdle.onTimeout().subscribe(() => {
+       console.log('Time is up!');
+      this.onLogout();
+    });
+  }
+  onLogout(){
+    this.authService.logout();
+    this.router.navigate(['/']);
+
   }
 
 
