@@ -30,6 +30,8 @@ companyRequests = [];
             this.schoolRequests.push(request);
           }else if (request.registration_role=== 'company'){
             this.companyRequests.push(request);
+          }else {
+            this.count--;
           }
         }
 

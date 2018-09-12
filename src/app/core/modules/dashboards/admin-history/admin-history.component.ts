@@ -14,6 +14,7 @@ history:any;
 loginId:number;
 currentUser;
 token : string;
+count=0;
   constructor(private router:Router, private adminService:AdminService, private authService:AuthService) { }
 
   ngOnInit() {
@@ -30,6 +31,7 @@ token : string;
         console.log(response);
         this.history = response;
         for(let h of this.history){
+          this.count++;
           h.company_logo_image =  'data:image/png;base64,' +h.company_logo_image;
           h.school_logo_image = 'data:image/png;base64,' +  h.school_logo_image;
         }

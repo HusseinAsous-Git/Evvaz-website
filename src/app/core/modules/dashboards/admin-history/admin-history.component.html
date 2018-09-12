@@ -4,21 +4,31 @@
 <div class="container">
 
 
-<div style="margin-top: 100px;">
-    <ul class="breadcrumb ">
-        <li class="breadcrumb-item">
-            <a [routerLink]="['/admin']">Admin</a>
-        </li>
-       
-        <li class="breadcrumb-item active">
-            History
-        </li>
-    </ul>
+  <div style="margin-top: 130px;"></div>
+
+  <div class="row mt-5 mb-3">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-8">
+      <nav class="" >
+        <ul class="breadcrumb ">
+            <li class="breadcrumb-item">
+                <a [routerLink]="['/admin']">Admin</a>
+            </li>
+           
+            <li class="breadcrumb-item active">
+                History
+            </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="col-sm-1 txt-color">
+      
+    </div>
+    <div class="col-sm-2 txt-color mt-4">
+      {{count}} In History 
+      </div>
   </div>
   
-  <div class="pull-right">
-      <p style="color:blue ">({{ 2 }}) Orders</p>
-  </div>
   <br><br>
   <div class="row mx-auto">
     <div class="col-xs-6 mr-2 ml-2 mt-2 mb-2 skillhover" style="cursor: pointer;" *ngFor="let his of history ">
