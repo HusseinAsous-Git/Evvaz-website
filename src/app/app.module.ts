@@ -100,6 +100,7 @@ import { PageNotFoundComponent } from './core/page-not-found/page-not-found.comp
 import { OrderProfileCompanyCpyComponent } from './core/modules/dashboards/order-profile-company-cpy/order-profile-company-cpy.component';
 import { OrderProfileSchoolCpyComponent } from './core/modules/dashboards/order-profile-school-cpy/order-profile-school-cpy.component';
 import { UserIdleModule } from 'angular-user-idle';
+import { SubscribeService } from './core/services/subscribe.service';
 
 @NgModule({
   declarations: [
@@ -208,6 +209,7 @@ import { UserIdleModule } from 'angular-user-idle';
     AdminService,
     PurchasePlatformService,
     UnifyingPlatformService,
+    SubscribeService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

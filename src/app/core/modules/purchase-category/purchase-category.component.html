@@ -37,13 +37,14 @@
 <section class="internal-page">
 
   <div class="container">
-    <div class="search-bar" >
+    <div class="search-bar">
       <form #filterForm="ngForm">
         <div class="form-row">
           <div class="form-group col-md-9">
             <!-- <input type="text" class="form-control" id="inputCity"> -->
             <div class="input-group mb-3">
-              <input type="text" class="form-control search-box" placeholder="search" [(ngModel)]="searchTitle" [ngModelOptions]="{standalone: true}">
+              <input type="text" class="form-control search-box" placeholder="search" [(ngModel)]="searchTitle"
+                [ngModelOptions]="{standalone: true}">
               <div class="input-group-append">
                 <span class="input-group-text search-glass" id="inputGroup-sizing-default">
                   <i class="fa fa-search" aria-hidden="true"></i>
@@ -53,15 +54,15 @@
             </div>
           </div>
           <div class="form-group col-md-2">
-            <select id="inputState" class="form-control" name="filterSort" [(ngModel)]="formFilterChoice"   >
-              <option value="descending" >More days left</option>
-              <option value="ascending" >Less days left</option>
+            <select id="inputState" class="form-control" name="filterSort" [(ngModel)]="formFilterChoice">
+              <option value="descending">More days left</option>
+              <option value="ascending">Less days left</option>
 
-              <option value="open" >Open Only</option>
+              <option value="open">Open Only</option>
             </select>
           </div>
           <div class="form-group col-md-1">
-            <button class="btn btn-primary filter-button" (click)="filterChoice()" >
+            <button class="btn btn-primary filter-button" (click)="filterChoice()">
               <i class="fa fa-sliders snow" aria-hidden="true"></i> Filter</button>
           </div>
         </div>
