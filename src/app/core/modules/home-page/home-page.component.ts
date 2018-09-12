@@ -12,7 +12,7 @@ export class HomePageComponent implements OnInit {
     window.scrollTo(0, 0);
     let user = localStorage.getItem('@MYUSER');
     this.UserData = JSON.parse(user);
-    this.username=this.UserData['']
+    this.username=this.UserData['user_email']
   }
 
   ngOnInit() {
