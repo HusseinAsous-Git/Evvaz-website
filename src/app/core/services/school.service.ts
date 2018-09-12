@@ -119,8 +119,26 @@ getAllOrders(schoolId: number){
 }
 
 
+updateCategoty(tenderData: {
+    request_school_id: number,
+    request_tender_id: number,
+     category : {
+        cat_name: string,
+        count: number
+    }   [] 
+}){
+    let url = `${environment.apiPath}evvaz/tender/request/update`;
+    return this.httpClient.put(url,{});
+    
+}
+
 agreeToCompany(companyId: number) {
     let url = `${environment.apiPath}evvaz/response/school/request/accept/${companyId}`;
+    return this.httpClient.put(url,{});
+}
+
+refuseToCompany(companyId: number){
+    let url = `${environment.apiPath}evvaz/response/school/request/refuse/${companyId}`;
     return this.httpClient.put(url,{});
 }
 

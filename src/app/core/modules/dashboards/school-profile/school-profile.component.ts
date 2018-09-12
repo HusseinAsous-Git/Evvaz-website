@@ -57,7 +57,6 @@ file;
 
    
 
-   
 
     this.schoolSerivce.getProfile(this.loginId).subscribe(
       (response) => { 
@@ -84,6 +83,7 @@ file;
 
       }, err => {
         this.profileExistance = false;
+        this.isloading  =false;
         console.log(err)
       }
     );

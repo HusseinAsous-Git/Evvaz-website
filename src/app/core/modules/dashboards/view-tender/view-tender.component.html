@@ -1,19 +1,28 @@
 <app-school-sidebar></app-school-sidebar>
 <app-school-header></app-school-header>
 <div class="container">
-<div style="margin-top: 100px;">
-  <ul class="breadcrumb ">
-      <li class="breadcrumb-item">
-          <a [routerLink]="['/school']">Dashboard</a>
-      </li>
-      <li class="breadcrumb-item">
-        <a [routerLink]="['/school','tenders','mine']">Tender</a>
-    </li>
-      <li class="breadcrumb-item active">
-           Stage
-      </li>
-  </ul>
-</div>
+    <div style="margin-top: 130px;"></div>
+
+    <div class="row mt-5 mb-3">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-8">
+        <nav class="" >
+          <ul class="breadcrumb ">
+              <li class="breadcrumb-item">
+                  <a [routerLink]="['/school']">Dashboard</a>
+              </li>
+              <li class="breadcrumb-item">
+                  <a [routerLink]="['/school','tenders','mine']">Tenders</a>
+              </li>
+              <li class="breadcrumb-item active">
+                  Stage
+              </li>
+             
+          </ul>
+        </nav>
+      </div>
+     
+    </div>
 
 <div class="row ">
   <div class="col-sm-12">
@@ -75,7 +84,7 @@
               </div>
                 <div class="pull-right" style="margin-top: -50px">
                     <i class="fa fa-usd "></i>   {{ company.responsed_cost }} 
-                    <button class="btn btn-blue ml-4" (click)="agree(company.response_id, i)" appAgreeHighlight [toggle]="toggle">Agree</button>
+                    <button class="btn btn-blue ml-4" (click)="agree(company.response_id, toggle)" appAgreeHighlight [toggle]="toggle">Agree</button>
                     
                 </div>
              <hr>
