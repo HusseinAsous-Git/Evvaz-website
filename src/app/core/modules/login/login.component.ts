@@ -97,14 +97,16 @@ export class LoginComponent implements OnInit {
         }
         }
         else {
-          console.log("Error");
-          this.router.navigate(['/login']);
+          document.getElementById("openModalButton").click();
+          //console.log("Error");
+          //this.router.navigate(['/login']);
 
         }
        }
-       //, error => {
-      //   console.log(error);
-      // }
+       , error => {
+        console.log(error);
+        document.getElementById("openModalButton").click();
+      }
     );
   }
 

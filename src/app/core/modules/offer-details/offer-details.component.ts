@@ -85,7 +85,9 @@ export class OfferDetailsComponent implements OnInit {
             this.daysLeft = days;
             this.hoursLeft =hours;
             this.minutesLeft = minutes;
-
+            if(this.timeLinePrecent<=0){
+              this.timeLinePrecent=0;
+            }
           }
         }
         //console.log(response) ;

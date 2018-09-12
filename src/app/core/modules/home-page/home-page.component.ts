@@ -6,8 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-page.component.less']
 })
 export class HomePageComponent implements OnInit {
-
-  constructor() { window.scrollTo(0, 0);}
+ private UserData;
+ private username;
+  constructor() { 
+    window.scrollTo(0, 0);
+    let user = localStorage.getItem('@MYUSER');
+    this.UserData = JSON.parse(user);
+    this.username=this.UserData['']
+  }
 
   ngOnInit() {
   }
