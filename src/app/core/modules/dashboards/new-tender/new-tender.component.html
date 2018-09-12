@@ -1,20 +1,27 @@
 <app-school-sidebar></app-school-sidebar>
 <app-school-header></app-school-header>
 <div class="container">
-<div style="margin-top: 100px;">
-  <ul class="breadcrumb ">
-    <li class="breadcrumb-item">
-      <a [routerLink]="['/home']">Dashboard</a>
-    </li>
+    <div style="margin-top: 130px;"></div>
 
-    <li class="breadcrumb-item">
-      <a [routerLink]="['/home']">Tenders</a>
-    </li>
-    <li class="breadcrumb-item active">
-      New
-    </li>
-  </ul>
-</div>
+    <div class="row mt-5 mb-3">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-8">
+        <nav class="" >
+          <ul class="breadcrumb ">
+              <li class="breadcrumb-item">
+                  <a [routerLink]="['/school']">Dashboard</a>
+              </li>
+              <li class="breadcrumb-item">
+                  <a [routerLink]="['/school','tenders','mine']">My Tenders</a>
+              </li>
+              <li class="breadcrumb-item active">
+                  New
+              </li>
+          </ul>
+        </nav>
+      </div>
+      
+    </div>
  
       <!-- new tender form here -->
       <div class="col-sm-8 col-sm offset-2">

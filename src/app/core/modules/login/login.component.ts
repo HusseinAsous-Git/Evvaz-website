@@ -62,6 +62,7 @@ export class LoginComponent implements OnInit {
               console.log("company profile");
               console.log(this.companyProfile)
             },err => {
+              this.router.navigate(['/company','profile'])
               console.log(err)
               // this.router.navigate(['/company','profile' ]);
             }
@@ -87,6 +88,7 @@ export class LoginComponent implements OnInit {
               }
              },err => {
                console.log("Error");
+               this.router.navigate(['/school','profile'])
              console.log(err);
              }
           )

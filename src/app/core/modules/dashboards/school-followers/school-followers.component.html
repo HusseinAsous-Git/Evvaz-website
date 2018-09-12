@@ -1,24 +1,27 @@
 <app-school-sidebar></app-school-sidebar>
 <app-school-header></app-school-header>
 <div class="container">
-<nav class="" style="margin-top: 100px">
-  <ul class="breadcrumb ">
-      <li class="breadcrumb-item">
-          <a [routerLink]="['/']">Dashboard</a>
-      </li>
-     
-      <li class="breadcrumb-item active">
-          My followers
-      </li>
-  </ul>
-</nav>
+<div style="margin-top: 130px;"></div>
 
-<div class="row mt-5 mb-4">
-  <div class="col-sm-8"></div>
-  <div class="col-sm-2 txt-color">
+<div class="row mt-5 mb-3">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-8">
+    <nav class="" >
+      <ul class="breadcrumb ">
+          <li class="breadcrumb-item">
+              <a [routerLink]="['/']">Dashboard</a>
+          </li>
+         
+          <li class="breadcrumb-item active">
+              My followers
+          </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="col-sm-1 txt-color">
     
   </div>
-  <div class="col-sm-2 txt-color">
+  <div class="col-sm-2 txt-color mt-4">
     {{count}} Followers 
     </div>
 </div>

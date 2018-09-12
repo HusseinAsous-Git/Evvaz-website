@@ -21,6 +21,7 @@ srcLogo: string;
 showCard: boolean = true;
 progressPercentage;
 progressStatus;
+agreeFlag = true;
   constructor(private schoolService: SchoolService, private activatedRoute:ActivatedRoute, private router:Router) { }
 
   toggle = false;
@@ -55,9 +56,16 @@ progressStatus;
     console.log("Division: " + division)
     this.progressPercentage = 100 - (Math.floor( division * 100));  
     console.log("Progress:"+ this.progressPercentage)
-    if(division <0 || this.progressPercentage<0) {
-      this.progressPercentage = 100 ;
-      this.progressStatus = "Expired";
+    this.progressStatus = "Available";
+    if(this.tender.tender.request_display_date > Date.now()) {
+      this.progressPercentage = 0 ;
+      this.progressStatus = "Postponed";
+      
+    }else{
+      if (division <0 || this.progressPercentage<0){
+        this.progressPercentage = 100 ;
+        this.progressStatus = "Expired";
+      }
     }
 
     console.log("Difference between two dates: " + this.progressPercentage )
@@ -82,26 +90,28 @@ progressStatus;
   }
 
 
-  agree(id: number, index:number){
+  agree(id: number, flag:boolean){
     
-    this.schoolService.agreeToCompany(id).subscribe(
-      response=>{ 
-        // this.schoolService.deleteCompany(id).subscribe(
-        //   response => console.log(response)
-        // )
-
-        console.log(response);
-      //   this.showCard = false;
-
-          
-      //     setTimeout(() => {
-      //       this.showCard = true;
-      //     },2000)
-         
-      }
-    )
+    
+    if(this.agreeFlag){
+      this.schoolService.agreeToCompany(id).subscribe(
+        response=>{ 
+          console.log(response);
+        },err => console.log(err)
+      );
+      this.agreeFlag =!this.agreeFlag;
+    }else {
+      this.schoolService.refuseToCompany(id).subscribe(
+        response=>{ 
+          console.log(response);
+          flag =!flag;
+        },err => console.log(err)
+      );
+      this.agreeFlag =!this.agreeFlag;  
+    }
+    
       
-      
+    
       
   }
 

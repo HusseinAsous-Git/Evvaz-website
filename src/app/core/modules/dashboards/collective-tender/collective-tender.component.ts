@@ -20,6 +20,8 @@ displayForm : boolean = true;
 enableErrMessage = false;
 errMessage;
 enableSuccessMessage = false;
+enableupdateMessage = false;
+catExist = false;
   constructor(private activatedRoute:ActivatedRoute, private router:Router, private schoolService: SchoolService) { }
 
   ngOnInit() {
@@ -83,7 +85,9 @@ enableSuccessMessage = false;
 
    for(let cat of this.tender.categories){
     // console.log("cat name: " + cat.category_name)
-    
+    if(cat['count'] !== 0) {
+      this.catExist = true;
+    }
     console.log("Cat is : " +cat.category_name + " has count: " +   form.value[cat.category_name]);
      catData.push({cat_name: cat.category_name, count: form.value[cat.category_name]})
       }
@@ -91,34 +95,76 @@ enableSuccessMessage = false;
 
    
 
+    // let dataCreate = {
+    //   request_school_id: this.loginId,
+    //   request_tender_id: this.tenderId,
+    //   is_aproved:0,
+    //   t_date: new Date().getTime(),
+    //   category: catData
+    // }
+  
+
+    
     let data = {
       request_school_id: this.loginId,
       request_tender_id: this.tenderId,
-      is_aproved:0,
-      t_date: new Date().getTime(),
       category: catData
     }
-  
-    this.schoolService.addCollectiveTender(data).subscribe(
+
+    console.log(data)
+    // if(!this.catExist){
+
+    // this.schoolService.addCollectiveTender(dataCreate).subscribe(
+    //   response => {
+    //     this.enableSuccessMessage = true;
+    //     this.displayForm = false;
+    //     setTimeout(()=> {
+    //       this.enableSuccessMessage = false;
+    //       this.displayForm = true;
+    //     },2000)
+    //     console.log(response)
+    //     if(response['state'] !== 400){
+    //       this.displayForm = false;
+    //       // setTimeout(()=> {
+    //       //   this.router.navigate(['/school','collective','all'])
+    //       // },1500)
+    //     }
+
+    //   },
+    //   err => {
+    //     this.enableErrMessage = true;
+    //     this.displayForm = false;
+    //     console.log(dataCreate)
+    //     console.log(err.error.message)
+    //   }
+    // )
+  // }else {
+    
+    this.schoolService.updateCategoty(data).subscribe(
       response => {
-        this.enableSuccessMessage = true;
+        this.enableupdateMessage = true;
         this.displayForm = false;
+        setTimeout(()=> {
+          this.enableupdateMessage = false;
+          this.displayForm = true;
+        },2000)
         console.log(response)
         if(response['state'] !== 400){
           this.displayForm = false;
-          setTimeout(()=> {
-            this.router.navigate(['/school','collective','all'])
-          },1500)
+          // setTimeout(()=> {
+          //   this.router.navigate(['/school','collective','all'])
+          // },1500)
         }
 
       },
       err => {
         this.enableErrMessage = true;
         this.displayForm = false;
-        this.errMessage = err.error.message+"!";
-        console.log(err.error.message)
+       
+        console.log(data)
       }
     )
+  // }
 
     
   }

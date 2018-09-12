@@ -1,23 +1,32 @@
 <app-school-sidebar></app-school-sidebar>
 <app-school-header></app-school-header>
 <div class="container">
-<div style="margin-top: 100px;">
-    <ul class="breadcrumb ">
-        <li class="breadcrumb-item">
-            <a [routerLink]="['/school']">Dashboard</a>
-        </li>
-       
-        <li class="breadcrumb-item active">
-           All Collective Tender
-        </li>
-    </ul>
-  </div>
+    <div style="margin-top: 130px;"></div>
+
+    <div class="row mt-5 mb-3">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-8">
+        <nav class="" >
+          <ul class="breadcrumb ">
+              <li class="breadcrumb-item">
+                  <a [routerLink]="['/school']">Dashboard</a>
+              </li>
+             
+              <li class="breadcrumb-item active">
+                  All collective tenders
+              </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="col-sm-1 txt-color">
+        
+      </div>
+      <div class="col-sm-2 txt-color mt-4">
+        {{collectiveCount}} Tenders
+        </div>
+    </div>
 
 
-<div class="pull-right">
-  <p style="color:blue ">({{ collectiveCount }}) Orders</p>
-</div>
-<br><br>
 <div class="row mx-auto">
 <div class="col-xs-6 mr-2 ml-2 mt-2 mb-2 skillhover" *ngFor="let collective of allCollectiveTenders" >
   <a (click)="getTenderDetails(collective.tender_id)">

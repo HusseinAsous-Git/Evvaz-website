@@ -154,10 +154,10 @@ apt-time-picker class="form-control"
      
 
       <div class="pull-right">
-        <button class="btn btn-success ml-2 " type="submit">Add</button>
+        <button class="btn btn-success ml-2 " type="submit" >Add</button>
         <!-- <button class="btn btn-danger ml-2">Cancel</button> -->
       </div>
-     
+     <div *ngIf="enableErrMsg"><p style="color: red">From date can't be past!</p></div>
     </form>
     
   </div>

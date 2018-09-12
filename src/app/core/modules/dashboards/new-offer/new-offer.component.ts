@@ -14,7 +14,7 @@ import { AmazingTimePickerService } from '../../../../../../node_modules/amazing
   styleUrls: ['./new-offer.component.css']
 })
 export class NewOfferComponent implements OnInit {
-
+  enableErrMsg = false;
   base64textString = [];
 hash = [];
   newOffer: FormGroup;
@@ -161,16 +161,22 @@ setEndTime() {
       console.log("Size" + el);
     }
 
-    this.companyService.addOffer(offer).subscribe(
-      (response) => {
-        console.log("Response: " + response);
-        console.log("size is: " + this.size + "is of type"+ typeof(this.size))
-        
-        console.log(this.newOffer)
-        this.router.navigate(['/company/offers/see']);
-      }
-      ,(err) => console.log(err)
-    );
+    if(fromDate.getTime() < Date.now() && toDate.getTime() < fromDate.getTime() ){
+      this.enableErrMsg = true;
+    }else {
+      this.companyService.addOffer(offer).subscribe(
+        (response) => {
+          console.log("Response: " + response);
+          console.log("size is: " + this.size + "is of type"+ typeof(this.size))
+          
+          console.log(this.newOffer)
+          this.router.navigate(['/company/offers/see']);
+        }
+        ,(err) => console.log(err)
+      );
+    }
+
+    
 
   
 
