@@ -64,6 +64,9 @@ export class RequestDetailsComponent implements OnInit {
             let delta = Math.abs(response['request_expired_date'] - +this.today) / 1000;
             let days = Math.floor(delta / 86400);
             this.daysLeft=days;
+            if(this.timeLinePrecent<=0){
+              this.timeLinePrecent=0;
+            }
             
           }
         }
