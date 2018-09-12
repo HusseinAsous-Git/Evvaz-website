@@ -48,11 +48,39 @@ export class AdminMyTendersComponent implements OnInit {
         var division = diff / percentage;
         console.log("Division: " + division)
         this.progressPercentage = 100 - (Math.floor( division * 100));  
+        this.progressStatus = "Available";
         console.log("Progress:"+ this.progressPercentage)
-        if(division <0 || this.progressPercentage<0) {
-          this.progressPercentage = 100 ;
-          this.progressStatus = "Expired";
-        }
+        if(this.tender.tender_company_display_date > Date.now()) {
+            this.progressPercentage = 0 ;
+            this.progressStatus = "Postponed";
+            
+          }else{
+            if (division <0 || this.progressPercentage<0){
+              this.progressPercentage = 100 ;
+              this.progressStatus = "Expired";
+            }
+          }
+
+
+        // var percentage = this.tenderData.data['tender_expire_date'] - this.tenderData.data['tender_display_date'];
+        // var diff = this.tenderData.data['tender_expire_date'] - new Date().getTime();
+        // var division = diff / percentage;
+        // this.progressPercentage = 100 - (Math.floor( division * 100));
+        // this.progressStatus = "Available";
+        // console.log("Progress:"+ this.progressPercentage)
+        // if(this.tenderData.data['tender_display_date'] > Date.now()) {
+        //     this.progressPercentage = 0 ;
+        //     this.progressStatus = "Postponed";
+            
+        //   }else{
+        //     if (division <0 || this.progressPercentage<0){
+        //       this.progressPercentage = 100 ;
+        //       this.progressStatus = "Expired";
+        //     }
+        //   }
+
+        // console.log("Difference between two dates: " + this.progressPercentage )
+
 
         console.log("Difference between two dates: " + this.progressPercentage )
 

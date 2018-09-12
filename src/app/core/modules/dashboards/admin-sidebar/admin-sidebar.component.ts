@@ -28,15 +28,36 @@ orderCount=0;
       }
     )
 
+
+    // this.adminService.getAllRequests().subscribe(
+    //   response => {
+    //     this.requests = response;
+        
+    //     console.log(response)
+
+    //     for(let request of this.requests){
+    //       this.count++;
+    //       if(request.registration_role === 'school') {
+    //         this.schoolRequests.push(request);
+    //       }else if (request.registration_role=== 'company'){
+    //         this.companyRequests.push(request);
+    //       }else {
+    //         this.count--;
+    //       }
+    //     }
+
+
     this.adminService.getAllRequests().subscribe(
       response => {
         this.requests = response;
         console.log(response)
 
-        for(let i of this.requests){
+        for(let request of this.requests){
           this.requestCount++;
+          if(request.registration_role === 'admin') {
+           this.requestCount--;
         }
-
+      }
       },
       err => console.log(err)
     )

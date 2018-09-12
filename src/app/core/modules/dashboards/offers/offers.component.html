@@ -2,17 +2,28 @@
 <app-header-dash></app-header-dash>
 <div class="container">
 <section id="new-offer" >
-  <div style="margin-top: 100px;">
-      <ul class="breadcrumb ">
-        <li class="breadcrumb-item">
-          <a href="#">Dashboard</a>
-        </li>
-  
-        <li class="breadcrumb-item active">
-          offers
-        </li>
-      </ul>
+  <div style="margin-top: 130px;"></div>
+
+  <div class="row mt-5 mb-3">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-8">
+      <nav class="" >
+        <ul class="breadcrumb ">
+            <li class="breadcrumb-item">
+                <a [routerLink]="['/company']">Dashboard</a>
+            </li>
+           
+            <li class="breadcrumb-item active">
+                My offers
+            </li>
+        </ul>
+      </nav>
     </div>
+    <div class="col-sm-1 txt-color">
+      
+    </div>
+   
+  </div>
     <div class="pull-right ">
         <a style="color: blue" [routerLink]="['/company','offers','new']"> <i class="fa fa-plus"> </i> New Offer </a>
      </div>

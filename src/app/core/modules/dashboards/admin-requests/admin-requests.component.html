@@ -1,28 +1,31 @@
 <app-admin-header></app-admin-header>
 <app-admin-sidebar></app-admin-sidebar>
 <div class="container">
-<div class="" style="margin-top: 100px">
-  <ul class="breadcrumb ">
-      <li class="breadcrumb-item">
-          <a [routerLink]="['/admin']">Admin</a>
-      </li>
-     
-      <li class="breadcrumb-item active">
-          Requests
-      </li>
-  </ul>
-</div>
+  <div style="margin-top: 130px;"></div>
 
-<div class="row mt-5 mb-4">
-  <div class="col-sm-8"></div>
-  <div class="col-sm-2 txt-color">
-    
-  </div>
-  <div class="col-sm-2 txt-color">
-    ({{count}}) Requests 
+  <div class="row mt-5 mb-3">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-8">
+      <nav class="" >
+        <ul class="breadcrumb ">
+            <li class="breadcrumb-item">
+                <a [routerLink]="['/admin']">Admin</a>
+            </li>
+           
+            <li class="breadcrumb-item active">
+                Requests
+            </li>
+        </ul>
+      </nav>
+    </div>  
+    <div class="col-sm-1 txt-color">
+      
     </div>
-</div>
-
+    <div class="col-sm-2 txt-color mt-4">
+      {{count}} Requests
+      </div>
+  </div>
+  
 
 <div class="row">
   <div class="col-sm-6 text-center" style="color: #12a5e1; font-size: 22px">School Requests</div>
