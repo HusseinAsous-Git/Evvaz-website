@@ -10,7 +10,7 @@
 						<div class="d-inline-block my-auto">
 							<i class="fa fa-envelope"></i>
 							<div class="form-group d-inline-block">
-								<input type="email" name="email" [(ngModel)]="subscribe_mail" class="form-control border-0 p-0  custom-email-width"  placeholder="Enter Your Email" required>
+								<input type="email" name="email" [(ngModel)]="subscribe_mail['mail']" class="form-control border-0 p-0  custom-email-width"  placeholder="Enter Your Email" required>
 							</div>
 						</div>
 						
@@ -36,3 +36,54 @@
 		</div>
 	</div>
 </footer>
+
+<!-- Button trigger modal -->
+<button type="button" [hidden]="true" class="btn btn-primary" id="failModalButton" data-toggle="modal" data-target="#failModal">
+	Launch demo modal
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="failModal" tabindex="-1" role="dialog" aria-labelledby="failModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <h5 class="modal-title" id="failModalLabel">Subscribe Failed</h5>
+		  <button type="button" class="close ps-Close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		  </button>
+		</div>
+		<div class="modal-body">
+		  Make sure that you entered a correct Email
+		</div>
+		<div class="modal-footer">
+		  <button type="button" class="btn btn-danger" data-dismiss="modal">OK</button>
+		</div>
+	  </div>
+	</div>
+  </div>
+
+  
+<!-- Button trigger success -->
+<button type="button" [hidden]="true" class="btn btn-primary" id="successModalButton" data-toggle="modal" data-target="#successModal">
+	Launch demo modal
+  </button>
+  
+  <!-- success Modal -->
+  <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+	  <div class="modal-content success">
+		<div class="modal-header success">
+		  <h5 class="modal-title success" id="successModalLabel">Success </h5>
+		  <button type="button" class="close ps-Close success" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		  </button>
+		</div>
+		<div class="modal-body success">
+		  you are now in our mailing list we will provide you with our latest news
+		</div>
+		<div class="modal-footer success">
+		  <button type="button" class="btn btn-success" data-dismiss="modal">OK</button>
+		</div>
+	  </div>
+	</div>
+  </div>

@@ -763,6 +763,10 @@ header .navbar-toggler i{
 	background-color:#343a40d6 !important;
   color: #dc3545 !important;
 }
+.modal-content.success{
+	background-color:#343a40d6 !important;
+  color: #65d67e !important;
+}
 .modal-header{
 	border:0 !important;
 }
@@ -773,6 +777,10 @@ header .navbar-toggler i{
 	text-shadow: 0px 0px 1px #dc3545 !important;
 	color:#dc3545 !important;
 }
+.ps-Close.success{
+	text-shadow: 0px 0px 1px #65d67e !important;
+	color:#65d67e !important;
+}
 /* .form-control{
-	color:snow !important;
+	color:snow !important;#65d67e
 } */

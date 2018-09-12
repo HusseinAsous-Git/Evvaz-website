@@ -97,6 +97,7 @@ export class RequestDetailsComponent implements OnInit {
   }
 
   offerYourService(){
+    this.service_details['responsed_cost']=+this.cost;
     this.service_details.responsed_company_id=this.UserData['login_id'];
     this.service_details.responsed_request_id= +this.request_id;
     this.service_details.responsed_cost= +this.cost;
