@@ -24,12 +24,12 @@ companyRequests = [];
         
         console.log(response)
 
-        for(let req of this.requests){
+        for(let request of this.requests){
           this.count++;
-          if(req.registration_role === 'school') {
-            this.schoolRequests.push(req);
-          }else if (req.registration_role === 'company'){
-            this.companyRequests.push(req);
+          if(request.registration_role === 'school') {
+            this.schoolRequests.push(request);
+          }else if (request.registration_role=== 'company'){
+            this.companyRequests.push(request);
           }
         }
 
