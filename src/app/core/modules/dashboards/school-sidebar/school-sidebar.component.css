@@ -1,0 +1,6 @@
+.list-group-item{
+    background-color: white;
+}
+.list-group .list-group-item.active{
+    background-color: white;
+}
