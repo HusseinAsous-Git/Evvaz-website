@@ -21,7 +21,8 @@ srcLogo: string;
 showCard: boolean = true;
 progressPercentage;
 progressStatus;
-agreeFlag = true;
+companiesCount=0;
+agreeArray : boolean [] = [];
   constructor(private schoolService: SchoolService, private activatedRoute:ActivatedRoute, private router:Router) { }
 
   toggle = false;
@@ -44,10 +45,11 @@ agreeFlag = true;
         
         for (let c of this.companies){
         c.company_logo_image = 'data:image/png;base64,' + c.company_logo_image;
-       
+       this.companiesCount ++;
+       this.agreeArray.push(false);
       }
     }
-    
+    console.log("CompanyCount: " + this.companiesCount)
     var percentage = this.tender.tender.request_expired_date - this.tender.tender.request_display_date;
 
     console.log("Percentage: " + percentage)
@@ -90,27 +92,33 @@ agreeFlag = true;
   }
 
 
-  agree(id: number, flag:boolean){
+  agree(id: number, flag:boolean, index:number){
     
     
-    if(this.agreeFlag){
+    if(!this.agreeArray[index]){
       this.schoolService.agreeToCompany(id).subscribe(
         response=>{ 
           console.log(response);
+          flag =!flag;
         },err => console.log(err)
       );
-      this.agreeFlag =!this.agreeFlag;
+
+      this.agreeArray[index] = !this.agreeArray[index];
+     
+
+
     }else {
       this.schoolService.refuseToCompany(id).subscribe(
         response=>{ 
           console.log(response);
           flag =!flag;
         },err => console.log(err)
+        
       );
-      this.agreeFlag =!this.agreeFlag;  
+      this.agreeArray[index] = !this.agreeArray[index];
     }
     
-      
+    
     
       
   }
