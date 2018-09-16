@@ -46,7 +46,8 @@ progressStatus;
     this.activatedRoute.data.subscribe(
       (data: Data) => {
         this.tender = data['tender'];
-        
+        console.log("Tender: ");
+        console.log(this.tender)
         // var display_date = new Date(this.tender.data.tender_display_date);
         // console.log("Display date: " + display_date)
         

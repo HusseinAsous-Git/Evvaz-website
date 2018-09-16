@@ -24,7 +24,7 @@
                   </div>  -->
                   <div class="row">
                     <div class="col-sm-3 ml-1">
-                        {{ tender.data.tender_title }}  <br> {{tender.data.tender_display_date | date:'short'}}
+                        {{ tender.tender_title }}  <br> {{tender.data.tender_display_date | date:'short'}}
                     </div>
                     <div class="col-sm-3">
                         <span class="card-h"> Requests</span> <br> <i class="fa fa-shopping-cart mr-1"></i> <span class="card-content text-center">{{ tender.data.response_count }}</span> 
