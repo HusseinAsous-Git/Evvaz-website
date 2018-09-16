@@ -125,6 +125,7 @@ export class OfferDetailsComponent implements OnInit {
         console.log('errors ', error)
       }
     );
+    this.request_details['request_offer_count']=0;
   }
   addView(){
     this.profileService.addView(this.req_view_add).subscribe(

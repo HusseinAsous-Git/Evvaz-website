@@ -128,7 +128,7 @@
                     </p>
                     <div class="form-group">
                         <label for="cost">Your Service Cost</label>
-                        <input name="cost" [(ngModel)]="cost" type="number" class="form-control-file" id="cost" aria-describedby="costtHelp" placeholder="0" required>
+                        <input name="cost" [(ngModel)]="service_details.responsed_cost" type="number" class="form-control-file" id="cost" aria-describedby="costtHelp" placeholder="0" required>
                         <small id="costtHelp" class="form-text text-muted">This is the payment you require to fulfill this school needs [saudi riyals].</small>
                       </div>
                     <div *ngIf="showSucces" class="alert-success white-bg">
@@ -140,7 +140,7 @@
                     <div *ngIf="isClosed" class="alert-warning white-bg">
                         It's closed Now
                     </div>
-                    <button class="btn btn-success btn-lg btn-block bottom-d-button" [attr.disabled]="isClosed || showSucces? true: null"  (click)="offerYourService()" type="submit">Offer Your Service</button>
+                    <button class="btn btn-success btn-lg btn-block bottom-d-button" [attr.disabled]="!service_details.responsed_cost || isClosed || showSucces? true: null"  (click)="offerYourService()" type="submit">Offer Your Service</button>
                     
                 </div>
 

@@ -27,7 +27,7 @@ export class RequestDetailsComponent implements OnInit {
   service_details={
     "responsed_company_id":0,
 	  "responsed_request_id":0,
-	  "responsed_cost":0
+    "responsed_cost":0
   }
   constructor(private route: ActivatedRoute, private router: Router,private http: Http, private purchasPlatform: PurchasePlatformService) { 
     window.scrollTo(0, 0);
@@ -97,10 +97,10 @@ export class RequestDetailsComponent implements OnInit {
   }
 
   offerYourService(){
-    this.service_details['responsed_cost']=+this.cost;
+    //this.service_details['responsed_cost']=+this.cost;
     this.service_details.responsed_company_id=this.UserData['login_id'];
     this.service_details.responsed_request_id= +this.request_id;
-    this.service_details.responsed_cost= +this.cost;
+    //this.service_details.responsed_cost= +this.cost;
     //console.log("request === > " ,this.service_details);
     this.purchasPlatform.offerService(this.service_details).subscribe(
       (response) =>{
@@ -120,5 +120,6 @@ export class RequestDetailsComponent implements OnInit {
         console.log('errors ', error)
       }
     );
+    this.service_details['responsed_cost']=0;
   }
 }
