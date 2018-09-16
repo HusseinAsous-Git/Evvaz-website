@@ -460,7 +460,7 @@ h1 {
 }
 
 .list-group-item {
-  background: #12a5e1;
+  /* background: #12a5e1; */
   color: rgba(255, 255, 255, 0.60);
   padding-left: 40px !important;
   font-weight: 500;
@@ -476,7 +476,7 @@ h1 {
 }
 
  .list-group-item {
-  background: #12a5e1;
+  /* background: #12a5e1; */
   /* color: rgba(255, 255, 255, 0.60); */
   padding-left: 40px !important;
   font-weight: 500;
@@ -486,7 +486,7 @@ h1 {
 
  .list-group-item:hover {
 	 border:0;
-  background: #12a5e1;
+  /* background: #12a5e1; */
   /* color: rgba(255, 255, 255) !important; */
   /* border-bottom: solid 1.3px #12a5e1; */
   transition: all 0.2s ease-in;
