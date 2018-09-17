@@ -52,10 +52,37 @@
             routerLinkActive="active">
                 <i class="fa fa-user pr-3"></i> Orders <span class="badge badge-primary badge-pill pull-right">{{orderCount}}</span>
             </a>
-            <a  class=" pl-4 list-group-item list-group-item-action"
-             [routerLink]="['/admin','requests']" routerLinkActive="active">
-                <i class="fa fa-bell pr-3"></i> Requests <span class="badge badge-primary badge-pill pull-right">{{requestCount}}</span>
+            
+            <a  href="#reg"  data-toggle ="collapse" 
+            class=" pl-4 list-group-item list-group-item-action" 
+            routerLinkActive="active" [routerLinkActiveOptions]={exact:true}>
+              <i class="fa fa-registered pr-3"></i> Registeration
+              <span class="d-inline-block mt-1 float-right ">
+                  <i class="fa fa-caret-down"></i>
+              </span>
+          </a>
+          <div class="collapse" id="reg">
+             <div class="list-group">
+              <a  class="list-group-item list-group-item-action"
+              routerLinkActive="active"
+              [routerLink]="['/admin','requests']">
+                      Requests <i class="fa fa-eye pull-right"></i>
+              </a>
+             
+            
+            <a  class="list-group-item list-group-item-action" routerLinkActive="active" [routerLink]="['/admin','requests','consider']">
+                Considered <i class="fa fa-eye pull-right"></i>
             </a>
+            <a  class="list-group-item list-group-item-action" routerLinkActive="active" [routerLink]="['/admin','requests','archive']">
+                Archived <i class="fa fa-eye pull-right"></i>
+            </a>
+             </div>
+          </div>
+
+
+            <!--  -->
+
+
             <a  class=" pl-4 list-group-item list-group-item-action"
              [routerLink]="['/admin','history']" routerLinkActive="active">
                 <i class="fa fa-history pr-3"></i> History <span class="badge badge-primary badge-pill pull-right">{{historyCount}}</span>

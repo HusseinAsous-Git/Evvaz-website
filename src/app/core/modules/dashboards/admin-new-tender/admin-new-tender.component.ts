@@ -14,7 +14,10 @@ import { Router } from '@angular/router';
 export class AdminNewTenderComponent implements OnInit {
   returnedCats: AdminCategory [] = [];
   loginId: number;
+  errMessage: string;
 currentUser;
+cats;
+catsExist = false;
 changeFlag = true;
   newTenderForm: FormGroup;
   categories : AdminCategory [];
@@ -217,7 +220,16 @@ newTender(){
     console.log(response)
     this.router.navigate(['/admin','tenders','mine']);
       
-  },err => console.log(err)
+  },err  =>  {
+    this.errMessage = err.error.message;
+    if( err.error.cats) {
+      this.catsExist = true;
+      this.cats = err.error.cats;
+    }
+    
+    document.getElementById("openModalButton").click();
+
+    console.log(err)}
  )
 
 

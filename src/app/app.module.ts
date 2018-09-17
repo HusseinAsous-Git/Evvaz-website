@@ -101,6 +101,10 @@ import { OrderProfileCompanyCpyComponent } from './core/modules/dashboards/order
 import { OrderProfileSchoolCpyComponent } from './core/modules/dashboards/order-profile-school-cpy/order-profile-school-cpy.component';
 import { UserIdleModule } from 'angular-user-idle';
 import { SubscribeService } from './core/services/subscribe.service';
+import { ArchivedComponent } from './core/modules/dsahboards/archived/archived.component';
+import { AdminConsiderViewComponent } from './core/modules/dsahboards/admin-consider-view/admin-consider-view.component';
+import { AdminArchiveViewComponent } from './core/modules/dsahboards/admin-archive-view/admin-archive-view.component';
+import { ConsideredComponent } from './core/modules/dsahboards/considered/considered.component';
 
 @NgModule({
   declarations: [
@@ -166,7 +170,11 @@ import { SubscribeService } from './core/services/subscribe.service';
     UnifyingCatComponent,
     PageNotFoundComponent,
     OrderProfileCompanyCpyComponent,
-    OrderProfileSchoolCpyComponent
+    OrderProfileSchoolCpyComponent,
+    ArchivedComponent,
+    AdminConsiderViewComponent,
+    AdminArchiveViewComponent,
+    ConsideredComponent
 
   ],
   imports: [
