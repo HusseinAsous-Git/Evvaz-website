@@ -1,14 +1,15 @@
-import { AdminService } from './../../../services/admin.service';
-import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router, Params } from '../../../../../../node_modules/@angular/router';
+import { AdminService } from '../../../services/admin.service';
 
 @Component({
-  selector: 'app-admin-requests-view',
-  templateUrl: './admin-requests-view.component.html',
-  styleUrls: ['./admin-requests-view.component.scss']
+  selector: 'app-admin-consider-view',
+  templateUrl: './admin-consider-view.component.html',
+  styleUrls: ['./admin-consider-view.component.scss']
 })
-export class AdminRequestsViewComponent implements OnInit {
-date:Date;
+export class AdminConsiderViewComponent implements OnInit {
+
+  date:Date;
 requestId: number;
 profile: any;
 isLoading = false;  
@@ -78,7 +79,6 @@ archiveRequest(id:number) {
     err => console.log(err)
   )
 }
-
 
 
 

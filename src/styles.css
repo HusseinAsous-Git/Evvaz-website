@@ -722,9 +722,9 @@ background: #0fc35b
 }
 
 .summary-s{
-	position: absolute;
+	/* position: absolute; */
 	background-color: #12a5e1;
-	height: 150px;
+	/* height: 150px; */
 	font-size: 16px;
 	border-radius: 10px;
 	color: white;

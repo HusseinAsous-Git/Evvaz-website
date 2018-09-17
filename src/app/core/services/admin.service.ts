@@ -27,7 +27,7 @@ export class AdminService{
     }
 
     getAllRequests(){
-        let url = `${environment.apiPath}evvaz/register/getInActive`;
+        let url = `${environment.apiPath}evvaz/register/getInActives`;
         return this.httpClient.get<AdminRequestModel[]>(url); 
     }
     getSingleRequest(requestId: number) {
@@ -40,6 +40,25 @@ export class AdminService{
         return this.httpClient.get(url);
     }
 
+    considerRequest(id: number){
+        let url = `${environment.apiPath}evvaz/register/consider/${id}`;
+        return this.httpClient.put(url,{});
+    }
+
+    archiveRequest(id: number){ 
+        let url = `${environment.apiPath}evvaz/register/Archive/${id}`;
+        return this.httpClient.put(url,{});
+    }
+
+    getAllConsidered(){
+        let url = `${environment.apiPath}evvaz/register/getInActive/consider`;
+        return this.httpClient.get<AdminMyTenderModel[]>(url);
+    }
+
+    getAllArchived(){
+        let url = `${environment.apiPath}evvaz/register/getInActive/archived`;
+        return this.httpClient.get<AdminMyTenderModel[]>(url);
+    }
     getmMyTenders(){
         let url = `${environment.apiPath}evvaz/takataf/tenders/admin`;
         return this.httpClient.get<AdminMyTenderModel[]>(url); 

@@ -1,16 +1,17 @@
-import { Router } from '@angular/router';
-import { AdminRequestModel } from './../../../models/admin.request.model';
-import { AdminService } from './../../../services/admin.service';
 import { Component, OnInit } from '@angular/core';
+import { AdminRequestModel } from '../../../models/admin.request.model';
+import { AdminService } from '../../../services/admin.service';
+import { Router } from '../../../../../../node_modules/@angular/router';
 
 @Component({
-  selector: 'app-admin-requests',
-  templateUrl: './admin-requests.component.html',
-  styleUrls: ['./admin-requests.component.scss']
+  selector: 'app-archived',
+  templateUrl: './archived.component.html',
+  styleUrls: ['./archived.component.scss']
 })
-export class AdminRequestsComponent implements OnInit {
-date:Date;
-requests: AdminRequestModel [];
+export class ArchivedComponent implements OnInit {
+
+  date:Date;
+requests;
 count=0;
 schoolRequests = [];
 companyRequests = [];
@@ -18,7 +19,7 @@ companyRequests = [];
 
   ngOnInit() {
     this.date = new Date();
-    this.adminService.getAllRequests().subscribe(
+    this.adminService.getAllArchived().subscribe(
       response => {
         this.requests = response;
         
@@ -56,7 +57,7 @@ companyRequests = [];
   }
 
   goToRequests(id:number){
-    this.router.navigate(['/admin','request',id,'view'])
+    this.router.navigate(['/admin','archived',id,'view'])
   }
   
 

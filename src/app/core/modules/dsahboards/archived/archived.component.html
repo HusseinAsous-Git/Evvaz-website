@@ -22,7 +22,7 @@
       
     </div>
     <div class="col-sm-2 txt-color mt-4">
-      {{count}} Requests
+      {{count}} Archived
       </div>
   </div>
   
@@ -72,15 +72,15 @@
     <div class="row mx-auto confirmDiv skillhover"  *ngFor="let request of companyRequests; let  i = index" style="margin-left: 20px; margin-top: 10px;">
       
       
-          <a (click)="goToRequests(request.registrationId)">
+          <a (click)="goToRequests(request.registration_id)">
         <div class="card">
           
           <div class="card-body">
           {{ request.registrationOrganizationName }}  <br> {{request.registerationDate | date:'short'}}
-          <!-- <div style="margin-top: -35px">
+          <!-- <div style="margin-top: -35px"> -->
            
-            <a  class="btn view-btn pull-right" style="color: white" (click)="activateRequest(request.registration_id, i)">Agree</a>
-          </div> -->
+            <!-- <a  class="btn view-btn pull-right" style="color: white" (click)="activateRequest(request.registration_id, i)">Agree</a> -->
+          <!-- </div> -->
           </div>
         </div>
       </a>

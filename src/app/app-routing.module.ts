@@ -1,3 +1,7 @@
+import { AdminConsiderViewComponent } from './core/modules/dsahboards/admin-consider-view/admin-consider-view.component';
+import { AdminArchiveViewComponent } from './core/modules/dsahboards/admin-archive-view/admin-archive-view.component';
+import { ConsideredComponent } from './core/modules/dsahboards/considered/considered.component';
+import { ArchivedComponent } from './core/modules/dsahboards/archived/archived.component';
 import { OrderProfileSchoolCpyComponent } from './core/modules/dashboards/order-profile-school-cpy/order-profile-school-cpy.component';
 import { OrderProfileCompanyCpyComponent } from './core/modules/dashboards/order-profile-company-cpy/order-profile-company-cpy.component';
 import { PageNotFoundComponent } from './core/page-not-found/page-not-found.component';
@@ -96,7 +100,11 @@ const routes: Routes = [
         {path:'admin/orders/:orderId/view/company/profile/:profileId/cpy', component:OrderProfileCompanyCpyComponent, canActivate: [AuthGuardAdmin]},
         {path:'admin/orders/:orderId/view/school/profile/:profileId/cpy', component:OrderProfileSchoolCpyComponent, canActivate: [AuthGuardAdmin]},
         {path:'admin/requests', component:AdminRequestsComponent, canActivate: [AuthGuardAdmin]},
+        {path:'admin/requests/archive', component:ArchivedComponent, canActivate: [AuthGuardAdmin]},
+        {path:'admin/requests/consider', component:ConsideredComponent, canActivate: [AuthGuardAdmin]},
         {path:'admin/request/:requestId/view', component:AdminRequestsViewComponent, canActivate: [AuthGuardAdmin]},
+        {path:'admin/considered/:requestId/view', component:AdminConsiderViewComponent, canActivate: [AuthGuardAdmin]},
+        {path:'admin/archived/:requestId/view', component:AdminArchiveViewComponent, canActivate: [AuthGuardAdmin]},
         {path:'admin/history', component:AdminHistoryComponent, canActivate: [AuthGuardAdmin]},
         {path:'admin/history/:orderId/view', component:AdminHistoryViewComponent, canActivate: [AuthGuardAdmin]},
 
