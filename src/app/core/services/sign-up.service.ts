@@ -10,4 +10,7 @@ export class SignUpService {
   signUp(user) {
     return this.http.post(environment.apiPath + 'register/add', user);
   }
+  getAreaCities(){
+    return this.http.get(environment.apiPath + 'area/cities/');
+  }
 }

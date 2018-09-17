@@ -24,12 +24,18 @@ export class SignUpComponent implements OnInit {
 
   success_flag:boolean=false;
   fail_flag:boolean=false;
-  constructor(private router: Router, private signUpService: SignUpService) {window.scrollTo(0, 0); }
-  resolved;
+
+
+  AreaCities;
+  constructor(private router: Router, private signUpService: SignUpService) {
+    window.scrollTo(0, 0); 
+    
+  }
   ngOnInit() {
     // if (localStorage.getItem("@MYUSER")) {
     //   this.router.navigate(['/home-page']);
     // }
+    this.areaCitySelectData();
   }
 
   signUp(): void {
@@ -55,5 +61,29 @@ export class SignUpComponent implements OnInit {
         this.fail_flag=true;
         this.success_flag=false;
       });
+  }
+  
+  areaCitySelectData(){
+    this.signUpService.getAreaCities().subscribe(
+      response =>{
+        // for (var area in response['schools']){
+        //   let cities:string[];
+        //   for(var city in area['categories']){
+        //     if (city==null){
+        //       cities[0]="no cities";
+        //       break;
+        //     }
+        //     cities.push(city['cityName']);
+            
+        //   }
+        //   this.AreaCities[area['areaName']] =cities;
+        // }
+        console.log("this is sparta : " );
+        console.log(response);
+      },
+      error =>{
+        console.log("A7A");
+      }
+    );
   }
 }
