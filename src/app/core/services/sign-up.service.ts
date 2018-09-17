@@ -10,6 +10,9 @@ export class SignUpService {
   signUp(user) {
     return this.http.post(environment.apiPath + 'register/add', user);
   }
+  getAreas(){
+    return this.http.get<Object[]>(environment.apiPath + 'area/');
+  }
   getAreaCities(){
     return this.http.get(environment.apiPath + 'area/cities/');
   }

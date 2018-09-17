@@ -23,26 +23,41 @@
         </select>
         <br>
         <label>Username:</label>
-        <input name="registeration_username" [(ngModel)]="user.registeration_username" type="text" class="form-control" placeholder="Username"
-        minlength="4" #uname="ngModel" pattern = "^[a-zA-Z0-9]{4,15}$"  required>
-        <div *ngIf="uname.errors?.minlength || uname.errors?.pattern" class="alert-danger bg-white" >
+        <input name="registeration_username" [(ngModel)]="user.registeration_username" type="text" class="form-control"
+          placeholder="Username" minlength="4" #uname="ngModel" pattern="^[a-zA-Z0-9]{4,15}$" required>
+        <div *ngIf="uname.errors?.minlength || uname.errors?.pattern" class="alert-danger bg-white">
           Name must be at least 4 characters, lower case latin Characters and numbers only without spaces.
-     </div> 
+        </div>
         <br>
         <label>Organization Name:</label>
-        <input name="registration_organization_name" [(ngModel)]="user.registration_organization_name" type="text" class="form-control"
-          placeholder="Organization Name" minlength="3" #oname="ngModel" required>
-          <div class="alert-danger bg-white" *ngIf="oname.errors?.minlength">
-            Organization Name must be at least 3 characters long.
-       </div> 
+        <input name="registration_organization_name" [(ngModel)]="user.registration_organization_name" type="text"
+          class="form-control" placeholder="Organization Name" minlength="3" #oname="ngModel" required>
+        <div class="alert-danger bg-white" *ngIf="oname.errors?.minlength">
+          Organization Name must be at least 3 characters long.
+        </div>
         <br>
         <label>Address:</label>
-        <input name="adress" [(ngModel)]="user.registration_address_desc" type="text" #adress="ngModel" class="form-control" placeholder="Address"
-          required>
+        <input name="adress" [(ngModel)]="user.registration_address_desc" type="text" #adress="ngModel" class="form-control"
+          placeholder="Address" required>
+        <br>
+        <div class="row">
+          <div class="col-md-6">
+            <select class="form-control" name="area" [(ngModel)]="currentArea" (ngModelChange)="setNewCities()">
+              <option *ngFor="let area of Areas" [value]="area">{{area}}</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <select class="form-control" name="city" [(ngModel)]="currentCity" [disabled]="!currentCity">
+                <option *ngFor="let city of currentCities" [value]="city">{{city}}</option>
+            </select>
+          </div>
+
+
+        </div>
         <br>
         <label>Email:</label>
-        <input name="email" [(ngModel)]="user.registeration_email" type="text" #email="ngModel" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-          placeholder="example@gmail.com" required>
+        <input name="email" [(ngModel)]="user.registeration_email" type="text" #email="ngModel" class="form-control"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="example@gmail.com" required>
         <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert-danger bg-white">
           <div *ngIf="email.errors?.required">
             Email field can't be blank
@@ -53,48 +68,46 @@
         </div>
         <br>
         <label>Phone Number</label>
-        <input name="registeration_phone_number" [(ngModel)]="user.registeration_phone_number" type="text" class="form-control" placeholder="(002)22222222"
-          required>
+        <input name="registeration_phone_number" [(ngModel)]="user.registeration_phone_number" type="text" class="form-control"
+          placeholder="(002)22222222" required>
         <br>
-        
-        <label >Website Url:</label>
+
+        <label>Website Url:</label>
         <!-- if school  -->
         <div *ngIf="user.registration_role=='school'" class="alert-primary round-corners bg-white">
-            Optional for schools
-          </div>
-        <input *ngIf="user.registration_role=='school'" name="registeration_website" [(ngModel)]="user.registration_website_url" type="url" class="form-control" placeholder="url">
-        
+          Optional for schools
+        </div>
+        <input *ngIf="user.registration_role=='school'" name="registeration_website" [(ngModel)]="user.registration_website_url"
+          type="url" class="form-control" placeholder="url">
+
         <!-- if Company  -->
-        <input *ngIf="user.registration_role=='company'" name="registeration_website" [(ngModel)]="user.registration_website_url" type="url" class="form-control" placeholder="url" required>
+        <input *ngIf="user.registration_role=='company'" name="registeration_website" [(ngModel)]="user.registration_website_url"
+          type="url" class="form-control" placeholder="url" required>
         <br>
         <label>Password</label>
         <div ngModelGroup="password" #userPassword="ngModelGroup" required class="passflex">
-          <input name="pwd" [(ngModel)]="user.registeration_password" ngModel placeholder="Password" type="password"
-            id="registeration_password" class="form-control pass pass-box1"
-            #passwordone="ngModel"
-            pattern="^(?=.*?[#?!@$%^&*-]).{8,}$"
-             required>
+          <input name="pwd" [(ngModel)]="user.registeration_password" ngModel placeholder="Password" type="password" id="registeration_password"
+            class="form-control pass pass-box1" #passwordone="ngModel" pattern="^(?=.*?[#?!@$%^&*-]).{8,}$" required>
           <input name="confirmPwd" type="password" ngModel id="confirm_password" placeholder="Confirm Password" class="form-control pass "
             required>
-          
+
         </div>
         <div *ngIf="(userPassword.invalid|| passwordone.errors?.pattern || userPassword.value?.pwd != userPassword.value?.confirmPwd) && (userPassword.touched)"
-            class=" alert-danger bg-white">
-            <div *ngIf="userPassword.invalid || passwordone.errors?.pattern; else nomatch">
-              <p>
-                Password must be atleast 8 characters/number and contain a special character.
-                  <span>[#?!@$%^&*-]</span>
-              </p> 
-              
-            </div>
-            <ng-template #nomatch>
-              Passwords don't match
-            </ng-template>
+          class=" alert-danger bg-white">
+          <div *ngIf="userPassword.invalid || passwordone.errors?.pattern; else nomatch">
+            <p>
+              Password must be atleast 8 characters/number and contain a special character.
+              <span>[#?!@$%^&*-]</span>
+            </p>
+
           </div>
+          <ng-template #nomatch>
+            Passwords don't match
+          </ng-template>
+        </div>
         <div class="rec-holder">
-            <re-captcha (resolved)="resolved($event)" siteKey="6LdbeGwUAAAAANsYmppwmJ0n9ZzQIi2cGhea2fvq" [(ngModel)]="signupForm.captcha"
-            name="captcha"
-            required></re-captcha>
+          <re-captcha (resolved)="resolved($event)" siteKey="6LdbeGwUAAAAANsYmppwmJ0n9ZzQIi2cGhea2fvq" [(ngModel)]="signupForm.captcha"
+            name="captcha" required></re-captcha>
         </div>
         <br>
         <div *ngIf="success_flag" class="alert-success bg-white">
@@ -103,8 +116,9 @@
         <div *ngIf="fail_flag" class="alert-danger bg-white">
           Request failed !
         </div>
-        <input type="submit" (click)="signUp()" class="btn btn-success custom-btn form-control" value="Register Now!" [disabled]="!signupForm.form.valid">
+        <input type="submit" (click)="signUp()" class="btn btn-success custom-btn form-control" value="Register Now!"
+          [disabled]="!signupForm.form.valid">
       </form>
     </div>
   </div>
-</div> 
+</div>
