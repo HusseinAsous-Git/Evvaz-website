@@ -11,15 +11,15 @@ import { SignUpService } from '../../services/sign-up.service';
 export class SignUpComponent implements OnInit {
   confirm_password
   user = {
-    "registeration_email":"",
-    "registeration_password":"",
-    "registeration_username":"",
-    "registeration_phone_number":"",
-    "registration_organization_name":"",
-    "registration_address_desc":"",
-    "registration_website_url":"",
-    "registration_isActive": 0,
-    "registration_role":"school",
+    "registerationEmail":"",
+    "registerationPassword":"",
+    "registerationUsername":"",
+    "registerationPhoneNumber":"",
+    "registrationOrganizationName":"",
+    "registrationAddressDesc":"",
+    "registrationWebsiteUrl":"",
+    "registrationIsActive": 0,
+    "registrationRole":"school",
     "city":"",
     "area":""
   }
@@ -45,7 +45,9 @@ export class SignUpComponent implements OnInit {
     this.areaCitySelectData();
     
   }
+  resolved($event){
 
+  }
   signUp(): void {
     //console.log(this.user)
     this.user.area=this.currentArea;
@@ -53,7 +55,7 @@ export class SignUpComponent implements OnInit {
     this.signUpService.signUp(this.user).subscribe(
       data => {
         //console.log(data);
-        if(data['states']==201){
+        if(data['status']==201){
           this.success_flag=true;
           this.fail_flag=false;
           setTimeout(() => {
@@ -72,6 +74,7 @@ export class SignUpComponent implements OnInit {
         this.success_flag=false;
       });
   }
+
   areaCitySelectData(){
     this.signUpService.getAreaCities().subscribe(
       response =>{
