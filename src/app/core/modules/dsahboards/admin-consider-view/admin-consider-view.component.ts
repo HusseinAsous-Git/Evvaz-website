@@ -73,7 +73,7 @@ archiveRequest(id:number) {
     response => { 
       console.log("Consideration: ");
       console.log(response);
-      this.router.navigate(['/admin','requests','archive'])
+      this.router.navigate(['/admin','requests','consider'])
       this.isLoading = false;;
     },
     err => console.log(err)

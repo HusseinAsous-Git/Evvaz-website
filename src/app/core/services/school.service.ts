@@ -92,8 +92,8 @@ getSingleTender(schoolId: number){
     return this.httpClient.get(url); 
 }
 
-getTender(tenderId: number){
-    let url = `${environment.apiPath}evvaz/tender/request/get/${tenderId}`;
+getTender(tenderId: number, schoolId: number){
+    let url = `${environment.apiPath}evvaz/tender/request/get/${tenderId}/${schoolId}`;
     return this.httpClient.get(url); 
 }
 

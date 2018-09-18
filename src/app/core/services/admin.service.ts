@@ -36,7 +36,7 @@ export class AdminService{
     }
 
     activateRequest(id: number){
-        let url = `${environment.apiPath}evvaz/register/confirm/${id}`;
+        let url = `${environment.apiPath}evvaz/register/confirms/${id}`;
         return this.httpClient.get(url);
     }
 

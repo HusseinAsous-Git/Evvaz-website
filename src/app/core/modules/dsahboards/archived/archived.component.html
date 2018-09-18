@@ -44,10 +44,10 @@
       
       <div class="card-body">
       {{ request.registrationOrganizationName }}  <br> {{request.registerationDate | date:'short'}}
-      <!-- <div style="margin-top: -35px">
-       
-        <a  class="btn view-btn pull-right" style="color: white" (click)="activateRequest(request.registration_id, i)">Agree</a>
-      </div> -->
+      <div style="margin-top: -35px">
+           
+        <button  class="btn btn-danger pull-right" style="color: white"  disabled="disabled">Archived</button>
+      </div>
       </div>
     </div>
   </a>
@@ -72,15 +72,15 @@
     <div class="row mx-auto confirmDiv skillhover"  *ngFor="let request of companyRequests; let  i = index" style="margin-left: 20px; margin-top: 10px;">
       
       
-          <a (click)="goToRequests(request.registration_id)">
+          <a (click)="goToRequests(request.registrationId)">
         <div class="card">
           
           <div class="card-body">
           {{ request.registrationOrganizationName }}  <br> {{request.registerationDate | date:'short'}}
-          <!-- <div style="margin-top: -35px"> -->
+          <div style="margin-top: -35px">
            
-            <!-- <a  class="btn view-btn pull-right" style="color: white" (click)="activateRequest(request.registration_id, i)">Agree</a> -->
-          <!-- </div> -->
+            <button  class="btn btn-danger pull-right" style="color: white"  disabled="disabled">Archived</button>
+          </div>
           </div>
         </div>
       </a>

@@ -115,7 +115,7 @@ const routes: Routes = [
     {path:'school/profile', component:SchoolProfileComponent, canActivate: [AuthGuardSchool]},
     {path:'school/tenders/new', component:NewTenderComponent, canActivate: [AuthGuardSchool]},  
     {path:'school/collective/all', component:AllCollectiveTendersComponent, canActivate: [AuthGuardSchool]},
-    {path:'school/tender/:tenderId/collective', component:CollectiveTenderComponent, resolve : {tender: SchoolTenderResolver}, canActivate: [AuthGuardSchool]},
+    {path:'school/tender/:tenderId/collective/:schoolId', component:CollectiveTenderComponent, resolve : {tender: SchoolTenderResolver}, canActivate: [AuthGuardSchool]},
     {path:'school/tenders/mine', component:MyTendersComponent, canActivate: [AuthGuardSchool]},
     {path:'school/tender/:tenderId/view', component:ViewTenderComponent, resolve: {tender:MyTenderResolver}, canActivate: [AuthGuardSchool]},
     

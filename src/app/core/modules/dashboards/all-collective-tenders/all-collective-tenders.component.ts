@@ -12,9 +12,16 @@ export class AllCollectiveTendersComponent implements OnInit {
 
   allCollectiveTenders : SchoolTenderModel [];
   collectiveCount = 0;
+  loginId: number;
+  currentUser;
   constructor(private router:Router, private schoolService:SchoolService) { }
 
   ngOnInit() {
+
+    this.currentUser = localStorage.getItem("@MYUSER");
+    let userData = JSON.parse(this.currentUser);
+    this.loginId = userData['login_id'];
+
     this.
     schoolService.getAllCollectiveTenders().subscribe(
       response => {
@@ -36,7 +43,7 @@ export class AllCollectiveTendersComponent implements OnInit {
 
 
   getTenderDetails(tenderId: number){
-    this.router.navigate(['/school','tender',tenderId,'collective']);
+    this.router.navigate(['/school','tender',tenderId,'collective',this.loginId]);
   }
 
 

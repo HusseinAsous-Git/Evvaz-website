@@ -29,6 +29,7 @@ export class AdminHistoryViewComponent implements OnInit {
 
         this.adminService.getHistoryOrder(this.orderId).subscribe(
           response => {
+            console.log("History response:");
             console.log(response);
             this.order = response;
             this.order.company_logo_image = 'data:image/png;base64,'+this.order.company_logo_image;
@@ -41,6 +42,7 @@ export class AdminHistoryViewComponent implements OnInit {
             this.profileService.getProfile(this.order.company_id).subscribe(
                       
               (response) => { 
+                console.log("Company profile here:");
                 this.loading = false;
                 this.companyProfile = response;
                 console.log(response)
@@ -51,6 +53,7 @@ export class AdminHistoryViewComponent implements OnInit {
             // here i get school profile
             this.schoolService.getProfile(this.order.school_id).subscribe(
               (response) => {
+                console.log("School profile here:");
                 console.log(response);
                 this.schoolProfile = response;
                 this.schoolProfile.school_logo_image =  'data:image/png;base64,' + this.schoolProfile.school_logo_image;
@@ -58,6 +61,11 @@ export class AdminHistoryViewComponent implements OnInit {
             )
 
 
+          },
+
+          err => {
+            console.log("ERROR:")
+            console.log(err)
           }
         )
       }

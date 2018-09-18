@@ -60,7 +60,7 @@ export class AdminArchiveViewComponent implements OnInit {
         response => { 
           console.log("Consideration: ");
           console.log(response);
-          this.router.navigate(['/admin','requests','consider'])
+          this.router.navigate(['/admin','requests','archive'])
           this.isLoading = false;;
         },
         err => console.log(err)

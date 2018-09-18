@@ -7,12 +7,13 @@ import { SchoolTenderResolverModel } from '../models/school.tender.resolver.mode
 
 
 @Injectable()
-export class SchoolTenderResolver{
+export class SchoolTenderResolver {
     constructor(private schoolService: SchoolService) {}
+    
 
     resolve(activatedRouteSnapshot: ActivatedRouteSnapshot, routerStateSnapshot: RouterStateSnapshot)
     : Observable<SchoolTenderResolverModel> | Promise<SchoolTenderResolverModel> | SchoolTenderResolverModel{
-        return this.schoolService.getTender(+activatedRouteSnapshot.params['tenderId']).toPromise().then(
+        return this.schoolService.getTender(+activatedRouteSnapshot.params['tenderId'],+activatedRouteSnapshot.params['schoolId']).toPromise().then(
             data => data
         ).catch(
             err => err
