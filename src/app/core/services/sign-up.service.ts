@@ -8,7 +8,7 @@ export class SignUpService {
   constructor(private http: HttpClient) { }
 
   signUp(user) {
-    return this.http.post(environment.apiPath + 'register/add', user);
+    return this.http.post(environment.apiPath + 'usr/register/', user);
   }
   getAreas(){
     return this.http.get<Object[]>(environment.apiPath + 'area/');
