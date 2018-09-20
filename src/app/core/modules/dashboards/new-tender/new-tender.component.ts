@@ -120,7 +120,11 @@ newTender(){
     response => {
       console.log(response)
       this.router.navigate(['/school','tenders','mine']);
-    },err => console.log(err)
+    },err => {
+      document.getElementById("openModalButton").click();
+
+      console.log(err)
+    }
    )
   }
 

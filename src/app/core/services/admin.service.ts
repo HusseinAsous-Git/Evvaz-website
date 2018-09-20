@@ -65,7 +65,7 @@ export class AdminService{
     }
 
     getSingleTender(tenderId: number){
-        let url = `${environment.apiPath}evvaz/tender/request/${tenderId}`;
+        let url = `${environment.apiPath}evvaz/request/tender/${tenderId}`;
         return this.httpClient.get(url); 
     }
 

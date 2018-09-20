@@ -53,6 +53,29 @@ progressStatus;
        
       // }
 
+      
+        var percentage = this.tender['tender_expire_date'] - this.tender['tender_display_date'];
+        var diff = this.tender['tender_expire_date'] - new Date().getTime();
+        var division = diff / percentage;
+        this.progressPercentage = 100 - (Math.floor( division * 100));
+        this.progressStatus = "Available";
+        console.log("Progress:"+ this.progressPercentage)
+        if(this.tender['tender_display_date'] > Date.now()) {
+            this.progressPercentage = 0 ;
+            this.progressStatus = "Postponed";
+            
+          }else{
+            if (division <0 || this.progressPercentage<0){
+              this.progressPercentage = 100 ;
+              this.progressStatus = "Expired";
+            }
+          }
+
+        console.log("Difference between two dates: " + this.progressPercentage )
+
+
+
+
 this.cats = this.tender.categories;
       for(let c of this.tender.categories){
         c.school_logo_image = 'data:image/png;base64,' + c.school_logo_image;
@@ -75,25 +98,6 @@ this.cats = this.tender.categories;
         console.log("This is Tender categories:")
         console.log(response)
         this.tenderData = response;
-        var percentage = this.tenderData.data['tender_expire_date'] - this.tenderData.data['tender_display_date'];
-        var diff = this.tenderData.data['tender_expire_date'] - new Date().getTime();
-        var division = diff / percentage;
-        this.progressPercentage = 100 - (Math.floor( division * 100));
-        this.progressStatus = "Available";
-        console.log("Progress:"+ this.progressPercentage)
-        if(this.tenderData.data['tender_display_date'] > Date.now()) {
-            this.progressPercentage = 0 ;
-            this.progressStatus = "Postponed";
-            
-          }else{
-            if (division <0 || this.progressPercentage<0){
-              this.progressPercentage = 100 ;
-              this.progressStatus = "Expired";
-            }
-          }
-
-        console.log("Difference between two dates: " + this.progressPercentage )
-
 
         
     // var percentage = this.tender.tender.request_expired_date - this.tender.tender.request_display_date;
