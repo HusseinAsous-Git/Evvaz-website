@@ -18,6 +18,7 @@ export class CompanyProfileComponent implements OnInit {
   UserData: Object;
   checker
   flag;
+  have_offers=false;
   constructor(private route: ActivatedRoute, private profileService : ProfileService,
     private Company$: GetCompaniesService, private sanitizer: DomSanitizer) {
     window.scrollTo(0, 0);
@@ -65,7 +66,14 @@ export class CompanyProfileComponent implements OnInit {
       //   this.offers = res.list;
       // },
       (offers) => {
-        this.offers =offers['list'];  
+        if(offers['status'] == 200){
+          this.offers =offers['list'];
+
+          if ( offers['list'][0]) {
+            this.have_offers=true;
+          } 
+        }
+        
         //console.log("offers object : "+this.offers);     
       },
       (error) => {
