@@ -1,35 +1,36 @@
 <app-home-header></app-home-header>
 <div *ngIf="!companiesInfo" class="preloader">
-    <img src="../../../../../assets/images/_ws.gif" alt="">
-  </div>
+  <img src="../../../../../assets/images/_ws.gif" alt="">
+</div>
 <section class="intro clearfix " *ngIf="companiesInfo" style="background-image:url(assets/img/Heading.png)">
   <div class="overlay">
-      
+
     <div class="container">
       <div class="row">
 
         <div class="col col-12">
-            <!-- <div class="col-md- ">
+          <!-- <div class="col-md- ">
               
                  
             </div> -->
-                   
-            <div *ngIf="islogged" routerLink="/home-page" class="go-back">
-                <i class="fa fa-chevron-left"></i>
-                <span>Back</span>
-              </div>
-              <div *ngIf="!islogged" routerLink="/home" class="go-back">
-                <i class="fa fa-chevron-left"></i>
-                <span>Back</span>
-            </div>
-                    
-               
-                <h3 class=" offers" >Offers Platform</h3>
-                <p class="description  ">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.
-                </p>
-                
-              
-                
+
+          <div *ngIf="islogged" routerLink="/home-page" class="go-back">
+            <i class="fa fa-chevron-left"></i>
+            <span>Back</span>
+          </div>
+          <div *ngIf="!islogged" routerLink="/home" class="go-back">
+            <i class="fa fa-chevron-left"></i>
+            <span>Back</span>
+          </div>
+
+
+          <h3 class=" offers">Offers Platform</h3>
+          <p class="description  ">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
+            piece of classical Latin literature from 45 BC, making it over 2000 years old.
+          </p>
+
+
+
         </div>
 
 
@@ -39,15 +40,61 @@
 </section>
 <section class="internal-page" *ngIf="companiesInfo">
   <div class="container">
-    <div class="row">
+    <div class="search-bar">
+      <form #filterForm="ngForm">
+        <div class="form-row">
+            <div class="form-group offset-md-1 col-md-2">
+                <label for="inputFollow">Followed</label>
+                <select id="inputFollow" class="form-control" name="filterfollow" [(ngModel)]="filter_follow" >
+                  <option value="All">All</option>
+                  <option  value="1">Followed only</option>
+                </select>
+              </div>
+          <div class="form-group col-md-2">
+            <label for="inputcat">Category</label>
+            <select id="inputcat" class="form-control" name="filterCategory" [(ngModel)]="filter_category">
+              <option value="All">All</option>
+              <option *ngFor="let category of categories" [value]="category">{{category}}</option>
+            </select>
+          </div>
+          <div class="form-group col-md-2">
+            <label for="inputArea">Area</label>
+            <select id="inputArea" class="form-control" name="filterArea" [(ngModel)]="currentArea" (ngModelChange)="setNewCities()">
+              <option value="All">All</option>
+              <option *ngFor="let area of Areas" [value]="area">{{area}}</option>
+            </select>
+          </div>
+          <div class="form-group col-md-2">
+            <label for="inputCity">City</label>
+            <select id="inputCity" class="form-control" name="filterCity" [(ngModel)]="currentCity" [disabled]="!currentCity">
+              <option value="All">All</option>
+              <option *ngFor="let city of currentCities" [value]="city">{{city}}</option>
+            </select>
+          </div>
+          <div class="form-group col-md-2">
+            <label for="filter_with_offers">Have offers</label>
+            <select id="filter_with_offers" class="form-control" name="filter_with_offers" [(ngModel)]="fiter_with_offers">
+              <option value="All">All</option>
+              <option value="1">With Offers only</option>
+
+            </select>
+          </div>
+          <div class="form-group col-md-1">
+            <button class="btn btn-primary filter-button" (click)="filterChoice()">
+
+              <i class="fa fa-sliders snow" aria-hidden="true"></i> Filter</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="row row-eq-height">
       <h2 class="col-12">
         <span>Effaz</span> companies</h2>
-        
+
       <div class="col-lg-3 col-md-6 col-12" *ngFor="let company of companiesInfo">
-        <div class="item item-overlay"  
-        [ngStyle]="{ 'background-image': 'url(data:image/png;base64,' + company.company_cover_image + ')'}">
+        <div class="item item-overlay" [ngStyle]="{ 'background-image': 'url(data:image/png;base64,' + company.company_cover_image + ')'}">
           <!-- *ngFor="let offer of offers" -->
-          
+
           <div class="overlay">
             <div class="container-fluid container-xt clearfix">
               <div class="company-logo">
@@ -82,12 +129,12 @@
                 <p>{{company.offer_count}}</p>
               </div>
               <div *ngIf="isLogged" routerLink="/company/{{company.company_id}}" class="go d-flex align-items-center">
-                <span >go</span>
+                <span>go</span>
 
                 <i class="fa fa-chevron-right "></i>
               </div>
               <div *ngIf="!isLogged" routerLink="../login" class="go d-flex align-items-center">
-                <span >go</span>
+                <span>go</span>
 
                 <i class="fa fa-chevron-right "></i>
               </div>

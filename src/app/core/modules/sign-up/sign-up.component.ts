@@ -77,8 +77,6 @@ export class SignUpComponent implements OnInit {
     this.signUpService.getAreaCities().subscribe(
       response =>{
         let firstAreaWithCityPassed = false;
-        // this.currentArea=response['schools'][0]['areaName'];
-        // this.currentCity=response['schools'][0]['categories'][0]['cityName'];
         for (let area of response['schools']){
           let cities=[];
           let haveCites=true;
@@ -109,13 +107,12 @@ export class SignUpComponent implements OnInit {
         
       },
       error =>{
-        console.log("Something Went wrong [[cities]]");
+        console.log("Something Went wrong [[area and cities]]");
       }
     );
   }
   setNewCities(){
     this.currentCities=this.AreaCities[this.currentArea];
     this.currentCity=this.currentCities[0];
-    //console.log("current area", this.currentArea);
   }
 }
