@@ -66,8 +66,6 @@ export class SignUpComponent implements OnInit {
           this.fail_flag=true;
           this.success_flag=false;
         }
-        //console.log("");
-        //this.router.navigate(['']);
       }, error => {
         //console.log(error);
         this.fail_flag=true;
@@ -78,8 +76,9 @@ export class SignUpComponent implements OnInit {
   areaCitySelectData(){
     this.signUpService.getAreaCities().subscribe(
       response =>{
-        this.currentArea=response['schools'][0]['areaName'];
-        this.currentCity=response['schools'][0]['categories'][0]['cityName'];
+        let firstAreaWithCityPassed = false;
+        // this.currentArea=response['schools'][0]['areaName'];
+        // this.currentCity=response['schools'][0]['categories'][0]['cityName'];
         for (let area of response['schools']){
           let cities=[];
           let haveCites=true;
@@ -93,6 +92,13 @@ export class SignUpComponent implements OnInit {
             
           }
           if(haveCites){
+            
+            if(!firstAreaWithCityPassed){
+              this.currentArea=area['areaName'];
+              this.currentCity=cities[0];
+              firstAreaWithCityPassed=true;
+            }
+
             let area_name:string = area['areaName'];
             this.AreaCities[area_name] =cities;
             this.Areas.push(area_name);
