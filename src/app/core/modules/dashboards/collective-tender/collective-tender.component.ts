@@ -24,6 +24,7 @@ enableupdateMessage = false;
 catExist = false;
 progressPercentage =0;
 progressStatus;
+expird= false;
   constructor(private activatedRoute:ActivatedRoute, private router:Router, private schoolService: SchoolService) { }
 
   ngOnInit() {
@@ -110,10 +111,16 @@ progressStatus;
   }
 
   request(form:NgForm){
+
+    if(this.progressStatus === "Expired"){
+      this.expird = true;
+      this.displayForm = false;
+      return ;
+    }
     console.log(form)
    var catData : {cat_name: string, count : number} []  = [];
 
-   for(let cat of this.tender.categories){
+   for(let cat of this.tender.data['category']){
     // console.log("cat name: " + cat.category_name)
     if(cat['count'] !== 0) {
       this.catExist = true;

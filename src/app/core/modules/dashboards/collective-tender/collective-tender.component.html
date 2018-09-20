@@ -54,7 +54,7 @@
       </div>
   </div>    
   <div class="row mt-4 " >
-    <div class="col-sm-2 ml-0 mr-3" *ngFor="let c of tender.categories">
+    <div class="col-sm-2 ml-0 mr-3" *ngFor="let c of tender.data.category">
         <div class="card" style="width: 200px">
             <img class="card-img-top" src="../../../../../assets/images/books.png" alt="logo" width="100" height="100"> 
             <div class="card-body">
@@ -73,7 +73,7 @@
    <h3 style="color:#12a5e1; margin-left: 10px; margin-top: 10px;">What are your demands?</h3>
   </div>
   <form (ngSubmit)="request(newRequest)"  #newRequest="ngForm">
-      <div class="form-group row" *ngFor="let c of tender.categories">
+      <div class="form-group row" *ngFor="let c of tender.data.category">
         <label for="Books" class="col-sm-2 col-form-label" style="font-size: 22px">{{ c.category_name }}</label>
         <div class="col-sm-10">
           <input type="number" class="form-control" id="Books" placeholder="count" style="height: 50px;" [(ngModel)]="c.count"  name="{{c.category_name}}">
@@ -89,11 +89,13 @@
    
     </div>
     <div *ngIf="enableSuccessMessage">
-      <p class="display-4 mt-5 mr-3 justify-content-center"> <span style="color: gray; border: green" > Your request has deliverd successfully </span><i class="fa fa-check" ></i></p>
+      <p class="display-4 mt-5 mr-3 justify-content-center"> <span style="color: gray; border: green" > Your request has deliverd successfully.. </span><i class="fa fa-check" ></i></p>
     </div>
     
     <div *ngIf="enableupdateMessage">
         <p class="display-4 mt-5 mr-3 justify-content-center"> <span style="color: gray; border: green" > Your request has been updated </span><i class="fa fa-check" ></i></p>
       </div>
-
+      <div *ngIf="expird">
+        <p class="display-4 mt-5 mr-3 justify-content-center"> <span style="color: gray; border: green" > You can't request Expired tender </span><i class="fa fa-times" style="color: red;"></i></p>
+      </div>
     </div>
