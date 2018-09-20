@@ -85,7 +85,7 @@ body.rtl .internal-page .btn i {
     font-family: 'Oswald', sans-serif;
     vertical-align: middle;
     font-weight: 600;
-    line-height: 12px;
+    line-height: 10px;
     margin-top: 20%;
     
 
@@ -151,7 +151,7 @@ body.rtl .internal-page .requests img:first-of-type {
 .internal-page {
     .company-name{
         margin-top: 10px;
-        margin-left: 20px;
+        // margin-left: 5px;
         &:hover{
             text-decoration: none;
             color: #0fc35b;
@@ -464,12 +464,76 @@ body.rtl .input-group>.input-group-append>.input-group-text {
 .follow-button-position{
     float:right;
 }
-// .container-xt{
-//     width: 100%;
-//     margin:0;
-//     padding:0;
-//     //border:1px solid red;
-// }
+.snow{
+    color:snow;
+}
+@mixin small {
+    @media (max-width: 767px) {
+      @content;
+    }
+  }
+  
+  @mixin tablet {
+    @media (min-width: 768px) {
+      @content;
+    }
+  }
+  
+  @mixin desktop {
+    @media (min-width: 1100px) {
+      @content;
+    }
+  }
+.search-bar{
+    position: relative;
+    margin: 20px 0 20px 0;
+    @include desktop {
+        
+        //border:1px solid rgb(189, 188, 188);
+        box-shadow: 0px 0px 5px 0px rgba(235,235,235,1);
+    }
+    .search-box{
+        border-right: 0;
+        outline: 0;
+    }
+    .search-glass{
+        background-color: transparent;
+    }
+    form{
+        @include desktop {
+        padding: 8px;
+        height: 100px;
+        }
+        
+    }
+
+    
+}
+.internal-page[_ngcontent-c1] .btn[_ngcontent-c1].filter-button{
+    border-radius: 1px;
+    background-color: #3492dd;
+    color:white;
+    i{
+        color:white;
+    }
+    &:hover &:focus{
+        background-image: none;
+        background-color: #1DA4DD;
+        border-color: #1DA4DD;
+
+    }
+    @include desktop {
+        //transform: scale(1.08) ;
+        height: 100px;
+        transform: translateY(-8px) translateX(3px);
+    }
+    @include tablet {
+        //transform: scale(1.08) ;
+        height: 100px;
+        transform: translateY(-8px) translateX(3px);
+    }
+}
+
 .preloader{
     position: fixed;
     background-color: white;
