@@ -1,8 +1,8 @@
 <app-home-header></app-home-header>
-<div *ngIf="!companiesInfo" class="preloader">
+<div *ngIf="!companiesView" class="preloader">
   <img src="../../../../../assets/images/_ws.gif" alt="">
 </div>
-<section class="intro clearfix " *ngIf="companiesInfo" style="background-image:url(assets/img/Heading.png)">
+<section class="intro clearfix " *ngIf="companiesView" style="background-image:url(assets/img/Heading.png)">
   <div class="overlay">
 
     <div class="container">
@@ -38,17 +38,20 @@
     </div>
   </div>
 </section>
-<section class="internal-page" *ngIf="companiesInfo">
+<section class="internal-page" *ngIf="companiesView">
   <div class="container">
     <div class="search-bar">
       <form #filterForm="ngForm">
         <div class="form-row">
             <div class="form-group offset-md-1 col-md-2">
-                <label for="inputFollow">Followed</label>
-                <select id="inputFollow" class="form-control" name="filterfollow" [(ngModel)]="filter_follow" >
-                  <option value="All">All</option>
-                  <option  value="1">Followed only</option>
-                </select>
+              <div *ngIf="isLogged">
+                  <label for="inputFollow">Followed</label>
+                  <select id="inputFollow" class="form-control" name="filterfollow" [(ngModel)]="filter_follow" >
+                    <option value="All">All</option>
+                    <option  value="1">Followed only</option>
+                  </select>
+              </div>
+                
               </div>
           <div class="form-group col-md-2">
             <label for="inputcat">Category</label>
@@ -91,44 +94,44 @@
       <h2 class="col-12">
         <span>Effaz</span> companies</h2>
 
-      <div class="col-lg-3 col-md-6 col-12" *ngFor="let company of companiesInfo">
-        <div class="item item-overlay" [ngStyle]="{ 'background-image': 'url(data:image/png;base64,' + company.company_cover_image + ')'}">
+      <div class="col-lg-3 col-md-6 col-12" *ngFor="let company of companiesView">
+        <div class="item item-overlay" [ngStyle]="{ 'background-image': 'url(data:image/png;base64,' + company.companyCoverImage + ')'}">
           <!-- *ngFor="let offer of offers" -->
 
           <div class="overlay">
             <div class="container-fluid container-xt clearfix">
               <div class="company-logo">
-                <img src="data:image/png;base64,{{company.company_logo_image}}" alt="{{company.company_name}}">
+                <img src="data:image/png;base64,{{company.companyLogoImage}}" alt="{{company.companyName}}">
               </div>
               <div class="follow-button-position">
-                <a *ngIf="!company._follow && isLogged" (click)="followCompany(company['company_id'])" class="follow-btn btn">Follow</a>
-                <a *ngIf="company._follow && isLogged" (click)="unfollowCompany(company['company_id'])" class="unfollow-btn btn">Unfollow</a>
-                <a *ngIf="!isLogged" (click)="unfollowCompany(company['company_id'])" class="follow-btn btn">Follow</a>
+                <a *ngIf="!company.is_follow && isLogged" (click)="followCompany(company['companyId'])" class="follow-btn btn">Follow</a>
+                <a *ngIf="company.is_follow && isLogged" (click)="unfollowCompany(company['companyId'])" class="unfollow-btn btn">Unfollow</a>
+                <a *ngIf="!isLogged" routerLink="../login" class="follow-btn btn">Follow</a>
               </div>
             </div>
             <!--  -->
-            <a *ngIf="isLogged" routerLink="/company/{{company.company_id}}">
-              <h5 class="heading-overlay company-name">{{company.company_name}}</h5>
+            <a *ngIf="isLogged" routerLink="/company/{{company.companyId}}">
+              <h5 class="heading-overlay company-name">{{company.companyName}}</h5>
             </a>
             <a *ngIf="!isLogged" routerLink="../login">
-              <h5 class="heading-overlay company-name">{{company.company_name}}</h5>
+              <h5 class="heading-overlay company-name">{{company.companyName}}</h5>
             </a>
-            <!-- {{Offer.company_id}} -->
-            <span class="profile d-block">{{company.company_website_url}}</span>
+            <!-- {{Offer.companyId}} -->
+            <span class="profile d-block">{{company.companyWebsiteUrl}}</span>
             <!-- {{Offer.offer_explaination}} -->
-            <p>helps editors access reliable sources to improve Wikipedia. </p>
+            <p>{{company.companyDesc}}</p>
             <hr>
 
             <div class="values d-flex justify-content-between align-items-center">
               <div class="">
                 <p>Offers</p>
-                <p>{{company.follower_count}}</p>
+                <p>{{company.orderCount}}</p>
               </div>
               <div>
                 <p>Followers</p>
-                <p>{{company.offer_count}}</p>
+                <p>{{company.followerCount}}</p>
               </div>
-              <div *ngIf="isLogged" routerLink="/company/{{company.company_id}}" class="go d-flex align-items-center">
+              <div *ngIf="isLogged" routerLink="/company/{{company.companyId}}" class="go d-flex align-items-center">
                 <span>go</span>
 
                 <i class="fa fa-chevron-right "></i>

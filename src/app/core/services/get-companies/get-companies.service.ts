@@ -15,10 +15,10 @@ export class GetCompaniesService {
   constructor(private http: HttpClient, private authService: AuthService) { }
 
   getAllCompanies() {
-    return this.http.get(environment.apiPath + 'profile/getAll');
+    return this.http.get(environment.apiPath + 'company/profil/all/');
   }
   getMyCompanies(user_id){
-    return this.http.get(environment.apiPath + 'follow/companies/'+user_id);
+    return this.http.get(environment.apiPath + 'company/profil/all/'+user_id);
   }
   getCompany(id) {
     return this.http.get(environment.apiPath + 'profile/get/' + id);
