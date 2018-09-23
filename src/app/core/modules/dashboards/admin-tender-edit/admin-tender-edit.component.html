@@ -51,7 +51,7 @@
                   <div class="row ml-1">
                 <div class=" col-sm-4"  *ngFor="let category of categories  , let i = index">
                   <label class="form-check-label"  style="color: gray;">
-                    <input type="checkbox" class="form-check-input" (change)="hasChecked($event, category, i)" value="{{category.categoryName}}" style="color: gray; width: 1rem; height: 1rem;" formControlName="category">{{category.category_name}}
+                    <input type="checkbox" class="form-check-input" (change)="hasChecked($event, category, i)" value="{{category.category_name}}" style="color: gray; width: 1rem; height: 1rem;" formControlName="category">{{category.category_name}}
                   </label>
                 </div>
               </div>
@@ -183,7 +183,7 @@
 
 
               
-                <button class="btn btn-danger ml-2 pull-right" [routerLink]="['/admin','tenders',tender.tender_data.tender_id,'company']">Cancel</button>
+                <button class="btn btn-danger ml-2 pull-right" [routerLink]="['/admin','tenders',tender.tender_id,'company']">Cancel</button>
             <button class="btn btn-success ml-2 pull-right" type="submit" [disabled]="!editTenderForm.valid">Save</button>
             
             

@@ -20,11 +20,11 @@
   <br>
   <div class="row ">
     <div class="pull-left col-sm-10">
-        <button class="btn btn-danger ml-3 mr-2" style="width: 100px; height: 35px;" (click)="deleteTender(tender.tender_id)">Delete</button>
-        <button class="btn edit-green" style="width: 100px; height: 35px;" [routerLink]="['/admin','tenders',tender.tender_id,'edit']" >Edit</button>
+        <button class="btn btn-danger ml-3 mr-2" style="width: 100px; height: 35px;" (click)="deleteTender(tenderId)">Delete</button>
+        <button class="btn edit-green" style="width: 100px; height: 35px;" [routerLink]="['/admin','tenders',tenderId,'edit']" >Edit</button>
     </div>
     <div class="col-sm-2">
-      <button class="btn btn-blue "  style="width: 100%" (click)="goViewBySchool(tender.tender_id)">View by school</button>
+      <button class="btn btn-blue "  style="width: 100%" (click)="goViewBySchool(tenderId)">View by school</button>
     </div>
     <br><br>
       <div class="col-sm-12">
@@ -37,7 +37,7 @@
                   </div>  -->
                   <div class="row">
                     <div class="col-sm-3 ml-1">
-                        {{ tender.tender_title }}  <br> {{tender.tender_display_date | date:'short'}}
+                        {{ tenderRequest.tender_title }}  <br> {{tenderRequest.tender_display_date | date:'short'}}
                     </div>
                     <div class="col-sm-3">
                         <span class="card-h"> Requests</span> <br> <i class="fa fa-shopping-cart mr-1"></i> <span class="card-content text-center">{{ tender.response_count }}</span> 
@@ -62,19 +62,19 @@
 
                         
                           <br> <div class="date-line" style="margin-top: -20px; margin-left: -30px">
-                            {{tender.tender_display_date | date:'short'}}
+                            {{tenderRequest.tender_display_date | date:'short'}}
                           </div>
                           <div style="margin-left: 200px;margin-top: -20px; font-size: 22px; color: gray"> {{progressStatus}}</div>
                     </div>
                     <br> <div class="date-line" style="margin-top: 25px; margin-left: -50px">
-                      {{tender.tender_expire_date | date:'short'}}
+                      {{tenderRequest.tender_expire_date | date:'short'}}
                     </div>
                   </div>
                 </div>
                 <hr>
                   <div class="card-body">
                 <div class="row">
-                 <p class="color-grey ml-4">{{ tender.tender_explain }}</p>
+                 <p class="color-grey ml-4">{{ tenderRequest.tender_explain }}</p>
                 </div>
               </div>
               </div>
@@ -82,7 +82,7 @@
       </div>
   </div>    
   <div class="row mt-4 " >
-    <div class="col-sm-2 ml-0 mr-3 skillhover" *ngFor="let cat of tender.category">
+    <div class="col-sm-2 ml-0 mr-3 skillhover" *ngFor="let cat of tenderRequest.category">
         <div class="card" style="width: 200px">
             <img class="card-img-top" src="../../../../../assets/images/books.png" alt="logo" width="100" height="100"> 
             <div class="card-body">
@@ -137,8 +137,7 @@
     </div> -->
   </div> 
 
-  <div class="row mt-3">
-    
+  <div class="row mt-3" *ngIf="catExist">
 
     <div class="col-sm-12 mt-3 skillhover" *ngFor="let s of tenderRequest.schools">
         
@@ -150,11 +149,12 @@
                  <img src="{{ s.school_logo_image }}" width="60" height="60" alt="logo" class="rounded-circle mt-3">
               </div>
               <div class="col-sm-2" style="margin-left: -20px">
-                  Google.com <br>  {{this.date | date}}
+                  Google.com <br>  {{s.t_date | date}}
               </div>
             </div>
              
            <hr>
+           
             <div class="card-body">
           <div class="row ">
             <div class="col-sm-3 mt-4" *ngFor="let cat of s.categories">
@@ -173,8 +173,6 @@
      
   </div>
 
-  
-  
   
   </div>
   </div>

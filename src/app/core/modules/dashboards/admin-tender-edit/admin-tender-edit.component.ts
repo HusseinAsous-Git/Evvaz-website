@@ -47,8 +47,8 @@ export class AdminTenderEditComponent implements OnInit {
        
       // }
 
-this.cats = this.tender.categories;
-      for(let c of this.tender.categories){
+this.cats = this.tender.category;
+      for(let c of this.tender.category){
         c.school_logo_image = 'data:image/png;base64,' + c.school_logo_image;
       }
 
@@ -64,7 +64,9 @@ this.cats = this.tender.categories;
 
 
     this.adminService.getCategories().subscribe(
-      response => {console.log(response);
+      response => {
+        console.log("categories:");
+        console.log(response);
         this.categories = response; }
 
     )
@@ -78,9 +80,9 @@ this.cats = this.tender.categories;
 
 
     this.editTenderForm = new FormGroup({
-      'tenderName' : new FormControl(this.tender.tender_data['tender_title'], Validators.required),
+      'tenderName' : new FormControl(this.tender['tender_title'], Validators.required),
       'category' : new FormControl(null, Validators.required),
-      'description':new FormControl(this.tender.tender_data['tender_explain'], Validators.required),
+      'description':new FormControl(this.tender['tender_explain'], Validators.required),
       'schoolfromdate':new FormControl(null, Validators.required), 
       'schoolstartTime':new FormControl(null, Validators.required),
       'schooltodate':new FormControl(null, Validators.required),
