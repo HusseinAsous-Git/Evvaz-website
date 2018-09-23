@@ -468,7 +468,7 @@ body.rtl .input-group>.input-group-append>.input-group-text {
     color:snow;
 }
 @mixin small {
-    @media (max-width: 767px) {
+    @media (min-width: 767px) {
       @content;
     }
   }
@@ -478,32 +478,39 @@ body.rtl .input-group>.input-group-append>.input-group-text {
       @content;
     }
   }
-  
   @mixin desktop {
     @media (min-width: 1100px) {
       @content;
     }
   }
+  @mixin large {
+    @media (min-width: 1400px) {
+      @content;
+    }
+  }
 .search-bar{
     position: relative;
-    margin: 20px 0 20px 0;
+    margin: 20px 0 ;
     @include desktop {
         
         //border:1px solid rgb(189, 188, 188);
-        box-shadow: 0px 0px 5px 0px rgba(235,235,235,1);
-    }
-    .search-box{
-        border-right: 0;
-        outline: 0;
-    }
-    .search-glass{
-        background-color: transparent;
-    }
+        //box-shadow: 0px 0px 5px 0px rgba(235,235,235,1);
+    } 
+    background-color: transparent;
     form{
+
         @include desktop {
         padding: 8px;
         height: 100px;
         }
+        @include tablet {
+            padding: 8px;
+            height: 100px;
+            }
+        @include small {
+            padding: 8px;
+            height: 200px;
+            }
         
     }
 
@@ -513,6 +520,7 @@ body.rtl .input-group>.input-group-append>.input-group-text {
     border-radius: 1px;
     background-color: #3492dd;
     color:white;
+    font-size: 16px;
     i{
         color:white;
     }
@@ -522,16 +530,17 @@ body.rtl .input-group>.input-group-append>.input-group-text {
         border-color: #1DA4DD;
 
     }
+    //margin-top:40%;
     @include desktop {
-        //transform: scale(1.08) ;
-        height: 100px;
-        transform: translateY(-8px) translateX(3px);
+        margin-top:35px;
     }
     @include tablet {
-        //transform: scale(1.08) ;
-        height: 100px;
-        transform: translateY(-8px) translateX(3px);
+        margin-top:35px;
     }
+
+    // @include tablet() {
+    //     margin-top:0%;
+    // }
 }
 
 .preloader{

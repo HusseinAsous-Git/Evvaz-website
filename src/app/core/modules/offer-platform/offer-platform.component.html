@@ -43,7 +43,7 @@
     <div class="search-bar">
       <form #filterForm="ngForm">
         <div class="form-row">
-            <div class="form-group offset-md-1 col-md-2">
+            <div class="form-group  col-md-2">
               <div *ngIf="isLogged">
                   <label for="inputFollow">Followed</label>
                   <select id="inputFollow" class="form-control" name="filterfollow" [(ngModel)]="filter_follow" >
@@ -82,11 +82,12 @@
 
             </select>
           </div>
-          <div class="form-group col-md-1">
+          <div class="form-group col-md-1 offset-1">
             <button class="btn btn-primary filter-button" (click)="filterChoice()">
 
               <i class="fa fa-sliders snow" aria-hidden="true"></i> Filter</button>
           </div>
+          
         </div>
       </form>
     </div>
@@ -95,7 +96,7 @@
         <span>Effaz</span> companies</h2>
 
       <div class="col-lg-3 col-md-6 col-12" *ngFor="let company of companiesView">
-        <div class="item item-overlay" [ngStyle]="{ 'background-image': 'url(data:image/png;base64,' + company.companyCoverImage + ')'}">
+        <div class="item item-overlay skillhover" [ngStyle]="{ 'background-image': 'url(data:image/png;base64,' + company.companyCoverImage + ')'}">
           <!-- *ngFor="let offer of offers" -->
 
           <div class="overlay">
