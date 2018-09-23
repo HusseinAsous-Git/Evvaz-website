@@ -224,12 +224,32 @@ newTender(){
     this.errMessage = err.error.message;
     if( err.error.cats) {
       this.catsExist = true;
-      this.cats = err.error.cats;
+      this.cats = err.error.cats; 
     }
     
     document.getElementById("openModalButton").click();
+   
 
-    console.log(err)}
+   while(this.catNames.length >0){
+     this.catNames.pop();
+   }
+   while(this.returnedCats.length >0){
+    this.returnedCats.pop();
+  }
+
+   for(let cat of this.catNames) {
+     console.log("Remain cats: ");
+     console.log(cat)
+   }
+   for(let cat of this.returnedCats) {
+    console.log("Remain cats: ");
+    console.log(cat)
+  }
+   
+   this.newTenderForm.get('category').reset();
+    console.log(err)
+  
+  }
  )
 
 

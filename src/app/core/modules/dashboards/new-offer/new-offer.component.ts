@@ -172,7 +172,11 @@ setEndTime() {
           console.log(this.newOffer)
           this.router.navigate(['/company/offers/see']);
         }
-        ,(err) => console.log(err)
+        ,err => {
+          document.getElementById("openModalButton").click();
+    
+          console.log(err)
+        }
       );
     }
 

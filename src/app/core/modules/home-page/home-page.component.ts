@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
  private UserData;
- private orgname;
+ public orgname;
   constructor() { 
     window.scrollTo(0, 0);
     let user = localStorage.getItem('@MYUSER');

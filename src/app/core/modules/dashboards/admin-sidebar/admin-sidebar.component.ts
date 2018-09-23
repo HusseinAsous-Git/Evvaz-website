@@ -14,19 +14,25 @@ orders;
 historyCount=0;
 requestCount=0;
 orderCount=0;
-  constructor(public uiService:UIService, private adminService:AdminService) { }
+historyFlag = false;
+static c : number = 0;
+  constructor(public uiService:UIService, private adminService:AdminService) {
+    let data = +localStorage.getItem('hisCount');
+    if(data==null) this.historyCount = 0;
+    else this.historyCount = data;
+   
+  }
+
+   
 
   ngOnInit() {
-
-    this.adminService.getAllHistory().subscribe(
-      response => {
-        console.log(response);
-        this.history = response;
-        for(let h of this.history){
-         this.historyCount++;
-        }
-      }
-    )
+    this.getHistoryCount();
+    let data = +localStorage.getItem('hisCount');
+    if(data !== this.historyCount ){
+      localStorage.setItem('hisCount',this.historyCount.toString());
+    }
+      
+    
 
 
     // this.adminService.getAllRequests().subscribe(
@@ -83,6 +89,17 @@ orderCount=0;
   //   }
   // }
 
+
+  getHistoryCount (){
+    this.adminService.getAllHistory().subscribe(
+      response => {
+        console.log(response);
+        this.history = response;
+        this.historyCount  =  response.length;
+      }
+    )
+    
+  }
  
 
 }

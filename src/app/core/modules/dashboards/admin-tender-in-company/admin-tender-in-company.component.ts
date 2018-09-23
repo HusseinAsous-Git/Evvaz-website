@@ -20,6 +20,7 @@ tenderCategories: any;
 tenderData:any;
 progressPercentage=0;
 progressStatus;
+catExist = false;
   constructor(private router:Router, private activatedRoute: ActivatedRoute, private adminService:AdminService) { }
 
   ngOnInit() {
@@ -37,9 +38,42 @@ progressStatus;
         console.log("This is Tender request:");
         console.log(response);
         this.tenderRequest = response;
+        this.tenderId = this.tenderRequest['tender_id'];
+        if(this.tenderRequest.schools[0]) {
+          this.catExist = true;
+        }
+        
+
+
+        var percentage = this.tenderRequest['tender_expire_date'] - this.tenderRequest['tender_display_date'];
+        var diff = this.tenderRequest['tender_expire_date'] - new Date().getTime();
+        var division = diff / percentage;
+        this.progressPercentage = 100 - (Math.floor( division * 100));
+        this.progressStatus = "Available";
+        console.log("Progress:"+ this.progressPercentage)
+        if(this.tenderRequest['tender_display_date'] > Date.now()) {
+            this.progressPercentage = 0 ;
+            this.progressStatus = "Postponed";
+            
+          }else{
+            if (division <0 || this.progressPercentage<0){
+              this.progressPercentage = 100 ;
+              this.progressStatus = "Expired";
+            }
+          }
+
+        console.log("Difference between two dates: " + this.progressPercentage )
+
+
+
+
+
+
+
         for(let s of this.tenderRequest.schools){
           s.school_logo_image = 'data:image/png;base64,' + s.school_logo_image;
         }
+
       }
     )
 
@@ -52,6 +86,9 @@ progressStatus;
       //   c.company_logo_image = 'data:image/png;base64,' + c.company_logo_image;
        
       // }
+
+      
+     
 
 this.cats = this.tender.categories;
       for(let c of this.tender.categories){
@@ -75,25 +112,6 @@ this.cats = this.tender.categories;
         console.log("This is Tender categories:")
         console.log(response)
         this.tenderData = response;
-        var percentage = this.tenderData.data['tender_expire_date'] - this.tenderData.data['tender_display_date'];
-        var diff = this.tenderData.data['tender_expire_date'] - new Date().getTime();
-        var division = diff / percentage;
-        this.progressPercentage = 100 - (Math.floor( division * 100));
-        this.progressStatus = "Available";
-        console.log("Progress:"+ this.progressPercentage)
-        if(this.tenderData.data['tender_display_date'] > Date.now()) {
-            this.progressPercentage = 0 ;
-            this.progressStatus = "Postponed";
-            
-          }else{
-            if (division <0 || this.progressPercentage<0){
-              this.progressPercentage = 100 ;
-              this.progressStatus = "Expired";
-            }
-          }
-
-        console.log("Difference between two dates: " + this.progressPercentage )
-
 
         
     // var percentage = this.tender.tender.request_expired_date - this.tender.tender.request_display_date;

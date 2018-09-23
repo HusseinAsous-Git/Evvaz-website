@@ -9,7 +9,7 @@ export class FooterComponent implements OnInit {
 
   constructor(private subscribeAdd : SubscribeService) { }
 
-  private subscribe_mail={
+  public subscribe_mail={
     "mail":""
   };
   

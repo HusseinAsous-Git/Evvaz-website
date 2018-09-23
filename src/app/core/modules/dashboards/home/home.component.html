@@ -28,9 +28,16 @@
     <div class="col-sm-4">
         <i class="fa fa-phone mr-1 ml-2" style="font-size: 20px"></i> <span style="color: gray">{{activeProfile.company_phone_number}}</span>
     </div>
-    <div class="col-sm-4">
-        <i class="fa fa-youtube mr-1 ml-2" style="font-size: 20px"></i> <span style="color: gray"><a href="{{activeProfile.company_link_youtube}}" target="_blank">YouTube</a></span>
+
+    <div class="col-sm-4"  *ngIf="youtube">
+        <i class="fa fa-youtube " style="font-size: 20px"></i> <span style="color: gray"><a href="{{activeProfile.company_link_youtube}}" target="_blank">YouTube</a></span>
     </div>
+
+ 
+    <div class="col-sm-4"  *ngIf="!youtube">
+        <i class="fa fa-youtube mr-1 ml-2" style="font-size: 20px"></i> <span style="color: gray">Youtube not set!   </span>
+    </div>
+
   </div>
   <div class="row" style="margin-top: 80px">
     <div class="col-sm-4"></div>

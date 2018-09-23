@@ -65,7 +65,7 @@ export class AdminService{
     }
 
     getSingleTender(tenderId: number){
-        let url = `${environment.apiPath}evvaz/tender/request/${tenderId}`;
+        let url = `${environment.apiPath}evvaz/request/tender/${tenderId}`;
         return this.httpClient.get(url); 
     }
 
@@ -140,7 +140,7 @@ getOrderByOfferId(offerId: number) {
 
 getAllHistory() {
     let url = `${environment.apiPath}evvaz/admin/orders/history/`;
-    return this.httpClient.get(url);
+    return this.httpClient.get<Object[]>(url);
 }
 
 getHistoryOrder(orderId:number) {

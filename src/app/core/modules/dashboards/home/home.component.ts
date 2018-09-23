@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   currentUser;
   adminCategories;
   activeProfile:CompanyProfileModel;
+  youtube = false;
   constructor(private authService: AuthService, private profileService: ProfileServiceDashboard, private adminService:AdminService) { }
 
   ngOnInit() {
@@ -36,6 +37,10 @@ export class HomeComponent implements OnInit {
       console.log(response);
       this.activeProfile = response;
       this.activeProfile.company_logo_image = 'data:image/png;base64,' + this.activeProfile.company_logo_image;
+      if(this.activeProfile.company_link_youtube){
+        this.youtube = true;
+      }
+
     }
   )
   // this.adminService.getCategories().subscribe(

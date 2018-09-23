@@ -44,10 +44,10 @@
       
       <div class="card-body">
       {{ request.registrationOrganizationName }}  <br> {{request.registerationDate | date:'short'}}
-      <!-- <div style="margin-top: -35px">
+      <div style="margin-top: -35px">
        
-        <a  class="btn view-btn pull-right" style="color: white" (click)="activateRequest(request.registration_id, i)">Agree</a>
-      </div> -->
+        <button  class="btn view-btn pull-right" disabled="disabled" style="color: white" (click)="activateRequest(request.registration_id, i)">New</button>
+      </div>
       </div>
     </div>
   </a>
@@ -77,10 +77,10 @@
           
           <div class="card-body">
           {{ request.registrationOrganizationName }}  <br> {{request.registerationDate | date:'short'}}
-          <!-- <div style="margin-top: -35px">
-           
-            <a  class="btn view-btn pull-right" style="color: white" (click)="activateRequest(request.registration_id, i)">Agree</a>
-          </div> -->
+          <div style="margin-top: -35px">
+       
+            <button  class="btn view-btn pull-right" disabled="disabled" style="color: white" (click)="activateRequest(request.registration_id, i)">New</button>
+          </div>
           </div>
         </div>
       </a>
