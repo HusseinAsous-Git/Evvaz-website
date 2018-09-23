@@ -140,7 +140,7 @@ getOrderByOfferId(offerId: number) {
 
 getAllHistory() {
     let url = `${environment.apiPath}evvaz/admin/orders/history/`;
-    return this.httpClient.get(url);
+    return this.httpClient.get<Object[]>(url);
 }
 
 getHistoryOrder(orderId:number) {

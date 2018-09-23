@@ -24,6 +24,7 @@ export class AdminHeaderComponent implements OnInit {
 
   onLogout(){
     this.authService.logout();
+    localStorage.removeItem('hisCount');
     this.router.navigate(['/']);
 
   }

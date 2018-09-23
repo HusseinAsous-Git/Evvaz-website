@@ -21,6 +21,8 @@ export class AdminTenderEditComponent implements OnInit {
   tender:any;
   cats:any;
   tenderId:number;
+  errMessage: string;
+  catsExist = false;
   @ViewChild("schoolstartTime") schoolStartTime: ElementRef;
   @ViewChild("schoolendTime") schoolEndTime: ElementRef;
 
@@ -253,7 +255,36 @@ editTender(){
   response => {
     console.log(response)
    this.router.navigate(['/admin','tenders',this.tenderId,'company']);
-  },err => console.log(err)
+  }, err  =>  {
+    this.errMessage = err.error.message;
+    if( err.error.cats) {
+      this.catsExist = true;
+      this.cats = err.error.cats; 
+    }
+    
+    document.getElementById("openModalButton").click();
+   
+
+   while(this.catNames.length >0){
+     this.catNames.pop();
+   }
+   while(this.returnedCats.length >0){
+    this.returnedCats.pop();
+  }
+
+   for(let cat of this.catNames) {
+     console.log("Remain cats: ");
+     console.log(cat)
+   }
+   for(let cat of this.returnedCats) {
+    console.log("Remain cats: ");
+    console.log(cat)
+  }
+   
+   this.editTenderForm.get('category').reset();
+    console.log(err)
+  
+  }
  )
 
 
