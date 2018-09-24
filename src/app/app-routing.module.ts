@@ -1,3 +1,7 @@
+import { CompanyProfileCpyComponent } from './core/modules/dashboards/company-profile-cpy/company-profile-cpy.component';
+import { SchoolProfileCpyComponent } from './core/modules/dashboards/school-profile-cpy/school-profile-cpy.component';
+import { SchoolParentComponent } from './core/modules/dashboards/school-parent/school-parent.component';
+import { AdminParentComponent } from './core/modules/dashboards/admin-parent/admin-parent.component';
 import { AdminConsiderViewComponent } from './core/modules/dsahboards/admin-consider-view/admin-consider-view.component';
 import { AdminArchiveViewComponent } from './core/modules/dsahboards/admin-archive-view/admin-archive-view.component';
 import { ConsideredComponent } from './core/modules/dsahboards/considered/considered.component';
@@ -65,60 +69,85 @@ import { AuthGuardCompany } from './core/services/auth.guard.company.service';
 import { AuthGuardSchool } from './core/services/auth.guard.school.service';
 import { AuthGuardAdmin } from './core/services/auth.guard.admin.service';
 import { UnifyingCatComponent } from './core/modules/unifying-cat/unifying-cat.component';
+import { CompanyParentComponent } from './core/modules/dashboards/company-parent/company-parent.component';
 /*Our Services*/
 
 const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     {path:'home', component:IndexComponent},
-    {path:'company', component: HomeComponent, canActivate: [AuthGuardCompany]},
-    {path:'company/offers/new', component:NewOfferComponent, canActivate: [AuthGuardCompany]},
-    {path:'company/offers/see', component:OffersComponent, canActivate: [AuthGuardCompany]},
-    {path:'company/profile', component:ProfileComponent , resolve: {profile: ProfileResolver}, canActivate: [AuthGuardCompany]},
-    {path:'company/followers', component:FollowersComponent, canActivate: [AuthGuardCompany]},
-    {path:'company/my-orders', component:MyOrdersComponent, canActivate: [AuthGuardCompany]},
-    {path:'company/offers/:id/edit', component:OfferEditComponent, resolve: {offer: OfferResolver}, canActivate: [AuthGuardCompany]},
-    {path:'', component:IndexComponent},
-    {path:'company', component: HomeComponent, canActivate: [AuthGuardCompany]},
-    {path:'company/offers/new', component:NewOfferComponent, canActivate: [AuthGuardCompany]},
-    {path:'company/offers/see', component:OffersComponent, canActivate: [AuthGuardCompany]},
-    {path:'company/profile', component:ProfileComponent , resolve: {profile: ProfileResolver}, canActivate: [AuthGuardCompany]},
-    {path:'company/followers', component:FollowersComponent, canActivate: [AuthGuardCompany]},
-    {path:'company/my-orders', component:MyOrdersComponent, canActivate: [AuthGuardCompany]},
-    {path:'company/offers/:id/edit', component:OfferEditComponent, resolve: {offer: OfferResolver}, canActivate: [AuthGuardCompany]},
 
-    {path:'admin', component: AdminHomeComponent, canActivate: [AuthGuardAdmin]},
-    {path:'admin/tenders/new', component:AdminNewTenderComponent, canActivate: [AuthGuardAdmin]},
-        {path:'admin/tenders/mine', component:AdminAllTendersComponent, canActivate: [AuthGuardAdmin]},
-        {path:'admin/tenders/:tenderId/company', component:AdminTenderInCompanyComponent, resolve : {tender : AdminTenderResolver}, canActivate: [AuthGuardAdmin]},
-        {path:'admin/tenders/:tenderId/edit', component:AdminTenderEditComponent, resolve : {tender : AdminTenderResolver}, canActivate: [AuthGuardAdmin]},
-        {path:'admin/tenders/:tenderId/school', component:AdminMyTendersComponent, canActivate: [AuthGuardAdmin]},
-        {path:'admin/tenders/:tenderId/details', component:AdminMyTendersComponent, canActivate: [AuthGuardAdmin]},
-        {path:'admin/orders', component:AdminOrdersComponent, canActivate: [AuthGuardAdmin]},
-        {path:'admin/orders/:orderId/view', component:AdminOrderViewComponent, canActivate: [AuthGuardAdmin]},
-        {path:'admin/orders/:orderId/view/company/profile/:profileId', component:OrderProfileComponent, canActivate: [AuthGuardAdmin]},
-        {path:'admin/orders/:orderId/view/school/profile/:profileId', component:OrderProfileSchoolComponent, canActivate: [AuthGuardAdmin]},
-        {path:'admin/orders/:orderId/view/company/profile/:profileId/cpy', component:OrderProfileCompanyCpyComponent, canActivate: [AuthGuardAdmin]},
-        {path:'admin/orders/:orderId/view/school/profile/:profileId/cpy', component:OrderProfileSchoolCpyComponent, canActivate: [AuthGuardAdmin]},
-        {path:'admin/requests', component:AdminRequestsComponent, canActivate: [AuthGuardAdmin]},
-        {path:'admin/requests/archive', component:ArchivedComponent, canActivate: [AuthGuardAdmin]},
-        {path:'admin/requests/consider', component:ConsideredComponent, canActivate: [AuthGuardAdmin]},
-        {path:'admin/request/:requestId/view', component:AdminRequestsViewComponent, canActivate: [AuthGuardAdmin]},
-        {path:'admin/considered/:requestId/view', component:AdminConsiderViewComponent, canActivate: [AuthGuardAdmin]},
-        {path:'admin/archived/:requestId/view', component:AdminArchiveViewComponent, canActivate: [AuthGuardAdmin]},
-        {path:'admin/history', component:AdminHistoryComponent, canActivate: [AuthGuardAdmin]},
-        {path:'admin/history/:orderId/view', component:AdminHistoryViewComponent, canActivate: [AuthGuardAdmin]},
 
-    {path:'school', component:SchoolHomeComponent, canActivate: [AuthGuardSchool]},
-    {path:'school/followers', component:SchoolFollowersComponent, canActivate: [AuthGuardSchool]},
-    {path:'school/orders', component:SchoolOrdersComponent, canActivate: [AuthGuardSchool]},
-    {path:'school/history', component:SchoolOrdersHistoryComponent, canActivate: [AuthGuardSchool]},
-    {path:'school/profile', component:SchoolProfileComponent, canActivate: [AuthGuardSchool]},
-    {path:'school/tenders/new', component:NewTenderComponent, canActivate: [AuthGuardSchool]},  
-    {path:'school/collective/all', component:AllCollectiveTendersComponent, canActivate: [AuthGuardSchool]},
-    {path:'school/tender/:tenderId/collective/:schoolId', component:CollectiveTenderComponent, resolve : {tender: SchoolTenderResolver}, canActivate: [AuthGuardSchool]},
-    {path:'school/tenders/mine', component:MyTendersComponent, canActivate: [AuthGuardSchool]},
-    {path:'school/tender/:tenderId/view', component:ViewTenderComponent, resolve: {tender:MyTenderResolver}, canActivate: [AuthGuardSchool]},
+    // company routes
+    {path:'company/intro/profile', component:CompanyProfileCpyComponent,canActivate: [AuthGuardCompany]},
+    {path:'company', component:CompanyParentComponent,  canActivate: [AuthGuardCompany], children: [
+        {path:'intro', component: HomeComponent},
+        {path:'offers/new', component:NewOfferComponent},
+        {path:'offers/see', component:OffersComponent},
+        {path:'profile', component:ProfileComponent , resolve: {profile: ProfileResolver}},
+        {path:'followers', component:FollowersComponent},
+        {path:'my-orders', component:MyOrdersComponent},
+        {path:'offers/:id/edit', component:OfferEditComponent, resolve: {offer: OfferResolver}},
+        {path:'', component:IndexComponent},
+        // {path:'company', component: HomeComponent},
+        {path:'offers/new', component:NewOfferComponent},
+        {path:'offers/see', component:OffersComponent},
+        {path:'profile', component:ProfileComponent , resolve: {profile: ProfileResolver}},
+        {path:'followers', component:FollowersComponent},
+        {path:'my-orders', component:MyOrdersComponent},
+        {path:'offers/:id/edit', component:OfferEditComponent, resolve: {offer: OfferResolver}}
+    ]}
+   ,
+
+        //    admin routes
+    {path:'admin', component:AdminParentComponent, canActivate:[AuthGuardAdmin], children:[
+        {path:'intro', component: AdminHomeComponent},
+        {path:'tenders/new', component:AdminNewTenderComponent},
+        {path:'tenders/mine', component:AdminAllTendersComponent},
+        {path:'tenders/:tenderId/company', component:AdminTenderInCompanyComponent, resolve : {tender : AdminTenderResolver}},
+        {path:'tenders/:tenderId/edit', component:AdminTenderEditComponent, resolve : {tender : AdminTenderResolver}},
+        {path:'tenders/:tenderId/school', component:AdminMyTendersComponent},
+        {path:'tenders/:tenderId/details', component:AdminMyTendersComponent},
+        {path:'orders', component:AdminOrdersComponent},
+        {path:'orders/:orderId/view', component:AdminOrderViewComponent},
+        {path:'orders/:orderId/view/company/profile/:profileId', component:OrderProfileComponent},
+        {path:'orders/:orderId/view/school/profile/:profileId', component:OrderProfileSchoolComponent},
+        {path:'orders/:orderId/view/company/profile/:profileId/cpy', component:OrderProfileCompanyCpyComponent},
+        {path:'orders/:orderId/view/school/profile/:profileId/cpy', component:OrderProfileSchoolCpyComponent},
+        {path:'requests', component:AdminRequestsComponent},
+        {path:'requests/archive', component:ArchivedComponent},
+        {path:'requests/consider', component:ConsideredComponent},
+        {path:'request/:requestId/view', component:AdminRequestsViewComponent},
+        {path:'considered/:requestId/view', component:AdminConsiderViewComponent},
+        {path:'archived/:requestId/view', component:AdminArchiveViewComponent},
+        {path:'history', component:AdminHistoryComponent},
+        {path:'history/:orderId/view', component:AdminHistoryViewComponent}
+    ]}
+   ,
+
+
+//    school routes
+
+
+{path:'school/intro/profile', component:SchoolProfileCpyComponent,canActivate: [AuthGuardSchool]},
+   {path:'school', component:SchoolParentComponent, canActivate: [AuthGuardSchool], children: [
+       
+    {path:'intro', component:SchoolHomeComponent},
+    {path:'followers', component:SchoolFollowersComponent},
+    {path:'orders', component:SchoolOrdersComponent},
+    {path:'history', component:SchoolOrdersHistoryComponent},
+    {path:'profile', component:SchoolProfileComponent},
+    {path:'tenders/new', component:NewTenderComponent},  
+    {path:'collective/all', component:AllCollectiveTendersComponent},
+    {path:'tender/:tenderId/collective/:schoolId', component:CollectiveTenderComponent, resolve : {tender: SchoolTenderResolver}},
+    {path:'tenders/mine', component:MyTendersComponent},
+    {path:'tender/:tenderId/view', component:ViewTenderComponent, resolve: {tender:MyTenderResolver}}
+   ] }
+    ,
     
+
+
+
+
     { path: 'home-page', component: HomePageComponent, canActivate: [AuthGuard] },
     {path: 'offer-platform', component: OfferPlatformComponent},
     {path:'offer-details/:company_id/:offer_id', component: OfferDetailsComponent, canActivate: [AuthGuard]},

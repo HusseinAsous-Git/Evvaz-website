@@ -17,7 +17,7 @@
 
           <div class="list-group ">
               <a  class=" pl-4 list-group-item list-group-item-action" 
-                  [routerLink]="['/admin']"
+                  [routerLink]="['/admin','intro']"
                   routerLinkActive="active"
                   [routerLinkActiveOptions]={exact:true}>
                   <i class="fa fa-fort-awesome pr-3"></i> Dashboard
@@ -52,7 +52,10 @@
             routerLinkActive="active">
                 <i class="fa fa-user pr-3"></i> Orders <span class="badge badge-primary badge-pill pull-right">{{orderCount}}</span>
             </a>
-            
+            <a  class=" pl-4 list-group-item list-group-item-action"
+            [routerLink]="['/admin','history']" routerLinkActive="active">
+               <i class="fa fa-history pr-3"></i> History <span class="badge badge-primary badge-pill pull-right">{{historyCount}}</span>
+           </a>
             <a  href="#reg"  data-toggle ="collapse" 
             class=" pl-4 list-group-item list-group-item-action" 
             routerLinkActive="active" [routerLinkActiveOptions]={exact:true}>
@@ -65,7 +68,8 @@
              <div class="list-group">
               <a  class="list-group-item list-group-item-action"
               routerLinkActive="active"
-              [routerLink]="['/admin','requests']">
+              [routerLink]="['/admin','requests']"
+              [routerLinkActiveOptions]={exact:true}>
                       New requests <i class="fa fa-neos pull-right"></i>
               </a>
              
@@ -83,10 +87,7 @@
             <!--  -->
 
 
-            <a  class=" pl-4 list-group-item list-group-item-action"
-             [routerLink]="['/admin','history']" routerLinkActive="active">
-                <i class="fa fa-history pr-3"></i> History <span class="badge badge-primary badge-pill pull-right">{{historyCount}}</span>
-            </a>
+           
           
                 
 

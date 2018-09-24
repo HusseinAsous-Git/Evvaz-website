@@ -1,0 +1,197 @@
+
+
+<div class="navbar nav navbar-expand-sm  pt-1 fixed-top" >
+  
+ 
+  <!-- <span style="font-size: 30px">Evvaz School</span> -->
+  <img src="../../../../../assets/img/index/logo.png" alt=""> 
+
+
+    <div class="logout">
+      <i class="fa fa-user-o mr-1" style="color:white"></i><a  class="" (click)="onLogout()">Logout</a> 
+    </div>
+
+ 
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+  <div style="margin-top: 130px;"></div>
+
+  <div class="row mt-5">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-8">
+      <nav class="" >
+        <ul class="breadcrumb ">
+            <li class="breadcrumb-item">
+                <a [routerLink]="['/school']">Dashboard</a>
+            </li>
+           
+            <li class="breadcrumb-item active">
+               Profile
+            </li>
+        </ul>
+      </nav>
+    </div>
+    
+    <div class="col-sm-2 txt-color mt-4">
+      <!-- {{count}} Orders -->
+      </div>
+  </div>
+<div class="row justify-content-center">
+  <img *ngIf="isloading" class="mt-3" src="../../../assets/images/load.gif" alt="">
+</div>
+<div class="row" *ngIf="!isloading" >
+<div class="col-sm-8 col-sm offset-2">
+  <form class="mt-5" [formGroup]="SchoolProfileForm" (ngSubmit)="updateProfile()">
+    <div class="form-group">
+      <label for="schoolName">School Name</label>
+      <input type="text"
+       class="form-control"
+        id="schoolName"
+          placeholder="Taj"
+          formControlName="schoolName"
+         
+          >
+    </div>
+    <div class="form-group">
+      <label for="logo">School Logo</label><br>
+      <input type="file" 
+     id="logo" 
+    
+     (change)="onUploadChange($event)"
+     accept=".png, .jpg, .jpeg"
+     >
+     
+
+     <br>  <br>
+       <img  src={{srcLogo}} alt="" id="img" width="100" height="100">
+     
+    </div>
+    <span 
+            *ngIf="!logoSizeIsValid"
+            class="help-block" style="color: red" >logo shouldn't be over 2 MB!</span>
+    <div class="form-group">
+        <label for="cover">School Cover</label> <br> 
+        <input type="file" 
+        id="cover" 
+        
+        (change)="onUploadChangeCover($event)"
+        accept=".png, .jpg, .jpeg">
+        <!-- <image-cropper
+  [imageChangedEvent]="imageChangedEvent"
+  [maintainAspectRatio]="true"
+  [aspectRatio]="4 / 3"
+  [resizeToWidth]="128"
+  format="png"
+  (imageCroppedBase64)="imageCropped($event)"
+  (imageLoaded)="imageLoaded()"
+  (loadImageFailed)="loadImageFailed()"
+></image-cropper> -->
+
+        <br> <br>
+        <!-- <img [src]="srcCover" width="800" height="300"> -->
+        <div class="coverImg" [ngStyle]="{ 'background-image': 'url('+srcCover+')'}" >
+            
+        </div>
+
+        <div class="pull-right">
+          <span 
+          *ngIf="!coverSizeIsValid"
+          class="help-block" style="color: red">Cover shouldn't be over 2 MB!</span>
+      </div>
+    </div>
+
+
+
+
+    <!-- Company Cover here -->
+
+
+
+
+    <!-- <div class="form-group">
+      <label for="cost">Cost</label>
+      <input type="number" class="form-control" id="cost"  placeholder="cost $ $">
+    </div> -->
+
+    <!-- <div class="form-group">
+      <label for="description">Descruption</label>
+      <textarea class="form-control" id="description" rows="3" placeholder="Description" >{{ activeProfile.company_name }}</textarea>
+    </div> -->
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea class="form-control"
+      id="description" 
+      rows="3" 
+      placeholder="school description"
+      formControlName="description"
+      ></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="website">Website URL</label>
+      <input type="text"  
+       class="form-control"
+        id="website" 
+         placeholder="http://www.youtube.com/watch/sdf4g451244" 
+         formControlName="website"
+        
+        >
+    </div>
+
+    <div class="form-group">
+      <label for="link">URL Link video</label>
+      <input type="text"
+       class="form-control"
+        id="link" 
+         placeholder="http://www.youtube.com/watch/sdf4g451244" 
+         formControlName="link"
+        
+        >
+    </div>
+    
+    <div class="form-group">
+        <label for="phone">Phone number</label>
+        <input type="text"
+         class="form-control"
+          id="phone"
+            placeholder="phone number" 
+            formControlName="phone"
+           >
+      </div>
+      <div class="form-group">
+          <label for="address">Company address</label>
+          <input type="text"
+           class="form-control"
+            id="address" 
+             placeholder="address"
+             formControlName="address"
+             >
+        </div>
+    <div class="pull-right">
+      <button class="btn btn-success ml-2 " type="submit">Save</button>
+      
+    </div>
+
+<br>
+<br>
+    <!-- <ngx-cropper [config]="ngxCropperConfig" (returnData)="onReturnData($event)"></ngx-cropper> -->
+  </form>
+  <!-- <div class="row justify-content-center">
+      <img *ngIf="isloading" class="mt-3" src="../../../assets/images/bs.gif" alt="">
+  </div> -->
+</div>
+</div>
+</div>
+<div style="margin-bottom: 100px;"></div>

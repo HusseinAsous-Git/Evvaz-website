@@ -12,13 +12,13 @@
             Arabic </a>
           </li> -->
           <li class="nav-item">
-            <a class="nav-link" *ngIf="isAdmin" [routerLink]="['/admin']"><i class="fa fa-dashboard" aria-hidden="true"></i>My Dashboard</a>
+            <a class="nav-link" *ngIf="isAdmin" [routerLink]="['/admin','intro']"><i class="fa fa-dashboard" aria-hidden="true"></i>My Dashboard</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" *ngIf="isSchool" [routerLink]="['/school']"><i class="fa fa-dashboard" aria-hidden="true"></i>My Dashboard</a>
+            <a class="nav-link" *ngIf="isSchool" [routerLink]="['/school','intro']"><i class="fa fa-dashboard" aria-hidden="true"></i>My Dashboard</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" *ngIf="isCompany" [routerLink]="['/company']"><i class="fa fa-dashboard" aria-hidden="true"></i>My Dashboard</a>
+            <a class="nav-link" *ngIf="isCompany" [routerLink]="['/company','intro']"><i class="fa fa-dashboard" aria-hidden="true"></i>My Dashboard</a>
           </li>
 
           <!-- <li class="nav-item">

@@ -57,12 +57,12 @@ export class LoginComponent implements OnInit {
               if(this.companyProfile){
                 this.router.navigate(['/home-page'])
               }else {
-                this.router.navigate(['/company','profile'])
+                this.router.navigate(['/company','intro','profile'])
               }
               console.log("company profile");
               console.log(this.companyProfile)
             },err => {
-              this.router.navigate(['/company','profile'])
+              this.router.navigate(['/company','intro','profile'])
               console.log(err)
               // this.router.navigate(['/company','profile' ]);
             }
@@ -84,18 +84,18 @@ export class LoginComponent implements OnInit {
               if(this.schoolProfile){
                 this.router.navigate(['/home-page'])
               }else {
-                this.router.navigate(['/school','profile'])
+                this.router.navigate(['/school','intro','profile'])
               }
              },err => {
                console.log("Error");
-               this.router.navigate(['/school','profile'])
+               this.router.navigate(['/school','intro','profile'])
              console.log(err);
              }
           )
 
           
         }else if (this.user.login_role === "admin"){
-          this.router.navigate(['/admin'])
+          this.router.navigate(['/home-page'])
         }
         }
         else {

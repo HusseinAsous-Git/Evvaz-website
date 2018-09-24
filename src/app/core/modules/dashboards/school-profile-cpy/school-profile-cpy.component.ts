@@ -1,20 +1,19 @@
-
+import { AuthService } from './../../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, Validators, FormControl } from '../../../../../../node_modules/@angular/forms';
 import { SchoolProfileModel } from '../../../models/school.profile.model';
 import { SchoolService } from '../../../services/school.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '../../../../../../node_modules/@angular/router';
 import { UIService } from '../../../services/ui.service';
 
-
-
 @Component({
-  selector: 'app-school-profile',
-  templateUrl: './school-profile.component.html',
-  styleUrls: ['./school-profile.component.css']
+  selector: 'app-school-profile-cpy',
+  templateUrl: './school-profile-cpy.component.html',
+  styleUrls: ['./school-profile-cpy.component.scss']
 })
-export class SchoolProfileComponent implements OnInit {
+export class SchoolProfileCpyComponent implements OnInit {
 
+  
    
   public SchoolProfileForm: FormGroup;
   private activeProfile : SchoolProfileModel ;
@@ -34,7 +33,9 @@ file;
   loginId: number;
   profileExistance = false;
   currentUser;
-  constructor(private schoolSerivce: SchoolService, private activatedRoute: ActivatedRoute, private router: Router,private uiService:UIService) {
+  constructor(private schoolSerivce: SchoolService, 
+    private activatedRoute: ActivatedRoute, 
+    private router: Router,private uiService:UIService, private authService:AuthService) {
     
 
    }
@@ -60,37 +61,37 @@ file;
    
 
 
-    this.schoolSerivce.getProfile(this.loginId).subscribe(
-      (response) => { 
-        if(response){
-          this.uiService.sidebarStatus = true;
-          this.isloading = false;
-          this.profileExistance = true;
-        this.activeProfile = response;
-        this.srcLogo = 'data:image/png;base64,' + this.activeProfile.school_logo_image;
-        this.srcCover = 'data:image/png;base64,' + this.activeProfile.school_cover_image;
-        console.log("Active profile");
-        console.log(this.activeProfile)
+    // this.schoolSerivce.getProfile(this.loginId).subscribe(
+    //   (response) => { 
+    //     if(response){
+    //       this.uiService.sidebarStatus = true;
+    //       this.isloading = false;
+    //       this.profileExistance = true;
+    //     this.activeProfile = response;
+    //     this.srcLogo = 'data:image/png;base64,' + this.activeProfile.school_logo_image;
+    //     this.srcCover = 'data:image/png;base64,' + this.activeProfile.school_cover_image;
+    //     console.log("Active profile");
+    //     console.log(this.activeProfile)
 
-        this.SchoolProfileForm = new FormGroup({
-          'schoolName': new FormControl(this.activeProfile.school_name, [Validators.required,Validators.minLength(3)]),
-          'link': new FormControl(this.activeProfile.school_link_youtube,[Validators.required, Validators.minLength(22)]),
-          'phone': new FormControl(this.activeProfile.school_phone_number, Validators.required),
-          'address': new FormControl(this.activeProfile.school_address, Validators.required),
-          'website': new FormControl(this.activeProfile.school_website_url, Validators.required),
-          'description': new FormControl(this.activeProfile.school_service_desc, Validators.required)
-        });
-      }
+    //     this.SchoolProfileForm = new FormGroup({
+    //       'schoolName': new FormControl(this.activeProfile.school_name, [Validators.required,Validators.minLength(3)]),
+    //       'link': new FormControl(this.activeProfile.school_link_youtube,[Validators.required, Validators.minLength(22)]),
+    //       'phone': new FormControl(this.activeProfile.school_phone_number, Validators.required),
+    //       'address': new FormControl(this.activeProfile.school_address, Validators.required),
+    //       'website': new FormControl(this.activeProfile.school_website_url, Validators.required),
+    //       'description': new FormControl(this.activeProfile.school_service_desc, Validators.required)
+    //     });
+    //   }
 
 
 
-      }, err => {
-        this.uiService.sidebarStatus = false;
-        this.profileExistance = false;
-        this.isloading  =false;
-        console.log(err)
-      }
-    );
+    //   }, err => {
+    //     this.uiService.sidebarStatus = false;
+    //     this.profileExistance = false;
+    //     this.isloading  =false;
+    //     console.log(err)
+    //   }
+    // );
 
   
    
@@ -199,29 +200,29 @@ file;
 
 
       console.log("Profile is: "+ this.profileExistance)
-      if(this.profileExistance){
-      this.schoolSerivce.updateProfile(data).subscribe(
+      // if(this.profileExistance){
+    //   this.schoolSerivce.updateProfile(data).subscribe(
 
-        response => {
-          console.log("Succeeded updated" + response); 
+    //     response => {
+    //       console.log("Succeeded updated" + response); 
 
-          setTimeout(()=> {
-            this.isloading = true;
-          },0)
+    //       setTimeout(()=> {
+    //         this.isloading = true;
+    //       },0)
           
-          setTimeout(()=> {
-            this.isloading = false;
-            this.router.navigate(['/school','intro']);
-          },1000)
+    //       setTimeout(()=> {
+    //         this.isloading = false;
+    //         this.router.navigate(['/school']);
+    //       },1000)
 
           
-        },
-        err => console.log("Error: "+err)
+    //     },
+    //     err => console.log("Error: "+err)
 
-      )
-      return ;
-    }
-    else {
+    //   )
+    //   return ;
+    // }
+    // else {
       this.schoolSerivce.createProfile(data).subscribe(
         response => {
 
@@ -248,8 +249,8 @@ file;
           this.uiService.sidebarStatus = false;
         } 
       )
-      return ;
-    }
+      // return ;
+    // }
 
 
 
@@ -257,4 +258,12 @@ file;
 
     }
 
+
+    onLogout(){
+      this.authService.logout();
+      this.router.navigate(['/']);
+  
+    }
+
+    
 }

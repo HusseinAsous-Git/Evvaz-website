@@ -1,21 +1,21 @@
-import { AdminService } from './../../../services/admin.service';
-import { CategoryModel } from '../../../models/category.model';
-import { AuthService } from '../../../services/auth.service';
-import { ProfileServiceDashboard } from '../../../services/profile.service.dashboard';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, Validators, FormControl } from '../../../../../../node_modules/@angular/forms';
 import { CompanyProfileModel } from '../../../models/company.profile.model';
 import { CompanyOfferModel } from '../../../models/company.offer.see.model';
-import { ActivatedRoute, Router } from '@angular/router';
+import { CategoryModel } from '../../../models/category.model';
 import { AdminCategory } from '../../../models/admin.cat.model';
+import { ProfileServiceDashboard } from '../../../services/profile.service.dashboard';
+import { ActivatedRoute, Router } from '../../../../../../node_modules/@angular/router';
+import { AdminService } from '../../../services/admin.service';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  selector: 'app-company-profile-cpy',
+  templateUrl: './company-profile-cpy.component.html',
+  styleUrls: ['./company-profile-cpy.component.scss']
 })
-export class ProfileComponent implements OnInit {
-  
+export class CompanyProfileCpyComponent implements OnInit {
+
   public profileForm: FormGroup;
   private activeProfile : CompanyProfileModel ;
 
@@ -39,6 +39,7 @@ coverSize;
   adminCategories;
   returnedCats: AdminCategory [] = [];
   catNames : {category_name: string} [] = [];
+  
   constructor(private profileService: ProfileServiceDashboard,
      private activatedRoute: ActivatedRoute, private adminService:AdminService,
       private router: Router, private authService: AuthService) { }
@@ -243,29 +244,29 @@ coverSize;
 
       
 console.log("Profile is: "+ this.prfileExistance)
-      if(this.prfileExistance){
-      this.profileService.updateProfile(data).subscribe(
+      // if(this.prfileExistance){
+      // this.profileService.updateProfile(data).subscribe(
 
-        response => {
-          console.log("Succeeded updated" + response); 
+      //   response => {
+      //     console.log("Succeeded updated" + response); 
 
-          setTimeout(()=> {
-            this.isloading = true;
-          },0)
+      //     setTimeout(()=> {
+      //       this.isloading = true;
+      //     },0)
           
-          setTimeout(()=> {
-            this.isloading = false;
-            this.router.navigate(['/company','intro']);
-          },1000)
+      //     setTimeout(()=> {
+      //       this.isloading = false;
+      //       this.router.navigate(['/company']);
+      //     },1000)
 
           
-        },
-        err => console.log("Error: "+err)
+      //   },
+      //   err => console.log("Error: "+err)
 
-      )
-      return ;
-    }
-    else {
+      // )
+      // return ;
+    // }
+    // else {
       this.profileService.createProfile(data).subscribe(
         response => {
 
@@ -289,10 +290,19 @@ console.log("Profile is: "+ this.prfileExistance)
         },
         err => console.log(err)
       )
-      return ;
+      // return ;
     }
 
-  }
+  // }
   
 
+
+  onLogout(){
+    this.authService.logout();
+    this.router.navigate(['/']);
+
+  }
+
+
+  
 }

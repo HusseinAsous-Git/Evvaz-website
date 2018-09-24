@@ -105,6 +105,11 @@ import { ArchivedComponent } from './core/modules/dsahboards/archived/archived.c
 import { AdminConsiderViewComponent } from './core/modules/dsahboards/admin-consider-view/admin-consider-view.component';
 import { AdminArchiveViewComponent } from './core/modules/dsahboards/admin-archive-view/admin-archive-view.component';
 import { ConsideredComponent } from './core/modules/dsahboards/considered/considered.component';
+import { AdminParentComponent } from './core/modules/dashboards/admin-parent/admin-parent.component';
+import { SchoolParentComponent } from './core/modules/dashboards/school-parent/school-parent.component';
+import { CompanyParentComponent } from './core/modules/dashboards/company-parent/company-parent.component';
+import { SchoolProfileCpyComponent } from './core/modules/dashboards/school-profile-cpy/school-profile-cpy.component';
+import { CompanyProfileCpyComponent } from './core/modules/dashboards/company-profile-cpy/company-profile-cpy.component';
 
 @NgModule({
   declarations: [
@@ -174,7 +179,12 @@ import { ConsideredComponent } from './core/modules/dsahboards/considered/consid
     ArchivedComponent,
     AdminConsiderViewComponent,
     AdminArchiveViewComponent,
-    ConsideredComponent
+    ConsideredComponent,
+    AdminParentComponent,
+    SchoolParentComponent,
+    CompanyParentComponent,
+    SchoolProfileCpyComponent,
+    CompanyProfileCpyComponent
 
   ],
   imports: [

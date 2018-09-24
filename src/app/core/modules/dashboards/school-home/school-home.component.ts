@@ -22,6 +22,7 @@ export class SchoolHomeComponent implements OnInit {
     this.schoolService.getProfile(this.loginId).subscribe(
       (response) => { 
         this.isLoading = false;
+        response.school_website_url = "http://" + response.school_website_url;
         console.log(response);
         this.activeProfile = response;
         this.activeProfile.school_logo_image =  'data:image/png;base64,' + this.activeProfile.school_logo_image;
