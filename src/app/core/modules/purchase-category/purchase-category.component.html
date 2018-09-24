@@ -70,7 +70,7 @@
     </div>
     <div class="row" *ngIf="requestsView">
       <div class="col-lg-4 col-md-6 col-12" *ngFor="let request of requestsView | categoryFilter:searchTitle">
-        <div class="item item-overlay" routerLink="/request-details/{{request.request_id}}">
+        <div class="item item-overlay " routerLink="/request-details/{{request.request_id}}">
 
 
           <div class="overlay">
