@@ -83,7 +83,7 @@
               </div>
                 <div class="pull-right" style="margin-top: -50px">
                     <i class="fa fa-usd "></i>   {{ company.responsed_cost }} 
-                    <button class="btn btn-blue ml-4" (click)="agree(company.response_id, toggle, i)" appAgreeHighlight [toggle]="toggle" [disabled]="disableFlag">Agree</button>
+                    <button class="btn btn-blue ml-4" (click)="agree(company.response_id, company.is_aproved, i)" appAgreeHighlight [toggle]="company.is_aproved" [disabled]="disableFlag">Agree</button>
                     <br> <p></p>
                 </div>
              <hr>

@@ -215,7 +215,17 @@ coverSize;
           return ;
       }
 
+      // let html = this.profileForm.get('description').value;
+      // var oParser = new DOMParser();
+      //  var oDOM = oParser.parseFromString(html, "text/html");
+      //  var descTxt = oDOM.body.innerText;
+      //  console.log("After parsing: ")
+      //  console.log(html);
+      //  console.log("desc parsed is" )
       
+      
+      // console.log(descTxt)
+
       let data  = {
         company_id : this.loginId,
         company_name: this.profileForm.get('companyName').value,
