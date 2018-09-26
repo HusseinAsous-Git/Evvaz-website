@@ -145,6 +145,7 @@ newTender(){
     request_expired_date: toDate.getTime(),
     school_id: this.loginId,
     image_one:this.hash,
+    response_count: null,
     request_category_name: this.newTenderForm.get('category').value
    }
 

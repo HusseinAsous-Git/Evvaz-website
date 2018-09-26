@@ -6,5 +6,5 @@ export class TenderModel {
     school_id: number;
     request_category_name: string;
     
-    // response_count: number;
+    response_count: number;
 }
