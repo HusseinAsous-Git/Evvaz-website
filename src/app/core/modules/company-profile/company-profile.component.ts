@@ -41,7 +41,7 @@ export class CompanyProfileComponent implements OnInit {
         //console.log(this.company);     
       },
       (error) => {
-        console.log('errors ', error)
+        console.log('getting Company Data - server maybe down')
       }
     );
     

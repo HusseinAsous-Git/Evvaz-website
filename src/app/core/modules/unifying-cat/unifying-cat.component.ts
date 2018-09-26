@@ -36,6 +36,7 @@ export class UnifyingCatComponent implements OnInit {
   ngOnInit() {
     this.unifyingPlatform.getUniCatData(this.catId).subscribe(
       (response) => {
+        if(response[0]){//To Hide ErrorS While not avilable
         if (response[0]['tender_id']) {
           // activation
           // console.log("current_date : " ,+this.today);
@@ -65,7 +66,7 @@ export class UnifyingCatComponent implements OnInit {
           if (this.showForUser) {
             this.req_view_add['seen_tender_id'] = +response[0]['tender_id'];
 
-            console.log('there is a tender');
+            //console.log('there is a tender');
             let timeBase = response[0]['tender_expire_date'] - response[0]['tender_display_date'];
             let percent = +this.today - response[0]['tender_display_date'];
             this.timeLinePrecent = Math.floor((percent / timeBase) * 100);
@@ -93,12 +94,13 @@ export class UnifyingCatComponent implements OnInit {
 
 
         }
+      }
         else {
-          console.log('there is something wrong in getting data');
+          console.log('response => there is something wrong in getting data');
         }
       },
       (error) => {
-        console.log('errors ', error)
+        console.log('error => there is something wrong in getting data')
       }
     );
   }
@@ -106,17 +108,17 @@ export class UnifyingCatComponent implements OnInit {
     this.unifyingPlatform.addView(this.req_view_add).subscribe(
       (response) => {
         if (response['state'] == 400 || response['state'] == 500) {
-          console.log("view didn't count : ", response);
+          console.log("view didn't count ");
         }
         else if (response['message'] == "Already Exist") {
-          console.log("view didn't count : ", response['message']);
+          console.log("view didn't count ");
         }
         else {
-          console.log("view added : ", response);
+          console.log("view added ");
         }
       },
       (error) => {
-        console.log('errors ', error)
+        console.log('error => server maybe down')
       }
     );
   }

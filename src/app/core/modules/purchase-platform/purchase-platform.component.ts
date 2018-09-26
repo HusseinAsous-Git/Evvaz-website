@@ -25,7 +25,7 @@ export class PurchasePlatformComponent implements OnInit {
         //console.log(this.companiesInfo);     
       },
       (error) => {
-        console.log('errors ', error)
+        console.log('purchase platform - serve mabe down')
       }
     );
   }

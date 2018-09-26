@@ -19,19 +19,19 @@ export class FooterComponent implements OnInit {
     this.subscribeAdd.addToMailList(this.subscribe_mail).subscribe(
       (response) =>{
        if(response['status']==200){
-         console.log('success');
+         console.log('subscribtion success');
          document.getElementById("successModalButton").click();
        }
        else{
-        console.log('fail');
+        console.log('subscribtion fail');
         document.getElementById("failModalButton").click();
        }
        
       },
       (error) => {
         document.getElementById("failModalButton").click();
-        console.log('fail');
-        console.log('errors ', error)
+        console.log('subscribtion fail');
+        //console.log('errors ', error)
       }
     );
   }

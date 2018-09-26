@@ -48,7 +48,7 @@ export class PurchaseCategoryComponent implements OnInit {
         this.descendingSort();   
       },
       (error) => {
-        console.log('errors ', error)
+        console.log('purchase category while getting categories - server maybe down')
       }
     );
     
@@ -58,7 +58,7 @@ export class PurchaseCategoryComponent implements OnInit {
         this.categoryDetails=response[0];
       },
       (error) => {
-        console.log('errors ', error)
+        console.log('purchase category while getting Details - server maybe down')
       }
     );
     

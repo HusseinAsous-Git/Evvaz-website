@@ -44,7 +44,7 @@ export class OfferPlatformComponent implements OnInit {
           this.companiesView = this.companiesInfo;
         },
         (error) => {
-          console.log('errors ', error)
+          console.log('checking login - server maybe down')
         }
       );
     }
@@ -55,7 +55,7 @@ export class OfferPlatformComponent implements OnInit {
           this.companiesView = this.companiesInfo;
         },
         (error) => {
-          console.log('errors ', error)
+          console.log('getting companies - server maybe down')
         }
       );
     }
@@ -63,7 +63,7 @@ export class OfferPlatformComponent implements OnInit {
     this.areaCitySelectData();
     this.getCompanyCategories();
 
-    console.log(this.companiesView);
+    //console.log(this.companiesView);
   }
 
   followCompany(organization_id) {

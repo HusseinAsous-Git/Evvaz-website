@@ -48,14 +48,14 @@ export class OfferDetailsComponent implements OnInit {
     this.req_view_add['seen_offer_school_id']=this.UserData['login_id'];
     this.req_view_add['seen_offer_id']=+this.offer_id;
     this.addView();
-    console.log("this user id is ====> ", this.UserData['login_id']);
+    //console.log("this user id is ====> ", this.UserData['login_id']);
 
     this.Company.getCompany(this.company_id).subscribe(
       (Company) => {
         this.company = Company;
       },
       (error) => {
-        console.log('errors ', error)
+        console.log('while getting company Data - server maybe down')
       }
     );
     this.profileService.getOfferDetails(this.offer_id).subscribe(
@@ -94,7 +94,7 @@ export class OfferDetailsComponent implements OnInit {
       }
       ,
       (error) => {
-        console.log('errors ', error)
+        console.log('while getting single offer details - server maybe down')
       }
     );
   }
@@ -122,7 +122,7 @@ export class OfferDetailsComponent implements OnInit {
       (error) => {
         this.showSucces = false;
         this.showFail = true;
-        console.log('errors ', error)
+        console.log('while requestOffer - server maybe down')
       }
     );
     this.request_details['request_offer_count']=0;
@@ -131,17 +131,17 @@ export class OfferDetailsComponent implements OnInit {
     this.profileService.addView(this.req_view_add).subscribe(
       (response) => {
         if(response['state']==400 || response['state']==500){
-          console.log("view didn't count : " , response);
+          console.log("view didn't count ");
         }
         else if (response['message'] == "Already Exist"){
-          console.log("view didn't count : " , response['message']);
+          console.log("view already counted before ");
         }
         else {
-          console.log("view added : " , response);
+          console.log("view added ");
         }
       },
       (error) => {
-        console.log('errors ', error)
+        console.log('while adding view - server maybe down')
       }
     );
   }
