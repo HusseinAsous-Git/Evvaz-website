@@ -76,6 +76,9 @@
           <br> <br>
           <img [src]="srcCover" width="800" height="300">
           <div class="pull-right">
+              <span 
+              class="help-block" style="color: gray" >cover should be 300 x 800 Pixels</span>
+              
             <span 
             *ngIf="!coverSizeIsValid"
             class="help-block" style="color: red">Cover shouldn't be over 2 MB!</span>
@@ -101,13 +104,16 @@
       </div> -->
 
       <div class="form-group">
-        <label for="description">Description</label>
-        <textarea class="form-control"
+          <label for="description">Description</label>
+          <app-ngx-editor [placeholder]="'Enter description here...'" [spellcheck]="true" formControlName="description"></app-ngx-editor>
+
+       
+        <!-- <textarea class="form-control"
         id="description" 
         rows="3" 
         placeholder="school description"
-        formControlName="description"
-        ></textarea>
+        
+        ></textarea> -->
       </div>
 
       <div class="form-group">

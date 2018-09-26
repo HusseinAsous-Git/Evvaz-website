@@ -81,6 +81,8 @@
            <img  src={{srcLogo}} alt="" id="img" width="100" height="100">
          
         </div>
+         
+                
         <span 
               *ngIf="!logoSizeIsValid"
               class="help-block" style="color: red" >logo shouldn't be over 2 MB!</span>
@@ -98,9 +100,12 @@
             <img [src]="srcCover" width="800" height="300">
             <div class="pull-right">
                 <span 
+                class="help-block" style="color: gray" >cover should be 300 x 800 Pixels</span>
+                <span 
                 *ngIf="!coverSizeIsValid"
                 class="help-block" style="color: red">Cover shouldn't be over 2 MB!</span>
             </div>
+
         </div>
         
 
@@ -136,13 +141,16 @@
 
               <div class="form-group">
                   <label for="description">Description</label>
-                  <textarea class="form-control"
-                  id="description" 
-                  rows="3" 
-                  placeholder="company description"
-                  formControlName="description"
-                  ></textarea>
-                </div>
+                  <app-ngx-editor [placeholder]="'Enter description here...'" [spellcheck]="true" formControlName="description"></app-ngx-editor>
+        
+               
+                <!-- <textarea class="form-control"
+                id="description" 
+                rows="3" 
+                placeholder="school description"
+                
+                ></textarea> -->
+              </div>
 
         <div class="form-group">
           <label for="website">Website URL</label>

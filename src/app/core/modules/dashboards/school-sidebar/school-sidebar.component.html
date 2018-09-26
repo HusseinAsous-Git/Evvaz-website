@@ -28,7 +28,7 @@
               <a  href="#trenders"  data-toggle ="collapse" 
               class=" pl-4 list-group-item list-group-item-action" 
               routerLinkActive="active" [routerLinkActiveOptions]={exact:true}>
-                <i class="fa fa-calendar pr-3"></i> Tenders
+                <i class="fa fa-calendar pr-3"></i> Requests
                 <span class="d-inline-block mt-1 float-right ">
                     <i class="fa fa-caret-down"></i>
                 </span>
@@ -38,17 +38,18 @@
                 <a  class="list-group-item list-group-item-action"
                 routerLinkActive="active"
                 [routerLink]="['/school','tenders','mine']">
-                        My Tenders <i class="fa fa-eye pull-right"></i>
+                        My Requests <i class="fa fa-eye pull-right"></i>
                 </a>
-                <a  class="list-group-item list-group-item-action" routerLinkActive="active" [routerLink]="['/school','collective','all']">
-                    Collective tenders  <i class="fa fa-eye pull-right"></i>
-                </a>
+               
                 <a  class="list-group-item list-group-item-action" routerLinkActive="active" [routerLink]="['/school','tenders','new']">
-                  Create a tender <i class="fa fa-plus pull-right"></i>
+                  Create a request <i class="fa fa-plus pull-right"></i>
               </a>
               
                </div>
             </div>
+            <a  class="list-group-item list-group-item-action" routerLinkActive="active" [routerLink]="['/school','collective','all']">
+                Collective tenders  <i class="fa fa-eye pull-right"></i>
+            </a>
             <a  class=" pl-4 list-group-item list-group-item-action" [routerLink]="['/school','profile']"
             routerLinkActive="active">
                 <i class="fa fa-user pr-3"></i> My Profile
@@ -57,7 +58,11 @@
              [routerLink]="['/school','followers']" routerLinkActive="active">
                 <i class="fa fa-user pr-3"></i> Followers <span class="badge badge-primary badge-pill pull-right">{{ followCount}}</span>
             </a>
-            <a  href="#orders" 
+            <a  class=" pl-4 list-group-item list-group-item-action"
+             [routerLink]="['/school','history']" routerLinkActive="active">
+                <i class="fa fa-history pr-3"></i> History <span class="badge badge-primary badge-pill pull-right">{{ historyCount}}</span>
+            </a>
+            <!-- <a  href="#orders" 
              data-toggle ="collapse" 
              class=" pl-4 list-group-item list-group-item-action" 
              routerLinkActive="active" [routerLinkActiveOptions]={exact:true}>
@@ -65,8 +70,8 @@
               <span class="d-inline-block mt-1 float-right ">
                   <i class="fa fa-caret-down"></i>
               </span>
-          </a>
-          <div class="collapse" id="orders">
+          </a> -->
+          <!-- <div class="collapse" id="orders">
              <div class="list-group">
               <a  class="list-group-item list-group-item-action"
               routerLinkActive="active"
@@ -82,7 +87,7 @@
               
             
              </div>
-          </div>
+          </div> -->
                 
 
                 

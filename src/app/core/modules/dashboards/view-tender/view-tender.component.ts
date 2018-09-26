@@ -23,6 +23,9 @@ progressPercentage;
 progressStatus;
 companiesCount=0;
 agreeArray : boolean [] = [];
+disableArray : boolean [] = []; 
+chosen = false;
+chosenId = -1;
   constructor(private schoolService: SchoolService, private activatedRoute:ActivatedRoute, private router:Router) { }
 
   toggle = false;
@@ -47,6 +50,11 @@ agreeArray : boolean [] = [];
         c.company_logo_image = 'data:image/png;base64,' + c.company_logo_image;
        this.companiesCount ++;
        this.agreeArray.push(false);
+       this.disableArray.push(true);
+       if(c['is_aproved'] == 1) {
+         this.chosen = true;
+         this.chosenId = c['response_id'];
+       }
       }
     }
     console.log("CompanyCount: " + this.companiesCount)
@@ -94,28 +102,32 @@ agreeArray : boolean [] = [];
 
   agree(id: number, flag:boolean, index:number){
     
-    
-    if(!this.agreeArray[index]){
+
+
+    if(!this.agreeArray[index] && !flag){
       this.schoolService.agreeToCompany(id).subscribe(
         response=>{ 
           console.log(response);
-          flag =!flag;
+          
         },err => console.log(err)
       );
 
       this.agreeArray[index] = !this.agreeArray[index];
+      location.reload();
      
-
+     // flag = !flag;
 
     }else {
       this.schoolService.refuseToCompany(id).subscribe(
         response=>{ 
           console.log(response);
-          flag =!flag;
+         
         },err => console.log(err)
         
       );
       this.agreeArray[index] = !this.agreeArray[index];
+      location.reload();
+     // flag = !flag;
     }
     
     
