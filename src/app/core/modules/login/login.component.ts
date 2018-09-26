@@ -26,17 +26,9 @@ export class LoginComponent implements OnInit {
   companyProfile;
 
   ngOnInit() {
-
-    
-
-
-
-    this.currentUser = localStorage.getItem("@MYUSER");
-    let userData = JSON.parse(this.currentUser);
-    this.loginId = userData['login_id'];
-    // if (this.currentUser) {
-    //   this.router.navigate(['/home-page']);
-    // }
+    if (localStorage.getItem("@MYUSER")) {
+      this.router.navigate(['/home-page']);
+    }
   }
 
 
