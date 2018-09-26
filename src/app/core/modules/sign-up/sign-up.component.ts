@@ -46,7 +46,7 @@ export class SignUpComponent implements OnInit {
     
   }
   resolved($event){
-
+    //console.log($event);
   }
   signUp(): void {
     //console.log(this.user)
@@ -107,7 +107,7 @@ export class SignUpComponent implements OnInit {
         
       },
       error =>{
-        console.log("Something Went wrong [[area and cities]]");
+        console.log("server => Something Went wrong [[area and cities]]");
       }
     );
   }

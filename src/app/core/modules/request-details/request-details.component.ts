@@ -84,14 +84,14 @@ export class RequestDetailsComponent implements OnInit {
           console.log("view didn't count : " , response);
         }
         else if (response['message'] == "Already Exist"){
-          console.log("view didn't count : " , response['message']);
+          console.log("view didn't count ");
         }
         else {
-          console.log("view added : " , response);
+          console.log("view added ");
         }
       },
       (error) => {
-        console.log('errors ', error)
+        console.log('request details - server maybe down now')
       }
     );
   }

@@ -41,9 +41,9 @@ export class HomeHeaderComponent implements OnInit {
 
   }
   logout(): void {
-    let x = this.authService.logout();
+    this.authService.logout();
 
-    console.log("This is ==>> " + x);
+    console.log("Logout Done!");
   }
   ngOnInit() {
   }
