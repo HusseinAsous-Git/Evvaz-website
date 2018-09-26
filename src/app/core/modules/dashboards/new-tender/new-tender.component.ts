@@ -13,13 +13,15 @@ import { AgmMap } from '@agm/core';
 export class NewTenderComponent implements OnInit {
   lat: number = 51.678418;
   lng: number = 7.809007;
-
+  base64textString;
   loginId: number;
 currentUser;
 categoryName;
   newTenderForm: FormGroup;
   categories : TenderCategoryModel [];
-
+  size;
+  hash;
+  sizeIsValid: boolean  = true;
   @ViewChild("startTime") startTime: ElementRef;
   @ViewChild("endTime") endTime: ElementRef;
 
@@ -47,7 +49,8 @@ categoryName;
         'fromdate':new FormControl(null, Validators.required), 
         'startTime':new FormControl(null, Validators.required),
         'todate':new FormControl(null, Validators.required),
-        'endTime':new FormControl(null, Validators.required)
+        'endTime':new FormControl(null, Validators.required),
+        'image_one' : new FormControl(null, Validators.required)
       }
     )
 
@@ -55,6 +58,42 @@ categoryName;
 
 
   }
+
+  onUploadChange(evt: any) {
+    const file = evt.target.files[0];
+    this.size = file.size;
+    if (file) {
+      const reader = new FileReader();
+
+
+      if(this.size >1000000 ){
+        this.sizeIsValid = false;
+        }else{
+          this.sizeIsValid = true;
+        }
+
+        if(this.sizeIsValid){
+      reader.onload = this.handleReaderLoaded.bind(this);
+      reader.readAsBinaryString(file);
+        }else{
+          return ;
+        }
+
+
+    
+
+    }
+   
+  }
+  
+  handleReaderLoaded(e) {
+    this.hash =  btoa(e.target.result);
+    this.base64textString = 'data:image/png;base64,' + btoa(e.target.result);
+    // this.sizeArray.push(btoa(e.target.size));
+  }
+
+
+
 
   setStartTime() {
     
@@ -107,8 +146,8 @@ newTender(){
     request_display_date: fromDate.getTime(),
     request_expired_date: toDate.getTime(),
     school_id: this.loginId,
-    response_count:null,
-    request_category_id: this.newTenderForm.get('category').value
+    image_one:this.hash,
+    request_category_name: this.newTenderForm.get('category').value
    }
 
    console.log("Name is: " + this.newTenderForm.get('tenderName').value + " is of type: " + typeof(this.newTenderForm.get('tenderName').value))
@@ -117,6 +156,7 @@ newTender(){
    console.log("to date is: "+ toDate.getTime() + " is of type: " + typeof(toDate.getTime()));
    console.log("Login ID: " + this.loginId);
    console.log("category is: " + this.newTenderForm.get('category').value + " is of type: " + typeof(this.newTenderForm.get('category').value))
+   console.log("Image is: " + this.hash[0]);
    this.schoolService.createTender(data).subscribe(
     response => {
       console.log(response)
