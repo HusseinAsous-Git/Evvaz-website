@@ -20,7 +20,7 @@ export class AdminAllTendersComponent implements OnInit {
 
     this.adminService.getmMyTenders().subscribe(
       response => {
-        console.log(response);
+      //  console.log(response);
         this.myTenders = response;
 
         for(let o of this.myTenders){

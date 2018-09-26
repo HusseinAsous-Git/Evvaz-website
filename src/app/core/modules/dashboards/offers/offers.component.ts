@@ -27,16 +27,16 @@ export class OffersComponent implements OnInit {
         if(response){
           this.isloading = false;
           this.companyOffers = response['list'];
-        console.log(response)
+     //   console.log(response)
 
        
 
          // this.companyOffers = response;
 
-        console.log(this.companyOffers);
+     //   console.log(this.companyOffers);
         }
       },
-      (err) => console.log("Error: " + err)
+      (err) => console.log("ERROR IN offers COMPONENT")
     );
   }
 
@@ -45,17 +45,17 @@ export class OffersComponent implements OnInit {
 
   deleteOffer(data: CompanyOfferModel, index : number) {
     
-    console.log("record deleted successfully !") ; 
+//    console.log("record deleted successfully !") ; 
      
      this.companyService.deleteOffer(data.offer_id).subscribe(
        res =>{
          this.companyOffers.splice(index,1);
-        console.log("record deleted successfully !") ; 
+     //   console.log("record deleted successfully !") ; 
          this.router.navigate(["../see"], {relativeTo:this.activatedRoute});
       }
        , 
        err => {
-         console.log(err) ;
+        (err) => console.log("ERROR IN offers COMPONENT")
        }
      ) ; 
   }

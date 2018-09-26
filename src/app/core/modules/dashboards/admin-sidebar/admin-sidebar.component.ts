@@ -56,7 +56,7 @@ static c : number = 0;
     this.adminService.getAllRequests().subscribe(
       response => {
         this.requests = response;
-        console.log(response)
+     //   console.log(response)
 
         for(let request of this.requests){
           this.requestCount++;
@@ -65,12 +65,12 @@ static c : number = 0;
         }
       }
       },
-      err => console.log(err)
+      err => console.log("ERROR IN admin-sidebar COMPONENT")
     )
 
     this.adminService.getAllOrders().subscribe(
       response => {
-        console.log(response);
+       // console.log(response);
         this.orders = response;
         for(let o of this.orders) {
           this.orderCount++;
@@ -93,7 +93,7 @@ static c : number = 0;
   getHistoryCount (){
     this.adminService.getAllHistory().subscribe(
       response => {
-        console.log(response);
+      //  console.log(response);
         this.history = response;
         this.historyCount  =  response.length;
       }

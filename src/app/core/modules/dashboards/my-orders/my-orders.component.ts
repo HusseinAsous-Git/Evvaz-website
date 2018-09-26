@@ -24,7 +24,7 @@ export class MyOrdersComponent implements OnInit {
       
       response =>{ 
         
-        console.log(response);
+       // console.log(response);
         this.schoolOrders = response;
         for(let order of this.schoolOrders){
           this.count++;
@@ -32,7 +32,7 @@ export class MyOrdersComponent implements OnInit {
         if(this.count === 0){
           this.applyMessage = true;
         }
-        console.log(this.schoolOrders)
+      //  console.log(this.schoolOrders)
        }
     )
   }

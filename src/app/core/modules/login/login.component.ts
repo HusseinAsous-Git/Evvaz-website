@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
         if(data['state'] === 201 ){
             
         this.authService.setUser(data);
-        console.log(data);
+    //    console.log(data);
         if(this.user.login_role ==="company"){
 
           this.profileService.getProfile(data['login_id']).subscribe(
@@ -51,11 +51,11 @@ export class LoginComponent implements OnInit {
               }else {
                 this.router.navigate(['/company','intro','profile'])
               }
-              console.log("company profile");
-              console.log(this.companyProfile)
+           //   console.log("company profile");
+            //  console.log(this.companyProfile)
             },err => {
               this.router.navigate(['/company','intro','profile'])
-              console.log(err)
+           //   console.log(err)
               // this.router.navigate(['/company','profile' ]);
             }
           )
@@ -79,9 +79,9 @@ export class LoginComponent implements OnInit {
                 this.router.navigate(['/school','intro','profile'])
               }
              },err => {
-               console.log("Error");
+            //   console.log("Error");
                this.router.navigate(['/school','intro','profile'])
-             console.log(err);
+         //    console.log(err);
              }
           )
 
@@ -98,7 +98,7 @@ export class LoginComponent implements OnInit {
         }
        }
        , error => {
-        console.log(error);
+    //    console.log(error);
         document.getElementById("openModalButton").click();
       }
     );

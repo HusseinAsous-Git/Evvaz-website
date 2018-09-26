@@ -1,5 +1,7 @@
 
 <div style="margin-top: 100px;"></div>
+<div *ngIf="activeProfile">
+  
 
 <div class="container">
   <div class="row justify-content-center">
@@ -45,11 +47,12 @@
   </div>
 
   <div class="row mt-5">
-    <div class="col-sm-4" *ngFor="let cat of activeProfile.category">
+    <div class="col-sm-4" *ngFor="let cat of allCategories">
         <i class="fa fa-university mr-1 ml-2" style="font-size: 20px"></i> <span style="color: gray">{{cat.category_name}}</span>
     </div>
     
   </div>
  
     
+</div>
 </div>

@@ -87,7 +87,7 @@ this.cats = this.tender.category;
       'description':new FormControl(this.tender['tender_explain'], Validators.required),
       'schoolfromdate':new FormControl(null, Validators.required), 
       'schoolstartTime':new FormControl(null, Validators.required),
-      'schooltodate':new FormControl(null, Validators.required),
+      'schooltodate':new FormControl(this.tender['tender_display_date'], Validators.required),
       'schoolendTime':new FormControl(null, Validators.required),
       'companyfromdate':new FormControl(null, Validators.required), 
       'companystartTime':new FormControl(null, Validators.required),

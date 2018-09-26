@@ -11,12 +11,16 @@ import { SchoolService } from '../../../services/school.service';
   styleUrls: ['./school-header.component.css']
 })
 export class SchoolHeaderComponent implements OnInit {
-
+loginId: number;
+currentUser;
   constructor(private schoolService: SchoolService, private uiService:UIService, private authService: AuthService, private router:Router) { }
 name : string;
   ngOnInit() {
+    this.currentUser = localStorage.getItem("@MYUSER");
+    let userData = JSON.parse(this.currentUser);
+    this.loginId = userData['login_id'];
 
-    this.schoolService.getProfile(4).subscribe(
+    this.schoolService.getProfile(this.loginId).subscribe(
       response => {
        this.name =  response.school_name;
       }
@@ -27,7 +31,7 @@ name : string;
     
       this.uiService.sidebarStatus = !this.uiService.sidebarStatus ; 
     
-    console.log("toggled")
+//    console.log("toggled")
   }
 
 

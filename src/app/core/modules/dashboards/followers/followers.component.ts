@@ -28,16 +28,16 @@ export class FollowersComponent implements OnInit {
 
     this.schoolService.getSchools(this.loginId).subscribe(
       response => {
-        console.log(response);
+      //  console.log(response);
         this.schools = response;
        
         for(let school of this.schools) {
           school.school_logo_image = 'data:image/png;base64,' +  school.school_logo_image;
-          console.log("School id: " + school.school_id)
+       //   console.log("School id: " + school.school_id)
           this.followerNumber ++;
         }
         
-        console.log(this.schools);
+    //    console.log(this.schools);
       }
     )
   }
@@ -45,7 +45,7 @@ export class FollowersComponent implements OnInit {
   onFollow(id: number, followed: boolean ){ 
 
     
-    console.log("id is: " + id)
+   // console.log("id is: " + id)
     this.isFollowing= !this.isFollowing
     followed = ! followed
     if(this.isFollowing&&followed){
@@ -55,10 +55,10 @@ export class FollowersComponent implements OnInit {
       }
       this.companyService.follow(data).subscribe(
         response => {
-          console.log("Successfully followed");
-          console.log(response)
+       //   console.log("Successfully followed");
+        //  console.log(response)
         },
-        err => console.log(err)
+        err => console.log("ERROR IN followers COMPONENT")
       )
     }else {
       // delete follow here
@@ -68,10 +68,10 @@ export class FollowersComponent implements OnInit {
       }
       this.companyService.removeFollow(data).subscribe(
         response => {
-          console.log("Successfully deleted");
-          console.log(response)
+       //   console.log("Successfully deleted");
+       //   console.log(response)
         },
-        err => console.log(err)
+        err => console.log("ERROR IN followers COMPONENT")
       )
     }
     

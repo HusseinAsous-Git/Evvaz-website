@@ -34,7 +34,8 @@ changeFlag = true;
   ngOnInit() {
 
     this.adminService.getCategories().subscribe(
-      response => {console.log(response);
+      response => {
+        //console.log(response);
         this.categories = response; }
 
     )
@@ -43,7 +44,7 @@ changeFlag = true;
     this.currentUser = localStorage.getItem("@MYUSER");
     let userData = JSON.parse(this.currentUser);
     this.loginId = userData['login_id'];
-    console.log("Login Id: " + this.loginId);
+   // console.log("Login Id: " + this.loginId);
 
     this.newTenderForm = new FormGroup(
       {
@@ -141,8 +142,8 @@ amazingTimePicker.afterClose().subscribe(time => {
 }
 
 hasChecked(e  ,category: AdminCategory, index: number){
-  console.log(e.checked);
-  console.log(category);
+ // console.log(e.checked);
+ // console.log(category);
 
 
 
@@ -164,7 +165,7 @@ hasChecked(e  ,category: AdminCategory, index: number){
 
 
 newTender(){
-  console.log(this.newTenderForm)
+ // console.log(this.newTenderForm)
 
  const schoolfromDate = new Date(this.newTenderForm.get('schoolfromdate').value +  " " + this.newTenderForm.get('schoolstartTime').value);
 
@@ -179,8 +180,8 @@ newTender(){
   console.log("Retuen cat: " + c.category_name)
 }
 
- console.log(schoolfromDate.getTime() + "is of type: " + typeof(schoolfromDate.getTime() ));
- console.log(schooltoDate.getTime());
+// console.log(schoolfromDate.getTime() + "is of type: " + typeof(schoolfromDate.getTime() ));
+// console.log(schooltoDate.getTime());
 
 
 
@@ -201,11 +202,11 @@ newTender(){
   cats: this.catNames
  }
 
- console.log("Name is: " + this.newTenderForm.get('tenderName').value + " is of type: " + typeof(this.newTenderForm.get('tenderName').value))
- console.log(" description is: " + this.newTenderForm.get('description').value + " is of type: " + typeof(this.newTenderForm.get('description').value))
- console.log("from date is: "+ schoolfromDate.getTime() + " is of type: " + typeof(schoolfromDate.getTime()));
- console.log("to date is: "+ schooltoDate.getTime() + " is of type: " + typeof(schooltoDate.getTime()));
- console.log("Login ID: " + this.loginId);
+ //console.log("Name is: " + this.newTenderForm.get('tenderName').value + " is of type: " + typeof(this.newTenderForm.get('tenderName').value))
+ //console.log(" description is: " + this.newTenderForm.get('description').value + " is of type: " + typeof(this.newTenderForm.get('description').value))
+// console.log("from date is: "+ schoolfromDate.getTime() + " is of type: " + typeof(schoolfromDate.getTime()));
+// console.log("to date is: "+ schooltoDate.getTime() + " is of type: " + typeof(schooltoDate.getTime()));
+ //console.log("Login ID: " + this.loginId);
 
 
 
@@ -217,7 +218,7 @@ newTender(){
 
  this.adminService.createTender(data).subscribe(
   response => {
-    console.log(response)
+   // console.log(response)
     this.router.navigate(['/admin','tenders','mine']);
       
   },err  =>  {
@@ -238,16 +239,16 @@ newTender(){
   }
 
    for(let cat of this.catNames) {
-     console.log("Remain cats: ");
-     console.log(cat)
+    // console.log("Remain cats: ");
+    // console.log(cat)
    }
    for(let cat of this.returnedCats) {
-    console.log("Remain cats: ");
-    console.log(cat)
+   // console.log("Remain cats: ");
+    //console.log(cat)
   }
    
    this.newTenderForm.get('category').reset();
-    console.log(err)
+    console.log("ERROR IN admin-new-tender COMPONENT")
   
   }
  )

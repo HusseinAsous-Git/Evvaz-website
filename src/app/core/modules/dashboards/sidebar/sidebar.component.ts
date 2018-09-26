@@ -27,12 +27,12 @@ export class SidebarComponent implements OnInit {
       
       response =>{ 
         
-        console.log(response);
+     //   console.log(response);
         this.orders = response;
         for(let order of this.orders){
           this.count++;
         }
-        console.log(this.orders)
+     //   console.log(this.orders)
        }
     )
     this.schoolService.getSchools(3).subscribe(
@@ -46,9 +46,9 @@ export class SidebarComponent implements OnInit {
   }
 
   toggleSidebar(){
-    console.log("toggle")
+  //  console.log("toggle")
     if(this.uiService.getSidebarStatus()){
-      console.log(true);
+   //   console.log(true);
       this.uiService.sidebarStatus = false ; 
     }
   }

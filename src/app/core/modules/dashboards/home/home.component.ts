@@ -18,24 +18,26 @@ export class HomeComponent implements OnInit {
   adminCategories;
   activeProfile:CompanyProfileModel;
   youtube = false;
+  allCategories;
   constructor(private authService: AuthService, private profileService: ProfileServiceDashboard, private adminService:AdminService) { }
 
   ngOnInit() {
 
 
     this.isAuthenticated =  this.authService.isAuthenticated();
-    console.log("Authentication: " + this.isAuthenticated)
+  //  console.log("Authentication: " + this.isAuthenticated)
 
   this.currentUser =   localStorage.getItem("@MYUSER");
     let userData = JSON.parse(this.currentUser);
     this.loginId = userData['login_id'];
-  console.log("User is: " + userData)
+ // console.log("User is: " + userData)
 
   this.profileService.getProfile(this.loginId).subscribe(
     (response) => { 
-      console.log("Company profile:");  
-      console.log(response);
+   //   console.log("Company profile:");  
+   //   console.log(response);
       this.activeProfile = response;
+      this.allCategories = this.activeProfile.category;
       this.activeProfile.company_logo_image = 'data:image/png;base64,' + this.activeProfile.company_logo_image;
       if(this.activeProfile.company_link_youtube){
         this.youtube = true;

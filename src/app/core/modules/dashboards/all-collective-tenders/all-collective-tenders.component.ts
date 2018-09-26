@@ -25,7 +25,7 @@ export class AllCollectiveTendersComponent implements OnInit {
     this.
     schoolService.getAllCollectiveTenders().subscribe(
       response => {
-        console.log(response);
+       // console.log(response);
         this.allCollectiveTenders = response;
         for(let c of this.allCollectiveTenders){
           var oneDay = 24*60*60*1000;
@@ -35,7 +35,7 @@ export class AllCollectiveTendersComponent implements OnInit {
           this.collectiveCount ++;
         }
       },
-      err => console.log(err)
+      err => console.log("ERROR IN all-collective-tenders COMPONENT")
     )
 
     
