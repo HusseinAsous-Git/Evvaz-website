@@ -25,6 +25,7 @@ catExist = false;
 progressPercentage =0;
 progressStatus;
 expird= false;
+allCats;
   constructor(private activatedRoute:ActivatedRoute, private router:Router, private schoolService: SchoolService) { }
 
   ngOnInit() {
@@ -49,6 +50,7 @@ expird= false;
         this.tender = data['tender'];
         console.log("Tender: ");
         console.log(this.tender)
+        this.allCats = this.tender.data['category'];
         // var display_date = new Date(this.tender.data.tender_display_date);
         // console.log("Display date: " + display_date)
         
