@@ -4,15 +4,13 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AmazingTimePickerService } from 'amazing-time-picker';
 import { TenderCategoryModel } from '../../../models/tender.category.model';
-import { AgmMap } from '@agm/core';
 @Component({
   selector: 'app-new-tender',
   templateUrl: './new-tender.component.html',
   styleUrls: ['./new-tender.component.scss']
 })
 export class NewTenderComponent implements OnInit {
-  lat: number = 51.678418;
-  lng: number = 7.809007;
+ 
   base64textString;
   loginId: number;
 currentUser;

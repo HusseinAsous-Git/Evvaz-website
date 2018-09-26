@@ -139,13 +139,16 @@
 
               <div class="form-group">
                   <label for="description">Description</label>
-                  <textarea class="form-control"
-                  id="description" 
-                  rows="3" 
-                  placeholder="company description"
-                  formControlName="description"
-                  ></textarea>
-                </div>
+                  <app-ngx-editor [placeholder]="'Enter description here...'" [spellcheck]="true" formControlName="description"></app-ngx-editor>
+        
+               
+                <!-- <textarea class="form-control"
+                id="description" 
+                rows="3" 
+                placeholder="school description"
+                
+                ></textarea> -->
+              </div>
 
         <div class="form-group">
           <label for="website">Website URL</label>

@@ -111,7 +111,7 @@ import { CompanyParentComponent } from './core/modules/dashboards/company-parent
 import { SchoolProfileCpyComponent } from './core/modules/dashboards/school-profile-cpy/school-profile-cpy.component';
 import { CompanyProfileCpyComponent } from './core/modules/dashboards/company-profile-cpy/company-profile-cpy.component';
 import { NgxEditorModule } from 'ngx-editor';
-import { AgmCoreModule } from '@agm/core';
+// import { AgmCoreModule } from '@agm/core';
 @NgModule({
   declarations: [
     AppComponent,
@@ -201,9 +201,9 @@ import { AgmCoreModule } from '@agm/core';
     RecaptchaModule.forRoot(),
     RecaptchaFormsModule,
     NgxEditorModule,
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCtjjapKI6BsU6ow8b-r2xUIHcP6agKuo8'
-    }),
+    // AgmCoreModule.forRoot({
+    //   apiKey: 'AIzaSyCtjjapKI6BsU6ow8b-r2xUIHcP6agKuo8'
+    // }),
      // Optionally you can set time for `idle`, `timeout` and `ping` in seconds.
     // Default values: `idle` is 600 (10 minutes), `timeout` is 300 (5 minutes) 
     // and `ping` is 120 (2 minutes).
@@ -231,6 +231,7 @@ import { AgmCoreModule } from '@agm/core';
     AdminService,
     PurchasePlatformService,
     UnifyingPlatformService,
+   
     SubscribeService,
     {
       provide: HTTP_INTERCEPTORS,
