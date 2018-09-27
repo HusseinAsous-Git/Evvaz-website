@@ -1,4 +1,4 @@
-<div class="formd">
+<div style="background: url('assets/img/index/footer.png'); height: 100%;background-size: cover;">
   <div class="body-form">
     <div class="formheader">
       <div class="image">
@@ -22,21 +22,22 @@
           <option value="company">company</option>
         </select>
         <br>
-        <label>Username:</label>
+        
+        <label>Username<span class="required">*</span></label>
         <input name="registeration_username" [(ngModel)]="user.registerationUsername" type="text" class="form-control"
-          placeholder="Username" minlength="4" #uname="ngModel" pattern="^[a-zA-Z0-9]{4,15}$" required>
-        <div *ngIf="uname.errors?.minlength || uname.errors?.pattern" class="alert-danger bg-white">
-          Name must be at least 4 characters, lower case latin Characters and numbers only without spaces.
+          placeholder="Username"  #uname="ngModel" pattern="[\S]{4,}$" maxlength="25" required>
+        <div *ngIf="uname.errors?.pattern" class="alert-danger bg-white">
+          Name must be at least 4 characters without spaces.
         </div>
         <br>
-        <label>Organization Name:</label>
-        <input name="registration_organization_name" [(ngModel)]="user.registrationOrganizationName" type="text"
-          class="form-control" placeholder="Organization Name" minlength="3" #oname="ngModel" required>
-        <div class="alert-danger bg-white" *ngIf="oname.errors?.minlength">
-          Organization Name must be at least 3 characters long.
+        <label>Organization Name<span class="required">*</span></label>
+        <input name="registration_organization_name" [(ngModel)]="user.registrationOrganizationName" type="text" class="form-control"
+          placeholder="Organization Name" pattern="^[^-\s][\u0600-\u06FF-a-zA-Z0-9_\s-]{0,}$" maxlength="25"  #oname="ngModel" required>
+        <div class="alert-danger bg-white" *ngIf="oname.errors?.pattern">
+          Organization can't start with space
         </div>
         <br>
-        <label>Address:</label>
+        <label>Address<span class="required">*</span></label>
         <input name="adress" [(ngModel)]="user.registrationAddressDesc" type="text" #adress="ngModel" class="form-control"
           placeholder="Address" required>
         <br>
@@ -48,14 +49,14 @@
           </div>
           <div class="col-md-6">
             <select class="form-control" name="city" [(ngModel)]="currentCity" [disabled]="!currentCity">
-                <option *ngFor="let city of currentCities" [value]="city">{{city}}</option>
+              <option *ngFor="let city of currentCities" [value]="city">{{city}}</option>
             </select>
           </div>
 
 
         </div>
         <br>
-        <label>Email:</label>
+        <label>Email<span class="required">*</span></label>
         <input name="email" [(ngModel)]="user.registerationEmail" type="text" #email="ngModel" class="form-control"
           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="example@gmail.com" required>
         <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert-danger bg-white">
@@ -67,37 +68,30 @@
           </div>
         </div>
         <br>
-        <label>Phone Number</label>
-        <input name="registeration_phone_number" [(ngModel)]="user.registerationPhoneNumber" type="text" class="form-control"
-          placeholder="(002)22222222" required>
-        <br>
-
-        <label>Website Url:</label>
-        <!-- if school  -->
-        <div *ngIf="user.registrationRole=='school'" class="alert-primary round-corners bg-white">
-          Optional for schools
+        <label>Phone Number<span class="required">*</span></label>
+        <input name="registeration_phone_number" [(ngModel)]="user.registerationPhoneNumber" #phone="ngModel" type="text" class="form-control"
+          pattern="[0-9]{10,}$"  maxlength="10" placeholder="(002)22222222" required>
+        <div class="alert-danger bg-white" *ngIf="phone.errors?.pattern && phone.touched">
+            Phone number must consist of 10 numbers only
         </div>
+        <br>
+        <label>Website Url</label>
         <input *ngIf="user.registrationRole=='school'" name="registeration_website" [(ngModel)]="user.registrationWebsiteUrl"
           type="url" class="form-control" placeholder="url">
-
-        <!-- if Company  -->
-        <input *ngIf="user.registrationRole=='company'" name="registeration_website" [(ngModel)]="user.registrationWebsiteUrl"
-          type="url" class="form-control" placeholder="url" required>
         <br>
-        <label>Password</label>
+        <label>Password<span class="required">*</span></label>
         <div ngModelGroup="password" #userPassword="ngModelGroup" required class="passflex">
           <input name="pwd" [(ngModel)]="user.registerationPassword" ngModel placeholder="Password" type="password" id="registeration_password"
-            class="form-control pass pass-box1" #passwordone="ngModel" pattern="^(?=.*?[#?!@$%^&*-]).{8,}$" required>
+            class="form-control pass pass-box1" #passwordone="ngModel" minlength="8" required>
           <input name="confirmPwd" type="password" ngModel id="confirm_password" placeholder="Confirm Password" class="form-control pass "
             required>
 
         </div>
-        <div *ngIf="(userPassword.invalid|| passwordone.errors?.pattern || userPassword.value?.pwd != userPassword.value?.confirmPwd) && (userPassword.touched)"
+        <div *ngIf="(userPassword.invalid|| passwordone.errors?.minlength || userPassword.value?.pwd != userPassword.value?.confirmPwd) && (userPassword.touched)"
           class=" alert-danger bg-white">
-          <div *ngIf="userPassword.invalid || passwordone.errors?.pattern; else nomatch">
+          <div *ngIf="passwordone.errors?.minlength; else nomatch">
             <p>
-              Password must be atleast 8 characters/number and contain a special character.
-              <span>[#?!@$%^&*-]</span>
+              Password must be atleast 8 digits.
             </p>
 
           </div>

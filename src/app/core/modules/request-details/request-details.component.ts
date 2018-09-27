@@ -49,7 +49,8 @@ export class RequestDetailsComponent implements OnInit {
 
     this.purchasPlatform.getRequestDetails(this.request_id).subscribe(
       (response) => {
-        if(response['request_id']){
+        //console.log(response);
+        if(response['request_id'] == this.request_id){
           this.requestDetails=response;
           let timeBase = response['request_expired_date']-response['request_display_date'];
           let percent = +this.today-response['request_display_date'];
@@ -73,7 +74,7 @@ export class RequestDetailsComponent implements OnInit {
         
       },
       (error) => {
-        console.log('errors ', error)
+        console.log('cnat get request details server may be down')
       }
     );
   }
@@ -81,7 +82,7 @@ export class RequestDetailsComponent implements OnInit {
     this.purchasPlatform.addView(this.req_view_add).subscribe(
       (response) => {
         if(response['state']==400 || response['state']==500){
-          console.log("view didn't count : " , response);
+          console.log("view didn't count X1");
         }
         else if (response['message'] == "Already Exist"){
           console.log("view didn't count ");
@@ -117,7 +118,7 @@ export class RequestDetailsComponent implements OnInit {
       (error) => {
         this.showSucces=false;
         this.showFail=true;
-        console.log('errors ', error)
+        console.log('server maybe down offer_service ')
       }
     );
     this.service_details['responsed_cost']=0;

@@ -10,12 +10,23 @@
 						<div class="d-inline-block my-auto">
 							<i class="fa fa-envelope"></i>
 							<div class="form-group d-inline-block">
-								<input type="email" name="email" [(ngModel)]="subscribe_mail['mail']" class="form-control border-0 p-0  custom-email-width"  placeholder="Enter Your Email" required>
+								<input type="email" name="email" [(ngModel)]="subscribe_mail['mail']" #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" class="form-control border-0 p-0  custom-email-width"  placeholder="Enter Your Email" required>
+								
+								
 							</div>
 						</div>
 						
+						
 						<button class="btn"  value="Add" (click)="subscribeFunction()" [disabled]="!subscribeForm.form.valid" >Send</button>
 					</div>
+					<div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert-danger bg-white">
+							<div *ngIf="email.errors?.required">
+								Email field can't be blank
+							</div>
+							<div *ngIf="email.errors?.pattern && email.touched" class="alert-danger bg-white">
+								The email id doesn't seem right
+							</div>
+						</div>
 				</div>
 			</form>
 				<ul class="list-inline w-100 d-flex justify-content-between">
@@ -39,7 +50,6 @@
 
 <!-- Button trigger modal -->
 <button type="button" [hidden]="true" class="btn btn-primary" id="failModalButton" data-toggle="modal" data-target="#failModal">
-	Launch demo modal
   </button>
   
   <!-- Modal -->
@@ -53,7 +63,9 @@
 		  </button>
 		</div>
 		<div class="modal-body">
-		  Make sure that you entered a correct Email
+		<span>
+				You are already in our mailing list
+		</span>
 		</div>
 		<div class="modal-footer">
 		  <button type="button" class="btn btn-danger" data-dismiss="modal">OK</button>
