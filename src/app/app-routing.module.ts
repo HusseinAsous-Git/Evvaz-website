@@ -1,3 +1,4 @@
+import { TestNotificationsComponent } from './core/modules/dashboards/test-notifications/test-notifications.component';
 import { CompanyProfileCpyComponent } from './core/modules/dashboards/company-profile-cpy/company-profile-cpy.component';
 import { SchoolProfileCpyComponent } from './core/modules/dashboards/school-profile-cpy/school-profile-cpy.component';
 import { SchoolParentComponent } from './core/modules/dashboards/school-parent/school-parent.component';
@@ -75,7 +76,7 @@ import { CompanyParentComponent } from './core/modules/dashboards/company-parent
 const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     {path:'home', component:IndexComponent},
-
+{path:'notifications/test', component:TestNotificationsComponent},
 
     // company routes
     {path:'company/intro/profile', component:CompanyProfileCpyComponent,canActivate: [AuthGuardCompany]},

@@ -43,7 +43,7 @@ export class AdminTenderEditComponent implements OnInit {
     this.activatedRoute.data.subscribe(
       (data: Data) => {
         this.tender = data['tender'];
-        console.log(this.tender)
+       // console.log(this.tender)
       //   for (let c of this.companies){
       //   c.company_logo_image = 'data:image/png;base64,' + c.company_logo_image;
        

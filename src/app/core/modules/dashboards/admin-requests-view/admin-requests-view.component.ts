@@ -18,11 +18,11 @@ isLoading = false;
     this.route.params.subscribe(
       (params:Params) => {
         this.requestId = params['requestId'];
-        console.log("Request ID: " + this.requestId)
+    //    console.log("Request ID: " + this.requestId)
 
         this.adminService.getSingleRequest(this.requestId).subscribe(
           response => {
-            console.log(response)
+       //     console.log(response)
             this.profile = response;
           }
         )
@@ -43,12 +43,12 @@ isLoading = false;
     
     this.adminService.activateRequest(id).subscribe(
       response => { 
-        console.log("Confirmation: ");
-        console.log(response);
+  //      console.log("Confirmation: ");
+     //   console.log(response);
         this.router.navigate(['/admin','requests'])
         this.isLoading = false;;
       },
-      err => console.log(err)
+      err => console.log("ERROR IN admin-requests-view COMPONENT")
     )
 
   }
@@ -57,12 +57,12 @@ isLoading = false;
     this.isLoading = true;
     this.adminService.considerRequest(id).subscribe(
       response => { 
-        console.log("Consideration: ");
-        console.log(response);
+   //     console.log("Consideration: ");
+    //    console.log(response);
         this.router.navigate(['/admin','requests','consider'])
         this.isLoading = false;;
       },
-      err => console.log(err)
+      err => console.log("ERROR IN admin-requests-view COMPONENT")
     )
 }
 
@@ -70,12 +70,12 @@ archiveRequest(id:number) {
   this.isLoading = true;
   this.adminService.archiveRequest(id).subscribe(
     response => { 
-      console.log("Consideration: ");
-      console.log(response);
+     // console.log("Consideration: ");
+     // console.log(response);
       this.router.navigate(['/admin','requests','archive'])
       this.isLoading = false;;
     },
-    err => console.log(err)
+    err => console.log("ERROR IN admin-requests-view COMPONENT")
   )
 }
 

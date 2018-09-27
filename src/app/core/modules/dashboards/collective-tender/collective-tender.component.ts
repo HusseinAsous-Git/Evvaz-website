@@ -41,15 +41,15 @@ allCats;
     this.activatedRoute.params.subscribe(
       (params: Params) => {
         this.tenderId = +params['tenderId'];
-        console.log("Tender id: " + this.tenderId)
+     //   console.log("Tender id: " + this.tenderId)
 
       }
     );
     this.activatedRoute.data.subscribe(
       (data: Data) => {
         this.tender = data['tender'];
-        console.log("Tender: ");
-        console.log(this.tender)
+     //   console.log("Tender: ");
+      //  console.log(this.tender)
         this.allCats = this.tender.data['category'];
         // var display_date = new Date(this.tender.data.tender_display_date);
         // console.log("Display date: " + display_date)
@@ -76,12 +76,12 @@ allCats;
 
         var percentage = this.tender.data.tender_expire_date - this.tender.data.tender_display_date;
 
-        console.log("Percentage: " + percentage)
+      //  console.log("Percentage: " + percentage)
         var diff = this.tender.data.tender_expire_date - new Date().getTime();
         var division = diff / percentage;
-        console.log("Division: " + division)
+      //  console.log("Division: " + division)
         this.progressPercentage = 100 - (Math.floor( division * 100));  
-        console.log("Progress:"+ this.progressPercentage)
+     //   console.log("Progress:"+ this.progressPercentage)
         this.progressStatus = "Available";
         if(this.tender.data.tender_display_date > Date.now()) {
           this.progressPercentage = 0 ;
@@ -94,12 +94,12 @@ allCats;
           }
         }
     
-        console.log("Difference between two dates: " + this.progressPercentage )
+      //  console.log("Difference between two dates: " + this.progressPercentage )
 
         
 
 
-        console.log(this.tender)
+      //  console.log(this.tender)
         
 
 
@@ -119,7 +119,7 @@ allCats;
       this.displayForm = false;
       return ;
     }
-    console.log(form)
+  //  console.log(form)
    var catData : {cat_name: string, count : number} []  = [];
 
    for(let cat of this.tender.data['category']){
@@ -127,7 +127,7 @@ allCats;
     if(cat['count'] !== 0) {
       this.catExist = true;
     }
-    console.log("Cat is : " +cat.category_name + " has count: " +   form.value[cat.category_name]);
+   // console.log("Cat is : " +cat.category_name + " has count: " +   form.value[cat.category_name]);
      catData.push({cat_name: cat.category_name, count: form.value[cat.category_name]})
       }
 
@@ -150,7 +150,7 @@ allCats;
       category: catData
     }
 
-    console.log(data)
+   // console.log(data)
     // if(!this.catExist){
 
     this.schoolService.addCollectiveTender(dataCreate).subscribe(
@@ -161,7 +161,7 @@ allCats;
           this.enableSuccessMessage = false;
           this.displayForm = true;
         },2000)
-        console.log(response)
+      //  console.log(response)
         if(response['state'] !== 400){
           this.displayForm = false;
           // setTimeout(()=> {
@@ -173,8 +173,8 @@ allCats;
       err => {
         this.enableErrMessage = true;
         this.displayForm = false;
-        console.log(dataCreate)
-        console.log(err.error.message)
+      //  console.log(dataCreate)
+      //  console.log(err.error.message)
       }
     )
   // }else {

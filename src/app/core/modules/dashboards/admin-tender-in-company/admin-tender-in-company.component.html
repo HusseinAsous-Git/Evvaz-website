@@ -17,6 +17,7 @@
     </ul>
   </div>
   <br>
+  <div *ngIf="tenderRequest">
   <div class="row ">
     <div class="pull-left col-sm-10">
         <button class="btn btn-danger ml-3 mr-2" style="width: 100px; height: 35px;" (click)="deleteTender(tenderId)">Delete</button>
@@ -175,4 +176,4 @@
   
   </div>
   </div>
-  
+</div>

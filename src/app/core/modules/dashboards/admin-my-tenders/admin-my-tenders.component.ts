@@ -23,18 +23,18 @@ export class AdminMyTendersComponent implements OnInit {
     this.activatedRoute.params.subscribe(
       (params:Params) => {
         this.tenderId = +params['tenderId'];
-        console.log("Tender id:" + this.tenderId)
+      //  console.log("Tender id:" + this.tenderId)
       }
     )
     this.adminService.getTenderDetailsInCompany(this.tenderId).subscribe(
       response => {
-        console.log(response);
+   //     console.log(response);
         this.tenders = response;
         this.tender = response[0];
-        console.log("Tender is:")
-        console.log(this.tender)
+     //   console.log("Tender is:")
+     //   console.log(this.tender)
 
-        console.log("Display date:" + this.tender.tender_company_display_date)
+    //    console.log("Display date:" + this.tender.tender_company_display_date)
 
 
 
@@ -43,13 +43,13 @@ export class AdminMyTendersComponent implements OnInit {
 
         var percentage = this.tender.tender_company_expired_date - this.tender.tender_company_display_date;
 
-        console.log("Percentage: " + percentage)
+      //  console.log("Percentage: " + percentage)
         var diff = this.tender.tender_company_expired_date - new Date().getTime();
         var division = diff / percentage;
-        console.log("Division: " + division)
+    //    console.log("Division: " + division)
         this.progressPercentage = 100 - (Math.floor( division * 100));  
         this.progressStatus = "Available";
-        console.log("Progress:"+ this.progressPercentage)
+   //     console.log("Progress:"+ this.progressPercentage)
         if(this.tender.tender_company_display_date > Date.now()) {
             this.progressPercentage = 0 ;
             this.progressStatus = "Postponed";
@@ -82,7 +82,7 @@ export class AdminMyTendersComponent implements OnInit {
         // console.log("Difference between two dates: " + this.progressPercentage )
 
 
-        console.log("Difference between two dates: " + this.progressPercentage )
+       // console.log("Difference between two dates: " + this.progressPercentage )
 
 
 
@@ -90,7 +90,7 @@ export class AdminMyTendersComponent implements OnInit {
     )
     this.adminService.getAllCompaniesInTender(this.tenderId).subscribe(
       response => {
-        console.log(response);
+      //  console.log(response);
         this.companies = response;
         for(let c of this.companies) {
           c.company_logo_image = 'data:image/png;base64,' +  c.company_logo_image;
@@ -105,7 +105,7 @@ export class AdminMyTendersComponent implements OnInit {
   agree(companyId: number,index:number) {
     this.adminService.agreeForCompany(companyId,this.tenderId).subscribe(
       response => {
-        console.log(response);
+    //    console.log(response);
         this.showCard = false;
         this.companies.splice(index,1);
         setTimeout(() => {

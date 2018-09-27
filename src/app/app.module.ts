@@ -111,6 +111,9 @@ import { CompanyParentComponent } from './core/modules/dashboards/company-parent
 import { SchoolProfileCpyComponent } from './core/modules/dashboards/school-profile-cpy/school-profile-cpy.component';
 import { CompanyProfileCpyComponent } from './core/modules/dashboards/company-profile-cpy/company-profile-cpy.component';
 import { NgxEditorModule } from 'ngx-editor';
+import { TestNotificationsComponent } from './core/modules/dashboards/test-notifications/test-notifications.component';
+import { WebSocketService } from './core/services/web.socket.service';
+
 // import { AgmCoreModule } from '@agm/core';
 @NgModule({
   declarations: [
@@ -185,7 +188,8 @@ import { NgxEditorModule } from 'ngx-editor';
     SchoolParentComponent,
     CompanyParentComponent,
     SchoolProfileCpyComponent,
-    CompanyProfileCpyComponent
+    CompanyProfileCpyComponent,
+    TestNotificationsComponent
 
   ],
   imports: [
@@ -216,6 +220,7 @@ import { NgxEditorModule } from 'ngx-editor';
     GetCompaniesService,
     ProfileService,
     CompanyService,
+    WebSocketService,
     OfferResolver,
     AuthGuardAdmin,
     AuthGuardCompany,

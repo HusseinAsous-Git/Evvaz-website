@@ -18,7 +18,7 @@ export class SchoolService{
         constructor(private httpClient: HttpClient) {}
 
 getSchools(id: number){
-    let url = `${environment.apiPath}evvaz/follow/school/${id}`;
+    let url = `${environment.apiPath}evvaz/follow/schools/${id}`;
         return this.httpClient.get<SchoolProfileModel []>(url); 
 }
 
@@ -59,7 +59,7 @@ getHistory(id: number){
 }
 
 getAllCompanies(schoolId: number){
-    let url = `${environment.apiPath}evvaz/follow/company/${schoolId}`;
+    let url = `${environment.apiPath}evvaz/follow/companies/${schoolId}`;
         return this.httpClient.get<CompanyModel[]>(url); 
 }
 

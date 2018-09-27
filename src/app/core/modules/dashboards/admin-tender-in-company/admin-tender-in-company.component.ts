@@ -29,14 +29,14 @@ catExist = false;
     this.activatedRoute.params.subscribe(
       (params: Params) => {
         this.tenderId = +params['tenderId'];
-        console.log("Tender id: " + this.tenderId)
+     //   console.log("Tender id: " + this.tenderId)
       }
     );
 
     this.adminService.getTenderById(this.tenderId).subscribe(
       response => {
-        console.log("This is Tender request:");
-        console.log(response);
+      //  console.log("This is Tender request:");
+     //   console.log(response);
         this.tenderRequest = response;
         this.tenderId = this.tenderRequest['tender_id'];
         if(this.tenderRequest.schools[0]) {
@@ -50,7 +50,7 @@ catExist = false;
         var division = diff / percentage;
         this.progressPercentage = 100 - (Math.floor( division * 100));
         this.progressStatus = "Available";
-        console.log("Progress:"+ this.progressPercentage)
+    //    console.log("Progress:"+ this.progressPercentage)
         if(this.tenderRequest['tender_display_date'] > Date.now()) {
             this.progressPercentage = 0 ;
             this.progressStatus = "Postponed";
@@ -62,7 +62,7 @@ catExist = false;
             }
           }
 
-        console.log("Difference between two dates: " + this.progressPercentage )
+      //  console.log("Difference between two dates: " + this.progressPercentage )
 
 
 
@@ -81,7 +81,7 @@ catExist = false;
     this.activatedRoute.data.subscribe(
       (data: Data) => {
         this.tender = data['tender'];
-        console.log(this.tender)
+    //    console.log(this.tender)
       //   for (let c of this.companies){
       //   c.company_logo_image = 'data:image/png;base64,' + c.company_logo_image;
        
@@ -109,8 +109,8 @@ this.cats = this.tender.categories;
 
     this.adminService.getTenderCategories(this.tenderId).subscribe(
       response => {
-        console.log("This is Tender categories:")
-        console.log(response)
+     //   console.log("This is Tender categories:")
+      //  console.log(response)
         this.tenderData = response;
 
         
@@ -154,8 +154,8 @@ deleteTender(tenderId : number) {
   if(confirm("Are you sure to delete This tender?")) {
     this.adminService.deleteTender(tenderId).subscribe(
       response => {
-        console.log(response);
-        console.log("Successfully deleted!");
+       // console.log(response);
+      //  console.log("Successfully deleted!");
         this.router.navigate(['/admin','tenders','mine'])
       }
     )
