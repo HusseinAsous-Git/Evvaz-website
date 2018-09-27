@@ -21,7 +21,7 @@ date:Date;
 
     this.adminService.getAllOrders().subscribe(
       response => {
-        console.log(response);
+     //   console.log(response);
         this.orders = response;
         for(let o of this.orders) {
           o.company_logo_image = 'data:image/png;base64,' +  o.company_logo_image;

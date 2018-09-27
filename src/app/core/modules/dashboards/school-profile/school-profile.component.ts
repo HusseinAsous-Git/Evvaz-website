@@ -69,8 +69,8 @@ file;
         this.activeProfile = response;
         this.srcLogo = 'data:image/png;base64,' + this.activeProfile.school_logo_image;
         this.srcCover = 'data:image/png;base64,' + this.activeProfile.school_cover_image;
-        console.log("Active profile");
-        console.log(this.activeProfile)
+     //   console.log("Active profile");
+     //   console.log(this.activeProfile)
 
         this.SchoolProfileForm = new FormGroup({
           'schoolName': new FormControl(this.activeProfile.school_name, [Validators.required,Validators.minLength(3)]),
@@ -88,7 +88,7 @@ file;
         this.uiService.sidebarStatus = false;
         this.profileExistance = false;
         this.isloading  =false;
-        console.log(err)
+        console.log("ERROR IN school-profile COMPONENT");
       }
     );
 
@@ -178,13 +178,13 @@ file;
       }
 
 
-      console.log("Name: " + data.school_name + " is of type: "+ typeof(data.school_name));
-      console.log("Logo: " + data.school_logo_image + " is of type: "+ typeof(data.school_logo_image));
-      console.log("Address: " + data.school_address + " is of type: "+ typeof(data.school_address));
-      console.log("Link: " + data.school_link_youtube + " is of type: "+ typeof(data.school_link_youtube));
-      console.log("website: " + data.school_website_url + " is of type: "+ typeof(data.school_website_url));
-      console.log("cover: " + data.school_cover_image + " is of type: "+ typeof(data.school_cover_image));
-      console.log("phone: " + data.school_phone_number + " is of type: "+ typeof(data.school_phone_number));
+     // console.log("Name: " + data.school_name + " is of type: "+ typeof(data.school_name));
+    //  console.log("Logo: " + data.school_logo_image + " is of type: "+ typeof(data.school_logo_image));
+     // console.log("Address: " + data.school_address + " is of type: "+ typeof(data.school_address));
+     // console.log("Link: " + data.school_link_youtube + " is of type: "+ typeof(data.school_link_youtube));
+     // console.log("website: " + data.school_website_url + " is of type: "+ typeof(data.school_website_url));
+     // console.log("cover: " + data.school_cover_image + " is of type: "+ typeof(data.school_cover_image));
+     // console.log("phone: " + data.school_phone_number + " is of type: "+ typeof(data.school_phone_number));
 
       // this.schoolSerivce.updateProfile(data).subscribe(
 
@@ -198,12 +198,12 @@ file;
 
 
 
-      console.log("Profile is: "+ this.profileExistance)
-      if(this.profileExistance){
+     // console.log("Profile is: "+ this.profileExistance)
+      // if(this.profileExistance){
       this.schoolSerivce.updateProfile(data).subscribe(
 
         response => {
-          console.log("Succeeded updated" + response); 
+       //   console.log("Succeeded updated" + response); 
 
           setTimeout(()=> {
             this.isloading = true;
@@ -216,40 +216,40 @@ file;
 
           
         },
-        err => console.log("Error: "+err)
+        err => console.log("ERROR IN school-profile COMPONENT ")
 
       )
-      return ;
-    }
-    else {
-      this.schoolSerivce.createProfile(data).subscribe(
-        response => {
+      // return ;
+    // }
+    // else {
+      // this.schoolSerivce.createProfile(data).subscribe(
+      //   response => {
 
-          this.uiService.sidebarStatus = true;
+      //     this.uiService.sidebarStatus = true;
 
-          console.log("Succeeded created" + response);
-          setTimeout(()=> {
-            this.isloading = true;
-          },0)
+      //    // console.log("Succeeded created" + response);
+      //     setTimeout(()=> {
+      //       this.isloading = true;
+      //     },0)
           
-          setTimeout(()=> {
-            this.isloading = false;
-            this.router.navigate(['/school','intro']);
-          },1000)
+      //     setTimeout(()=> {
+      //       this.isloading = false;
+      //       this.router.navigate(['/school','intro']);
+      //     },1000)
 
 
-          this.profileExistance = true;
+      //     this.profileExistance = true;
 
 
          
-        },
-        err =>{
-          console.log(err);
-          this.uiService.sidebarStatus = false;
-        } 
-      )
-      return ;
-    }
+      //   },
+      //   err =>{
+      //     console.log("ERROR IN school-profile COMPONENT ")
+      //     this.uiService.sidebarStatus = false;
+      //   } 
+      // )
+      // return ;
+    // }
 
 
 

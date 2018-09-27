@@ -43,7 +43,7 @@ export class AdminTenderEditComponent implements OnInit {
     this.activatedRoute.data.subscribe(
       (data: Data) => {
         this.tender = data['tender'];
-        console.log(this.tender)
+       // console.log(this.tender)
       //   for (let c of this.companies){
       //   c.company_logo_image = 'data:image/png;base64,' + c.company_logo_image;
        
@@ -87,7 +87,7 @@ this.cats = this.tender.category;
       'description':new FormControl(this.tender['tender_explain'], Validators.required),
       'schoolfromdate':new FormControl(null, Validators.required), 
       'schoolstartTime':new FormControl(null, Validators.required),
-      'schooltodate':new FormControl(null, Validators.required),
+      'schooltodate':new FormControl(this.tender['tender_display_date'], Validators.required),
       'schoolendTime':new FormControl(null, Validators.required),
       'companyfromdate':new FormControl(null, Validators.required), 
       'companystartTime':new FormControl(null, Validators.required),

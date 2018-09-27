@@ -13,7 +13,7 @@ export class AuthInterceptor implements HttpInterceptor {
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         // console.log('the inter');
         const authService = this.injector.get(AuthService);
-        console.log('Interceptor', authService.isAuthenticated());
+      //  console.log('Interceptor', authService.isAuthenticated());
         // if (!authService.isAuthenticated()) {
         //     return next.handle(req);
         // }
@@ -31,7 +31,7 @@ export class AuthInterceptor implements HttpInterceptor {
                         authService.logout();
                     }
                 }
-                console.log(authReq);
+              //  console.log(authReq);
                 return Observable.throw(error);
             });
     }

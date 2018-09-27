@@ -22,7 +22,7 @@ export class SchoolFollowersComponent implements OnInit {
     this.currentUser = localStorage.getItem("@MYUSER");
     let userData = JSON.parse(this.currentUser);
     this.loginId = userData['login_id'];
-    console.log("Login Id: "+ this.loginId)
+   // console.log("Login Id: "+ this.loginId)
     this.schoolservice.getAllCompanies(this.loginId).subscribe(
       response => {
         this.allCompanies = response;
@@ -30,7 +30,7 @@ export class SchoolFollowersComponent implements OnInit {
           this.count ++;
           company.company_logo_image = 'data:image/png;base64,' + company.company_logo_image;
         }
-        console.log(response)
+     ///   console.log(response)
       }
     )
 
@@ -40,7 +40,7 @@ export class SchoolFollowersComponent implements OnInit {
 
   onFollow(companyId: number, followed : boolean){
     
-    console.log("id is: " + companyId)
+   // console.log("id is: " + companyId)
     this.isFollowing= !this.isFollowing
     followed = ! followed
     if(this.isFollowing&&followed){
@@ -50,10 +50,10 @@ export class SchoolFollowersComponent implements OnInit {
       }
       this.companyService.follow(data).subscribe(
         response => {
-          console.log("Successfully followed");
-          console.log(response)
+       //   console.log("Successfully followed");
+        //  console.log(response)
         },
-        err => console.log(err)
+        err => console.log("ERROR IN school-followers COMPONENT")
       )
     }else {
       // delete follow here
@@ -63,10 +63,10 @@ export class SchoolFollowersComponent implements OnInit {
       }
       this.companyService.removeFollow(data).subscribe(
         response => {
-          console.log("Successfully deleted");
-          console.log(response)
+         // console.log("Successfully deleted");
+        //  console.log(response)
         },
-        err => console.log(err)
+        err => console.log("ERROR IN school-followers COMPONENT")
       )
     }
     

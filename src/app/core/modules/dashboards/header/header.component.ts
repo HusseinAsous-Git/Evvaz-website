@@ -26,7 +26,7 @@ export class HeaderDashboardComponent implements OnInit {
     this.loginId = userData['login_id'];
     this.profileService.getProfile(this.loginId).subscribe(
       response => {
-        console.log(response);
+    //    console.log(response);
         this.name = response.company_name;
       }
     )
@@ -36,7 +36,7 @@ export class HeaderDashboardComponent implements OnInit {
     
       this.uiservice.sidebarStatus = !this.uiservice.sidebarStatus ; 
     
-    console.log("toggled")
+   // console.log("toggled")
   }
 
   onLogout(){

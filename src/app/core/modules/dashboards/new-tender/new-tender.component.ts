@@ -28,7 +28,8 @@ categoryName;
   ngOnInit() {
 
     this.schoolService.getCategories().subscribe(
-      response => {console.log(response);
+      response => {
+        //console.log(response);
         this.categories = response; }
 
     )
@@ -37,7 +38,7 @@ categoryName;
     this.currentUser = localStorage.getItem("@MYUSER");
     let userData = JSON.parse(this.currentUser);
     this.loginId = userData['login_id'];
-    console.log("Login Id: " + this.loginId);
+    //console.log("Login Id: " + this.loginId);
 
     this.newTenderForm = new FormGroup(
       {
@@ -132,11 +133,11 @@ setEndTime() {
 
 
 newTender(){
-    console.log(this.newTenderForm)
+  //  console.log(this.newTenderForm)
    const fromDate = new Date(this.newTenderForm.get('fromdate').value +  " " + this.newTenderForm.get('startTime').value);
    const toDate = new Date(this.newTenderForm.get('todate').value +  " " + this.newTenderForm.get('endTime').value);
-   console.log(fromDate.getTime() + "is of type: " + typeof(fromDate.getTime() ));
-   console.log(toDate.getTime());
+  // console.log(fromDate.getTime() + "is of type: " + typeof(fromDate.getTime() ));
+   //console.log(toDate.getTime());
 
    let data = {
     request_title : this.newTenderForm.get('tenderName').value,
@@ -149,21 +150,21 @@ newTender(){
     request_category_name: this.newTenderForm.get('category').value
    }
 
-   console.log("Name is: " + this.newTenderForm.get('tenderName').value + " is of type: " + typeof(this.newTenderForm.get('tenderName').value))
-   console.log(" description is: " + this.newTenderForm.get('description').value + " is of type: " + typeof(this.newTenderForm.get('description').value))
-   console.log("from date is: "+ fromDate.getTime() + " is of type: " + typeof(fromDate.getTime()));
-   console.log("to date is: "+ toDate.getTime() + " is of type: " + typeof(toDate.getTime()));
-   console.log("Login ID: " + this.loginId);
-   console.log("category is: " + this.newTenderForm.get('category').value + " is of type: " + typeof(this.newTenderForm.get('category').value))
-   console.log("Image is: " + this.hash[0]);
+  // console.log("Name is: " + this.newTenderForm.get('tenderName').value + " is of type: " + typeof(this.newTenderForm.get('tenderName').value))
+  // console.log(" description is: " + this.newTenderForm.get('description').value + " is of type: " + typeof(this.newTenderForm.get('description').value))
+  // console.log("from date is: "+ fromDate.getTime() + " is of type: " + typeof(fromDate.getTime()));
+  // console.log("to date is: "+ toDate.getTime() + " is of type: " + typeof(toDate.getTime()));
+  // console.log("Login ID: " + this.loginId);
+   //console.log("category is: " + this.newTenderForm.get('category').value + " is of type: " + typeof(this.newTenderForm.get('category').value))
+  // console.log("Image is: " + this.hash[0]);
    this.schoolService.createTender(data).subscribe(
     response => {
-      console.log(response)
+     // console.log(response)
       this.router.navigate(['/school','tenders','mine']);
     },err => {
       document.getElementById("openModalButton").click();
 
-      console.log(err)
+      console.log("ERROR IN new-tender component");
     }
    )
   }

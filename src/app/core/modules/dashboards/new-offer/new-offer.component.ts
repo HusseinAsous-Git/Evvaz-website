@@ -32,7 +32,7 @@ hash = [];
     this.currentUser = localStorage.getItem("@MYUSER");
     let currentUserData= JSON.parse(this.currentUser);
     this.loginId = currentUserData['login_id'];
-    console.log("Current UserID: " + currentUserData['login_id'])
+ //   console.log("Current UserID: " + currentUserData['login_id'])
 
 
     this.newOffer = new FormGroup({
@@ -46,7 +46,7 @@ hash = [];
       'endTime':new FormControl(null, Validators.required),
       'image_one' : new FormControl(null, Validators.required)
     });
-    console.log("Date is:  "+ Date.now()+ "is of type: "+ typeof(new Date()));
+ //   console.log("Date is:  "+ Date.now()+ "is of type: "+ typeof(new Date()));
 
   }
 
@@ -128,9 +128,9 @@ setEndTime() {
   onSubmit(){
     const fromDate = new Date(this.newOffer.get('fromdate').value +  " " + this.newOffer.get('startTime').value);
     const toDate = new Date(this.newOffer.get('todate').value +  " " + this.newOffer.get('endTime').value);
-    console.log(fromDate.getTime() + "is of type: " + typeof(fromDate.getTime() ));
-    console.log(toDate.getTime());
-    console.log("String Hash: "+ this.hash);
+   // console.log(fromDate.getTime() + "is of type: " + typeof(fromDate.getTime() ));
+   // console.log(toDate.getTime());
+  //  console.log("String Hash: "+ this.hash);
 
     
     
@@ -158,7 +158,7 @@ setEndTime() {
     // console.log("Image is of type : " + typeof(this.base64textString))
     
     for(let el of this.sizeArray){
-      console.log("Size" + el);
+    //  console.log("Size" + el);
     }
 
     if(fromDate.getTime() < Date.now() && toDate.getTime() < fromDate.getTime() ){
@@ -166,16 +166,16 @@ setEndTime() {
     }else {
       this.companyService.addOffer(offer).subscribe(
         (response) => {
-          console.log("Response: " + response);
-          console.log("size is: " + this.size + "is of type"+ typeof(this.size))
+      //    console.log("Response: " + response);
+       //   console.log("size is: " + this.size + "is of type"+ typeof(this.size))
           
-          console.log(this.newOffer)
+        //  console.log(this.newOffer)
           this.router.navigate(['/company/offers/see']);
         }
         ,err => {
           document.getElementById("openModalButton").click();
     
-          console.log(err)
+          console.log("ERROR IN new-offer COMPONENT")
         }
       );
     }

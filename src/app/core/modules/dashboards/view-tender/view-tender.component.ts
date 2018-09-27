@@ -26,6 +26,10 @@ agreeArray : boolean [] = [];
 disableArray : boolean [] = []; 
 chosen = false;
 chosenId = -1;
+currentResponseId;
+currentIsApproved;
+currentIndex;
+toggleFlag;
   constructor(private schoolService: SchoolService, private activatedRoute:ActivatedRoute, private router:Router) { }
 
   toggle = false;
@@ -99,36 +103,42 @@ chosenId = -1;
 
   }
 
+  showPopup(responseId, isAprroved, index) {
+    this.currentIndex = index;
+    this.currentIsApproved = isAprroved;
+    this.currentResponseId = responseId;
+     document.getElementById("openModalButton").click();
+  }
 
-  agree(id: number, flag:boolean, index:number){
-    
-
-
-    if(!this.agreeArray[index] && !flag){
-      this.schoolService.agreeToCompany(id).subscribe(
+  agree(){
+console.log("Response ID:")
+console.log(this.currentResponseId)
+    this.currentIsApproved = true;
+    // if(!this.agreeArray[this.currentIndex] && !this.currentIsApproved){
+      this.schoolService.agreeToCompany(this.currentResponseId).subscribe(
         response=>{ 
           console.log(response);
-          
+          location.reload();
         },err => console.log(err)
       );
 
-      this.agreeArray[index] = !this.agreeArray[index];
-      location.reload();
+      // this.agreeArray[this.currentIndex] = !this.agreeArray[this.currentIndex];
+      // location.reload();
      
      // flag = !flag;
 
-    }else {
-      this.schoolService.refuseToCompany(id).subscribe(
-        response=>{ 
-          console.log(response);
+    // }else {
+    //   this.schoolService.refuseToCompany(this.currentResponseId).subscribe(
+    //     response=>{ 
+    //       console.log(response);
          
-        },err => console.log(err)
+    //     },err => console.log(err)
         
-      );
-      this.agreeArray[index] = !this.agreeArray[index];
-      location.reload();
-     // flag = !flag;
-    }
+    //   );
+    //   this.agreeArray[this.currentIndex] = !this.agreeArray[this.currentIndex];
+    //   location.reload();
+    //  // flag = !flag;
+    // }
     
     
     

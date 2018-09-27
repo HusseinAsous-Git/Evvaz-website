@@ -22,13 +22,13 @@ count=0;
     let userData = JSON.parse(this.currentUser);
     this.loginId = userData['login_id'];
     this.token = this.authService.getToken()
-    console.log("token is: " + this.token)
+  //  console.log("token is: " + this.token)
     this.date = new Date();
 
     
     this.adminService.getAllHistory().subscribe(
       response => {
-        console.log(response);
+       // console.log(response);
         this.history = response;
         for(let h of this.history){
           this.count++;

@@ -22,7 +22,7 @@ companyRequests = [];
       response => {
         this.requests = response;
         
-        console.log(response)
+     //   console.log(response)
 
         for(let request of this.requests){
           this.count++;
@@ -36,7 +36,7 @@ companyRequests = [];
         }
 
       },
-      err => console.log(err)
+      err => console.log("ERROR IN admin-requests COMPONENTS")
     )
   }
 
@@ -45,8 +45,8 @@ companyRequests = [];
 
   activateRequest(id: number, i: number){
     this.adminService.activateRequest(id).subscribe(
-      response => console.log(response),
-      err => console.log(err)
+    //  response => console.log(response),
+      err => console.log("ERROR IN admin-requests COMPONENTS")
     )
 
     this.requests.splice(i, 1);

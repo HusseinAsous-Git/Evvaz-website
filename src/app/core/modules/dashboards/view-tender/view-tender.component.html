@@ -83,7 +83,8 @@
               </div>
                 <div class="pull-right" style="margin-top: -50px">
                     <i class="fa fa-usd "></i>   {{ company.responsed_cost }} 
-                    <button class="btn btn-blue ml-4" (click)="agree(company.response_id, company.is_aproved, i)" appAgreeHighlight [toggle]="company.is_aproved" [disabled]="chosen && chosenId!=company.response_id ? true:null">Agree</button>
+                    <button class="btn btn-blue ml-4" appAgreeHighlight [toggle]="company.is_aproved" (click)="showPopup(company.response_id,company.is_aproved,i)" [disabled]="chosen">Agree</button>
+                    <!-- && chosenId!=company.response_id ? true:null -->
                     <br> <p></p>
                 </div>
              <hr>
@@ -96,7 +97,12 @@
           </div>
           </div>
           </div>
-       
+         
+
+          <!-- start modal -->
+
+<!-- end modal -->
+
   </div>
 <!-- </div> -->
   <!-- <div *ngIf="!showCard">
@@ -107,4 +113,29 @@
   
 
   </div>
+  </div>
+
+  <button type="button" [hidden]="true" class="btn btn-primary" id="openModalButton" data-toggle="modal" data-target="#exampleModal">
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Becareful you can agree to only one offer..</h5>
+          <button type="button" class="close ps-Close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+           Press, Ok if you're sure
+        </div>
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-dismiss="modal" (click)="agree()" >OK</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close" >Cancel</button>
+        </div>
+      </div>
+    </div>
   </div>

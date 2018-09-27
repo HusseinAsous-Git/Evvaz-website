@@ -35,7 +35,7 @@ total;
     )
     this.adminService.getOrderByOfferId(this.offerId).subscribe(
       (response) => {
-        console.log(response);
+     //   console.log(response);
         this.offer = response;
         this.shipping = this.offer.ship;
         this.total = this.shipping + this.offer.offer_cost;
@@ -48,7 +48,7 @@ total;
           (response) => { 
             this.loading = false;
             this.companyProfile = response;
-            console.log(response)
+         //   console.log(response)
              this.companyProfile.company_logo_image = 'data:image/png;base64,' + this.companyProfile.company_logo_image;     
           }
         );
@@ -56,7 +56,7 @@ total;
         // here i get school profile
         this.schoolService.getProfile(this.offer.school_id).subscribe(
           (response) => {
-            console.log(response);
+        //    console.log(response);
             this.schoolProfile = response;
             this.schoolProfile.school_logo_image =  'data:image/png;base64,' + this.schoolProfile.school_logo_image;
           }
@@ -68,15 +68,15 @@ total;
   onAddShipping(form: NgForm){
     if (form.valid) {
       this.total = this.offer.offer_cost + form.value.shipping;
-      console.log("Shipping is: " + form.value.shipping);
+    //  console.log("Shipping is: " + form.value.shipping);
       let data = {
         ship:form.value.shipping,
         ship_company_offer_id:this.offerId
       }
       this.adminService.addShip(data).subscribe(
         (response) => {
-          console.log("Ship response:");
-          console.log(response);
+        //  console.log("Ship response:");
+      //    console.log(response);
         }
       )
     }

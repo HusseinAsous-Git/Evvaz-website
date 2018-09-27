@@ -23,7 +23,7 @@ export class SchoolSidebarComponent implements OnInit {
     this.currentUser = localStorage.getItem("@MYUSER");
     let userData = JSON.parse(this.currentUser);
     this.loginId = userData['login_id'];
-    console.log("login ID IS:"+ this.loginId)
+//    console.log("login ID IS:"+ this.loginId)
 
 
     this.schoolService.getSchools(this.loginId).subscribe(
@@ -33,12 +33,12 @@ export class SchoolSidebarComponent implements OnInit {
         }
       }
     )
-console.log("Company count: " + this.companiesCount)
+//console.log("Company count: " + this.companiesCount)
 
     this.schoolService.getAllOrders(this.loginId).subscribe(
       response => {
-        console.log("Order count:");
-        console.log(response)
+      //  console.log("Order count:");
+      //  console.log(response)
         for(let r of response) {
           this.orderCount ++;
         }
@@ -52,7 +52,7 @@ console.log("Company count: " + this.companiesCount)
           this.followCount ++;
           
         }
-        console.log(response)
+     //   console.log(response)
       }
     )
 
@@ -87,9 +87,9 @@ console.log("Company count: " + this.companiesCount)
 
 
   toggleSidebar(){
-    console.log("toggle")
+ //   console.log("toggle")
     if(this.uiService.getSidebarStatus()){
-      console.log(true);
+     // console.log(true);
       this.uiService.sidebarStatus = false ; 
     }
   }

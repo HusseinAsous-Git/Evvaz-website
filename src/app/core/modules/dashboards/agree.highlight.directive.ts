@@ -29,7 +29,7 @@ export class AgreeHighlightDirective implements OnInit{
 
 
     // Un comment next line if u want to toggle
-    this.toggle = !this.toggle;
+    // this.toggle = !this.toggle;
     
     if(this.toggle){
         this.renderer.setStyle(this.elementRef.nativeElement, 'background-color','white');

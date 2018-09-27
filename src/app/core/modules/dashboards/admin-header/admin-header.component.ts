@@ -18,7 +18,7 @@ export class AdminHeaderComponent implements OnInit {
     
       this.uiService.sidebarStatus = ! this.uiService.sidebarStatus; 
     
-    console.log("toggled")
+  //  console.log("toggled")
   }
 
 

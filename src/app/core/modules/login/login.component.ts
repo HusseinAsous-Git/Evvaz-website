@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
         if(data['state'] === 201 ){
             
         this.authService.setUser(data);
+    //    console.log(data);
         //console.log(data);
         if(this.user.login_role ==="company"){
 
@@ -51,12 +52,13 @@ export class LoginComponent implements OnInit {
               }else {
                 this.router.navigate(['/company','intro','profile'])
               }
-              //console.log("company profile");
-              //console.log(this.companyProfile)
+           //   console.log("company profile");
+            //  console.log(this.companyProfile)
             },err => {
               this.router.navigate(['/company','intro','profile'])
-              //console.log(err)
-              // this.router.navigate(['/company','profile' ]);
+           //   console.log(err)
+              //console.log("company profile");
+              //console.log(this.companyProfile)
             }
           )
 

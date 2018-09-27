@@ -11,6 +11,10 @@ import { UserIdleService } from '../../node_modules/angular-user-idle';
 })
 export class AppComponent implements OnInit{
   title = 'app';
+  
+  resolved(captchaResponse: string) {
+    //  console.log(`Resolved captcha with response ${captchaResponse}:`);
+  }
 
   constructor(private userIdle: UserIdleService, private authService:AuthService,private router:Router) {}
 

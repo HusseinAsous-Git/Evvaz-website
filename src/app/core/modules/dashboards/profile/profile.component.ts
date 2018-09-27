@@ -45,10 +45,10 @@ coverSize;
 
   ngOnInit() {
       this.currentUser = localStorage.getItem("@MYUSER");
-      console.log("Current user: " + this.currentUser)
+     // console.log("Current user: " + this.currentUser)
       let currentUserData= JSON.parse(this.currentUser);
       this.loginId = currentUserData["login_id"];
-      console.log("login id: " + this.loginId);  
+   //   console.log("login id: " + this.loginId);  
       
 
     this.profileForm = new FormGroup({
@@ -67,8 +67,9 @@ coverSize;
     this.profileService.getCategories().subscribe(
       respnse => {
         this.adminCategories = respnse;
-        console.log("Categories: "+ this.adminCategories)
-      }
+        //console.log("Categories: "+ this.adminCategories)
+      },
+      err => console.log("ERROR IN profile COMPONENT")
     )
     
 
@@ -78,8 +79,8 @@ coverSize;
         this.activeProfile = response;
         this.srcLogo = 'data:image/png;base64,' + this.activeProfile.company_logo_image;
         this.srcCover = 'data:image/png;base64,' + this.activeProfile.company_cover_image;
-        console.log("Active profile");
-        console.log(this.activeProfile)
+      //  console.log("Active profile");
+      //  console.log(this.activeProfile)
         
         this.prfileExistance = true;
         this.profileForm = new FormGroup({
@@ -98,7 +99,7 @@ coverSize;
       },
       err =>{
         this.prfileExistance = false;
-        console.log("Error" + err)
+      //  console.log("Error" + err)
       }
     );
   
@@ -108,17 +109,18 @@ coverSize;
     }
  
    
-    this.adminService.getCategories().subscribe(
-      response => {console.log(response);
-        this.adminCategories = response; }
+    // this.adminService.getCategories().subscribe(
+    //   response => {
+    //     //console.log(response);
+    //     this.adminCategories = response; }
 
-    )
+    // )
   }
 
 
   hasChecked(e  ,category: AdminCategory, index: number){
-    console.log(e.checked);
-    console.log(category);
+  //  console.log(e.checked);
+   // console.log(category);
   
   
   
@@ -192,7 +194,7 @@ coverSize;
       this.isloading = true;
       for(let c of this.returnedCats){
         this.catNames.push({category_name: c.category_name});
-       console.log("Retuen cat: " + c.category_name)
+      // console.log("Retuen cat: " + c.category_name)
      }
 
       // this.profileForm = new FormGroup({
@@ -205,7 +207,7 @@ coverSize;
       //   'cover': new FormControl(this.hashCover, Validators.required)
       // });
 
-      console.log("id from update: " + this.loginId + " is of type " + typeof(this.loginId));
+   //   console.log("id from update: " + this.loginId + " is of type " + typeof(this.loginId));
 
       
 
@@ -240,24 +242,24 @@ coverSize;
         category:this.catNames
       }
 
-
-      console.log("Name: " + data.company_name + " is of type: "+ typeof(data.company_name));
-      console.log("Logo: " + data.company_logo_image + " is of type: "+ typeof(data.company_logo_image));
-      console.log("Address: " + data.company_address + " is of type: "+ typeof(data.company_address));
-      console.log("Link: " + data.company_link_youtube + " is of type: "+ typeof(data.company_link_youtube));
-      console.log("website: " + data.company_website_url + " is of type: "+ typeof(data.company_website_url));
-      console.log("cover: " + data.company_cover_image + " is of type: "+ typeof(data.company_cover_image));
-      console.log("phone: " + data.company_phone_number + " is of type: "+ typeof(data.company_phone_number));
+//
+   //   console.log("Name: " + data.company_name + " is of type: "+ typeof(data.company_name));
+   //   console.log("Logo: " + data.company_logo_image + " is of type: "+ typeof(data.company_logo_image));
+    //  console.log("Address: " + data.company_address + " is of type: "+ typeof(data.company_address));
+     // console.log("Link: " + data.company_link_youtube + " is of type: "+ typeof(data.company_link_youtube));
+     // console.log("website: " + data.company_website_url + " is of type: "+ typeof(data.company_website_url));
+     // console.log("cover: " + data.company_cover_image + " is of type: "+ typeof(data.company_cover_image));
+    //  console.log("phone: " + data.company_phone_number + " is of type: "+ typeof(data.company_phone_number));
     
 
 
       
-console.log("Profile is: "+ this.prfileExistance)
+//console.log("Profile is: "+ this.prfileExistance)
       if(this.prfileExistance){
       this.profileService.updateProfile(data).subscribe(
 
         response => {
-          console.log("Succeeded updated" + response); 
+         // console.log("Succeeded updated" + response); 
 
           setTimeout(()=> {
             this.isloading = true;
@@ -270,7 +272,7 @@ console.log("Profile is: "+ this.prfileExistance)
 
           
         },
-        err => console.log("Error: "+err)
+        err => console.log("ERROR IN profile COMPONENT")
 
       )
       return ;
@@ -281,7 +283,7 @@ console.log("Profile is: "+ this.prfileExistance)
 
 
 
-          console.log("Succeeded created" + response);
+         // console.log("Succeeded created" + response);
           setTimeout(()=> {
             this.isloading = true;
           },0)
@@ -297,7 +299,7 @@ console.log("Profile is: "+ this.prfileExistance)
 
          
         },
-        err => console.log(err)
+        err => console.log("ERROR IN profile COMPONENT")
       )
       return ;
     }

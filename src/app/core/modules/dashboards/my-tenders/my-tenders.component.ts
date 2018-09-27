@@ -22,11 +22,11 @@ export class MyTendersComponent implements OnInit {
     this.currentUser = localStorage.getItem("@MYUSER");
     let userData = JSON.parse(this.currentUser);
     this.loginId = userData['login_id'];
-    console.log("Login id: " + this.loginId)
+  //  console.log("Login id: " + this.loginId)
     this.schoolService.getSchoolOrders(this.loginId).subscribe(
       response => {
         
-        console.log(response)
+      //  console.log(response)
         this.schoolOrders = response;
 
         for(let o of this.schoolOrders){
