@@ -83,18 +83,19 @@
                       <input type="date"
                        class="form-control"
                         id="schoolfromdate"
-                          
+                       
                           formControlName="schoolfromdate"
-                         
+                          [ngModel]="startSchool | date:'yyyy-MM-dd'"
                           >
                     </div>
                   </div>
                   <div class="col-sm-6">
                     <div class="form-group">
                       <label for="schoolstartTime">Time from</label>
-                      <input type="text" formControlName="schoolstartTime"  id="schoolstartTime"
-          apt-time-picker class="form-control"
-           placeholder="start time" #schoolstartTime 
+                      <input type="time" formControlName="schoolstartTime"  id="schoolstartTime"
+          apt-time-picker class="form-control" 
+           onlyHour="true" onlyAM='true'
+            #schoolstartTime 
            (click)="setSchoolStartTime()">
                     </div>
                   </div>
@@ -107,7 +108,7 @@
                       <input type="date"
                        class="form-control"
                         id="schooltodate"
-                          
+                        [ngModel]="endSchool | date:'yyyy-MM-dd'"
                           formControlName="schooltodate"
                          
                           >
@@ -116,10 +117,12 @@
                   <div class="col-sm-6">
                     <div class="form-group">
                       <label for="schooltimeto">Time to</label>
-                      <input type="text" id="schooltimeto"
+                      <input type="time" 
+                      id="schooltimeto"
            formControlName="schoolendTime" 
            class="form-control" 
            placeholder="end time" 
+           onlyHour="true" onlyAM='true'
            apt-time-picker #schoolendTime
             (click)="setSchoolEndTime()" >
                     </div>
@@ -137,7 +140,7 @@
                       <input type="date"
                        class="form-control"
                         id="companyfromdate"
-                          
+                        [ngModel]="startCompany | date:'yyyy-MM-dd'"
                           formControlName="companyfromdate"
                          
                           >
@@ -146,7 +149,7 @@
                   <div class="col-sm-6">
                     <div class="form-group">
                       <label for="companystartTime">Time from</label>
-                      <input type="text" formControlName="companystartTime"  id="companystartTime"
+                      <input type="time" formControlName="companystartTime"  id="companystartTime"
           apt-time-picker class="form-control"
            placeholder="start time" #companystartTime 
            (click)="setCompanyStartTime()">
@@ -161,7 +164,7 @@
                       <input type="date"
                        class="form-control"
                         id="companytodate"
-                          
+                        [ngModel]="endCompany | date:'yyyy-MM-dd'"
                           formControlName="companytodate"
                          
                           >
@@ -170,7 +173,7 @@
                   <div class="col-sm-6">
                     <div class="form-group">
                       <label for="companytimeto">Time to</label>
-                      <input type="text" id="companytimeto"
+                      <input type="time" id="companytimeto"
            formControlName="companyendTime" 
            class="form-control" 
            placeholder="end time" 
@@ -183,7 +186,7 @@
 
               
                 <button class="btn btn-danger ml-2 pull-right" [routerLink]="['/admin','tenders',tender.tender_id,'company']">Cancel</button>
-            <button class="btn btn-success ml-2 pull-right" type="submit" [disabled]="!editTenderForm.valid">Save</button>
+            <button class="btn btn-success ml-2 pull-right" type="submit" [disabled]="!editTenderForm.get('category').valid">Save</button>
             
             
           
@@ -199,7 +202,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Creation Failed</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Edit Failed</h5>
           <button type="button" class="close ps-Close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
