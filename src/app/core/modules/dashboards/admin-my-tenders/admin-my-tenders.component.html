@@ -12,12 +12,16 @@
   </ul>
 </div>
 <br>
-<div class="row ">
+
+<div *ngIf="tender">
+<div class="row " >
   <!-- <div class="pull-left col-sm-10">
       <button class="btn btn-danger ml-3 mr-2" style="width: 100px; height: 35px;">Delete</button>
       <button class="btn edit-green" style="width: 100px; height: 35px;">Edit</button>
   </div> -->
-  <div class="col-sm-10"></div>
+  
+   
+  <div  class="col-sm-10"></div>
   <div class="col-sm-2">
     <button class="btn btn-secondary " disabled="disabled" style="width: 100%;">View by school</button>
   </div>
@@ -117,6 +121,11 @@
  <div *ngIf="!showCard">
     <p class="display-4 mt-5 mr-3"> <span style="color: gray; border: green" > Agreement done successfully </span><i class="fa fa-check" ></i></p>
   </div>
+</div>
 
 
+
+<div *ngIf="!tender">
+  <p class="display-4">Company stage postponed Now..</p>
+</div>
 </div>

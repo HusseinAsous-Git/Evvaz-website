@@ -5,6 +5,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { AmazingTimePickerService } from '../../../../../../node_modules/amazing-time-picker';
 import { AdminCategory } from '../../../models/admin.cat.model';
+import { calendar } from '../../../../../../node_modules/ngx-bootstrap/chronos/moment/calendar';
 
 @Component({
   selector: 'app-admin-tender-edit',
@@ -23,13 +24,21 @@ export class AdminTenderEditComponent implements OnInit {
   tenderId:number;
   errMessage: string;
   catsExist = false;
+  
   @ViewChild("schoolstartTime") schoolStartTime: ElementRef;
   @ViewChild("schoolendTime") schoolEndTime: ElementRef;
 
   @ViewChild("companystartTime") companyStartTime: ElementRef;
   @ViewChild("companyendTime") companyEndTime: ElementRef;
+  startSchool;
+  schoolSelectedTime;
+  endSchool;
+  schoolSelectEndTime;
 
-
+  startCompany;
+  companySelectedTime;
+  endCompany;
+  companySelectedEndTime;
   constructor(private atp : AmazingTimePickerService, private adminService:AdminService, private activatedRoute:ActivatedRoute, private router:Router) { }
 
   ngOnInit() {
@@ -43,11 +52,74 @@ export class AdminTenderEditComponent implements OnInit {
     this.activatedRoute.data.subscribe(
       (data: Data) => {
         this.tender = data['tender'];
-       // console.log(this.tender)
+        console.log("Tender is:")
+       console.log(this.tender)
+       this.schoolStartTime =this.tender['tender_display_date'];
+       this.schoolEndTime = this.tender['tender_expire_date'];
+       this.companyStartTime = this.tender['tender_company_display_date'];
+       this.companyEndTime = this.tender['tender_company_expired_date'];
+       
+      //  this.schoolDays = Math.floor(+this.schoolStartTime / (60*60*24));
+     //   console.log(this.schoolDays)
+      //  let schoolDate = new Date(this.schoolDays);
+       // console.log(schoolDate)
+
+ this.startSchool = new Date(+this.schoolStartTime);
+ this.schoolSelectedTime = this.startSchool.getHours()+":"+this.startSchool.getMinutes();
+
+var month =  this.startSchool.getUTCMonth() + 1; 
+var day =  this.startSchool.getUTCDate();
+var year =  this.startSchool.getUTCFullYear();
+var newD = year + "/" + month + "/" + day;
+this.startSchool = new Date(newD);
+console.log(new Date(newD))
       //   for (let c of this.companies){
       //   c.company_logo_image = 'data:image/png;base64,' + c.company_logo_image;
        
       // }
+
+
+      this.endSchool = new Date(+this.schoolEndTime);
+      this.schoolSelectEndTime = this.endSchool.getHours()+":"+this.endSchool.getMinutes();
+
+      var monthE =  this.endSchool.getUTCMonth() + 1; 
+      var dayE =  this.endSchool.getUTCDate();
+      var yearE =  this.endSchool.getUTCFullYear();
+      var newDE = yearE + "/" + monthE + "/" + dayE;
+      this.endSchool = new Date(newDE);
+      console.log(new Date(newDE))
+
+
+
+      this.startCompany = new Date(+this.companyStartTime);
+      this.companySelectedTime = this.startCompany.getHours()+":"+this.startCompany.getMinutes();
+     
+     var monthCS =  this.startCompany.getUTCMonth() + 1; 
+     var dayCS =  this.startCompany.getUTCDate();
+     var yearCS =  this.startCompany.getUTCFullYear();
+     var newDCS = yearCS + "/" + monthCS + "/" + dayCS;
+     this.startCompany = new Date(newDCS);
+     console.log(new Date(newDCS))
+
+
+
+
+      this.endCompany= new Date(+this.companyEndTime);
+      this.companySelectedEndTime = this.endCompany.getHours()+":"+this.endCompany.getMinutes();
+
+      var monthCE =  this.endCompany.getUTCMonth() + 1; 
+      var dayCE =  this.endCompany.getUTCDate();
+      var yearCE =  this.endCompany.getUTCFullYear();
+      var newDCE = yearCE + "/" + monthCE + "/" + dayCE;
+      this.endCompany = new Date(newDCE);
+      console.log(new Date(newDCE))
+
+
+
+
+
+
+
 
 this.cats = this.tender.category;
       for(let c of this.tender.category){
@@ -85,14 +157,14 @@ this.cats = this.tender.category;
       'tenderName' : new FormControl(this.tender['tender_title'], Validators.required),
       'category' : new FormControl(null, Validators.required),
       'description':new FormControl(this.tender['tender_explain'], Validators.required),
-      'schoolfromdate':new FormControl(null, Validators.required), 
-      'schoolstartTime':new FormControl(null, Validators.required),
-      'schooltodate':new FormControl(this.tender['tender_display_date'], Validators.required),
-      'schoolendTime':new FormControl(null, Validators.required),
-      'companyfromdate':new FormControl(null, Validators.required), 
-      'companystartTime':new FormControl(null, Validators.required),
-      'companytodate':new FormControl(null, Validators.required),
-      'companyendTime':new FormControl(null, Validators.required)
+      'schoolfromdate':new FormControl(this.startSchool, Validators.required), 
+      'schoolstartTime':new FormControl(this.schoolSelectedTime, Validators.required),
+      'schooltodate':new FormControl(this.endSchool, Validators.required),
+      'schoolendTime':new FormControl(this.schoolSelectEndTime, Validators.required),
+      'companyfromdate':new FormControl(this.startCompany, Validators.required), 
+      'companystartTime':new FormControl(this.companySelectedTime, Validators.required),
+      'companytodate':new FormControl(this.endCompany, Validators.required),
+      'companyendTime':new FormControl(this.companySelectedEndTime, Validators.required)
     })
   }
 
@@ -102,6 +174,7 @@ this.cats = this.tender.category;
     
     const amazingTimePicker = this.atp.open(
       {
+        locale: 'ar',
         theme: 'light',  // Default: 'light'
            // Default: 'en'
         arrowStyle: {
@@ -112,6 +185,7 @@ this.cats = this.tender.category;
     );
     amazingTimePicker.afterClose().subscribe(time => {
       this.editTenderForm.controls['schoolstartTime'].setValue(time) ;
+     // this.schoolSelectedTime = time;
       this.editTenderForm.controls['schoolendTime'].setValue(this.schoolEndTime.nativeElement.value) ; 
              });
 
@@ -121,6 +195,7 @@ this.cats = this.tender.category;
 setSchoolEndTime() {
   const amazingTimePicker = this.atp.open(
     {
+      locale: 'ar',
       theme: 'light',  // Default: 'light'
       arrowStyle: {
           background: '#00b7cb',
@@ -139,6 +214,7 @@ setCompanyStartTime() {
     
   const amazingTimePicker = this.atp.open(
     {
+      locale: 'ar',
       theme: 'light',  // Default: 'light'
          // Default: 'en'
       arrowStyle: {
@@ -158,6 +234,7 @@ setCompanyStartTime() {
 setCompanyEndTime() {
 const amazingTimePicker = this.atp.open(
   {
+    locale: 'ar',
     theme: 'light',  // Default: 'light'
     arrowStyle: {
         background: '#00b7cb',
