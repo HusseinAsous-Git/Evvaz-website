@@ -33,6 +33,12 @@ export class SignUpComponent implements OnInit {
   currentArea;
   currentCities;
   currentCity;
+
+  //Google maps test
+  lat: number = 51.678418;
+  lng: number = 7.809007;
+
+
   constructor(private router: Router, private signUpService: SignUpService) {
     window.scrollTo(0, 0); 
     

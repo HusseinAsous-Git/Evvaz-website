@@ -113,7 +113,7 @@ import { CompanyProfileCpyComponent } from './core/modules/dashboards/company-pr
 import { NgxEditorModule } from 'ngx-editor';
 import { TestNotificationsComponent } from './core/modules/dashboards/test-notifications/test-notifications.component';
 import { WebSocketService } from './core/services/web.socket.service';
-
+import {AgmCoreModule} from '@agm/core';
 // import { AgmCoreModule } from '@agm/core';
 @NgModule({
   declarations: [
@@ -205,9 +205,10 @@ import { WebSocketService } from './core/services/web.socket.service';
     RecaptchaModule.forRoot(),
     RecaptchaFormsModule,
     NgxEditorModule,
-    // AgmCoreModule.forRoot({
-    //   apiKey: 'AIzaSyCtjjapKI6BsU6ow8b-r2xUIHcP6agKuo8'
-    // }),
+
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAUgcvC7Scu25iB1Kg47gTt4wRDpq5sfkE'
+    }),
      // Optionally you can set time for `idle`, `timeout` and `ping` in seconds.
     // Default values: `idle` is 600 (10 minutes), `timeout` is 300 (5 minutes) 
     // and `ping` is 120 (2 minutes).

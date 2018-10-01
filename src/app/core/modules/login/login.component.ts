@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   currentUser;
   schoolProfile;
   companyProfile;
-
+  
   ngOnInit() {
     if (localStorage.getItem("@MYUSER")) {
       this.router.navigate(['/home-page']);
