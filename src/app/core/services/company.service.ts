@@ -9,6 +9,11 @@ import { environment } from '../../../environments/environment.prod';
 @Injectable()
 export class CompanyService {
 
+  getHistory(id:number) {
+    let url = `${environment.apiPath}evvaz/company/offer/history/${id}`;
+        return this.httpClient.get(url); 
+  }
+
     constructor(private httpClient: HttpClient){ }
 
     

@@ -1,3 +1,4 @@
+import { CompanyHistoryComponent } from './core/modules/dashboards/company-history/company-history.component';
 import { TestNotificationsComponent } from './core/modules/dashboards/test-notifications/test-notifications.component';
 import { CompanyProfileCpyComponent } from './core/modules/dashboards/company-profile-cpy/company-profile-cpy.component';
 import { SchoolProfileCpyComponent } from './core/modules/dashboards/school-profile-cpy/school-profile-cpy.component';
@@ -95,6 +96,7 @@ const routes: Routes = [
         {path:'profile', component:ProfileComponent , resolve: {profile: ProfileResolver}},
         {path:'followers', component:FollowersComponent},
         {path:'my-orders', component:MyOrdersComponent},
+        {path:'my-history', component:CompanyHistoryComponent},
         {path:'offers/:id/edit', component:OfferEditComponent, resolve: {offer: OfferResolver}}
     ]}
    ,

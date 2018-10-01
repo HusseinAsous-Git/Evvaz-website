@@ -1,0 +1,94 @@
+
+<div class="container">
+
+  <div style="margin-top: 130px;"></div>
+
+  <div class="row mt-5 mb-3">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-8">
+      <nav class="" >
+        <ul class="breadcrumb ">
+            <li class="breadcrumb-item">
+                <a [routerLink]="['/company']">Dashboard</a>
+            </li>
+           
+            <li class="breadcrumb-item active">
+                History
+            </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="col-sm-1 txt-color">
+      
+    </div>
+    <div class="col-sm-2 txt-color mt-4">
+      {{count}} In History 
+      </div>
+  </div>
+<div class="row mx-auto">
+<div class="col-xs-6 mr-2 ml-2 mt-2 mb-2 skillhover" *ngFor="let order of companyHistory">
+<a >
+<div class="card card-f" >
+  <div class="card-title mx-4 mt-2">
+    Order Number <button class="btn btn-success ml-2" disabled>#{{ order.response_id }}</button> 
+    <div class="pull-right">
+        <i class="fa fa-calendar"></i> Successfully delivered <br> <div class="text-center" style="color:gray">on {{order.response_date | date}} </div>
+    </div> 
+  </div>
+    <div class="card-body">
+  <div class="row">
+    <div class="col-sm-4">
+     <span class="card-h"> Name</span> <br>  <i class="fa fa-archive mr-1"></i> <span class="card-content text-center">{{ order.request_title }}</span>  
+    </div>
+    <div class="col-sm-4">
+        <span class="card-h"> Amount</span> <br> <i class="fa fa-shopping-cart mr-1"></i> <span class="card-content text-center">{{ order.request_count }}</span>  
+    </div>
+    <div class="col-sm-4">
+        <span class="card-h">Display on </span> <br> <i class="fa fa-calendar mr-1"></i> <span class="card-content text-center"> {{order.request_date | date}}</span>   
+    </div>
+  </div>
+</div>
+</div>
+</a>
+</div>
+
+
+
+
+<!-- 
+  <div class="col-xs-6 mr-2 ml-2 mt-2 mb-2">
+      <a >
+      <div class="card ">
+        <div class="card-title mx-4 mt-2">
+          Order Number <button class="btn btn-success ml-2" disabled>#9</button> 
+          <div class="pull-right">
+              <i class="fa fa-calendar"></i> Successfully delivered <br> <div class="text-center" style="color:gray">on 2018/07/19 </div>
+          </div> 
+        </div>
+          <div class="card-body">
+        <div class="row">
+          <div class="col-sm-4">
+           <span class="card-h"> Name</span> <br>  <i class="fa fa-archive mr-1"></i> <span class="card-content text-center">Order Title</span>  
+          </div>
+          <div class="col-sm-4">
+              <span class="card-h"> Amount</span> <br> <i class="fa fa-shopping-cart mr-1"></i> <span class="card-content text-center">15</span>  
+          </div>
+          <div class="col-sm-4">
+              <span class="card-h">Display on </span> <br> <i class="fa fa-calendar mr-1"></i> <span class="card-content text-center">Aug 1, 2018</span>   
+          </div>
+        </div>
+      </div>
+      </div>
+    </a>
+    </div>
+-->
+
+ 
+   
+     
+      
+         
+           
+             
+</div>
+</div>

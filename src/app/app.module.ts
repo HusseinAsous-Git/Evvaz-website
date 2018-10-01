@@ -113,6 +113,7 @@ import { CompanyProfileCpyComponent } from './core/modules/dashboards/company-pr
 import { NgxEditorModule } from 'ngx-editor';
 import { TestNotificationsComponent } from './core/modules/dashboards/test-notifications/test-notifications.component';
 import { WebSocketService } from './core/services/web.socket.service';
+import { CompanyHistoryComponent } from './core/modules/dashboards/company-history/company-history.component';
 // import { AgmCoreModule } from '@agm/core';
 @NgModule({
   declarations: [
@@ -188,7 +189,8 @@ import { WebSocketService } from './core/services/web.socket.service';
     CompanyParentComponent,
     SchoolProfileCpyComponent,
     CompanyProfileCpyComponent,
-    TestNotificationsComponent
+    TestNotificationsComponent,
+    CompanyHistoryComponent
 
   ],
   imports: [

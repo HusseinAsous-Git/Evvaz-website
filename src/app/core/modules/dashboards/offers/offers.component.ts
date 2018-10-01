@@ -27,7 +27,7 @@ export class OffersComponent implements OnInit {
         if(response){
           this.isloading = false;
           this.companyOffers = response['list'];
-     //   console.log(response)
+       console.log(response)
 
        
 

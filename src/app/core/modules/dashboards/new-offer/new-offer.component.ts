@@ -176,6 +176,7 @@ setEndTime() {
           document.getElementById("openModalButton").click();
     
           console.log("ERROR IN new-offer COMPONENT")
+          console.log(err)
         }
       );
     }

@@ -272,7 +272,10 @@ coverSize;
 
           
         },
-        err => console.log("ERROR IN profile COMPONENT")
+        err => {
+          console.log("ERROR IN profile COMPONENT")
+          console.log(err)
+        }
 
       )
       return ;
@@ -299,7 +302,10 @@ coverSize;
 
          
         },
-        err => console.log("ERROR IN profile COMPONENT")
+        err => {
+          console.log("ERROR IN profile COMPONENT")
+          console.log(err)
+        }
       )
       return ;
     }
