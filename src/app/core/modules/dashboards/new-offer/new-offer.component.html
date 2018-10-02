@@ -76,6 +76,24 @@
         class="help-block" >This field is Requird!</span>
       </div>
 
+
+
+      <div class="row">
+        <div class="col-md-6">
+          <select class="form-control" name="area" formControlName="currentArea" (change)="onAreaChange()"  >
+            <option *ngFor="let area of Areas" [value]="area">{{area}}</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <select class="form-control" name="city" formControlName="currentCity" >
+            <option *ngFor="let city of currentCities" [value]="city">{{city}}</option>
+          </select>
+        </div>
+
+
+      </div>
+
+
       <!--start  Add date and time section  -->
       <div class="row">
         <div class="col-sm-6">

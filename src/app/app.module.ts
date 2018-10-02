@@ -1,3 +1,4 @@
+import { CompanyHistoryComponent } from './core/modules/dashboards/company-history/company-history.component';
 import { MyTenderResolver } from './core/services/mytender.resolver.service';
 import { InsurancePlatformComponent } from './core/modules/insurance-platform/insurance-platform.component';
 import { SchoolService } from './core/services/school.service';
@@ -113,7 +114,7 @@ import { CompanyProfileCpyComponent } from './core/modules/dashboards/company-pr
 import { NgxEditorModule } from 'ngx-editor';
 import { TestNotificationsComponent } from './core/modules/dashboards/test-notifications/test-notifications.component';
 import { WebSocketService } from './core/services/web.socket.service';
-import { CompanyHistoryComponent } from './core/modules/dashboards/company-history/company-history.component';
+import {AgmCoreModule} from '@agm/core';
 // import { AgmCoreModule } from '@agm/core';
 @NgModule({
   declarations: [
@@ -124,6 +125,7 @@ import { CompanyHistoryComponent } from './core/modules/dashboards/company-histo
     HeaderComponent,
     FooterComponent,
     HomeHeaderComponent,
+    CompanyHistoryComponent,
     HomePageComponent,
     OfferPlatformComponent,
     InsurancePlatformComponent,
@@ -189,8 +191,7 @@ import { CompanyHistoryComponent } from './core/modules/dashboards/company-histo
     CompanyParentComponent,
     SchoolProfileCpyComponent,
     CompanyProfileCpyComponent,
-    TestNotificationsComponent,
-    CompanyHistoryComponent
+    TestNotificationsComponent
 
   ],
   imports: [
@@ -207,9 +208,9 @@ import { CompanyHistoryComponent } from './core/modules/dashboards/company-histo
     RecaptchaFormsModule,
     NgxEditorModule,
 
-    // AgmCoreModule.forRoot({
-    //   apiKey: 'AIzaSyAUgcvC7Scu25iB1Kg47gTt4wRDpq5sfkE'
-    // }),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAUgcvC7Scu25iB1Kg47gTt4wRDpq5sfkE'
+    }),
      // Optionally you can set time for `idle`, `timeout` and `ping` in seconds.
     // Default values: `idle` is 600 (10 minutes), `timeout` is 300 (5 minutes) 
     // and `ping` is 120 (2 minutes).
@@ -238,7 +239,6 @@ import { CompanyHistoryComponent } from './core/modules/dashboards/company-histo
     AdminService,
     PurchasePlatformService,
     UnifyingPlatformService,
-   
     SubscribeService,
     {
       provide: HTTP_INTERCEPTORS,

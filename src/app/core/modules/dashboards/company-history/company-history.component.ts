@@ -20,7 +20,7 @@ export class CompanyHistoryComponent implements OnInit {
     this.currentUser = localStorage.getItem("@MYUSER");
     let userData = JSON.parse(this.currentUser);
     this.loginId = userData['login_id'];
-    //console.log("Login Id: "+ this.loginId)
+    console.log("Login Id: "+ this.loginId)
     this.companyService.getHistory(this.loginId).subscribe(
       response => {
         this.companyHistory = response;

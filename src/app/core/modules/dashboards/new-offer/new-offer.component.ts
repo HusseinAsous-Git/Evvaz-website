@@ -7,6 +7,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CompanyService } from '../../../services/company.service';
 import { CompanyNewOfferModel } from '../../../models/company.offer.new.model';
 import { AmazingTimePickerService } from '../../../../../../node_modules/amazing-time-picker';
+import { SignUpService } from '../../../services/sign-up.service';
 
 @Component({
   selector: 'app-new-offer',
@@ -25,10 +26,22 @@ hash = [];
   loginId : number;
   @ViewChild("startTime") startTime: ElementRef;
   @ViewChild("endTime") endTime: ElementRef;
-   constructor(private companyService: CompanyService, private router: Router, private authService: AuthService,private atp : AmazingTimePickerService) { }
+
+  AreaCities=[];
+  Areas = [];
+  currentArea;
+  currentCities;
+  currentCity;
+
+
+   constructor(private companyService: CompanyService, 
+    private router: Router,
+     private authService: AuthService,
+     private atp : AmazingTimePickerService,
+     private signUpService: SignUpService) { }
 
   ngOnInit() {
-
+this.areaCitySelectData();  
     this.currentUser = localStorage.getItem("@MYUSER");
     let currentUserData= JSON.parse(this.currentUser);
     this.loginId = currentUserData['login_id'];
@@ -44,12 +57,22 @@ hash = [];
       'startTime':new FormControl(null, Validators.required),
       'todate':new FormControl(null, Validators.required),
       'endTime':new FormControl(null, Validators.required),
-      'image_one' : new FormControl(null, Validators.required)
+      'image_one' : new FormControl(null, Validators.required),
+      'currentArea' : new FormControl(null, Validators.required),
+      'currentCity' : new FormControl(null, Validators.required)
     });
  //   console.log("Date is:  "+ Date.now()+ "is of type: "+ typeof(new Date()));
 
   }
-
+  onAreaChange(){
+    this.newOffer.controls['currentArea'].valueChanges.subscribe((value) => {
+      console.log(value);
+      this.currentCities=this.AreaCities[value];
+      this.currentCity=this.currentCities[0];
+     
+     // console.log(this.currentCities)
+    });
+  }
 
   setStartTime() {
     
@@ -123,6 +146,49 @@ setEndTime() {
   }
 
 
+  areaCitySelectData(){
+    this.signUpService.getAreaCities().subscribe(
+      response =>{
+        console.log(response)
+        let firstAreaWithCityPassed = false;
+        for (let area of response['schools']){
+          let cities=[];
+          let haveCites=true;
+          for(let city of area['categories']){
+            if (city==null){
+              haveCites=false;
+              break;
+            }
+            let city_name:string = city['cityName'];
+            cities.push(city_name);
+            
+          }
+          if(haveCites){
+            
+            if(!firstAreaWithCityPassed){
+              this.currentArea=area['areaName'];
+              this.currentCity=cities[0];
+              firstAreaWithCityPassed=true;
+            }
+
+            let area_name:string = area['areaName'];
+            this.AreaCities[area_name] =cities;
+            this.Areas.push(area_name);
+          }
+        }
+        this.currentCities=this.AreaCities[this.currentArea];
+        //console.log("Cities in areas : ",this.AreaCities );
+        
+      },
+      error =>{
+        console.log("server => Something Went wrong [[area and cities]]");
+      }
+    );
+  }
+  setNewCities(){
+    
+  }
+
 
 
   onSubmit(){
@@ -170,6 +236,10 @@ setEndTime() {
        //   console.log("size is: " + this.size + "is of type"+ typeof(this.size))
           
         //  console.log(this.newOffer)
+
+
+        console.log(this.newOffer.get('currentArea').value)
+        console.log(this.newOffer.get('currentCity').value)
           this.router.navigate(['/company/offers/see']);
         }
         ,err => {

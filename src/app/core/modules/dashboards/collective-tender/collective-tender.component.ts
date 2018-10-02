@@ -26,6 +26,7 @@ progressPercentage =0;
 progressStatus;
 expird= false;
 allCats;
+postponed = false;
   constructor(private activatedRoute:ActivatedRoute, private router:Router, private schoolService: SchoolService) { }
 
   ngOnInit() {
@@ -117,6 +118,12 @@ allCats;
     if(this.progressStatus === "Expired"){
       this.expird = true;
       this.displayForm = false;
+      return ;
+    }
+    if(this.progressStatus === "Postponed"){
+      this.expird = false;
+      this.displayForm = false;
+      this.postponed = true;
       return ;
     }
   //  console.log(form)
